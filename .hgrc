@@ -1,0 +1,11 @@
+[ui]
+%include ~/.extra/.hgrc
+ignore = ~/.hgignore
+
+[extensions]
+purge =
+hgext.bookmarks =
+hgflow = ~/.hgextensions/hgflow.py
+hgshelve = ~/.hgextensions/hgshelve.py
+color =
+hgext.churn=
