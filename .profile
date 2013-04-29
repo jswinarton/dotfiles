@@ -1,3 +1,6 @@
+# Source the other dotfiles
+source .aliases
+
 # Boxen
 source /opt/boxen/env.sh
 
