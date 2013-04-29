@@ -1,0 +1,3 @@
+# Chango.com
+alias a="cd /apps/chango_com"
+alias av="workon chango_com"
