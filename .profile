@@ -1,4 +1,6 @@
 # Boxen
 source /opt/boxen/env.sh
 
-echo "Hello .world!"
+# virtualenvwrapper
+export WORKON_HOME=~/.envs
+source /opt/boxen/homebrew/share/python/virtualenvwrapper.sh
