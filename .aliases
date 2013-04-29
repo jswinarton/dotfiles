@@ -4,3 +4,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~"
+
+# Source more aliases for personal projects, etc.
+source .extra/.aliases
