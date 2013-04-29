@@ -1,5 +1,4 @@
 [ui]
-%include ~/.extra/.hgrc
 ignore = ~/.hgignore
 
 [extensions]
@@ -9,3 +8,5 @@ hgflow = ~/.hgextensions/hgflow.py
 hgshelve = ~/.hgextensions/hgshelve.py
 color =
 hgext.churn=
+
+%include ~/.extra/.hgrc
