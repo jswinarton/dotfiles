@@ -11,9 +11,13 @@ alias ~="cd ~"
 alias d="cd ~/Desktop"
 alias dl="cd ~/Downloads"
 alias g="git"
-alias h="hg"
 alias n="nano"
 alias s="subl ."
+
+# Mercurial
+alias h="hg st"
+alias hlog="hg log -Gl 10"
+alias branchy="hg branches"
 
 # Machine management
 alias box="cd /opt/boxen/repo"
