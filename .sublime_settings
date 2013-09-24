@@ -1,21 +1,4 @@
 {
-	"binary_file_patterns":
-	[
-		"*.svg",
-		"*.jpg",
-		"*.jpeg",
-		"*.png",
-		"*.gif",
-		"*.ttf",
-		"*.tga",
-		"*.dds",
-		"*.ico",
-		"*.eot",
-		"*.pdf",
-		"*.swf",
-		"*.jar",
-		"*.zip"
-	],
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"default_encoding": "UTF-8",
 	"ensure_newline_at_eof_on_save": true,
@@ -55,6 +38,15 @@
 	"ignored_packages":
 	[
 		"Vintage"
+	],
+	"python_syntax_checkers":
+	[
+		[
+			"/opt/boxen/homebrew/share/python/pep8",
+			[
+				"--ignore=E501,E128"
+			]
+		]
 	],
 	"rulers":
 	[

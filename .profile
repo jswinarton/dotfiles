@@ -27,3 +27,6 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 # virtualenvwrapper
 export WORKON_HOME=~/.envs
 source /opt/boxen/homebrew/share/python/virtualenvwrapper.sh
+
+# Extra, non-versioned stuff
+source ~/.extra/.extra

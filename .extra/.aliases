@@ -1,8 +1,0 @@
-# Chango.com
-alias a="cd /apps/chango_com"
-alias av="workon chango_com"
-alias ~d="ssh dev-web01"
-alias ~w="ssh web01"
-
-# Home
-alias ~h="ssh hydra.swinarton.com"
