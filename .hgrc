@@ -1,13 +1,9 @@
 [ui]
 ignore = ~/.hgignore
+username = Jeremy Swinarton <jeremy@swinarton.com>
 
 [extensions]
-purge =
-hgext.bookmarks =
-hgflow = ~/.hgextensions/hgflow.py
-hgshelve = ~/.hgextensions/hgshelve.py
-rdiff = ~/.hgextensions/rdiff.py
 color =
+hgext.bookmarks =
 hgext.churn=
-
-%include ~/.extra/.hgrc
+purge =

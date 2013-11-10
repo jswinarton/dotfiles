@@ -1,32 +1,20 @@
-# Source the other dotfiles
-source .aliases
-source .bash_prompt
+# source .aliases
+# source .bash_prompt
 
-# Boxen environment (yay)
-source /opt/boxen/env.sh
-
-########################
-# virtualenv settings
-# http://hackercodex.com/guide/python-virtualenv-on-mac-osx-mountain-lion-10.8/
-########################
-
-# virtualenv should use Distribute instead of legacy setuptools
 export VIRTUALENV_DISTRIBUTE=true
-
-# pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+export WORKON_HOME=~/.envs
 
-# pip packages can be installed globally with syspip
 syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-# cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+append_idem(){
+    # Adds a line to a file if it isn't already there
+    # eg. append_idem .profile "source .hgrc"
+    ! grep -qx "$2" "$1" && echo "$2" >> $1
+}
 
-# virtualenvwrapper
-export WORKON_HOME=~/.envs
-source /opt/boxen/homebrew/share/python/virtualenvwrapper.sh
-
-# Extra, non-versioned stuff
-source ~/.extra/.extra
+# source /opt/boxen/env.sh
+# source /opt/boxen/homebrew/share/python/virtualenvwrapper.sh
