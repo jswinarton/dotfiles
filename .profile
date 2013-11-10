@@ -1,5 +1,5 @@
-# source .aliases
-# source .bash_prompt
+source .aliases
+source .bash_prompt
 
 export VIRTUALENV_DISTRIBUTE=true
 export PIP_REQUIRE_VIRTUALENV=true
