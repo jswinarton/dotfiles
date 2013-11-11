@@ -3,9 +3,9 @@ cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 
 function do_it() {
-    ln -Ffs ./Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
+    ln -Ffs ~/.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-        --exclude "README" --exclude "LICENSE" --exclude "Preferences.sublime-settings" -av --no-perms . ~
+        --exclude "README" --exclude "LICENSE" -av --no-perms . ~
     source ~/.profile
 }
 
