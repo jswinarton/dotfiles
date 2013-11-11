@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Chango.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"default_encoding": "UTF-8",
 	"ensure_newline_at_eof_on_save": true,
 	"fallback_encoding": "UTF-8",
@@ -38,15 +38,6 @@
 	"ignored_packages":
 	[
 		"Vintage"
-	],
-	"python_syntax_checkers":
-	[
-		[
-			"/opt/boxen/homebrew/share/python/pep8",
-			[
-				"--ignore=E501,E128"
-			]
-		]
 	],
 	"rulers":
 	[

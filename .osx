@@ -1,12 +1,8 @@
 #!/bin/bash
-
-# Set up my shit to be the way that I like it.
 # Based on http://mths.be/osx
 
-# Ask for administrator password upfront
 sudo -v
 
-# Computer name
 sudo scutil --set ComputerName "Jeremy's MacBrick Pro"
 sudo scutil --set HostName "andromeda"
 sudo scutil --set LocalHostName "andromeda"
@@ -53,9 +49,6 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
