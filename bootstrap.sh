@@ -3,11 +3,11 @@ cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 
 function do_it() {
+    ~/.osx
     ln -Ffs ~/.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
-    rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
+    rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude ".extra" \
         --exclude "README" --exclude "LICENSE" -av --no-perms . ~
     source ~/.profile
-    ~/.osx
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

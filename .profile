@@ -12,5 +12,9 @@ syspip(){
 append_idem(){
     # Adds a line to a file if it isn't already there
     # eg. append_idem .profile "source .hgrc"
-    ! grep -qx "$2" "$1" && echo "$2" >> $1
+    grep -qx "$2" "$1" || echo "$2" >> $1
 }
+
+# Extra commands from other programs can be put into ~/.extra and
+# it will be called at login.
+source .extra 2> /dev/null

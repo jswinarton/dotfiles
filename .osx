@@ -50,12 +50,21 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Trackpad: enable tap to click for this user and for the login screen
+# Trackpad: enable tap to click for this user
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Ensure natural scrolling is enabled
+# Trackpad: drag with three fingers (currently broken)
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+
+# Swipe down with three fingers for app expose
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+defaults write com.apple.dock showAppExposeGestureEnabled -int 1
+
+# Natural scrolling is enabled
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 echo "I've updated your OSX default settings. You should restart your computer for all the cool new stuff."
