@@ -67,4 +67,7 @@ defaults write com.apple.dock showAppExposeGestureEnabled -int 1
 # Natural scrolling is enabled
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
+# Enable develop menu in safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
 echo "I've updated your OSX default settings. You should restart your computer for all the cool new stuff."
