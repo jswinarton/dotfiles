@@ -69,3 +69,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 
 # Copy my public key to the clipboard
 alias copykeys='cat ~/.ssh/id_rsa.pub | pbcopy'
+
+# Clear shell history
+alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
