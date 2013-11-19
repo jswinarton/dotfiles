@@ -76,4 +76,7 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # Enable develop menu in safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
+# Disable the dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
 echo "I've updated your OSX default settings. You should restart your computer for all the cool new stuff."
