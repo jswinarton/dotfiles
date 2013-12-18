@@ -12,6 +12,7 @@
     email = jeremy@swinarton.com
 
  [alias]
+    addremove = add --all .
+    b = rev-parse --abbrev-ref HEAD
     ci = commit
     st = status
-    addremove = add --all .
