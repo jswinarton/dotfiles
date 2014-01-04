@@ -2,7 +2,7 @@ source .aliases
 export VIRTUALENV_DISTRIBUTE=true
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-export EDITOR=/usr/bin/nano
+export EDITOR=/usr/bin/vim
 export PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONDONTWRITEBYTECODE=1
 
