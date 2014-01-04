@@ -4,6 +4,7 @@
 # import needed modules
 import atexit
 import os
+import sys
 import readline
 import rlcompleter
 
@@ -26,8 +27,12 @@ atexit.register(save_history)
 # enable completion
 readline.parse_and_bind('tab: complete')
 
+# set pprint as default output
+import pprint
+sys.displayhook = pprint.pprint
+
 # cleanup
-del os, atexit, readline, rlcompleter, save_history, historyPath
+del os, sys, atexit, readline, rlcompleter, save_history, historyPath
 
 try:
     from datetime import date

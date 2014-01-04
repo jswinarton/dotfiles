@@ -15,7 +15,7 @@
     addremove = add --all .
     b = rev-parse --abbrev-ref HEAD
     ci = commit
-    st = status
+    st = status -s
 
 [push]
     default = simple
