@@ -9,6 +9,7 @@ setopt SHARE_HISTORY
 setopt NO_BEEP
 setopt EXTENDED_GLOB
 setopt HIST_IGNORE_DUPS
+autoload -U zmv
 plugins=(git brew cp django fabric git-flow mercurial lol npm osx pep8 pip python)
 source $ZSH/oh-my-zsh.sh
 
