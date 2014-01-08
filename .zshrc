@@ -25,9 +25,8 @@ project_aware_subl() {
         PROJECT_FOLDER=$1
     fi
 
-    PROJECT_FILE="$PROJECT_FOLDER/*.sublime-project([1])"
-    if [ -e $PROJECT_FOLDER/*.sublime-project ]; then
-        subl --project $PROJECT_FILE
+    if [ -e $PROJECT_FOLDER/*.sublime-project([1]) ]; then
+        subl --project $PROJECT_FOLDER/*.sublime-project([1])
     else
         subl $PROJECT_FOLDER
     fi
