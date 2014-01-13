@@ -16,6 +16,7 @@
     b = rev-parse --abbrev-ref HEAD
     ci = commit
     st = status -s
+    slog = !git --no-pager log --pretty=oneline
 
 [push]
     default = simple
