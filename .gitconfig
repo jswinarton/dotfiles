@@ -18,12 +18,12 @@
     ci = commit
     cl = clone
     co = checkout
+    diff=diff --word-diff
     st = status -s
     slog = !git --no-pager log --pretty=oneline
     root = rev-parse --show-toplevel
 
     # cp=cherry-pick
-    # diff=diff --word-diff
     # dc=diff --cached
     # sl=stash list
     # sa=stash apply
