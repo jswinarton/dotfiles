@@ -73,3 +73,6 @@ alias copykeys='cat ~/.ssh/id_rsa.pub | pbcopy'
 
 # Clear shell history
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
+
+# Fix annoying problem where sound output to airplay stops working
+alias fixairplay="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' | awk '{print $1}'`"
