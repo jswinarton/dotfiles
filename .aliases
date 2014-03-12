@@ -75,4 +75,7 @@ alias copykeys='cat ~/.ssh/id_rsa.pub | pbcopy'
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
 
 # Fix annoying problem where sound output to airplay stops working
-alias fixairplay="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' | awk '{print $1}'`"
+alias fixairplay="kill `ps -ax | grep 'coreaudiod' | grep 'sbin' | awk '{print $1}'`"
+
+# Also Django hangs sometimes
+alias fixdjango="kill `ps -ax | grep python | grep runserver | grep bin | awk '{print $1}'`"
