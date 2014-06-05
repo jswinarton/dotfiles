@@ -14,7 +14,7 @@ autoload -U zmv
 plugins=(git brew cp django extract fabric git-flow mercurial lol npm osx pep8 pip python)
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/homebrew/share/python:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
+export PATH=/opt/boxen/nodenv/versions/v0.10.0/lib/node_modules/dot/bin/:$PATH
 
 source .profile
 
