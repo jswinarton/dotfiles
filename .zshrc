@@ -14,8 +14,6 @@ autoload -U zmv
 plugins=(git brew cp django extract fabric git-flow mercurial lol npm osx pep8 pip python)
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/opt/boxen/nodenv/versions/v0.10.0/lib/node_modules/dot/bin/:$PATH
-
 source .profile
 
 project_aware_subl() {
