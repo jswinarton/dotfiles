@@ -7,6 +7,7 @@ function do_it() {
     ln -Ffs ~/.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude ".extra" \
         --exclude "README" --exclude "LICENSE" -av --no-perms . ~
+    ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
     source ~/.profile
 }
 

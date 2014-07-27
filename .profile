@@ -1,19 +1,21 @@
 source .aliases
-export VIRTUALENV_DISTRIBUTE=true
+export EDITOR=/usr/bin/vim
+
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-export EDITOR=/usr/bin/vim
 export PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONDONTWRITEBYTECODE=1
+export VIRTUALENV_DISTRIBUTE=true
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export WORKON_HOME=$HOME/.envs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+export PATH=/usr/local/bin:$PATH
+
+source /usr/local/bin/virtualenvwrapper.sh
 
 syspip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
-append_idem(){
-    # Adds a line to a file if it isn't already there
-    # eg. append_idem .profile "source .hgrc"
-    grep -qx "$2" "$1" || echo "$2" >> $1
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
 # Extra commands from other programs can be put into ~/.extra and

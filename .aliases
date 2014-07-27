@@ -11,17 +11,12 @@ alias ~="cd ~"
 alias d="cd ~/Desktop"
 alias dl="cd ~/Downloads"
 alias g="git"
+alias git="hub"
 alias n="nano"
 
 # Mercurial
 alias h="hg st"
 alias hlog="hg log -Gl 10"
-
-# Machine management
-alias box="cd /opt/boxen/repo"
-alias dotfiles="cd ~/my/dotfiles"
-alias edit_dotfiles="subl ~/my/dotfiles/"
-alias update_dotfiles="~/my/dotfiles/bootstrap.sh"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
