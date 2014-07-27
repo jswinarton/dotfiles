@@ -15,7 +15,7 @@
     addremove = add --all .
     b = rev-parse --abbrev-ref HEAD
     br = branch
-    ci = commit
+    ci = !sh ~/.git_forcelocalconfig && git commit
     cl = clone
     co = checkout
     diff=diff --word-diff
