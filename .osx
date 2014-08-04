@@ -3,10 +3,25 @@
 
 sudo -v
 
-sudo scutil --set ComputerName "Jeremy's MacBrick Pro"
-sudo scutil --set HostName "andromeda"
-sudo scutil --set LocalHostName "andromeda"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "andromeda"
+# Set hostname from a custom config file
+if [ -f ~/.hostsconfig ];
+then
+    HOSTNAME=$(sed -n '1p' ~/.hostsconfig)
+    DISPLAYNAME=$(sed -n '2p' ~/.hostsconfig)
+else
+    echo "Enter a host name for this machine: (e.g. andromeda)"
+    read HOSTNAME
+    echo "Enter a display name for this machine, with special characters escaped: (e.g. Jeremy\'s MacBrick Pro)"
+    read DISPLAYNAME
+
+    echo $HOSTNAME > ~/.hostsconfig
+    echo $DISPLAYNAME >> ~/.hostsconfig
+fi
+
+sudo scutil --set ComputerName "$DISPLAYNAME"
+sudo scutil --set HostName "$HOSTNAME"
+sudo scutil --set LocalHostName "$HOSTNAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$HOSTNAME"
 
 # Set highlight color to the best green
 defaults write NSGlobalDomain AppleHighlightColor -string '0 0.992200 0.611800'
@@ -78,5 +93,3 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 # Disable the dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
-
-echo "I've updated your OSX default settings. You should restart your computer for all the cool new stuff."
