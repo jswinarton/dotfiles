@@ -10,7 +10,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export WORKON_HOME=$HOME/.envs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 source /usr/local/bin/virtualenvwrapper.sh
 
