@@ -10,8 +10,6 @@ alias ~="cd ~"
 # Shortcuts
 alias d="cd ~/Desktop"
 alias dl="cd ~/Downloads"
-alias g="git"
-alias n="nano"
 
 # Mercurial
 alias h="hg st"
@@ -62,14 +60,27 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-# Copy my public key to the clipboard
+# Copy public key to the clipboard
 alias copykeys='cat ~/.ssh/id_rsa.pub | pbcopy'
 
 # Clear shell history
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
 
-# Fix annoying problem where sound output to airplay stops working
-alias fixairplay="kill `ps -ax | grep 'coreaudiod' | grep 'sbin' | awk '{print $1}'`"
+# Fix problems with apps that hang
+alias fixairplay="sudo pkill coreaudiod sbin"
+alias fixdjango="pkill python runserver"
 
-# Also Django hangs sometimes
-alias fixdjango="kill `ps -ax | grep python | grep runserver | grep bin | awk '{print $1}'`"
+function fixpostgres() {
+    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+    sudo rm -r /var/pgsql_socket
+    sudo ln -s /tmp /var/pgsql_socket
+    sudo chown _postgres:_postgres /var/pgsql_socket
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+}
+
+# List npm modules without dependencies
+function npm_ls() {
+    npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
+}
+
+alias bootstrap_dotfiles="bash -c 'cd /apps/dotfiles/ && ./bootstrap.sh'"
