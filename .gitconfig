@@ -20,18 +20,18 @@
     co = checkout
     diff=diff --word-diff
     st = status -s
-    slog = !git --no-pager log --pretty=oneline
     root = rev-parse --show-toplevel
+    ls=log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate
+    ll=log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --numstat
+    lds=log --pretty=format:%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --date=short
+    slog = !git --no-pager log --pretty=oneline
 
     # cp=cherry-pick
     # dc=diff --cached
     # sl=stash list
     # sa=stash apply
     # ss=stash save
-    # ls=log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate
-    # ll=log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --numstat
     # lnc=log --pretty=format:%h\ %s\ [%cn]
-    # lds=log --pretty=format:%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --# date=short
     # ld=log --pretty=format:%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --# date=relative
     # le=log --oneline --decorate
     # filelog=log -u
