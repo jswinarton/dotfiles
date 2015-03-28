@@ -82,7 +82,7 @@ rs() {
     ./manage.py runserver 0.0.0.0:${1:-8000}
 }
 mp() {
-    ./manage.py $1
+    ./manage.py $@
 }
 alias ds="./manage.py shell"
 alias dbs="./manage.py dbshell"
