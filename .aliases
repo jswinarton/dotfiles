@@ -76,3 +76,10 @@ function npm_ls() {
 }
 
 alias bootstrap_dotfiles="bash -c 'cd /apps/dotfiles/ && ./bootstrap.sh'"
+
+# django-specific
+rs() {
+    ./manage.py runserver 0.0.0.0:${1:-8000}
+}
+alias ds="./manage.py shell"
+alias dbs="./manage.py dbshell"
