@@ -70,14 +70,6 @@ alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_histor
 alias fixairplay="sudo pkill coreaudiod sbin"
 alias fixdjango="pkill python runserver"
 
-function fixpostgres() {
-    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-    sudo rm -r /var/pgsql_socket
-    sudo ln -s /tmp /var/pgsql_socket
-    sudo chown _postgres:_postgres /var/pgsql_socket
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-}
-
 # List npm modules without dependencies
 function npm_ls() {
     npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
