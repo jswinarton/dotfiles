@@ -1,12 +1,3 @@
-[credential]
-    helper = /opt/boxen/bin/boxen-git-credential
-
-[core]
-    excludesfile = /opt/boxen/config/git/gitignore
-
-[hub]
-    protocol = https
-
 [user]
     name = Jeremy Swinarton
     email = jeremy@swinarton.com
