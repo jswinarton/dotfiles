@@ -81,5 +81,8 @@ alias bootstrap_dotfiles="bash -c 'cd /apps/dotfiles/ && ./bootstrap.sh'"
 rs() {
     ./manage.py runserver 0.0.0.0:${1:-8000}
 }
+mp() {
+    ./manage.py $1
+}
 alias ds="./manage.py shell"
 alias dbs="./manage.py dbshell"
