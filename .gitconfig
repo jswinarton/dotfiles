@@ -13,12 +13,12 @@
     st = status -s
     slog = !git --no-pager log --pretty=oneline
     root = rev-parse --show-toplevel
+    ss=stash save
+    sl=stash list
+    sa=stash apply
+    cp=cherry-pick
 
-    # cp=cherry-pick
     # dc=diff --cached
-    # sl=stash list
-    # sa=stash apply
-    # ss=stash save
     # ls=log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate
     # ll=log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --numstat
     # lnc=log --pretty=format:%h\ %s\ [%cn]
