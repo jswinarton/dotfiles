@@ -1,0 +1,27 @@
+"*":
+  editor:
+    fontSize: 12
+    invisibles: {}
+    fontFamily: "Menlo"
+    lineHeight: 1.35
+  core:
+    projectHome: "/apps"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+    disabledPackages: [
+      "git-diff-details"
+    ]
+  "exception-reporting":
+    userId: "e5c189b2-15b1-ddf0-0317-daf1fa67fe7d"
+  welcome:
+    showOnStartup: false
+  "linter-python-pep8":
+    pep8DirToExecutable: "/Users/jeremy/.envs/pychecker/bin/pep8"
+    ignoreErrorCodes: ""
+  "linter-python-pyflakes":
+    pyflakesDirToExecutable: "/Users/jeremy/.envs/pychecker/bin/pyflakes"
+  linter: {}
+  term2:
+    colors: {}
