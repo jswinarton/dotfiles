@@ -1,22 +1,3 @@
-# Your snippets
-#
-# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
-# expand the prefix into a larger code block with templated values.
-#
-# You can create a new snippet in this file by typing "snip" and then hitting
-# tab.
-#
-# An example CoffeeScript snippet to expand log to console.log:
-#
-# '.source.coffee':
-#   'Console log':
-#     'prefix': 'log'
-#     'body': 'console.log $1'
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it here:
-# https://github.com/bevry/cson#what-is-cson
-
 '.source.python':
   'pdb':
     'prefix': 'pdb'
@@ -34,4 +15,28 @@
 '.source.js':
   'Console log':
     'prefix': 'log'
-    'body': 'console.log($1)'
+    'body': 'console.log(${1:"Hello, World!"})'
+
+'.text.html':
+  'jinja block':
+    'prefix': 'block'
+    'body': '{% block $1 %}\n\t$2\n{% endblock %}'
+  'script':
+    'prefix': 'sc'
+    'body': '<script type="text/javascript">\n\t$1\n</script>'
+  'extrajs':
+    'prefix': 'extrajs'
+    'body': '''{% block extrajs %}
+    <script type="text/javascript">
+        $(function(){
+            $1
+        });
+    </script>
+    {% endblock extrajs %}'''
+  'extrastyle':
+    'prefix': 'extrastyle'
+    'body': '''{% block extrastyle %}
+    <style type="text/less">
+    $1
+    </style>
+    {% endblock extrastyle %}'''
