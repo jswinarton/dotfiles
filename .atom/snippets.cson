@@ -15,7 +15,7 @@
 '.source.js':
   'Console log':
     'prefix': 'log'
-    'body': 'console.log(${1:"Hello, World!"})'
+    'body': 'console.log(${1:"Hello, World!"});'
 
 '.text.html':
   'jinja block':
