@@ -12,8 +12,6 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-source /usr/local/bin/virtualenvwrapper.sh
-
 syspip(){
     PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
