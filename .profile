@@ -1,21 +1,16 @@
-source .aliases
 export EDITOR=/usr/bin/vim
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONDONTWRITEBYTECODE=1
 export VIRTUALENV_DISTRIBUTE=true
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export WORKON_HOME=$HOME/.envs
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 syspip(){
-    PIP_REQUIRE_VIRTUALENV="" pip "$@"
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-# Extra commands from other programs can be put into ~/.extra and
-# it will be called at login.
+source .aliases
 source .extra 2> /dev/null

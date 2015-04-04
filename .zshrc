@@ -12,9 +12,19 @@ setopt HIST_IGNORE_DUPS
 setopt NONOMATCH
 autoload -U zmv
 plugins=(git brew cp django extract fabric git-flow mercurial lol npm osx pep8 pip python)
-source $ZSH/oh-my-zsh.sh
 
+source $ZSH/oh-my-zsh.sh
 source .profile
+
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
 
 project_aware_subl() {
     if [ -z $1 ]; then
