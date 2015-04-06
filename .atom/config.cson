@@ -22,6 +22,8 @@
     ignoreErrorCodes: ""
   "linter-python-pyflakes":
     pyflakesExecutablePath: "/Users/jeremy/.envs/pychecker/bin/pyflakes"
-  linter: {}
-  term2:
-    colors: {}
+  linter:
+    lintOnChange: false
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "linter-jshint": {}
