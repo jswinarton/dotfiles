@@ -21,7 +21,7 @@
     pep8DirToExecutable: "/Users/jeremy/.envs/pychecker/bin/pep8"
     ignoreErrorCodes: ""
   "linter-python-pyflakes":
-    pyflakesDirToExecutable: "/Users/jeremy/.envs/pychecker/bin/pyflakes"
+    pyflakesExecutablePath: "/Users/jeremy/.envs/pychecker/bin/pyflakes"
   linter: {}
   term2:
     colors: {}
