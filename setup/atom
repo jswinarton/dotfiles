@@ -1,0 +1,2 @@
+#!/bin/bash
+apm install linter@0.12.0 linter-jshint@0.1.0 linter-pep8@0.1.0 linter-pyflakes@0.0.4 monokai@0.13.0
