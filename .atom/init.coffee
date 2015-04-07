@@ -9,3 +9,8 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
+
+atom.workspaceView.command 'custom:close-panes', ->
+  panes = atom.workspace.getPanes()
+  for pane in panes
+    pane.destroy()
