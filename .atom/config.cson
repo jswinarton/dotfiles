@@ -4,6 +4,9 @@
     invisibles: {}
     fontFamily: "Menlo"
     lineHeight: 1.35
+    tabLength: 4
+    scrollSensitivity: 30
+    softWrap: true
   core:
     projectHome: "/apps"
     themes: [
