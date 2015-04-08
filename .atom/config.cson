@@ -14,19 +14,16 @@
       "monokai"
     ]
     disabledPackages: [
-      "git-diff-details"
+      "deprecation-cop"
     ]
   "exception-reporting":
     userId: "e5c189b2-15b1-ddf0-0317-daf1fa67fe7d"
   welcome:
     showOnStartup: false
-  "linter-python-pep8":
-    pep8DirToExecutable: "/Users/jeremy/.envs/pychecker/bin/pep8"
-    ignoreErrorCodes: ""
-  "linter-python-pyflakes":
-    pyflakesExecutablePath: "/Users/jeremy/.envs/pychecker/bin/pyflakes"
   linter:
     lintOnChange: false
   "tree-view":
     hideVcsIgnoredFiles: true
   "linter-jshint": {}
+  "linter-flake8":
+    executableDir: "/Users/jeremy/.envs/pychecker/bin/"
