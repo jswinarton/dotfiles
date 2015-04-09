@@ -7,6 +7,7 @@
     tabLength: 4
     scrollSensitivity: 30
     softWrap: true
+    preferredLineLength: 79
   core:
     projectHome: "/apps"
     themes: [
@@ -15,6 +16,23 @@
     ]
     disabledPackages: [
       "deprecation-cop"
+      "language-mustache"
+      "exception-reporting"
+      "feedback"
+      "image-view"
+      "language-clojure"
+      "language-csharp"
+      "language-go"
+      "language-java"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-property-list"
+      "language-sass"
+      "language-source"
+      "language-toml"
+      "metrics"
+      "welcome"
     ]
   "exception-reporting":
     userId: "e5c189b2-15b1-ddf0-0317-daf1fa67fe7d"
@@ -23,8 +41,7 @@
   linter:
     lintOnChange: false
     showHighlighting: false
-    statusBar: "Show error of the selected line"
-    showErrorInline: false
+    lintOnEditorFocus: false
   "tree-view":
     hideVcsIgnoredFiles: true
   "linter-jshint": {}
