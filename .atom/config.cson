@@ -22,6 +22,9 @@
     showOnStartup: false
   linter:
     lintOnChange: false
+    showHighlighting: false
+    statusBar: "Show error of the selected line"
+    showErrorInline: false
   "tree-view":
     hideVcsIgnoredFiles: true
   "linter-jshint": {}
