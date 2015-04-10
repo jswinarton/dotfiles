@@ -71,8 +71,12 @@ alias fixairplay="sudo pkill coreaudiod sbin"
 alias fixdjango="pkill python runserver"
 
 # List npm modules without dependencies
-function npm_ls() {
+npm_ls() {
     npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
+}
+
+apm_ls() {
+	apm list --installed --bare | grep '^[^@]\+' -o
 }
 
 # django-specific

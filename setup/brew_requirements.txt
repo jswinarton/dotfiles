@@ -1,0 +1,15 @@
+gdbm
+git-flow
+heroku-toolbelt
+nginx
+nmap
+node
+openssl
+pcre
+postgresql
+python
+python3
+readline
+sqlite
+xz
+zsh

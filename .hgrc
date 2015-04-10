@@ -1,9 +1,0 @@
-[ui]
-ignore = ~/.hgignore
-username = Jeremy Swinarton <jeremy@swinarton.com>
-
-[extensions]
-color =
-hgext.bookmarks =
-hgext.churn=
-purge =
