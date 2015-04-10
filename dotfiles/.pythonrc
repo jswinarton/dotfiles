@@ -33,10 +33,3 @@ sys.displayhook = pprint.pprint
 
 # cleanup
 del os, sys, atexit, pprint, readline, rlcompleter, save_history, historyPath
-
-try:
-    from datetime import date
-    from datetime import datetime
-    from datetime import timedelta
-except:
-    pass
