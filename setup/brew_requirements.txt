@@ -1,3 +1,4 @@
+autoconf
 gdbm
 git-flow
 heroku-toolbelt
@@ -6,10 +7,14 @@ nmap
 node
 openssl
 pcre
+pkg-config
 postgresql
 python
 python3
+rbenv
+rbenv-gem-rehash
 readline
+ruby-build
 sqlite
 xz
 zsh
