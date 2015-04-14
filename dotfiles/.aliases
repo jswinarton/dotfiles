@@ -92,3 +92,7 @@ alias dbs="./manage.py dbshell"
 dj_startproject() {
 	django-admin startapp --template=https://github.com/jswinarton/django_template/archive/master.zip $@
 }
+
+venv() {
+	source $1/bin/activate
+}
