@@ -16,6 +16,7 @@ def task(f):
 
 @task
 def symlink_dotfiles():
+    # TODO: ensure directories are created before symlinking
     print 'Symlinking dotfiles'
     dotfiles_path = os.path.join(BASE_DIR, 'dotfiles')
     for current, dirs, files in os.walk(dotfiles_path):
