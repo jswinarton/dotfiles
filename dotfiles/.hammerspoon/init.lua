@@ -1,56 +1,65 @@
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
+BROWSER = "Google Chrome"
+CHAT = "HipChat"
+CONSOLE = "iTerm"
+EDITOR = "Atom"
 
-    hs.application.launchOrFocus("Google Chrome")
-    hs.application.launchOrFocus("iTerm")
+laptopScreen = hs.screen.allScreens()[1]:name()
 
-    local laptopScreen = hs.screen.allScreens()[1]:name()
-    local windowLayout = {
-        {"iTerm", nil, laptopScreen, hs.layout.left30, nil, nil},
-        {"Google Chrome", nil, laptopScreen, hs.layout.right70, nil, nil},
-    }
+hs.window.animationDuration = 0;
 
-    hs.layout.apply(windowLayout)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
+    hs.application.launchOrFocus(CHAT)
 end)
-
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
-
-    hs.application.launchOrFocus("Google Chrome")
-
-    local laptopScreen = hs.screen.allScreens()[1]:name()
-    local windowLayout = {
-        {"Google Chrome", nil, laptopScreen, hs.layout.maximized, nil, nil},
-    }
-
-    hs.layout.apply(windowLayout)
-
-end)
-
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
-
-    hs.application.launchOrFocus("iTerm")
-
-    local laptopScreen = hs.screen.allScreens()[1]:name()
-    local windowLayout = {
-        {"iTerm", nil, laptopScreen, hs.layout.maximized, nil, nil},
-    }
-
-    hs.layout.apply(windowLayout)
-
-end)
-
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
+    hs.application.launchOrFocus(EDITOR)
+end)
 
-    hs.application.launchOrFocus("Atom")
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
+    hs.application.launchOrFocus(CONSOLE)
+end)
 
-    local laptopScreen = hs.screen.allScreens()[1]:name()
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
+    hs.application.launchOrFocus(BROWSER)
+end)
+
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
     local windowLayout = {
-        {"Atom", nil, laptopScreen, hs.layout.maximized, nil, nil},
+        {CONSOLE, nil, laptopScreen, hs.layout.maximized, nil, nil},
+        {BROWSER, nil, laptopScreen, hs.layout.maximized, nil, nil},
+        {EDITOR, nil, laptopScreen, hs.layout.maximized, nil, nil},
     }
-
     hs.layout.apply(windowLayout)
+end)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
+    local windowLayout = {
+        {CONSOLE, nil, laptopScreen, hs.layout.left30, nil, nil},
+        {BROWSER, nil, laptopScreen, hs.layout.right70, nil, nil},
+        {EDITOR, nil, laptopScreen, hs.layout.maximized, nil, nil},
+    }
+    hs.layout.apply(windowLayout)
+end)
+
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", function()
+  local win = hs.window.focusedWindow()
+  win:moveToUnit(hs.layout.right70)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
+  local win = hs.window.focusedWindow()
+  win:moveToUnit(hs.layout.left30)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", function()
+  local win = hs.window.focusedWindow()
+  win:moveToUnit(hs.layout.right50)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", function()
+  local win = hs.window.focusedWindow()
+  win:moveToUnit(hs.layout.left50)
 end)
