@@ -16,7 +16,7 @@ function getScreens()
     end
 
     return screens
-endl
+end
 
 
 -- Focus window shortcuts
