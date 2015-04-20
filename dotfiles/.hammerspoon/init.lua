@@ -46,7 +46,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
         {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
     }
     hs.layout.apply(windowLayout)
-    hs.alert.show('Toggle layout: editor')
+    hs.alert.show('Maximized layout: editor')
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
@@ -57,7 +57,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
         {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
     }
     hs.layout.apply(windowLayout)
-    hs.alert.show('Focus layout: editor')
+    hs.alert.show('Split layout: editor focus')
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
@@ -68,7 +68,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
         {BROWSER, nil, screens[2], hs.layout.maximized, nil, nil},
     }
     hs.layout.apply(windowLayout)
-    hs.alert.show('Focus layout: browser')
+    hs.alert.show('Split layout: browser focus')
 end)
 
 
