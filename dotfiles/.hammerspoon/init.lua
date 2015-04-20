@@ -25,7 +25,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
-    hs.application.launchOrFocus(EDITOR)
+    hs.application.launchOrFocus(BROWSER)
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
@@ -33,7 +33,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
-    hs.application.launchOrFocus(BROWSER)
+    hs.application.launchOrFocus(EDITOR)
 end)
 
 
@@ -46,7 +46,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
         {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
     }
     hs.layout.apply(windowLayout)
-    hs.alert.show('Maximized layout: editor')
+    hs.alert.show('Maximized layout: editor focus')
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
@@ -72,7 +72,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
 end)
 
 
--- Window moving shortcuts
+-- Basic window moving shortcuts
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", function()
   local win = hs.window.focusedWindow()
   win:moveToUnit(hs.layout.right70)
