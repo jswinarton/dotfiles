@@ -25,11 +25,11 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
-    hs.application.launchOrFocus(BROWSER)
+    hs.application.launchOrFocus(CONSOLE)
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
-    hs.application.launchOrFocus(CONSOLE)
+    hs.application.launchOrFocus(BROWSER)
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
