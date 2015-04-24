@@ -1,3 +1,4 @@
+#!/bin/bash
 apm install autocomplete-plus
 apm install linter
 apm install linter-flake8

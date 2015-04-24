@@ -1,3 +1,4 @@
+#!/bin/bash
 brew install git-flow
 brew install heroku-toolbelt
 brew install ffmpeg --with-theora --with-lib-vpx

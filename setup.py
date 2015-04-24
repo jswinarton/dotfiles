@@ -24,29 +24,24 @@ def symlink_dotfiles():
         dest_path = os.path.join(HOME, file)
         subprocess.call(['ln', '-sf', orig_path, dest_path])
 
+
 @task
 def install_atom_packages():
     print 'Installing atom packages'
-    req_file = os.path.join(BASE_DIR, 'setup', 'apm_requirements.txt')
-    subprocess.call(['apm', 'install', '--packages-file', req_file])
+    subprocess.call(['/bin/bash', './setup/apm_requirements.sh'])
 
 
 @task
 def install_homebrew_packages():
     print 'Installing homebrew packages'
-    req_file = os.path.join(BASE_DIR, 'setup', 'brew_requirements.txt')
-    with open(req_file) as f:
-        content = f.readlines()
-    content = [i.strip() for i in content]  # strip newlines
-    cmd = ['brew', 'install'] + content
-    subprocess.call(cmd)
+    subprocess.call(['/bin/bash', './setup/brew_requirements.sh'])
 
 
 @task
 def update_osx():
     print 'Updating OS X settings'
     script = os.path.join(BASE_DIR, 'setup', 'osx')
-    subprocess.call(script)
+    subprocess.call(['/bin/bash', script])
 
 
 @task
