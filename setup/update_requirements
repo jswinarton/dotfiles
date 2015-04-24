@@ -1,7 +1,0 @@
-BASEDIR=$(dirname $0)
-
-# atom
-apm list --installed --bare | grep '^[^@]\+' -o > $BASEDIR/apm_requirements.txt
-
-# brew
-brew list > $BASEDIR/brew_requirements.txt

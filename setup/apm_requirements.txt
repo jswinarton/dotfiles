@@ -1,6 +1,0 @@
-autocomplete-plus
-linter
-linter-flake8
-linter-jshint
-monokai
-pain-split
