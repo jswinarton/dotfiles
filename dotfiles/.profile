@@ -17,9 +17,11 @@ syspip(){
   PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-source .aliases
+source $HOME/.aliases
 
 # use .extra to add extra scripts/aliases that
 # you don't want to keep as part of your
 # public dotfiles repo.
-source .extra 2> /dev/null
+source $HOME/.extra 2> /dev/null
+
+[ -z $TMUX ] && tmux new -A -s default

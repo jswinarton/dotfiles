@@ -41,23 +41,23 @@ end)
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
     local screens = getScreens()
     local windowLayout = {
-        {CONSOLE, nil, screens[1], hs.layout.maximized, nil, nil},
-        {BROWSER, nil, screens[1], hs.layout.maximized, nil, nil},
-        {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
-    }
-    hs.layout.apply(windowLayout)
-    hs.alert.show('Maximized layout: editor focus')
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
-    local screens = getScreens()
-    local windowLayout = {
         {CONSOLE, nil, screens[1], hs.layout.left30, nil, nil},
         {BROWSER, nil, screens[1], hs.layout.right70, nil, nil},
         {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
     }
     hs.layout.apply(windowLayout)
-    hs.alert.show('Split layout: editor focus')
+    hs.alert.show('Default layout')
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
+    local screens = getScreens()
+    local windowLayout = {
+        {CONSOLE, nil, screens[1], hs.layout.maximized, nil, nil},
+        {BROWSER, nil, screens[1], hs.layout.maximized, nil, nil},
+        {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
+    }
+    hs.layout.apply(windowLayout)
+    hs.alert.show('All windows maximized')
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
@@ -68,7 +68,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
         {BROWSER, nil, screens[2], hs.layout.maximized, nil, nil},
     }
     hs.layout.apply(windowLayout)
-    hs.alert.show('Split layout: browser focus')
+    hs.alert.show('Default layout (browser focus)')
 end)
 
 

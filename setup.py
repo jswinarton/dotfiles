@@ -16,16 +16,13 @@ def task(f):
 
 @task
 def symlink_dotfiles():
-    # TODO: ensure directories are created before symlinking
     print 'Symlinking dotfiles'
     dotfiles_path = os.path.join(BASE_DIR, 'dotfiles')
-    for current, dirs, files in os.walk(dotfiles_path):
-        for file in files:
-            orig_path = os.path.join(current, file)
-            rel_path = os.path.relpath(orig_path, dotfiles_path)
-            dest_path = os.path.join(HOME, rel_path)
-            subprocess.call(['ln', '-sf', orig_path, dest_path])
 
+    for file in os.listdir(dotfiles_path):
+        orig_path = os.path.join(dotfiles_path, file)
+        dest_path = os.path.join(HOME, file)
+        subprocess.call(['ln', '-sf', orig_path, dest_path])
 
 @task
 def install_atom_packages():

@@ -11,10 +11,12 @@ setopt EXTENDED_GLOB
 setopt HIST_IGNORE_DUPS
 setopt NONOMATCH
 autoload -U zmv
-plugins=(git brew cp django extract fabric git-flow mercurial lol npm osx pep8 pip python)
+plugins=(git brew cp django extract fabric git-flow npm osx pep8 pip python dirhistory gem tmuxinator vagrant)
 
 source $ZSH/oh-my-zsh.sh
-source .profile
+source $HOME/.profile
+
+alias mux=tmuxinator
 
 function _pip_completion {
   local words cword
@@ -25,18 +27,3 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
-
-project_aware_subl() {
-    if [ -z $1 ]; then
-        PROJECT_FOLDER=$(pwd)
-    else
-        PROJECT_FOLDER=$1
-    fi
-
-    if [ -e $PROJECT_FOLDER/*.sublime-project([1]) ]; then
-        subl --project $PROJECT_FOLDER/*.sublime-project([1])
-    else
-        subl $PROJECT_FOLDER
-    fi
-}
-alias subl="project_aware_subl"
