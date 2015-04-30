@@ -1,5 +1,5 @@
 BROWSER = "Google Chrome"
-CHAT = "HipChat"
+CHAT = "Slack"
 CONSOLE = "iTerm"
 EDITOR = "Atom"
 
