@@ -22,6 +22,8 @@ def symlink_dotfiles():
     for file in os.listdir(dotfiles_path):
         orig_path = os.path.join(dotfiles_path, file)
         dest_path = os.path.join(HOME, file)
+        if os.path.islink(dest_path):
+            os.remove(dest_path)
         subprocess.call(['ln', '-sf', orig_path, dest_path])
 
 
