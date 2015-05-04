@@ -3,3 +3,5 @@ dotfiles/.atom/.node-gyp/
 dotfiles/.atom/compile-cache/
 dotfiles/.atom/packages/
 dotfiles/.atom/storage/
+dotfiles/.ipython/extensions
+dotfiles/.ipython/nbextensions

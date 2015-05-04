@@ -78,7 +78,7 @@ rs() {
 mp() {
     ./manage.py $@
 }
-alias ds="./manage.py shell"
+alias ds="./manage.py shell_plus 2> /dev/null || ./manage.py shell"
 alias dbs="./manage.py dbshell"
 
 dj_startproject() {
