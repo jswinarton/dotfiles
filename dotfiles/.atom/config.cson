@@ -41,7 +41,8 @@
     lintOnChange: false
     showHighlighting: false
     lintOnEditorFocus: false
-  "tree-view": {}
+  "tree-view":
+    hideIgnoredNames: true
   "linter-jshint": {}
   "linter-flake8":
     executableDir: "/Users/jeremy/.envs/pychecker/bin/"
