@@ -1,5 +1,6 @@
 #!/bin/bash
 apm install autocomplete-plus
+apm install file-types
 apm install language-arm
 apm install langauge-lua
 apm install linter

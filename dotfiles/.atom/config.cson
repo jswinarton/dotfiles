@@ -41,8 +41,9 @@
     lintOnChange: false
     showHighlighting: false
     lintOnEditorFocus: false
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "linter-jshint": {}
   "linter-flake8":
     executableDir: "/Users/jeremy/.envs/pychecker/bin/"
+  "file-types":
+    jst: "text.html"
