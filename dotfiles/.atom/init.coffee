@@ -10,7 +10,7 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 
-atom.workspaceView.command 'custom:close-panes', ->
+atom.commands.add 'body', 'custom:close-panes', ->
   panes = atom.workspace.getPanes()
   for pane in panes
     pane.destroy()

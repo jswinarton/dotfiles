@@ -1,7 +1,8 @@
 "*":
   editor:
     fontSize: 12
-    invisibles: {}
+    invisibles:
+      {}
     fontFamily: "Menlo"
     lineHeight: 1.35
     tabLength: 4
@@ -33,8 +34,6 @@
       "metrics"
       "welcome"
     ]
-  "exception-reporting":
-    userId: "e5c189b2-15b1-ddf0-0317-daf1fa67fe7d"
   welcome:
     showOnStartup: false
   linter:
@@ -43,8 +42,11 @@
     lintOnEditorFocus: false
   "tree-view":
     hideIgnoredNames: true
-  "linter-jshint": {}
+  "linter-jshint":
+    {}
   "linter-flake8":
     executableDir: "/Users/jeremy/.envs/pychecker/bin/"
   "file-types":
     jst: "text.html"
+  "autocomplete-plus":
+    includeCompletionsFromAllBuffers: false
