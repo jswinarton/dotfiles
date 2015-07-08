@@ -43,7 +43,6 @@
       "jshint"
     ]
     lintOnFly: false
-    showErrorPanel: false
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
