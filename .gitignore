@@ -5,3 +5,4 @@ dotfiles/.atom/packages/
 dotfiles/.atom/storage/
 dotfiles/.ipython/extensions
 dotfiles/.ipython/nbextensions
+dotfiles/.vim/.netrwhist

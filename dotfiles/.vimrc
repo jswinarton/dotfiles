@@ -4,3 +4,4 @@ set softtabstop=4
 set expandtab
 
 execute pathogen#infect()
+colorscheme badwolf
