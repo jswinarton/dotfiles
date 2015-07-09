@@ -59,6 +59,7 @@ source $HOME/.extra 2> /dev/null
 # TMUX
 # ----------
 
-# automatically start a new tmux session, called 'default'.
+# automatically start a new tmux session, called 'default',
+# or attach the default session if it already exists.
 # TODO: make sure this doesn't happen on ssh'd shells, etc
 [ -z $TMUX ] && tmux new -A -s default
