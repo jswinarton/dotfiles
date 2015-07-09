@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# make sure this dir is a git repository
 if ! git rev-parse > /dev/null; then
     exit 1
 fi
