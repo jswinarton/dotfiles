@@ -62,6 +62,6 @@ source $HOME/.extra 2> /dev/null
 # or attach the default session if it already exists.
 # This command will not run if we are already running tmux
 # (i.e. the $TMUX var is already set).
-if command -v tmux > /dev/null 2>&1 && [ -z $TMUX ]; then
-    tmux new -A -s default
-fi
+# if command -v tmux > /dev/null 2>&1 && [ -z $TMUX ]; then
+#    tmux new -A -s default
+# fi

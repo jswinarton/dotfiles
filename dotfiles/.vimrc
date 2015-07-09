@@ -1,5 +1,4 @@
 syntax on
-
 filetype plugin on
 filetype indent on
 
@@ -19,6 +18,9 @@ set backspace=indent,eol,start
 
 " Use C language smart indenting rules
 set cindent
+
+" Add a line rule at 80 characters
+set colorcolumn=80
 
 " use spaces instead of tabs
 set expandtab
