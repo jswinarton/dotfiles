@@ -17,7 +17,6 @@ autoload -U zmv
 plugins=(git brew cp django extract fabric git-flow npm osx pep8 pip python dirhistory gem tmuxinator vagrant)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.profile
 
 function _pip_completion {
   local words cword
@@ -28,3 +27,5 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
+
+source $HOME/.profile
