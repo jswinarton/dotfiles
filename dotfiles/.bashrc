@@ -1,10 +1,4 @@
-# .profile
-# This file is the main login shell configuration file that is shared by all shells.
-
-# It is read automatically by /bin/sh and /bin/bash. All other shells (e.g. zsh) should
-# source this file manually from their respective config files.
-
-# # SHELL BASICS
+# SHELL BASICS
 # ----------
 
 # set vim as the default editor if it's installed.

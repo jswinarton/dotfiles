@@ -28,4 +28,4 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-source $HOME/.profile
+source $HOME/.bashrc
