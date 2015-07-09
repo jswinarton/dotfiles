@@ -1,35 +1,27 @@
-# startup script for python to enable saving of interpreter history and
-# enabling name completion
-
-# import needed modules
 import atexit
 import os
 import pprint
-import sys
 import readline
 import rlcompleter
+import sys
 
-# where is history saved
-historyPath = os.path.expanduser('~/.pyhistory')
+# save history to a file
+history_path = os.path.expanduser('~/.pyhistory')
 
-# handler for saving history
-def save_history(historyPath=historyPath):
+def save_history(history_path=historyPath):
     import readline
-    readline.write_history_file(historyPath)
+    readline.write_history_file(history_path)
 
-# read history, if it exists
-if os.path.exists(historyPath):
-    readline.set_history_length(10000)
-    readline.read_history_file(historyPath)
-
-# register saving handler
 atexit.register(save_history)
 
-# enable completion
+if os.path.exists(history_path):
+    readline.set_history_length(10000)
+    readline.read_history_file(history_path)
+
+# enable tab completion
 readline.parse_and_bind('tab: complete')
 
-# set pprint as default output
+# pretty print by default
 sys.displayhook = pprint.pprint
 
-# cleanup
-del os, sys, atexit, pprint, readline, rlcompleter, save_history, historyPath
+del os, sys, atexit, pprint, readline, rlcompleter, save_history, history_path
