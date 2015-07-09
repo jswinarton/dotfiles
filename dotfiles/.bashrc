@@ -55,5 +55,8 @@ source $HOME/.extra 2> /dev/null
 
 # automatically start a new tmux session, called 'default',
 # or attach the default session if it already exists.
-# TODO: make sure this doesn't happen on ssh'd shells, etc
-[ -z $TMUX ] && tmux new -A -s default
+# This command will not run if we are already running tmux
+# (i.e. the $TMUX var is already set).
+if command -v tmux > /dev/null 2>&1 && [ -z $TMUX ]; then
+    tmux new -A -s default
+fi
