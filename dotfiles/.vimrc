@@ -12,6 +12,11 @@ set autoindent
 " reload the file if it's changed by another process
 set autoread
 
+" allow the backspace key to delete anything,
+" not just characters that were inserted in this
+" insert session
+set backspace=indent,eol,start
+
 " Use C language smart indenting rules
 set cindent
 
@@ -42,6 +47,9 @@ set showmatch
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" custom keyboard shortcuts
+" ----------
 
 execute pathogen#infect()
 colorscheme badwolf

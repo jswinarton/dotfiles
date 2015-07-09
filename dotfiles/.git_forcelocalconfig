@@ -1,10 +1,29 @@
-if ! git config --local user.name > /dev/null
-then
-	echo "The user name for this repository has not been set.\n\nUse 'git config --local user.name User Name' to set a user name for this git repository." 1>&2
-	exit 1
-elif ! git config --local user.email > /dev/null
-then 
-	echo "The user email for this repository has not been set.\n\nUse 'git config --local user.email user@example.com' to set a user email for this git repository." 1>&2
+#!/bin/bash
+
+if ! git rev-parse > /dev/null; then
+    exit 1
+fi
+
+
+if ! git config --local user.name > /dev/null; then
+    GLOBAL_GIT_USERNAME=$(git config --global user.name)
+
+    printf "Enter a local username for this repository: [$GLOBAL_GIT_USERNAME] "
+    read GIT_USERNAME
+
+    [ -z $GIT_USERNAME ] && GIT_USERNAME=$GLOBAL_GIT_USERNAME
+    git config --local user.name $GIT_USERNAME
+fi
+
+if ! git config --local user.email > /dev/null; then
+    GLOBAL_GIT_EMAIL=$(git config --global user.email)
+
+    printf "Enter a local email for this repository: [$GLOBAL_GIT_EMAIL] "
+    read GIT_EMAIL
+
+    [ -z $GIT_EMAIL ] && GIT_EMAIL=$GLOBAL_GIT_EMAIL
+    git config --local user.email $GIT_EMAIL
 fi
 
 exit 0
+
