@@ -56,6 +56,8 @@ alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_histor
 # switching properly
 alias fixairplay="pkill coreaudiod sbin"
 
+alias mux="tmuxinator"
+
 # node.js: List npm modules without dependencies
 npm_ls() {
     npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"

@@ -16,8 +16,6 @@ plugins=(git brew cp django extract fabric git-flow npm osx pep8 pip python dirh
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 
-alias mux=tmuxinator
-
 function _pip_completion {
   local words cword
   read -Ac words
