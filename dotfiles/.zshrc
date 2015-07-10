@@ -14,12 +14,13 @@ setopt NONOMATCH
 autoload -U zmv
 
 # oh my zsh
-OHMYZSH=$HOME/.oh-my-zsh/oh-my-zsh.sh
+ZSH=$HOME/.oh-my-zsh
+OHMYZSH=$ZSH/oh-my-zsh.sh
 if [ -f $OHMYZSH ]; then
-    source $OHMYZSH
-
     ZSH_THEME="nicoulaj"
     plugins=(git brew cp django extract fabric git-flow npm osx pep8 pip python dirhistory gem tmuxinator vagrant)
+
+    source $OHMYZSH
 fi
 
 # zsh pip completion
