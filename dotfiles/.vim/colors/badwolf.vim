@@ -470,13 +470,14 @@ call s:HL('cssClassName', 'orange', '', 'none')
 
 call s:HL('gitDiff', 'lightgravel', '',)
 
-call s:HL('diffRemoved', 'dress', '',)
+call s:HL('diffRemoved', 'taffy', '',)
 call s:HL('diffAdded', 'lime', '',)
-call s:HL('diffFile', 'coal', 'taffy', 'bold')
-call s:HL('diffNewFile', 'coal', 'taffy', 'bold')
+call s:HL('diffFile', 'gravel', '', '')
+call s:HL('diffNewFile', 'gravel', '', '')
+call s:HL('diffFileIndex', 'gravel', '', '')
 
-call s:HL('diffLine', 'coal', 'orange', 'bold')
-call s:HL('diffSubname', 'orange', '', 'none')
+call s:HL('diffLine', 'gravel', '', '')
+call s:HL('diffSubname', 'plain', '', 'none')
 
 " }}}
 " Django Templates {{{
