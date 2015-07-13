@@ -7,15 +7,18 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
+call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
+call vundle#end()
 
 " VIM SETTINGS
 " ----------
+
+filetype plugin indent on
 
 set autoindent
 set autoread

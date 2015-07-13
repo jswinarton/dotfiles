@@ -3,6 +3,11 @@ dotfiles/.atom/.node-gyp/
 dotfiles/.atom/compile-cache/
 dotfiles/.atom/packages/
 dotfiles/.atom/storage/
+
 dotfiles/.ipython/extensions
 dotfiles/.ipython/nbextensions
+
 dotfiles/.vim/.netrwhist
+dotfiles/.vim/bundle/*
+dotfiles/.vim/bundle/*/
+!dotfiles/.vim/Vundle.vim
