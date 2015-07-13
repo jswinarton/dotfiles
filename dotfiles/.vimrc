@@ -2,57 +2,42 @@ syntax on
 filetype plugin on
 filetype indent on
 
-" vim settings
+" VIM SETTINGS
 " ----------
 
-" matches the current line indent when starting a new line
 set autoindent
-
-" reload the file if it's changed by another process
 set autoread
-
-" allow the backspace key to delete anything,
-" not just characters that were inserted in this
-" insert session
 set backspace=indent,eol,start
-
-" Use C language smart indenting rules
 set cindent
-
-" Add a line rule at 80 characters
 set colorcolumn=80
-
-" use spaces instead of tabs
 set expandtab
-
-" don't back anything up using vim, since
-" pretty much everything uses VCS these days
+set ignorecase
+set magic
 set nobackup
 set noswapfile
 set nowb
-
-" scroll offset (number of lines that should be visible above
-" and below the cursor)
+set number
 set scrolloff=15
-
-" number of spaces to use for each auto/indent step
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-
-" show matching brackets
 set showmatch
 
-
-" vim auto commands
+" VIM AUTO COMMANDS
 " ----------
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" custom keyboard shortcuts
-" ----------
 
+" KEYBINDINGS
+" ----------
+nmap <F8> :NERDTreeToggle<CR>
+nmap <F9> :TagbarToggle<CR>
+
+
+" PLUGINS AND THEMES
+" ----------
 execute pathogen#infect()
 colorscheme badwolf
 
