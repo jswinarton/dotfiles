@@ -13,6 +13,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 call vundle#end()
 
 " VIM SETTINGS
@@ -34,9 +37,10 @@ set nowb
 set number
 set scrolloff=15
 set shiftwidth=4
+set showmatch
 set softtabstop=4
 set tabstop=4
-set showmatch
+set wildignore=*.pyc
 
 " VIM AUTO COMMANDS
 " ----------
