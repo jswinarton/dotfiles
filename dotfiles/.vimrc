@@ -1,6 +1,18 @@
 syntax on
-filetype plugin on
-filetype indent on
+colorscheme badwolf
+
+" VUNDLE PLUGINS
+" -----------
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
 
 " VIM SETTINGS
 " ----------
@@ -34,12 +46,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " ----------
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TagbarToggle<CR>
-
-
-" PLUGINS AND THEMES
-" ----------
-execute pathogen#infect()
-colorscheme badwolf
 
 " additional settings are currently being taken from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 " on a setting-by-setting basis.
