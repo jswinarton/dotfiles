@@ -1,9 +1,10 @@
+set nocompatible
+
 syntax on
 colorscheme badwolf
 
 " VUNDLE PLUGINS
 " -----------
-set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,8 +21,8 @@ call vundle#end()
 
 " VIM SETTINGS
 " ----------
-
-filetype plugin indent on
+filetype indent on
+filetype plugin on
 
 set autoindent
 set autoread
@@ -30,10 +31,9 @@ set cindent
 set colorcolumn=80
 set expandtab
 set ignorecase
+set incsearch
+set hlsearch
 set magic
-set nobackup
-set noswapfile
-set nowb
 set number
 set scrolloff=15
 set shiftwidth=4
@@ -41,6 +41,10 @@ set showmatch
 set softtabstop=4
 set tabstop=4
 set wildignore=*.pyc
+
+set nobackup
+set noswapfile
+set nowb
 
 " VIM AUTO COMMANDS
 " ----------
@@ -53,6 +57,17 @@ autocmd BufWritePre * :%s/\s\+$//e
 " ----------
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TagbarToggle<CR>
+nmap <C-k> :CtrlPBufTag<CR>
+
+" force yourself to stop using arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+lnoremap <Up> <Nop>
+lnoremap <Down> <Nop>
+lnoremap <Left> <Nop>
+lnoremap <Right> <Nop>
 
 " additional settings are currently being taken from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 " on a setting-by-setting basis.
