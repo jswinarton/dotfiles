@@ -64,10 +64,18 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+noremap <PageUp> <Nop>
+noremap <PageDown> <Nop>
+noremap <Home> <Nop>
+noremap <End> <Nop>
 lnoremap <Up> <Nop>
 lnoremap <Down> <Nop>
 lnoremap <Left> <Nop>
 lnoremap <Right> <Nop>
+lnoremap <PageUp> <Nop>
+lnoremap <PageDown> <Nop>
+lnoremap <Home> <Nop>
+lnoremap <End> <Nop>
 
 " additional settings are currently being taken from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 " on a setting-by-setting basis.
