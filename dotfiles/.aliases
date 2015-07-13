@@ -1,6 +1,14 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# Common git aliases
+# A number of aliases already exist from oh-my-zsh,
+# but these are specific to my workflow
+alias gs="git status -s"
+alias gds="git diff --staged"
+alias gc="git ci -m"
+alias gca="git ci -am"
+
 # Cleanup scripts
 alias dsclean="find . -type f -name '*.DS_Store' -ls -delete"
 alias pycclean="find . -type f -name '*.pyc' -delete"
