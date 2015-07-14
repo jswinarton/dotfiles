@@ -57,7 +57,7 @@ zstyle ':vcs_info:*:*' nvcsformats "%~" " "
 
 
 PROMPT="%{$PROMPT_COLOR%}\
-1 %$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%%.}'"%<<\
+%$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%%.}'"%<<\
 %{$PROMPT_END%}%{$FX[reset]%} "
 
 RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset]%}"
