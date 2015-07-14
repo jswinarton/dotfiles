@@ -1,7 +1,7 @@
 set nocompatible
 
 syntax on
-colorscheme badwolf
+colorscheme Tomorrow-Night
 
 " VUNDLE PLUGINS
 " -----------
@@ -55,6 +55,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " KEYBINDINGS
 " ----------
+noremap ; :
+
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TagbarToggle<CR>
 nmap <C-k> :CtrlPBufTag<CR>
@@ -79,4 +81,3 @@ lnoremap <End> <Nop>
 
 " additional settings are currently being taken from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 " on a setting-by-setting basis.
-
