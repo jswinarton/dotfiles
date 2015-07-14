@@ -21,6 +21,13 @@ if [ -d "/usr/local/bin" ]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
+# add brew-installed coreutils to the path
+# this means you can use the GNU coreutils with their normal
+# names, not with the 'g' prefix that brew normally specifies
+if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$PATH
+fi
 
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
@@ -28,10 +35,9 @@ fi
 # python
 export PYTHONSTARTUP=$HOME/.pythonrc
 export PYTHONDONTWRITEBYTECODE=1
-
-# python: pip settings
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export PIP_REQUIRE_VIRTUALENV=true
+export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 syspip() {
     # create a shortcut to access the global pip installation,
