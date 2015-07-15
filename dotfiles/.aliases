@@ -9,6 +9,16 @@ alias gds="git diff --staged"
 alias gc="git ci -m"
 alias gca="git ci -am"
 
+# Coloured ls
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+else # OS X `ls`
+	colorflag="-G"
+fi
+
+alias ls="ls ${colorflag}"
+alias l="ls -Alh ${colorflag}"
+
 # Cleanup scripts
 alias dsclean="find . -type f -name '*.DS_Store' -ls -delete"
 alias pycclean="find . -type f -name '*.pyc' -delete"

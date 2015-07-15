@@ -62,4 +62,6 @@ PROMPT="%{$PROMPT_COLOR%}\
 
 RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset]%}"
 
+# EVERYTHING ELSE
+# ----------
 source $HOME/.commonrc
