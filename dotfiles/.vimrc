@@ -101,24 +101,27 @@ noremap! <PageDown> <Nop>
 noremap! <Home> <Nop>
 noremap! <End> <Nop>
 
-" STATUS LINE
-" ----------
-
-"let g:airline_section_x = ''
-"let g:airline_section_y = '%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%{airline#util#wrap(airline#parts#filetype(),0)}'
-"let g:airline_section_z = '%3p%% %#__accent_bold#%4l%#__restore__#:%3v'
-
 " PLUGIN SETTINGS
 " ----------
 
 " NERDTree
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
+let NERDTreeIgnore = ['\.pyc$','\.git$']
 
 " Syntastic
 let g:syntastic_always_populate_loclist = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
+" don't do auto syntax checking on html,
+" because it's annoying
+let g:syntastic_mode_map = {
+    \ "passive_filetypes": ["html"]
+\ }
 
-" Powerline
-"let g:airline_powerline_fonts = 1
+" SYNTAX
+" ----------
+
+" jinja
+let g:jinja_syntax_html = 1
+autocmd BufNewFile,BufRead *.html :setf jinja
