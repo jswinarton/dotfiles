@@ -1,0 +1,4 @@
+# install these packages in the global python context.
+flake8==2.4.1
+requests==2.6.0
+virtualenv==13.1.0
