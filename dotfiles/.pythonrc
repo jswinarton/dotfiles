@@ -8,7 +8,7 @@ import sys
 # save history to a file
 history_path = os.path.expanduser('~/.pyhistory')
 
-def save_history(history_path=historyPath):
+def save_history(history_path=history_path):
     import readline
     readline.write_history_file(history_path)
 
