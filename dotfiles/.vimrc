@@ -21,6 +21,7 @@ Plugin 'garbas/vim-snipmate'
 "Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 "Plugin 'tpope/vim-fugitive'
@@ -47,9 +48,6 @@ set smartcase  " ... unless capital letters are used in the search string.
 set incsearch  " search incrementally
 set hlsearch  " highlight matches
 
-" ignore these file patterns when expanding wildcards
-set wildignore=*.pyc,*/node_modules/*,*/.git/*,*/bower_components/*
-
 " make backspace work like it should.
 set backspace=indent,eol,start
 
@@ -65,6 +63,9 @@ set nobackup
 set noswapfile
 set nowb
 
+" ignore these file patterns when expanding wildcards
+set wildignore=*.pyc,*/node_modules/*,*/bower_components/*,*/.virtualenv/*
+
 " VIM AUTO COMMANDS
 " ----------
 
@@ -73,6 +74,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " KEYBINDINGS
 " ----------
+nmap <F7> :Ack
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TagbarToggle<CR>
 "nmap <C-k> :CtrlPBufTag<CR>
