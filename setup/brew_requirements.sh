@@ -27,6 +27,7 @@ brew install git-flow
 brew install zsh
 
 # programming tools and binaries
+brew install go
 brew install nginx
 brew install node
 brew install postgresql
