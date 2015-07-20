@@ -4,8 +4,8 @@
 set nocompatible
 
 " indentation
-" use spaces instead of tabs.
-" 4 spaces to a tab.
+" use spaces instead of tabs
+" 4 spaces to a tab
 set autoindent
 set expandtab
 set shiftwidth=4
@@ -13,9 +13,9 @@ set softtabstop=4
 
 " search options
 set hlsearch  " highlight matches
-set ignorecase  " searches are case insensitive by default.
+set ignorecase  " searches are case insensitive by default
 set incsearch  " search incrementally
-set smartcase  " ... unless capital letters are used in the search string.
+set smartcase  " case sensitive if capital letters are used in the search
 
 " make backspace work like it should.
 set backspace=indent,eol,start
@@ -54,14 +54,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'bling/vim-airline'
-" Plugin 'garbas/vim-snipmate'
+Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'majutsushi/tagbar'
-" Plugin 'marcweber/vim-addon-mw-utils'  " snipmate dependency
+Plugin 'majutsushi/tagbar'
+Plugin 'marcweber/vim-addon-mw-utils'  " snipmate dependency
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'tomtom/tlib_vim'  " snipmate dependency
+Plugin 'tomtom/tlib_vim'  " snipmate dependency
 call vundle#end()
 
 " Airline
