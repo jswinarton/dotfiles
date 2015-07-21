@@ -49,3 +49,20 @@ brew install ctags
 brew install heroku-toolbelt
 brew install nmap
 brew install reattach-to-user-namespace
+
+# cask
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
+brew cask install 1password
+brew cask install adobe-creative-cloud
+brew cask install atom
+brew cask install firefox
+brew cask install google-chrome
+brew cask install hammerspoon
+brew cask install iterm2
+brew cask install rdio
+brew cask install slack
+brew cask install transmission
+brew cask install virtualbox43691406  # old version that supports vagrant
+brew cask install vlc
+
