@@ -76,6 +76,10 @@ let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['\.pyc$','\.git$']
 " }}}
 
+" Auto commands {{{
+autocmd BufWritePre * :%s/\s\+$//e
+" }}}
+
 " Keybindings {{{
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TagbarToggle<CR>
