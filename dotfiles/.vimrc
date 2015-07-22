@@ -2,6 +2,7 @@
 
 " Base settings {{{
 set nocompatible
+set background=dark
 
 " indentation
 " use spaces instead of tabs
@@ -46,7 +47,7 @@ set laststatus=2
 syntax on
 filetype indent on
 filetype plugin on
-colorscheme badwolf
+colorscheme gruvbox
 " }}}
 
 " Plugins and plugin management {{{
@@ -58,10 +59,11 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'marcweber/vim-addon-mw-utils'  " snipmate dependency
+Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate dependency
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tomtom/tlib_vim'  " snipmate dependency
+Plugin 'tomtom/tlib_vim'  " vim-snipmate dependency
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 " Airline
