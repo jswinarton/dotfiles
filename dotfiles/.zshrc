@@ -22,6 +22,10 @@ OHMYZSH=$ZSH/oh-my-zsh.sh
 if [ -f $OHMYZSH ]; then
     plugins=(django git)
     source $OHMYZSH
+
+    # prevent tmux windows from changing names
+    # on process switch
+    DISABLE_AUTO_TITLE=true
 fi
 
 # PROMPT
