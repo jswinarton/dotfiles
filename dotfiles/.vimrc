@@ -67,7 +67,10 @@ Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_x = ''
+let g:airline_section_y = ''
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -83,7 +86,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
 " Keybindings {{{
-nmap <F8> :NERDTreeToggle<CR>
-nmap <F9> :TagbarToggle<CR>
+nnoremap <silent> <F8> :NERDTreeFocus<CR>
+nnoremap <silent> <Leader>u :NERDTreeToggle<CR>
+
+nnoremap <silent> <F9> :TagbarOpen -fj<CR>
+nnoremap <silent> <Leader>i :TagbarToggle<CR>
+
+nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 " }}}
 
