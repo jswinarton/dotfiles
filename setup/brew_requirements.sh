@@ -63,6 +63,7 @@ brew cask install hammerspoon
 brew cask install iterm2
 brew cask install rdio
 brew cask install slack
+brew cask install the-unarchiver
 brew cask install transmission
 brew cask install virtualbox43691406  # old version that supports vagrant
 brew cask install vlc
