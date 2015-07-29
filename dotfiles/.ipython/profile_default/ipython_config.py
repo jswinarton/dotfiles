@@ -149,7 +149,7 @@ c.TerminalInteractiveShell.confirm_exit = False
 # c.TerminalIPythonApp.ipython_dir = u''
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+c.TerminalIPythonApp.display_banner = False
 
 # Whether to install the default config files into the profile dir. If a new
 # profile is being created, and IPython contains config files for that profile,
@@ -346,7 +346,7 @@ c.TerminalInteractiveShell.confirm_exit = False
 # This is the primary interface for producing IPython's prompts.
 
 # Output prompt. '\#' will be transformed to the prompt number
-# c.PromptManager.out_template = 'Out[\\#]: '
+c.PromptManager.out_template = '> '
 
 # Continuation prompt.
 # c.PromptManager.in2_template = '   .\\D.: '
@@ -355,7 +355,7 @@ c.TerminalInteractiveShell.confirm_exit = False
 # c.PromptManager.justify = True
 
 # Input prompt.  '\#' will be transformed to the prompt number
-# c.PromptManager.in_template = 'In [\\#]: '
+c.PromptManager.in_template = '>>> '
 
 #
 # c.PromptManager.color_scheme = 'Linux'
