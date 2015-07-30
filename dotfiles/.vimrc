@@ -41,6 +41,11 @@ set wildmenu
 
 " status bar options
 set laststatus=2
+
+" change the time that the CursorHold event waits
+" after no keys have been pressed.
+" Used for autosave.
+set updatetime=200
 " }}}
 
 " Syntax and themes {{{
@@ -82,7 +87,11 @@ let NERDTreeIgnore = ['\.pyc$','\.git$']
 " }}}
 
 " Auto commands {{{
+" Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+" Automatically save after changes
+autocmd CursorHold * silent! :update
+autocmd CursorHoldI * silent! :update
 " }}}
 
 " Keybindings {{{
