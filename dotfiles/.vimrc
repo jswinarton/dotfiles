@@ -22,7 +22,7 @@ set smartcase  " case sensitive if capital letters are used in the search
 set backspace=indent,eol,start
 
 " display options
-set colorcolumn=80
+set colorcolumn=81
 set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
@@ -88,11 +88,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Keybindings {{{
 nnoremap <silent> <F8> :NERDTreeFocus<CR>
-nnoremap <silent> <Leader>u :NERDTreeToggle<CR>
-
 nnoremap <silent> <F9> :TagbarOpen -fj<CR>
-nnoremap <silent> <Leader>i :TagbarToggle<CR>
 
+nnoremap <silent> <Leader>u :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>i :TagbarToggle<CR>
 nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
+nnoremap <silent> <Leader>n :set rnu!<CR>
+nnoremap <silent> <Leader>w :set wrap!<CR>
 " }}}
 
