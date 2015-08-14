@@ -12,8 +12,8 @@ if ! git config --local user.name > /dev/null; then
     printf "Enter a local username for this repository: [$GLOBAL_GIT_USERNAME] "
     read GIT_USERNAME
 
-    [ -z $GIT_USERNAME ] && GIT_USERNAME=$GLOBAL_GIT_USERNAME
-    git config --local user.name $GIT_USERNAME
+    [ -z "$GIT_USERNAME" ] && GIT_USERNAME=$GLOBAL_GIT_USERNAME
+    git config --local user.name "$GIT_USERNAME"
 fi
 
 if ! git config --local user.email > /dev/null; then
@@ -22,8 +22,8 @@ if ! git config --local user.email > /dev/null; then
     printf "Enter a local email for this repository: [$GLOBAL_GIT_EMAIL] "
     read GIT_EMAIL
 
-    [ -z $GIT_EMAIL ] && GIT_EMAIL=$GLOBAL_GIT_EMAIL
-    git config --local user.email $GIT_EMAIL
+    [ -z "$GIT_EMAIL" ] && GIT_EMAIL=$GLOBAL_GIT_EMAIL
+    git config --local user.email "$GIT_EMAIL"
 fi
 
 exit 0
