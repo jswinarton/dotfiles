@@ -41,6 +41,7 @@ brew install rbenv
 # image and video libraries
 brew install ffmpeg --with-theora --with-lib-vpx
 brew install libjpeg
+brew install webkit2png
 brew install webp
 
 # etc
