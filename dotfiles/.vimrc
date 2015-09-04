@@ -62,6 +62,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate dependency
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tlib_vim'  " vim-snipmate dependency
 Plugin 'tpope/vim-fugitive'
 call vundle#end()
@@ -79,6 +80,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['\.pyc$','\.git$']
+
+" Syntastic
+let g:syntastic_check_on_open = 1
 " }}}
 
 " Auto commands {{{
