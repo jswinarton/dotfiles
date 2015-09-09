@@ -59,6 +59,7 @@ brew cask install adobe-creative-cloud
 brew cask install atom
 brew cask install dropbox
 brew cask install firefox
+brew cask install fontforge
 brew cask install google-chrome
 brew cask install hammerspoon
 brew cask install iterm2
@@ -66,6 +67,6 @@ brew cask install rdio
 brew cask install slack
 brew cask install the-unarchiver
 brew cask install transmission
-brew cask install virtualbox43691406  # old version that supports vagrant
 brew cask install vlc
+brew cask install ynab
 
