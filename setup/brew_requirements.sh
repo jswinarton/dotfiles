@@ -1,6 +1,7 @@
 #!/bin/bash
 
 brew tap homebrew/dupes
+brew tap homebrew/services
 
 # replace Mac utils with GNU counterparts
 brew install coreutils
@@ -29,8 +30,9 @@ brew install vim --override-system-vi
 brew install vimpager
 brew install zsh
 
-# programming tools and binaries
+# programming tools, databases and services
 brew install go
+brew install mysql
 brew install nginx
 brew install node
 brew install postgresql
@@ -61,6 +63,7 @@ brew cask install dropbox
 brew cask install firefox
 brew cask install fontforge
 brew cask install google-chrome
+brew cask install google-drive
 brew cask install hammerspoon
 brew cask install iterm2
 brew cask install rdio
