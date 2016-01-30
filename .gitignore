@@ -13,5 +13,4 @@ dotfiles/.ipython/profile_default/security/
 
 dotfiles/.vim/.netrwhist
 dotfiles/.vim/bundle/*
-dotfiles/.vim/bundle/*/
-!dotfiles/.vim/Vundle.vim
+!dotfiles/.vim/bundle/.gitkeep
