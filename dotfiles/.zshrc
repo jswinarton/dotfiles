@@ -38,6 +38,13 @@ PROMPT_COLOR=$FG[121]
 PROMPT_END_COLOR=$FG[105]
 RPROMPT_COLOR=$FG[242]
 
+if [[ $(hostname) == 'andromeda' ]]; then
+    HOSTNAME=""
+else
+    HOSTNAME="$(hostname):"
+    PROMPT_COLOR=$FG[190]
+fi
+
 # add a marker if we're in a python virtualenv
 function set_virtualenv_marker() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
@@ -61,7 +68,7 @@ zstyle ':vcs_info:*:*' nvcsformats "%~" " "
 
 
 PROMPT="%{$PROMPT_COLOR%}\
-%$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%%.}'"%<<\
+%$HOSTNAME%$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%%.}'"%<<\
 %{$PROMPT_END%}%{$FX[reset]%} "
 
 RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset]%}"
