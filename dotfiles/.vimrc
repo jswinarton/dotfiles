@@ -22,7 +22,6 @@ set smartcase  " case sensitive if capital letters are used in the search
 set backspace=indent,eol,start
 
 " display options
-set colorcolumn=81
 set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
@@ -48,6 +47,8 @@ syntax on
 filetype indent on
 filetype plugin on
 colorscheme gruvbox
+
+hi Normal ctermbg=none
 " }}}
 
 " Plugins and plugin management {{{
@@ -83,11 +84,18 @@ let NERDTreeIgnore = ['\.pyc$','\.git$']
 
 " Syntastic
 let g:syntastic_check_on_open = 1
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " }}}
 
 " Auto commands {{{
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+" }}}
+
+" Language-specific settings {{{
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab colorcolumn=90
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype python setlocal colorcolumn=81
 " }}}
 
 " Keybindings {{{
