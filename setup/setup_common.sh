@@ -25,3 +25,16 @@ done
 
 git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILE_DIR/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+
+###
+# Python
+sudo pip install flake8==2.4.1
+sudo pip install requests==2.6.0
+sudo pip install virtualenv==13.1.0
+
+
+###
+# Ruby
+sudo gem install pry
+sudo gem install rails
