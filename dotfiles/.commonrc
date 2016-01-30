@@ -58,15 +58,3 @@ source $HOME/.aliases
 # $HOME/.extra contains extra scripts and aliases
 # that aren't included as part of the public repository.
 source $HOME/.extra 2> /dev/null
-
-
-# TMUX
-# ----------
-
-# automatically start a new tmux session, called 'default',
-# or attach the default session if it already exists.
-# This command will not run if we are already running tmux
-# (i.e. the $TMUX var is already set).
-if command -v tmux > /dev/null 2>&1 && [ -z $TMUX ]; then
-   tmux new -A -s default
-fi
