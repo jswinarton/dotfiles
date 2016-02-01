@@ -83,6 +83,7 @@ let NERDTreeIgnore = ['\.pyc$','\.git$']
 
 " Syntastic
 let g:syntastic_check_on_open = 1
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " }}}
 
 " Auto commands {{{
