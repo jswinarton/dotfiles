@@ -34,14 +34,18 @@ fi
 
 PROMPT_PATH_MAX_LENGTH=20
 PROMPT_END='%(!.#.-)'
-PROMPT_COLOR=$FG[121]
 PROMPT_END_COLOR=$FG[105]
 RPROMPT_COLOR=$FG[242]
 
-if [[ $(hostname) == 'andromeda' ]]; then
+if [[ -n $TMUX ]]; then
     HOSTNAME=""
 else
     HOSTNAME="$(hostname):"
+fi
+
+if [[ $(hostname) == 'andromeda' ]]; then
+    PROMPT_COLOR=$FG[121]
+else
     PROMPT_COLOR=$FG[190]
 fi
 
