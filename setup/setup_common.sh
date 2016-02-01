@@ -15,7 +15,7 @@ do
     SRC_FILE=$DOTFILE_DIR/$DOTFILE_NAME
     DST_FILE=$HOME/$DOTFILE_NAME
 
-    ln -s $SRC_FILE $DST_FILE
+    ln -sf $SRC_FILE $DST_FILE
 done
 
 
