@@ -108,5 +108,6 @@ nnoremap <silent> <Leader>i :TagbarToggle<CR>
 nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
+nnoremap <silent> <Leader>x :q<CR>
 " }}}
 
