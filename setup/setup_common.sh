@@ -42,3 +42,4 @@ sudo pip install virtualenv==13.1.0
 # Ruby
 sudo gem install pry
 sudo gem install rails
+sudo gem install rubocop
