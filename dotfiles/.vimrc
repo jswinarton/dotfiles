@@ -22,7 +22,6 @@ set smartcase  " case sensitive if capital letters are used in the search
 set backspace=indent,eol,start
 
 " display options
-set colorcolumn=81
 set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
@@ -48,6 +47,8 @@ syntax on
 filetype indent on
 filetype plugin on
 colorscheme gruvbox
+
+hi Normal ctermbg=none
 " }}}
 
 " Plugins and plugin management {{{
@@ -55,6 +56,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
@@ -91,6 +93,12 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
+" Language-specific settings {{{
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab colorcolumn=90
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype python setlocal colorcolumn=81
+" }}}
+
 " Keybindings {{{
 nnoremap <silent> <F8> :NERDTreeFocus<CR>
 nnoremap <silent> <F9> :TagbarOpen -fj<CR>
@@ -100,6 +108,7 @@ nnoremap <silent> <Leader>i :TagbarToggle<CR>
 nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
+nnoremap <silent> <Leader>x :q<CR>
 
 nnoremap <silent> <Leader>tn :tabnew<CR>
 nnoremap <silent> <Leader>t= :tabnext<CR>
