@@ -111,5 +111,10 @@ nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>x :q<CR>
+
+nnoremap <silent> <Leader>tn :tabnew<CR>
+nnoremap <silent> <Leader>t= :tabnext<CR>
+nnoremap <silent> <Leader>t- :tabprev<CR>
+nnoremap <silent> <Leader>tx :tabclose<CR>
 " }}}
 
