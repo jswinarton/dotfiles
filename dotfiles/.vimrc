@@ -100,10 +100,12 @@ autocmd Filetype python setlocal colorcolumn=81
 " }}}
 
 " Keybindings {{{
-nnoremap <silent> <F8> :NERDTreeFocus<CR>
+nnoremap <silent> ; :
+
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
 nnoremap <silent> <F9> :TagbarOpen -fj<CR>
 
-nnoremap <silent> <Leader>u :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>u :NERDTreeFocus<CR>
 nnoremap <silent> <Leader>i :TagbarToggle<CR>
 nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
