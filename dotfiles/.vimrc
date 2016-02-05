@@ -40,6 +40,10 @@ set wildmenu
 
 " status bar options
 set laststatus=2
+
+" new splits open to the right and below by default
+set splitright
+set splitbelow
 " }}}
 
 " Syntax and themes {{{
@@ -76,12 +80,13 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 
 " CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" "*.pyc" "tmp/*"'
 
 " NERDTree
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['\.pyc$','\.git$']
+let NERDTreeQuitOnOpen = 1
 
 " Syntastic
 let g:syntastic_check_on_open = 1
@@ -91,6 +96,9 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " Auto commands {{{
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Open each buffer in a new tab by default
+autocmd BufAdd,BufNewFile * nested tab sball
 " }}}
 
 " Language-specific settings {{{
@@ -100,19 +108,38 @@ autocmd Filetype python setlocal colorcolumn=81
 " }}}
 
 " Keybindings {{{
-nnoremap <silent> <F8> :NERDTreeFocus<CR>
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
 nnoremap <silent> <F9> :TagbarOpen -fj<CR>
 
-nnoremap <silent> <Leader>u :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>u :NERDTreeFocus<CR>
 nnoremap <silent> <Leader>i :TagbarToggle<CR>
 nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
-nnoremap <silent> <Leader>w :set wrap!<CR>
-nnoremap <silent> <Leader>x :q<CR>
+nnoremap <silent> <Leader>a :set wrap!<CR>
 
-nnoremap <silent> <Leader>tn :tabnew<CR>
-nnoremap <silent> <Leader>t= :tabnext<CR>
-nnoremap <silent> <Leader>t- :tabprev<CR>
-nnoremap <silent> <Leader>tx :tabclose<CR>
+" Quick save and quit
+nnoremap <silent> <Leader>q :q<CR>
+nnoremap <silent> <Leader>w :w<CR>
+
+" Tab shortcuts
+nnoremap <silent> tn :tabnew<CR>
+nnoremap <silent> th :tabprev<CR>
+nnoremap <silent> tl :tabnext<CR>
+nnoremap <silent> tx :tabclose<CR>
+nnoremap <silent> t1 :tabn 1<CR>
+nnoremap <silent> t2 :tabn 2<CR>
+nnoremap <silent> t3 :tabn 3<CR>
+nnoremap <silent> t4 :tabn 4<CR>
+nnoremap <silent> t5 :tabn 5<CR>
+nnoremap <silent> t6 :tabn 6<CR>
+nnoremap <silent> t7 :tabn 7<CR>
+nnoremap <silent> t8 :tabn 8<CR>
+nnoremap <silent> t9 :tabn 9<CR>
+
+" Swap semicolon and colon mapping
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 " }}}
 
