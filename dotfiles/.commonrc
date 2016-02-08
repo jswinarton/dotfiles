@@ -29,6 +29,9 @@ if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$PATH
 fi
 
+# disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
+stty -ixon
+
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
 
