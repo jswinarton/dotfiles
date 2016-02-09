@@ -63,7 +63,7 @@ Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate dependency
 Plugin 'rking/ag.vim'
@@ -96,9 +96,6 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " Auto commands {{{
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Open each buffer in a new tab by default
-autocmd BufAdd,BufNewFile * nested tab sball
 " }}}
 
 " Language-specific settings {{{
@@ -117,9 +114,9 @@ nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>a :set wrap!<CR>
 
-" Quick save and quit
+nnoremap <silent> <Leader>s :split<CR>
+nnoremap <silent> <Leader>v :vsplit<CR>
 nnoremap <silent> <Leader>q :q<CR>
-nnoremap <silent> <Leader>w :w<CR>
 
 " Tab shortcuts
 nnoremap <silent> tn :tabnew<CR>
