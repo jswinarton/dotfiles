@@ -86,7 +86,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" 
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['\.pyc$','\.git$']
-let NERDTreeQuitOnOpen = 1
 
 " Syntastic
 let g:syntastic_check_on_open = 1
@@ -99,8 +98,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
 " Language-specific settings {{{
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab colorcolumn=90
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab colorcolumn=90
+autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype python setlocal colorcolumn=81
 " }}}
 
@@ -110,9 +109,10 @@ nnoremap <silent> <F9> :TagbarOpen -fj<CR>
 
 nnoremap <silent> <Leader>u :NERDTreeFocus<CR>
 nnoremap <silent> <Leader>i :TagbarToggle<CR>
-nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
+nnoremap <silent> <Leader>o :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>a :set wrap!<CR>
+nnoremap <silent> <Leader>z :redraw!<CR>
 
 nnoremap <silent> <Leader>s :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
