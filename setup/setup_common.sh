@@ -28,19 +28,3 @@ vim +PluginInstall +qall
 ###
 # Shell upgrades
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-
-
-###
-# Python
-sudo pip install flake8==2.4.1
-sudo pip install ipython==4.0.3
-sudo pip install requests==2.6.0
-sudo pip install virtualenv==13.1.0
-
-
-###
-# Ruby
-sudo gem install json
-sudo gem install pry
-sudo gem install rails
-sudo gem install rubocop
