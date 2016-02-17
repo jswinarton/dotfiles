@@ -88,7 +88,7 @@ let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['\.pyc$','\.git$']
 
 " Syntastic
-let g:syntastic_check_on_open = 1
+let g:syntastic_mode_map = {'mode': 'passive'}
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " }}}
 
@@ -104,11 +104,9 @@ autocmd Filetype python setlocal colorcolumn=81
 " }}}
 
 " Keybindings {{{
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
+nnoremap <silent> <F8> :NERDTreeFocus<CR>
 nnoremap <silent> <F9> :TagbarOpen -fj<CR>
 
-nnoremap <silent> <Leader>u :NERDTreeFocus<CR>
-nnoremap <silent> <Leader>i :TagbarToggle<CR>
 nnoremap <silent> <Leader>o :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>a :set wrap!<CR>
@@ -117,6 +115,10 @@ nnoremap <silent> <Leader>z :redraw!<CR>
 nnoremap <silent> <Leader>s :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
 nnoremap <silent> <Leader>q :q<CR>
+
+nnoremap <silent> <Leader>lc :SyntasticCheck<CR>
+nnoremap <silent> <Leader>lr :SyntasticReset<CR>
+nnoremap <silent> <Leader>lt :SyntasticToggleMode<CR>
 
 " Tab shortcuts
 nnoremap <silent> tn :tabnew<CR>
