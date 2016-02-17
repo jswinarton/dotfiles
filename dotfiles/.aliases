@@ -78,6 +78,8 @@ venv() {
 	source $1/bin/activate
 }
 
+alias mux="tmux a || tmux"
+
 
 # Based on Mathias Bynens' dotfiles at
 # https://github.com/mathiasbynens/dotfiles/blob/master/.aliases.
