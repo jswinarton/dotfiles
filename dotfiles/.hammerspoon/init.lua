@@ -1,7 +1,5 @@
 BROWSER = "Google Chrome"
-CHAT = "Slack"
 CONSOLE = "iTerm"
-EDITOR = "Atom"
 
 hs.window.animationDuration = 0;
 
@@ -19,56 +17,15 @@ function getScreens()
 end
 
 
--- Focus window shortcuts
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
-    hs.application.launchOrFocus(CHAT)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
-    hs.application.launchOrFocus(CONSOLE)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
-    hs.application.launchOrFocus(BROWSER)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
-    hs.application.launchOrFocus(EDITOR)
-end)
-
-
 -- Predefined window layouts
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
     local screens = getScreens()
     local windowLayout = {
-        {CONSOLE, nil, screens[1], hs.layout.left30, nil, nil},
-        {BROWSER, nil, screens[1], hs.layout.right70, nil, nil},
-        {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
+        {BROWSER, nil, screens[1], hs.layout.right50, nil, nil},
+        {EDITOR, nil, screens[1], hs.layout.left50, nil, nil},
     }
     hs.layout.apply(windowLayout)
     hs.alert.show('Default layout')
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
-    local screens = getScreens()
-    local windowLayout = {
-        {CONSOLE, nil, screens[1], hs.layout.maximized, nil, nil},
-        {BROWSER, nil, screens[1], hs.layout.maximized, nil, nil},
-        {EDITOR, nil, screens[2], hs.layout.maximized, nil, nil},
-    }
-    hs.layout.apply(windowLayout)
-    hs.alert.show('All windows maximized')
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
-    local screens = getScreens()
-    local windowLayout = {
-        {CONSOLE, nil, screens[1], hs.layout.left30, nil, nil},
-        {EDITOR, nil, screens[1], hs.layout.right70, nil, nil},
-        {BROWSER, nil, screens[2], hs.layout.maximized, nil, nil},
-    }
-    hs.layout.apply(windowLayout)
-    hs.alert.show('Default layout (browser focus)')
 end)
 
 
