@@ -46,7 +46,7 @@ fi
 if [[ $(hostname) == 'andromeda' ]]; then
     PROMPT_COLOR=$FG[121]
 else
-    PROMPT_COLOR=$FG[190]
+    PROMPT_COLOR=$FG[$(~/.dotfiles_support/hostname-color.rb)]
 fi
 
 # add a marker if we're in a python virtualenv
