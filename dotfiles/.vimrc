@@ -6,11 +6,11 @@ set background=dark
 
 " indentation
 " use spaces instead of tabs
-" 4 spaces to a tab
+" 2 spaces to a tab
 set autoindent
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 " search options
 set hlsearch  " highlight matches
@@ -99,9 +99,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 
 " Language-specific settings {{{
-autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab colorcolumn=90
-autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
-autocmd Filetype python setlocal colorcolumn=81
+autocmd Filetype ruby setlocal colorcolumn=90
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
 " }}}
 
 " Keybindings {{{
