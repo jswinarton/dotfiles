@@ -61,6 +61,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
