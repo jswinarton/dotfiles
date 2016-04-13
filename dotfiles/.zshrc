@@ -20,7 +20,7 @@ autoload -U zmv
 ZSH=$HOME/.oh-my-zsh
 OHMYZSH=$ZSH/oh-my-zsh.sh
 if [ -f $OHMYZSH ]; then
-    plugins=(brew bundler django gem heroku git pip wd)
+    plugins=(brew django heroku git pip wd)
     source $OHMYZSH
 
     # prevent tmux windows from changing names

@@ -48,8 +48,6 @@ set splitbelow
 
 " Syntax and themes {{{
 syntax on
-filetype indent on
-filetype plugin on
 colorscheme gruvbox
 
 hi Normal ctermbg=none
@@ -57,6 +55,10 @@ hi Normal ctermbg=none
 
 " Plugins and plugin management {{{
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" Some plugins require filetype to be turned
+" off before loading Vundle
+filetype off
 
 call vundle#begin()
 Plugin 'bling/vim-airline'
@@ -73,6 +75,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tlib_vim'  " vim-snipmate dependency
 Plugin 'tpope/vim-fugitive'
 call vundle#end()
+
+filetype plugin indent on
 
 " Airline
 let g:airline_left_sep = ''
