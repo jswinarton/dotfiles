@@ -21,13 +21,8 @@ if [ -d "/usr/local/bin" ]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
-# add brew-installed coreutils to the path
-# this means you can use the GNU coreutils with their normal
-# names, not with the 'g' prefix that brew normally specifies
-if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$PATH
-fi
+# update the iterm2 tab title to be the hostname
+echo -ne "\033]0;$(hostname)\007"
 
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
@@ -46,22 +41,12 @@ syspip() {
     PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-# ruby
-if command -v rbenv > /dev/null 2>&1; then
-    eval "$(rbenv init -)"
-    export PATH=$HOME/.rbenv/shims:$PATH
-fi
-
-
 # OTHER CONFIGURATION FILES
 # ----------
 source $HOME/.aliases
 
-# update the iterm2 tab title to be the hostname
-echo -ne "\033]0;$(hostname)\007"
-
 # $HOME/.private is a catch-all script that includes
 # aliases, machine-specific configs, API keys,
 # and other sensitive data that isn't included
-# included as part of the public repository.
+# as part of the public repository.
 source $HOME/.private 2> /dev/null
