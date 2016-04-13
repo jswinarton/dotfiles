@@ -60,6 +60,8 @@ source $HOME/.aliases
 # update the iterm2 tab title to be the hostname
 echo -ne "\033]0;$(hostname)\007"
 
-# $HOME/.extra contains extra scripts and aliases
-# that aren't included as part of the public repository.
-source $HOME/.extra 2> /dev/null
+# $HOME/.private is a catch-all script that includes
+# aliases, machine-specific configs, API keys,
+# and other sensitive data that isn't included
+# included as part of the public repository.
+source $HOME/.private 2> /dev/null
