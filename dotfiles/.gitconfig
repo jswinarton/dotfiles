@@ -1,27 +1,28 @@
 [user]
-    name = Jeremy Swinarton
-    email = jeremy@swinarton.com
+  name = Jeremy Swinarton
+  email = jeremy@swinarton.com
+  signingkey = E403E588
 
 [alias]
-    addremove=add --all .
-    b=rev-parse --abbrev-ref HEAD
-    br=branch
-    ci=!sh ~/.git_forcelocalconfig && git commit
-    cl=clone
-    co=checkout
-    diff=diff --word-diff
-    st=status -s
-    slog=!git --no-pager log --pretty=oneline
-    root=rev-parse --show-toplevel
-    ss=stash save
-    sl=stash list
-    sa=stash apply
-    cp=cherry-pick
-    unresolved=!git ls-files -u | cut -f 2 | sort -u
-    performance=shortlog -s -n --all
+  addremove=add --all .
+  b=rev-parse --abbrev-ref HEAD
+  br=branch
+  ci=!sh ~/.git_forcelocalconfig && git commit
+  cl=clone
+  co=checkout
+  diff=diff --word-diff
+  st=status -s
+  slog=!git --no-pager log --pretty=oneline
+  root=rev-parse --show-toplevel
+  ss=stash save
+  sl=stash list
+  sa=stash apply
+  cp=cherry-pick
+  unresolved=!git ls-files -u | cut -f 2 | sort -u
+  performance=shortlog -s -n --all
 
 [push]
-    default = simple
+  default = simple
 
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
