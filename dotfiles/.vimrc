@@ -141,8 +141,6 @@ nnoremap <silent> t9 :tabn 9<CR>
 
 " Swap semicolon and colon mapping
 nnoremap ; :
-nnoremap : ;
 vnoremap ; :
-vnoremap : ;
 " }}}
 
