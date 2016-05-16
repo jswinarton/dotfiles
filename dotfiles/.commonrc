@@ -21,8 +21,9 @@ if [ -d "/usr/local/bin" ]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
+# temporarily disable this. It's messing with ansible for some reason ...
 # update the iterm2 tab title to be the hostname
-echo -ne "\033]0;$(hostname)\007"
+# echo -ne "\033]0;$(hostname)\007"
 
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
