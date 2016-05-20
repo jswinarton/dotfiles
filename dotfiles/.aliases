@@ -11,9 +11,9 @@ alias gca="git ci -am"
 
 # Coloured ls
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+  colorflag="--color"
 else # OS X `ls`
-	colorflag="-G"
+  colorflag="-G"
 fi
 
 alias ls="ls ${colorflag}"
@@ -78,7 +78,7 @@ venv() {
 	source $1/bin/activate
 }
 
-alias mux="tmux a || tmux"
+alias mux="tmux a || tmux new -s 'default'"
 
 
 # Based on Mathias Bynens' dotfiles at
