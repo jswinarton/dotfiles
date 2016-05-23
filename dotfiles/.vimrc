@@ -110,6 +110,7 @@ autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
 " }}}
 
 " Keybindings {{{
+nnoremap <silent> <F2> :set paste!<CR>
 nnoremap <silent> <F8> :NERDTreeFocus<CR>
 nnoremap <silent> <F9> :TagbarOpen -fj<CR>
 
