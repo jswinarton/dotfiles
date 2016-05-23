@@ -63,10 +63,11 @@ filetype off
 call vundle#begin()
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jceb/vim-orgmode'
 Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate dependency
 Plugin 'rking/ag.vim'
@@ -74,6 +75,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tlib_vim'  " vim-snipmate dependency
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-speeddating'
 call vundle#end()
 
 filetype plugin indent on
