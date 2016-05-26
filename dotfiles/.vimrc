@@ -70,6 +70,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jceb/vim-orgmode'
 Plugin 'majutsushi/tagbar'
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate dependency
+Plugin 'mitsuhiko/vim-jinja'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -97,6 +98,10 @@ let NERDTreeIgnore = ['\.pyc$','\.git$']
 " Syntastic
 let g:syntastic_mode_map = {'mode': 'passive'}
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
+" vim-orgmode
+let g:org_heading_shade_leading_stars = 0
+let g:org_indent = 0
 " }}}
 
 " Auto commands {{{
