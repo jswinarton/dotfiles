@@ -61,22 +61,29 @@ set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
 
 call vundle#begin()
+" dependencies
+Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
+Plugin 'tomtom/tlib_vim'  " vim-snipmate
+Plugin 'godlygeek/tabular'  " vim-markdown
+
+" plugins
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'jamessan/vim-gnupg'
 Plugin 'jceb/vim-orgmode'
 Plugin 'majutsushi/tagbar'
-Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate dependency
 Plugin 'mitsuhiko/vim-jinja'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tomtom/tlib_vim'  " vim-snipmate dependency
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-speeddating'
+Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 filetype plugin indent on
@@ -112,6 +119,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
+autocmd Filetype markdown setlocal conceallevel=2
 " }}}
 
 " Keybindings {{{
@@ -152,3 +160,8 @@ nnoremap ; :
 vnoremap ; :
 " }}}
 
+" Vimwiki settings {{{
+let g:vimwiki_list = [{'path': '~/apps/notes', 'diary_rel_path': 'journal/'}]
+
+let g:vimwiki_ext2syntax = {'.wiki.gpg': 'default'}
+" }}}
