@@ -83,7 +83,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-speeddating'
-Plugin 'vimwiki/vimwiki'
+" Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 filetype plugin indent on
@@ -119,7 +119,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
-autocmd Filetype markdown setlocal conceallevel=2
+autocmd Filetype markdown setlocal linebreak
 " }}}
 
 " Keybindings {{{
@@ -161,7 +161,7 @@ vnoremap ; :
 " }}}
 
 " Vimwiki settings {{{
-let g:vimwiki_list = [{'path': '~/apps/notes', 'diary_rel_path': 'journal/'}]
+let g:vimwiki_list = [{'path': '~/apps/notes', 'diary_rel_path': 'journal/',
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
-let g:vimwiki_ext2syntax = {'.wiki.gpg': 'default'}
 " }}}
