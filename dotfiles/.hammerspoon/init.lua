@@ -17,35 +17,13 @@ function getScreens()
 end
 
 
--- Predefined window layouts
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
-    local screens = getScreens()
-    local windowLayout = {
-        {BROWSER, nil, screens[1], hs.layout.right50, nil, nil},
-        {EDITOR, nil, screens[1], hs.layout.left50, nil, nil},
-    }
-    hs.layout.apply(windowLayout)
-    hs.alert.show('Default layout')
-end)
-
-
 -- Basic window moving shortcuts
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", function()
-  local win = hs.window.focusedWindow()
-  win:moveToUnit(hs.layout.right70)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
-  local win = hs.window.focusedWindow()
-  win:moveToUnit(hs.layout.left30)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", function()
   local win = hs.window.focusedWindow()
   win:moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", function()
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
   local win = hs.window.focusedWindow()
   win:moveToUnit(hs.layout.left50)
 end)
@@ -63,4 +41,8 @@ end)
 hs.hotkey.bind({"alt", "ctrl"}, "right", function()
     local win = hs.window.focusedWindow()
     win:moveOneScreenEast()
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "space", function()
+  hs.spotify.displayCurrentTrack()
 end)
