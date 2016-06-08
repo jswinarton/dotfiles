@@ -1,6 +1,3 @@
-BROWSER = "Google Chrome"
-CONSOLE = "iTerm"
-
 hs.window.animationDuration = 0;
 
 function getScreens()
@@ -33,6 +30,11 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "up", function()
   win:moveToUnit(hs.layout.maximized)
 end)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "down", function()
+  local win = hs.window.focusedWindow()
+  win:moveToUnit(hs.geometry.unitrect(0.5,0.5,1,1))
+end)
+
 hs.hotkey.bind({"alt", "ctrl"}, "left", function()
     local win = hs.window.focusedWindow()
     win:moveOneScreenWest()
@@ -43,6 +45,23 @@ hs.hotkey.bind({"alt", "ctrl"}, "right", function()
     win:moveOneScreenEast()
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "space", function()
-  hs.spotify.displayCurrentTrack()
-end)
+
+-- Spotify controls
+-- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "space", function()
+--   if hs.spotify.isPlaying() then
+--     hs.spotify.pause()
+--   else
+--     hs.spotify.displayCurrentTrack()
+--     hs.spotify.play()
+--   end
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", function()
+--   hs.spotify.previous()
+--   hs.spotify.displayCurrentTrack()
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", function()
+--   hs.spotify.next()
+--   hs.spotify.displayCurrentTrack()
+-- end)
