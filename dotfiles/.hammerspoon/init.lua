@@ -32,7 +32,7 @@ end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "down", function()
   local win = hs.window.focusedWindow()
-  win:moveToUnit(hs.geometry.unitrect(0.5,0.5,1,1))
+  win:moveToUnit(hs.geometry.unitrect(0.5,0.5,0.5,0.5))
 end)
 
 hs.hotkey.bind({"alt", "ctrl"}, "left", function()
