@@ -87,7 +87,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-speeddating'
-" Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 filetype plugin indent on
@@ -164,10 +163,4 @@ nnoremap <silent> t9 :tabn 9<CR>
 " Swap semicolon and colon mapping
 nnoremap ; :
 vnoremap ; :
-" }}}
-
-" Vimwiki settings {{{
-let g:vimwiki_list = [{'path': '~/apps/notes', 'diary_rel_path': 'journal/',
-                     \ 'syntax': 'markdown', 'ext': '.md'}]
-
 " }}}
