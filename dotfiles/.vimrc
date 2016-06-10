@@ -26,6 +26,10 @@ set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
 
+" show 'invisible' characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
 " file write options
 set autoread  " update file if it's changed outside of vim
 set nobackup
@@ -131,6 +135,8 @@ nnoremap <silent> <Leader>o :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>a :set wrap!<CR>
 nnoremap <silent> <Leader>z :redraw!<CR>
+nnoremap <silent> <Leader>i :set list!<CR>
+nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
 nnoremap <silent> <Leader>s :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
