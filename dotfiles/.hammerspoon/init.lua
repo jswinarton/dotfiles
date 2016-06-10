@@ -1,6 +1,3 @@
-BROWSER = "Google Chrome"
-CONSOLE = "iTerm"
-
 hs.window.animationDuration = 0;
 
 function getScreens()
@@ -17,35 +14,13 @@ function getScreens()
 end
 
 
--- Predefined window layouts
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
-    local screens = getScreens()
-    local windowLayout = {
-        {BROWSER, nil, screens[1], hs.layout.right50, nil, nil},
-        {EDITOR, nil, screens[1], hs.layout.left50, nil, nil},
-    }
-    hs.layout.apply(windowLayout)
-    hs.alert.show('Default layout')
-end)
-
-
 -- Basic window moving shortcuts
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", function()
-  local win = hs.window.focusedWindow()
-  win:moveToUnit(hs.layout.right70)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
-  local win = hs.window.focusedWindow()
-  win:moveToUnit(hs.layout.left30)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", function()
   local win = hs.window.focusedWindow()
   win:moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", function()
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
   local win = hs.window.focusedWindow()
   win:moveToUnit(hs.layout.left50)
 end)
@@ -53,6 +28,11 @@ end)
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "up", function()
   local win = hs.window.focusedWindow()
   win:moveToUnit(hs.layout.maximized)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "down", function()
+  local win = hs.window.focusedWindow()
+  win:moveToUnit(hs.geometry.unitrect(0.5,0.5,0.5,0.5))
 end)
 
 hs.hotkey.bind({"alt", "ctrl"}, "left", function()
@@ -64,3 +44,24 @@ hs.hotkey.bind({"alt", "ctrl"}, "right", function()
     local win = hs.window.focusedWindow()
     win:moveOneScreenEast()
 end)
+
+
+-- Spotify controls
+-- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "space", function()
+--   if hs.spotify.isPlaying() then
+--     hs.spotify.pause()
+--   else
+--     hs.spotify.displayCurrentTrack()
+--     hs.spotify.play()
+--   end
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", function()
+--   hs.spotify.previous()
+--   hs.spotify.displayCurrentTrack()
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", function()
+--   hs.spotify.next()
+--   hs.spotify.displayCurrentTrack()
+-- end)

@@ -15,3 +15,4 @@ brew install reattach-to-user-namespace
 brew install python
 brew install ruby
 brew install elixir
+brew install htop
