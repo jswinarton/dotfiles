@@ -26,6 +26,10 @@ set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
 
+" show 'invisible' characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
 " file write options
 set autoread  " update file if it's changed outside of vim
 set nobackup
@@ -83,7 +87,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-speeddating'
-" Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 filetype plugin indent on
@@ -130,6 +133,8 @@ noremap <silent> <Leader>o :CtrlPBufTag<CR>
 noremap <silent> <Leader>n :set rnu!<CR>
 noremap <silent> <Leader>a :set wrap!<CR>
 noremap <silent> <Leader>z :redraw!<CR>
+noremap <silent> <Leader>i :set list!<CR>
+noremap <silent> <Leader><Space> :nohlsearch<CR>
 
 noremap <silent> <Leader>s :split<CR>
 noremap <silent> <Leader>v :vsplit<CR>
@@ -160,11 +165,5 @@ noremap ; :
 " Move through word wrap easily
 noremap j gj
 noremap k gk
-
-" }}}
-
-" Vimwiki settings {{{
-let g:vimwiki_list = [{'path': '~/apps/notes', 'diary_rel_path': 'journal/',
-                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " }}}
