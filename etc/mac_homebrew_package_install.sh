@@ -13,3 +13,4 @@ brew install heroku-toolbelt
 brew install nmap
 brew install reattach-to-user-namespace
 brew install htop
+brew install tmux-mem-cpu-load
