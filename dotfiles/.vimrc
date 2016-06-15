@@ -26,6 +26,10 @@ set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
 
+" show 'invisible' characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
 " file write options
 set autoread  " update file if it's changed outside of vim
 set nobackup
@@ -83,7 +87,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-speeddating'
-Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 filetype plugin indent on
@@ -119,7 +122,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
-autocmd Filetype markdown setlocal conceallevel=2
+autocmd Filetype markdown setlocal linebreak
 " }}}
 
 " Keybindings {{{
@@ -131,6 +134,8 @@ nnoremap <silent> <Leader>o :CtrlPBufTag<CR>
 nnoremap <silent> <Leader>n :set rnu!<CR>
 nnoremap <silent> <Leader>a :set wrap!<CR>
 nnoremap <silent> <Leader>z :redraw!<CR>
+nnoremap <silent> <Leader>i :set list!<CR>
+nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
 nnoremap <silent> <Leader>s :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
@@ -158,10 +163,4 @@ nnoremap <silent> t9 :tabn 9<CR>
 " Swap semicolon and colon mapping
 nnoremap ; :
 vnoremap ; :
-" }}}
-
-" Vimwiki settings {{{
-let g:vimwiki_list = [{'path': '~/apps/notes', 'diary_rel_path': 'journal/'}]
-
-let g:vimwiki_ext2syntax = {'.wiki.gpg': 'default'}
 " }}}

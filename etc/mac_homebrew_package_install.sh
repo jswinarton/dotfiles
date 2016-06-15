@@ -12,5 +12,8 @@ brew install ctags
 brew install heroku-toolbelt
 brew install nmap
 brew install reattach-to-user-namespace
+brew install python
+brew install ruby
+brew install elixir
 brew install htop
 brew install tmux-mem-cpu-load
