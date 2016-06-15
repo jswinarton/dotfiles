@@ -106,9 +106,8 @@ let NERDTreeIgnore = ['\.pyc$','\.git$']
 let g:syntastic_mode_map = {'mode': 'passive'}
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
-" vim-orgmode
-let g:org_heading_shade_leading_stars = 0
-let g:org_indent = 0
+" Vim Markdown
+let g:vim_markdown_folding_disabled = 1
 " }}}
 
 " Auto commands {{{
@@ -119,45 +118,49 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
-autocmd Filetype markdown setlocal linebreak
+autocmd Filetype markdown setlocal linebreak conceallevel=2
 " }}}
 
 " Keybindings {{{
-nnoremap <silent> <F2> :set paste!<CR>
-nnoremap <silent> <F8> :NERDTreeFocus<CR>
-nnoremap <silent> <F9> :TagbarOpen -fj<CR>
+noremap <silent> <F2> :set paste!<CR>
+noremap <silent> <F8> :NERDTreeFocus<CR>
+noremap <silent> <F9> :TagbarOpen -fj<CR>
 
-nnoremap <silent> <Leader>o :CtrlPBufTag<CR>
-nnoremap <silent> <Leader>n :set rnu!<CR>
-nnoremap <silent> <Leader>a :set wrap!<CR>
-nnoremap <silent> <Leader>z :redraw!<CR>
+noremap <silent> <Leader>o :CtrlPBufTag<CR>
+noremap <silent> <Leader>n :set rnu!<CR>
+noremap <silent> <Leader>a :set wrap!<CR>
+noremap <silent> <Leader>z :redraw!<CR>
 
-nnoremap <silent> <Leader>s :split<CR>
-nnoremap <silent> <Leader>v :vsplit<CR>
-nnoremap <silent> <Leader>q :q<CR>
+noremap <silent> <Leader>s :split<CR>
+noremap <silent> <Leader>v :vsplit<CR>
+noremap <silent> <Leader>q :q<CR>
 
-nnoremap <silent> <Leader>lc :SyntasticCheck<CR>
-nnoremap <silent> <Leader>lr :SyntasticReset<CR>
-nnoremap <silent> <Leader>lt :SyntasticToggleMode<CR>
+noremap <silent> <Leader>lc :SyntasticCheck<CR>
+noremap <silent> <Leader>lr :SyntasticReset<CR>
+noremap <silent> <Leader>lt :SyntasticToggleMode<CR>
 
 " Tab shortcuts
-nnoremap <silent> tn :tabnew<CR>
-nnoremap <silent> th :tabprev<CR>
-nnoremap <silent> tl :tabnext<CR>
-nnoremap <silent> tx :tabclose<CR>
-nnoremap <silent> t1 :tabn 1<CR>
-nnoremap <silent> t2 :tabn 2<CR>
-nnoremap <silent> t3 :tabn 3<CR>
-nnoremap <silent> t4 :tabn 4<CR>
-nnoremap <silent> t5 :tabn 5<CR>
-nnoremap <silent> t6 :tabn 6<CR>
-nnoremap <silent> t7 :tabn 7<CR>
-nnoremap <silent> t8 :tabn 8<CR>
-nnoremap <silent> t9 :tabn 9<CR>
+noremap <silent> tn :tabnew<CR>
+noremap <silent> th :tabprev<CR>
+noremap <silent> tl :tabnext<CR>
+noremap <silent> tx :tabclose<CR>
+noremap <silent> t1 :tabn 1<CR>
+noremap <silent> t2 :tabn 2<CR>
+noremap <silent> t3 :tabn 3<CR>
+noremap <silent> t4 :tabn 4<CR>
+noremap <silent> t5 :tabn 5<CR>
+noremap <silent> t6 :tabn 6<CR>
+noremap <silent> t7 :tabn 7<CR>
+noremap <silent> t8 :tabn 8<CR>
+noremap <silent> t9 :tabn 9<CR>
 
 " Swap semicolon and colon mapping
-nnoremap ; :
-vnoremap ; :
+noremap ; :
+
+" Move through word wrap easily
+noremap j gj
+noremap k gk
+
 " }}}
 
 " Vimwiki settings {{{
