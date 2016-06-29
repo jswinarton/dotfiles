@@ -25,6 +25,7 @@ set backspace=indent,eol,start
 set number  " always show line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
+set nowrap " no word wrap by default
 
 " show 'invisible' characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
