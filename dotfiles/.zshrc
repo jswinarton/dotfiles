@@ -1,19 +1,28 @@
 # ZSH OPTIONS
+# zsh options are laid out in the same order as they are listed
+# in man zshoptions(1), using the same case and underscore format as listed.
 # ----------
-setopt appendhistory
-setopt autocd
-setopt extendedglob
-setopt nomatch
-setopt notify
-setopt promptsubst
 
-unsetopt beep
+# Changing Directories
+setopt AUTO_CD  # cd into directories without using 'cd'
+
+# Job Control
+setopt NOTIFY  # report status of background jobs as soon as possible
+
+# Prompting
+setopt PROMPT_SUBST  # allow expansion in the prompt
+
+# Zsh Line Editor (ZLE)
+unsetopt BEEP  # do not beep on error in ZLE
+bindkey -v  # allow for vim keybindings while editing command prompts
+
 
 # ZSH MODULES
 # ----------
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
 autoload -U zmv
+
 
 # OH MY ZSH
 # ----------
@@ -28,9 +37,9 @@ if [ -f $OHMYZSH ]; then
     DISABLE_AUTO_TITLE=true
 fi
 
+
 # PROMPT
 # ----------
-# inspired by https://github.com/BinaryMuse/oh-my-zsh/blob/master/themes/nicoulaj.zsh-theme
 
 PROMPT_PATH_MAX_LENGTH=20
 PROMPT_END='%(!.#.-)'
@@ -38,24 +47,20 @@ PROMPT_END_COLOR=$FG[105]
 RPROMPT_COLOR=$FG[242]
 
 if [[ -n $TMUX ]]; then
-    HOSTNAME=""
+  HOSTNAME=""
 else
-    HOSTNAME="$(hostname):"
+  HOSTNAME="$(hostname):"
 fi
 
-if [[ $(hostname) == 'andromeda' ]]; then
-    PROMPT_COLOR=$FG[121]
-else
-    PROMPT_COLOR=$FG[$(~/.dotfiles_support/hostname-color.rb)]
-fi
+PROMPT_COLOR=$FG[$(~/.dotfiles_support/hostname-color.rb)]
 
 # add a marker if we're in a python virtualenv
 function set_virtualenv_marker() {
-    if [[ -n "$VIRTUAL_ENV" ]]; then
-        VIRTUALENV_MARKER=" •"
-    else
-        VIRTUALENV_MARKER=""
-    fi
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    VIRTUALENV_MARKER=" •"
+  else
+    VIRTUALENV_MARKER=""
+  fi
 }
 
 add-zsh-hook precmd set_virtualenv_marker
@@ -76,6 +81,7 @@ ${HOSTNAME}%$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%%.}'"%<<\
 %{$PROMPT_END%}%{$FX[reset]%} "
 
 RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset]%}"
+
 
 # EVERYTHING ELSE
 # ----------
