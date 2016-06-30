@@ -123,6 +123,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
 autocmd Filetype markdown setlocal linebreak conceallevel=2
+autocmd Filetype java setlocal ts=4 sw=4 sts=4
 " }}}
 
 " Keybindings {{{
