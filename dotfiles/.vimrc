@@ -22,7 +22,8 @@ set smartcase  " case sensitive if capital letters are used in the search
 set backspace=indent,eol,start
 
 " display options
-set number  " always show line numbers
+set number  "  show line numbers
+set relativenumber  " show relative line numbers
 set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
 set nowrap " no word wrap by default
@@ -132,8 +133,11 @@ noremap <silent> <F8> :NERDTreeFocus<CR>
 noremap <silent> <F9> :TagbarOpen -fj<CR>
 noremap <silent> <F12> :q<CR>
 
+noremap <silent> <Leader>nr :set number \| set relativenumber<CR>
+noremap <silent> <Leader>nn :set number \| set norelativenumber<CR>
+noremap <silent> <Leader>no :set nonumber \| set norelativenumber<CR>
+
 noremap <silent> <Leader>o :CtrlPBufTag<CR>
-noremap <silent> <Leader>n :set rnu!<CR>
 noremap <silent> <Leader>a :set wrap!<CR>
 noremap <silent> <Leader>z :redraw!<CR>
 noremap <silent> <Leader>i :set list!<CR>
