@@ -130,6 +130,7 @@ autocmd Filetype java setlocal ts=4 sw=4 sts=4
 noremap <silent> <F2> :set paste!<CR>
 noremap <silent> <F8> :NERDTreeFocus<CR>
 noremap <silent> <F9> :TagbarOpen -fj<CR>
+noremap <silent> <F12> :q<CR>
 
 noremap <silent> <Leader>o :CtrlPBufTag<CR>
 noremap <silent> <Leader>n :set rnu!<CR>
@@ -140,7 +141,6 @@ noremap <silent> <Leader><Space> :nohlsearch<CR>
 
 noremap <silent> <Leader>s :split<CR>
 noremap <silent> <Leader>v :vsplit<CR>
-noremap <silent> <Leader>q :q<CR>
 
 noremap <silent> <Leader>lc :SyntasticCheck<CR>
 noremap <silent> <Leader>lr :SyntasticReset<CR>
