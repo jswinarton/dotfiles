@@ -80,15 +80,14 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jamessan/vim-gnupg'
-Plugin 'jceb/vim-orgmode'
 Plugin 'majutsushi/tagbar'
-Plugin 'mitsuhiko/vim-jinja'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 
 filetype plugin indent on
