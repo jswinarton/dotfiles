@@ -28,6 +28,13 @@ fi
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
 
+# sets the tab title in iTerm2
+title() {
+  echo -ne "\033]0;"$*"\007"
+}
+
+title $(hostname)
+
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
 
