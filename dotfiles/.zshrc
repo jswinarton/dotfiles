@@ -9,6 +9,9 @@ setopt AUTO_CD  # cd into directories without using 'cd'
 # Job Control
 setopt NOTIFY  # report status of background jobs as soon as possible
 
+# History
+setopt APPEND_HISTORY  # multiple parallel zsh sessions share history
+
 # Prompting
 setopt PROMPT_SUBST  # allow expansion in the prompt
 
