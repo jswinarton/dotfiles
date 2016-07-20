@@ -76,6 +76,7 @@ Plugin 'godlygeek/tabular'  " vim-markdown
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
