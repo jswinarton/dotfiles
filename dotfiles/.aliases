@@ -53,17 +53,17 @@ alias fixairplay="pkill coreaudiod sbin"
 
 # node.js: List npm modules without dependencies
 npm_ls() {
-    npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
+  npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
 }
 
 # Atom: List only user-installed packages
 apm_ls() {
-	apm list --installed --bare | grep '^[^@]\+' -o
+  apm list --installed --bare | grep '^[^@]\+' -o
 }
 
 # Django-specific aliases
 rs() {
-    ./manage.py runserver 0.0.0.0:${1:-8000}
+  ./manage.py runserver 0.0.0.0:${1:-8000}
 }
 
 alias mp='./manage.py '
@@ -71,11 +71,11 @@ alias ds="./manage.py shell_plus 2> /dev/null || ./manage.py shell"
 alias dbs="./manage.py dbshell"
 
 dj_startproject() {
-	django-admin startapp --template=https://github.com/jswinarton/django_template/archive/master.zip $@
+  django-admin startapp --template=https://github.com/jswinarton/django_template/archive/master.zip $@
 }
 
 venv() {
-	source $1/bin/activate
+  source $1/bin/activate
 }
 
 alias mux="tmux a || tmux new -s 'default'"
