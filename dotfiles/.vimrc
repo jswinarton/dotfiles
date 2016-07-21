@@ -75,6 +75,7 @@ Plugin 'godlygeek/tabular'  " vim-markdown
 " plugins
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'chrisbra/csv.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'elixir-lang/vim-elixir'
