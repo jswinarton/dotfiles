@@ -53,7 +53,7 @@ else
   HOSTNAME="$(hostname):"
 fi
 
-PROMPT_COLOR=$FG[$(~/.dotfiles_support/hostname-color.rb)]
+PROMPT_COLOR=$FG[$(hostname-color)]
 
 # add a marker if we're in a python virtualenv
 function set_virtualenv_marker() {
