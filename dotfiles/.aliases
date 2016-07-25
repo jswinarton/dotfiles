@@ -84,6 +84,8 @@ pq() {
   pgcli -U postgres $@ 2> /dev/null || psql -U postgres $@
 }
 
+alias a="cd ~/apps"
+
 
 # Based on Mathias Bynens' dotfiles at
 # https://github.com/mathiasbynens/dotfiles/blob/master/.aliases.
