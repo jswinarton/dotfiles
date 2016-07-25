@@ -50,6 +50,9 @@ set laststatus=2
 " new splits open to the right and below by default
 set splitright
 set splitbelow
+
+" set a better location for the ctags file
+set tags+=.tags
 " }}}
 
 " Syntax and themes {{{
@@ -134,11 +137,12 @@ noremap <silent> <F8> :NERDTreeFocus<CR>
 noremap <silent> <F9> :TagbarOpen -fj<CR>
 noremap <silent> <F12> :q<CR>
 
+noremap <silent> <C-S-P> :CtrlPTag<CR>
+
 noremap <silent> <Leader>nr :set number \| set relativenumber<CR>
 noremap <silent> <Leader>nn :set number \| set norelativenumber<CR>
 noremap <silent> <Leader>no :set nonumber \| set norelativenumber<CR>
 
-noremap <silent> <Leader>o :CtrlPBufTag<CR>
 noremap <silent> <Leader>a :set wrap!<CR>
 noremap <silent> <Leader>z :redraw!<CR>
 noremap <silent> <Leader>i :set list!<CR>

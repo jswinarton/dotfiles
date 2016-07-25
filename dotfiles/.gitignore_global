@@ -50,3 +50,6 @@ Temporary Items
 
 # mix-fast zsh plugin artifact
 .mix_tasks
+
+# ctags files
+.tags
