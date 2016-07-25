@@ -84,8 +84,10 @@ pq() {
   pgcli -U postgres $@ 2> /dev/null || psql -U postgres $@
 }
 
-alias a="cd ~/apps"
-
+a() {
+  cd ~/apps/$1
+}
+compdef '_path_files -W ~/apps/ -/ && return 0 || return 1' a
 
 # Based on Mathias Bynens' dotfiles at
 # https://github.com/mathiasbynens/dotfiles/blob/master/.aliases.
