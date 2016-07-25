@@ -53,7 +53,7 @@ else
   HOSTNAME="$(hostname):"
 fi
 
-PROMPT_COLOR=$FG[$(hostname-color)]
+PROMPT_COLOR=$FG[$($HOME/bin/hostname-color)]
 
 # add a marker if we're in a python virtualenv
 function set_virtualenv_marker() {
