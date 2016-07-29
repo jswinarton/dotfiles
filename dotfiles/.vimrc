@@ -130,46 +130,52 @@ autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
 autocmd Filetype markdown setlocal linebreak conceallevel=2
 autocmd Filetype java setlocal ts=4 sw=4 sts=4
+autocmd Filetype elixir setlocal colorcolumn=100
 " }}}
 
 " Keybindings {{{
-noremap <silent> <F2> :set paste!<CR>
-noremap <silent> <F8> :NERDTreeFocus<CR>
-noremap <silent> <F9> :TagbarOpen -fj<CR>
-noremap <silent> <F12> :q<CR>
+noremap <F2> :set paste!<CR>
+noremap <F8> :NERDTreeFocus<CR>
+noremap <F9> :TagbarOpen -fj<CR>
+noremap <F10> :source ~/.vimrc<CR>
+noremap <F12> :q<CR>
 
-noremap <silent> <C-S-P> :CtrlPTag<CR>
+noremap <C-o> :CtrlPTag<CR>
 
-noremap <silent> <Leader>nr :set number \| set relativenumber<CR>
-noremap <silent> <Leader>nn :set number \| set norelativenumber<CR>
-noremap <silent> <Leader>no :set nonumber \| set norelativenumber<CR>
+noremap <Leader>nr :set number \| set relativenumber<CR>
+noremap <Leader>nn :set number \| set norelativenumber<CR>
+noremap <Leader>no :set nonumber \| set norelativenumber<CR>
 
-noremap <silent> <Leader>a :set wrap!<CR>
-noremap <silent> <Leader>z :redraw!<CR>
-noremap <silent> <Leader>i :set list!<CR>
-noremap <silent> <Leader><Space> :nohlsearch<CR>
+noremap <Leader>a :set wrap!<CR>
+noremap <Leader>i :set list!<CR>
+noremap <Leader>h :nohlsearch<CR>
 
-noremap <silent> <Leader>s :split<CR>
-noremap <silent> <Leader>v :vsplit<CR>
+noremap <S-Enter> O<Esc>
+noremap <CR> o<Esc>
+noremap K i<CR><Esc>k
 
-noremap <silent> <Leader>lc :SyntasticCheck<CR>
-noremap <silent> <Leader>lr :SyntasticReset<CR>
-noremap <silent> <Leader>lt :SyntasticToggleMode<CR>
+noremap <Leader>s :split<CR>
+noremap <Leader>v :vsplit<CR>
+
+noremap <Leader>lc :SyntasticCheck<CR>
+noremap <Leader>lr :SyntasticReset<CR>
+noremap <Leader>lt :SyntasticToggleMode<CR>
+
 
 " Tab shortcuts
-noremap <silent> tn :tabnew<CR>
-noremap <silent> th :tabprev<CR>
-noremap <silent> tl :tabnext<CR>
-noremap <silent> tx :tabclose<CR>
-noremap <silent> t1 :tabn 1<CR>
-noremap <silent> t2 :tabn 2<CR>
-noremap <silent> t3 :tabn 3<CR>
-noremap <silent> t4 :tabn 4<CR>
-noremap <silent> t5 :tabn 5<CR>
-noremap <silent> t6 :tabn 6<CR>
-noremap <silent> t7 :tabn 7<CR>
-noremap <silent> t8 :tabn 8<CR>
-noremap <silent> t9 :tabn 9<CR>
+noremap tn :tabnew<CR>
+noremap th :tabprev<CR>
+noremap tl :tabnext<CR>
+noremap tx :tabclose<CR>
+noremap t1 :tabn 1<CR>
+noremap t2 :tabn 2<CR>
+noremap t3 :tabn 3<CR>
+noremap t4 :tabn 4<CR>
+noremap t5 :tabn 5<CR>
+noremap t6 :tabn 6<CR>
+noremap t7 :tabn 7<CR>
+noremap t8 :tabn 8<CR>
+noremap t9 :tabn 9<CR>
 
 " Swap semicolon and colon mapping
 noremap ; :
