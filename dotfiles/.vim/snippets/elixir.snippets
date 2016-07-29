@@ -14,6 +14,14 @@ snippet doc
 	@doc """
 	${1}
 	"""
+snippet ectos
+	defmodule ${1:SchemaName} do
+	  use Ecto.Schema
+
+	  schema "${2}" do
+	    ${3}
+	  end
+	end
 snippet fn
 	fn(${1:args}) -> ${2} end
 snippet pry
