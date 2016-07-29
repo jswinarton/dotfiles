@@ -33,17 +33,6 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
-# Copy public key to the clipboard
-alias copykeys='cat ~/.ssh/id_rsa.pub | pbcopy'
-
 # Clear shell history
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
 
@@ -88,7 +77,3 @@ a() {
   cd ~/apps/$1
 }
 compdef '_path_files -W ~/apps/ -/ && return 0 || return 1' a
-
-# Based on Mathias Bynens' dotfiles at
-# https://github.com/mathiasbynens/dotfiles/blob/master/.aliases.
-# Additional useful aliases are added to zsh by oh-my-zsh.
