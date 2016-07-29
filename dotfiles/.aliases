@@ -84,6 +84,8 @@ pq() {
   pgcli -U postgres $@ 2> /dev/null || psql -U postgres $@
 }
 
+alias pserve="python -m SimpleHTTPServer 8088"
+
 a() {
   cd ~/apps/$1
 }
