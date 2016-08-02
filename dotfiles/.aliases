@@ -74,8 +74,3 @@ pq() {
 }
 
 alias pserve="python -m SimpleHTTPServer 8088"
-
-a() {
-  cd ~/apps/$1
-}
-compdef '_path_files -W ~/apps/ -/ && return 0 || return 1' a

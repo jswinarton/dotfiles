@@ -86,6 +86,6 @@ RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset
 
 # EVERYTHING ELSE
 # ---------------
-bindkey -v  # allow for vim keybindings while editing command prompts
+cdpath+=(~/apps)
 
 source $HOME/.commonrc
