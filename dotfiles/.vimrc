@@ -57,9 +57,7 @@ set tags+=.tags
 
 " Syntax and themes {{{
 syntax on
-colorscheme gruvbox
-
-hi Normal ctermbg=none
+colorscheme srcery
 " }}}
 
 " Plugins and plugin management {{{

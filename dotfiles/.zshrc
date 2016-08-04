@@ -86,6 +86,6 @@ RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset
 
 # EVERYTHING ELSE
 # ---------------
-cdpath+=(~/apps)
+cdpath+=(~/apps ~)
 
 source $HOME/.commonrc
