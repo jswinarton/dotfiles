@@ -99,6 +99,7 @@ filetype plugin indent on
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_powerline_fonts=1
+let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V': 'V', 's': 'S', 'S': 'S'}
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" "*.pyc" "tmp/*"'
