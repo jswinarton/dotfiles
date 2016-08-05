@@ -54,12 +54,6 @@ set splitbelow
 " set a better location for the ctags file
 set tags+=.tags
 " }}}
-
-" Syntax and themes {{{
-syntax on
-colorscheme srcery
-" }}}
-
 " Plugins and plugin management {{{
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -78,7 +72,6 @@ Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chrisbra/csv.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
@@ -92,6 +85,12 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+
+" themes
+Plugin 'morhetz/gruvbox'
+Plugin 'dracula/vim'
+Plugin 'roosta/srcery'
+Plugin 'chriskempson/base16-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -117,12 +116,14 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
 " }}}
-
+" Syntax and themes {{{
+syntax on
+colorscheme srcery
+" }}}
 " Auto commands {{{
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
-
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
@@ -130,7 +131,6 @@ autocmd Filetype markdown setlocal linebreak conceallevel=2
 autocmd Filetype java setlocal ts=4 sw=4 sts=4
 autocmd Filetype elixir setlocal colorcolumn=100
 " }}}
-
 " Keybindings {{{
 noremap <F2> :set paste!<CR>
 noremap <F8> :NERDTreeFocus<CR>
