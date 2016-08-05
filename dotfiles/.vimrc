@@ -96,10 +96,9 @@ call vundle#end()
 filetype plugin indent on
 
 " Airline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_section_x = ''
 let g:airline_section_y = ''
+let g:airline_powerline_fonts=1
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" "*.pyc" "tmp/*"'
