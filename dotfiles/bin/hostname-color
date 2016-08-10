@@ -1,11 +1,8 @@
-#!/usr/bin/env ruby
-require 'socket'
+#!/usr/bin/env python
 
-hostname = Socket.gethostname
-hostname_as_seed = hostname.each_byte.map(&:to_i).join("").to_i
+from socket import gethostname
+import random
 
-color = Random.new(hostname_as_seed).rand(256).to_s
-color = "0" + color if color.length == 2
-
-puts color
+random.seed(gethostname())
+print random.randint(1,7)
 
