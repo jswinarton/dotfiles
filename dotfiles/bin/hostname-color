@@ -4,5 +4,5 @@ from socket import gethostname
 import random
 
 random.seed(gethostname())
-print random.randint(1,7)
+print "{0:03d}".format(random.randint(1,7))
 
