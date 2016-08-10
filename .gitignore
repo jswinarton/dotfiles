@@ -1,15 +1,11 @@
-dotfiles/.atom/.apm/
-dotfiles/.atom/.node-gyp/
-dotfiles/.atom/compile-cache/
-dotfiles/.atom/packages/
-dotfiles/.atom/storage/
-
 dotfiles/.ipython/extensions/
 dotfiles/.ipython/nbextensions/
 dotfiles/.ipython/profile_default/db/
 dotfiles/.ipython/profile_default/log/
 dotfiles/.ipython/profile_default/pid/
 dotfiles/.ipython/profile_default/security/
+
+dotfiles/.oh-my-zsh
 
 dotfiles/.vim/.netrwhist
 dotfiles/.vim/bundle/*

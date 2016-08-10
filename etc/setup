@@ -4,6 +4,9 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ROOT_DIR=$(cd $CURRENT_DIR && cd ../ && pwd)
 DOTFILE_DIR=$ROOT_DIR/dotfiles
 
+git clone https://github.com/robbyrussell/oh-my-zsh.git $DOTFILE_DIR/.oh-my-zsh
+git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILE_DIR/.vim/bundle/Vundle.vim
+
 shopt -s dotglob
 
 for f in $DOTFILE_DIR/*
@@ -14,3 +17,4 @@ do
 
     ln -sf $SRC_FILE $DST_FILE
 done
+
