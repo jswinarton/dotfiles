@@ -70,27 +70,17 @@ Plugin 'godlygeek/tabular'  " vim-markdown
 " plugins
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'chrisbra/csv.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jamessan/vim-gnupg'
-Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-
-" themes
-Plugin 'morhetz/gruvbox'
-Plugin 'dracula/vim'
 Plugin 'roosta/srcery'
-Plugin 'chriskempson/base16-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -133,8 +123,6 @@ autocmd Filetype elixir setlocal colorcolumn=100
 " }}}
 " Keybindings {{{
 noremap <F2> :set paste!<CR>
-noremap <F8> :NERDTreeFocus<CR>
-noremap <F9> :TagbarOpen -fj<CR>
 noremap <F10> :source ~/.vimrc<CR>
 noremap <F12> :q<CR>
 
