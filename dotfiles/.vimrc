@@ -39,7 +39,7 @@ set noswapfile
 set nowb
 
 " ignore these file patterns when expanding wildcards
-set wildignore=*.pyc,*/node_modules/*,*/bower_components/*,*/.virtualenv/*
+set wildignore=*.pyc
 
 " wildmenu options
 set wildmenu
@@ -80,6 +80,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 Plugin 'roosta/srcery'
 call vundle#end()
 
@@ -92,12 +93,7 @@ let g:airline_powerline_fonts=1
 let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V': 'V', 's': 'S', 'S': 'S'}
 
 " CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" "*.pyc" "tmp/*"'
-
-" NERDTree
-let NERDTreeShowHidden = 1
-let NERDTreeShowBookmarks = 1
-let NERDTreeIgnore = ['\.pyc$','\.git$']
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" --ignore "*.pyc" --ignore "tmp/*" --ignore "_build/*"'
 
 " Syntastic
 let g:syntastic_mode_map = {'mode': 'passive'}
@@ -127,6 +123,7 @@ noremap <F10> :source ~/.vimrc<CR>
 noremap <F12> :q<CR>
 
 noremap <C-o> :CtrlPTag<CR>
+noremap <C-b> :CtrlPBuffer<CR>
 
 noremap <Leader>nr :set number \| set relativenumber<CR>
 noremap <Leader>nn :set number \| set norelativenumber<CR>
