@@ -22,3 +22,14 @@
 
 [core]
   excludesfile = ~/.gitignore
+
+[url "ssh://git@github.com/"]
+  insteadOf = github:
+  insteadOf = gh:
+[url "ssh://git@github.com/jswinarton/"]
+  insteadOf = js:
+[url "ssh://git@bitbucket.org"]
+  insteadOf = bitbucket:
+  insteadOf = bb:
+[url "ssh://git@bitbucket.org/halogenmobile/"]
+  insteadOf = kc:
