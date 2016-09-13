@@ -70,7 +70,7 @@ venv() {
 alias mux="tmux a || tmux new -s 'default'"
 
 pq() {
-  pgcli -U postgres $@ 2> /dev/null || psql -U postgres $@
+  pgcli $@ 2> /dev/null || psql postgres $@
 }
 
 alias pserve="python -m SimpleHTTPServer 8088"
