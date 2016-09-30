@@ -65,7 +65,6 @@ call vundle#begin()
 " dependencies
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
 Plugin 'tomtom/tlib_vim'  " vim-snipmate
-Plugin 'godlygeek/tabular'  " vim-markdown
 
 " plugins
 Plugin 'bling/vim-airline'
@@ -74,6 +73,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'godlygeek/tabular'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'jswinarton/magik'
 Plugin 'plasticboy/vim-markdown'
