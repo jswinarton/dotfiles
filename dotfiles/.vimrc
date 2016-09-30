@@ -75,13 +75,13 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jamessan/vim-gnupg'
+Plugin 'jswinarton/magik'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
-Plugin 'roosta/srcery'
 call vundle#end()
 
 filetype plugin indent on
