@@ -4,17 +4,35 @@ snippet def
 	end
 snippet defmodule
 	defmodule ${1:ModuleName} do
-	  ${2}
+	  @moduledoc """${2}
+	  """
+
+	  def ${3:fun}(${4:args}) do
+	    ${5}
+	  end
 	end
-snippet defp
-	defp ${1:name} do
-	  ${2}
+snippet def
+	@doc """${2}
+	"""
+	@spec ${3}
+	def ${1:fun}(${4:args}) do
+	  ${5}
+	end
+snippet deftask
+	defmodule Mix.Tasks.${1:TaskName} do
+	  use Mix.Task
+
+	  @shortdoc "${2:This is the description of the task}"
+
+	  def run(args) do
+	    ${3:Mix.shell.info "hello"}
+	  end
 	end
 snippet doc
 	@doc """
 	${1}
 	"""
-snippet ectos
+snippet ectoschema
 	defmodule ${1:SchemaName} do
 	  use Ecto.Schema
 
