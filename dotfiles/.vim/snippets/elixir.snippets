@@ -1,6 +1,6 @@
 snippet def
 	def ${1:name} do
-	  ${2}
+	  ${0}
 	end
 snippet defmodule
 	defmodule ${1:ModuleName} do
@@ -8,7 +8,7 @@ snippet defmodule
 	  """
 
 	  def ${3:fun}(${4:args}) do
-	    ${5}
+	    ${0}
 	  end
 	end
 snippet def
@@ -16,7 +16,7 @@ snippet def
 	"""
 	@spec ${3}
 	def ${1:fun}(${4:args}) do
-	  ${5}
+	  ${0}
 	end
 snippet deftask
 	defmodule Mix.Tasks.${1:TaskName} do
@@ -25,28 +25,28 @@ snippet deftask
 	  @shortdoc "${2:This is the description of the task}"
 
 	  def run(args) do
-	    ${3:Mix.shell.info "hello"}
+	    ${0:Mix.shell.info "hello"}
 	  end
 	end
 snippet doc
 	@doc """
-	${1}
+	${0}
 	"""
 snippet ectoschema
 	defmodule ${1:SchemaName} do
 	  use Ecto.Schema
 
 	  schema "${2}" do
-	    ${3}
+	    ${0}
 	  end
 	end
 snippet fn
-	fn(${1:args}) -> ${2} end
+	fn(${1:args}) -> ${0} end
 snippet i
-	IO.inspect ${1}
+	IO.inspect ${0}
 snippet pry
 	require IEx; IEx.pry
 snippet test
 	test "${1:test_name}" do
-	  ${2}
+	  ${0}
 	end
