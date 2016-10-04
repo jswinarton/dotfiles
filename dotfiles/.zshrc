@@ -6,6 +6,9 @@
 # Changing Directories
 setopt AUTO_CD  # cd into directories without using 'cd'
 
+# Expansion and Globbing
+setopt EXTENDED_GLOB
+
 # Job Control
 setopt NOTIFY  # report status of background jobs as soon as possible
 
