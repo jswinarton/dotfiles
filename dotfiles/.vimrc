@@ -135,7 +135,6 @@ noremap <Leader>h :nohlsearch<CR>
 
 noremap <S-Enter> O<Esc>
 noremap <CR> o<Esc>
-noremap K i<CR><Esc>k
 
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
@@ -143,6 +142,11 @@ noremap <Leader>v :vsplit<CR>
 noremap <Leader>lc :SyntasticCheck<CR>
 noremap <Leader>lr :SyntasticReset<CR>
 noremap <Leader>lt :SyntasticToggleMode<CR>
+
+" this is to make snipmate a bit easier to use. when switching between tab
+" stops, snipmate puts you into select mode. It seems like there's no easy way
+" to clear out the default tab stop content and enter insert mode.
+snoremap <Space> <Backspace>i
 
 
 " Tab shortcuts
