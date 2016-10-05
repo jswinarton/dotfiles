@@ -13,6 +13,22 @@ snippet def
 	def ${1:fun}(${4:args}) do
 	  ${0}
 	end
+snippet defsupervisor
+	defmodule ${1:ModuleName}.${2:Supervisor} do
+	  use Supervisor
+
+	  def start_link do
+	    Supervisor.start_link(__MODULE__, :ok)
+	  end
+
+	  def init(:ok) do
+	    children = [
+	      ${0}
+	    ]
+
+	    supervise(children, strategy: :one_for_one)
+	  end
+	end
 snippet deftask
 	defmodule Mix.Tasks.${1:TaskName} do
 	  use Mix.Task
@@ -22,6 +38,16 @@ snippet deftask
 	  def run(args) do
 	    ${0:Mix.shell.info "hello"}
 	  end
+	end
+snippet deftest
+	defmodule ${1:ModuleName}Test do
+	  use ExUnit.Case, async: true
+
+	  setup do
+	    ${2}
+	  end
+
+	  ${0}
 	end
 snippet doc
 	@doc """
@@ -42,6 +68,6 @@ snippet i
 snippet pry
 	require IEx; IEx.pry
 snippet test
-	test "${1:test_name}" do
+	test "${1:test description}", ${2:state} do
 	  ${0}
 	end
