@@ -7,11 +7,8 @@ snippet defmodule
 	  ${0}
 	end
 snippet def
-	@doc """${2}
-	"""
-	@spec ${3}
-	def ${1:fun}(${4:args}) do
-	  ${0}
+	def ${1:fun}(${2:args}) do
+	  ${3}${0}
 	end
 snippet defsupervisor
 	defmodule ${1:ModuleName}.${2:Supervisor} do
@@ -23,10 +20,10 @@ snippet defsupervisor
 
 	  def init(:ok) do
 	    children = [
-	      ${0}
+	      ${3}
 	    ]
 
-	    supervise(children, strategy: :one_for_one)
+	    supervise(children, strategy: :one_for_one)${0}
 	  end
 	end
 snippet deftask
