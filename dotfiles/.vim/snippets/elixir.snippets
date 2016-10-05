@@ -1,14 +1,18 @@
 snippet def
-	def ${1:name} do
-	  ${0}
+	def ${1:fun}(${2:args}) do
+	  ${3}${0}
+	end
+snippet defapplication
+	defmodule ${1:ModuleName} do
+	  use Application
+
+	  def start(_type, _args) do
+	    ${0}
+	  end
 	end
 snippet defmodule
 	defmodule ${1:ModuleName} do
 	  ${0}
-	end
-snippet def
-	def ${1:fun}(${2:args}) do
-	  ${3}${0}
 	end
 snippet defsupervisor
 	defmodule ${1:ModuleName}.${2:Supervisor} do
@@ -62,6 +66,10 @@ snippet fn
 	fn(${1:args}) -> ${0} end
 snippet i
 	IO.inspect ${0}
+snippet moduledoc
+	@moduledoc """
+	${0}
+	"""
 snippet pry
 	require IEx; IEx.pry
 snippet test
