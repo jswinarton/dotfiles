@@ -1,6 +1,14 @@
+snippet case
+	case ${1:variable} do
+	  ${2:value} -> ${0}
+	end
 snippet def
-	def ${1:fun}(${2:args}) do
-	  ${3}${0}
+	def ${1:fun} do
+	  ${2}${0}
+	end
+snippet defp
+	defp ${1:fun} do
+	  ${2}${0}
 	end
 snippet defapplication
 	defmodule ${1:ModuleName} do
@@ -63,9 +71,11 @@ snippet ectoschema
 	  end
 	end
 snippet fn
-	fn(${1:args}) -> ${0} end
+	fn${1} -> ${2} end${0}
 snippet i
 	IO.inspect ${0}
+snippet ok
+	{:ok, ${1}} ${0}
 snippet moduledoc
 	@moduledoc """
 	${0}
