@@ -1,3 +1,7 @@
+snippet %
+	%${1:__MODULE__}{${2}}$0
+snippet __
+	__MODULE__
 snippet case
 	case ${1:variable} do
 	  ${2:value} -> ${0}
@@ -51,17 +55,15 @@ snippet deftask
 snippet deftest
 	defmodule ${1:ModuleName}Test do
 	  use ExUnit.Case, async: true
-
-	  setup do
-	    ${2}
-	  end
+	  doctest $1
 
 	  ${0}
 	end
 snippet doc
-	@doc """
-	${0}
+	@doc ${1:~S}"""
+	${2}
 	"""
+	${0}
 snippet ectoschema
 	defmodule ${1:SchemaName} do
 	  use Ecto.Schema
@@ -70,12 +72,14 @@ snippet ectoschema
 	    ${0}
 	  end
 	end
+snippet error
+	{:error, ${1}}${0}
 snippet fn
 	fn${1} -> ${2} end${0}
 snippet i
 	IO.inspect ${0}
 snippet ok
-	{:ok, ${1}} ${0}
+	{:ok, ${1}}${0}
 snippet moduledoc
 	@moduledoc """
 	${0}
