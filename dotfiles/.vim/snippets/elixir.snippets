@@ -1,22 +1,46 @@
-snippet def
-	def ${1:name} do
-	  ${0}
+snippet %
+	%${1:__MODULE__}{${2}}$0
+snippet __
+	__MODULE__
+snippet case
+	case ${1:variable} do
+	  ${2:value} -> ${0}
 	end
-snippet defmodule
+snippet def
+	def ${1:fun} do
+	  ${2}${0}
+	end
+snippet defp
+	defp ${1:fun} do
+	  ${2}${0}
+	end
+snippet defapplication
 	defmodule ${1:ModuleName} do
-	  @moduledoc """${2}
-	  """
+	  use Application
 
-	  def ${3:fun}(${4:args}) do
+	  def start(_type, _args) do
 	    ${0}
 	  end
 	end
-snippet def
-	@doc """${2}
-	"""
-	@spec ${3}
-	def ${1:fun}(${4:args}) do
+snippet defmodule
+	defmodule ${1:ModuleName} do
 	  ${0}
+	end
+snippet defsupervisor
+	defmodule ${1:ModuleName}.${2:Supervisor} do
+	  use Supervisor
+
+	  def start_link do
+	    Supervisor.start_link(__MODULE__, :ok)
+	  end
+
+	  def init(:ok) do
+	    children = [
+	      ${3}
+	    ]
+
+	    supervise(children, strategy: :one_for_one)${0}
+	  end
 	end
 snippet deftask
 	defmodule Mix.Tasks.${1:TaskName} do
@@ -28,10 +52,18 @@ snippet deftask
 	    ${0:Mix.shell.info "hello"}
 	  end
 	end
+snippet deftest
+	defmodule ${1:ModuleName}Test do
+	  use ExUnit.Case, async: true
+	  doctest $1
+
+	  ${0}
+	end
 snippet doc
-	@doc """
-	${0}
+	@doc ${1:~S}"""
+	${2}
 	"""
+	${0}
 snippet ectoschema
 	defmodule ${1:SchemaName} do
 	  use Ecto.Schema
@@ -40,13 +72,21 @@ snippet ectoschema
 	    ${0}
 	  end
 	end
+snippet error
+	{:error, ${1}}${0}
 snippet fn
-	fn(${1:args}) -> ${0} end
+	fn${1} -> ${2} end${0}
 snippet i
 	IO.inspect ${0}
+snippet ok
+	{:ok, ${1}}${0}
+snippet moduledoc
+	@moduledoc """
+	${0}
+	"""
 snippet pry
 	require IEx; IEx.pry
 snippet test
-	test "${1:test_name}" do
+	test "${1:test description}", ${2:state} do
 	  ${0}
 	end
