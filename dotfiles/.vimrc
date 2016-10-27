@@ -135,6 +135,8 @@ noremap <Leader>a :set wrap!<CR>
 noremap <Leader>i :set list!<CR>
 noremap <Leader>h :nohlsearch<CR>
 
+noremap <Space> :nohlsearch<CR>
+
 noremap <S-Enter> O<Esc>
 noremap <CR> o<Esc>
 noremap K i<CR><Esc>k
