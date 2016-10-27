@@ -76,6 +76,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'jswinarton/magik'
+Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
@@ -119,6 +120,7 @@ autocmd Filetype elixir setlocal colorcolumn=100
 " }}}
 " Keybindings {{{
 noremap <F2> :set paste!<CR>
+noremap <F7> :TagbarToggle<CR>
 noremap <F10> :source ~/.vimrc<CR>
 noremap <F12> :q<CR>
 
