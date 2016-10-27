@@ -9,6 +9,11 @@ alias gds="git diff --staged"
 alias gc="git ci -m"
 alias gca="git ci -am"
 
+
+# Disable default oh-my-zsh ls behaviour
+unalias ls
+unalias l
+
 # Coloured ls
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"

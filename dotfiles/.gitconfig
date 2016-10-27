@@ -33,3 +33,6 @@
   insteadOf = bb:
 [url "ssh://git@bitbucket.org/halogenmobile/"]
   insteadOf = kc:
+[url "ssh://git@gitlab.com/jswinarton"]
+  insteadOf = gitlab:
+  insteadOf = gl:
