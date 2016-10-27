@@ -76,3 +76,6 @@ pq() {
 alias pserve="python -m SimpleHTTPServer 8088"
 
 alias mkdir="mkdir -p"
+
+alias b='bundle'
+alias be='bundle exec'
