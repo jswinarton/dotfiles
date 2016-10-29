@@ -54,9 +54,6 @@ set splitbelow
 " set a better location for the ctags file
 set tags+=.tags
 
-" treat underscores as a word boundary
-set iskeyword-=_
-
 " }}}
 " Plugins and plugin management {{{
 set rtp+=~/.vim/bundle/Vundle.vim
