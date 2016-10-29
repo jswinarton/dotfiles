@@ -77,6 +77,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'jswinarton/magik'
+Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
@@ -120,6 +121,8 @@ autocmd Filetype elixir setlocal colorcolumn=100
 " }}}
 " Keybindings {{{
 noremap <F2> :set paste!<CR>
+noremap <F7> :TagbarToggle<CR>
+noremap <F8> :TagbarOpenAutoClose<CR>
 noremap <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -137,6 +140,8 @@ noremap <Leader>no :set nonumber \| set norelativenumber<CR>
 noremap <Leader>a :set wrap!<CR>
 noremap <Leader>i :set list!<CR>
 noremap <Leader>h :nohlsearch<CR>
+
+noremap <Space> :nohlsearch<CR>
 
 noremap <S-Enter> O<Esc>
 noremap <CR> o<Esc>
