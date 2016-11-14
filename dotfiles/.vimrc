@@ -75,7 +75,6 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'jamessan/vim-gnupg'
 Plugin 'jswinarton/magik'
 Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
@@ -84,6 +83,13 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+
+" optional plugins
+" these plugins are disabled by default because they either take a long time
+" to install, slow down the use of vim, or are rarely used. Uncomment to
+" enable only when necessary.
+" Plugin 'jamessan/vim-gnupg'
+" Plugin 'fatih/vim-go'
 call vundle#end()
 
 filetype plugin indent on

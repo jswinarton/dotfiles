@@ -21,6 +21,12 @@ if [ -d "/usr/local/bin" ]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
+# add go executables to the path
+if [ -d "/usr/local/go" ]; then
+    export PATH=/usr/local/go/bin:$PATH
+    export GOPATH=$HOME/apps/gocode
+fi
+
 # add dotfiles bin to the path
 export PATH=$HOME/bin:$PATH
 
