@@ -56,13 +56,13 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:*' check-for-changes true
 zstyle ':vcs_info:*:*' unstagedstr '○'
 zstyle ':vcs_info:*:*' stagedstr '●'
-zstyle ':vcs_info:*:*' formats "%S"  "%u%c %r  %b"
-zstyle ':vcs_info:*:*' actionformats "%S" "(%a) %u%c %r  %b"
-zstyle ':vcs_info:*:*' nvcsformats "%~" " "
+zstyle ':vcs_info:*:*' formats "%B%r%%b%F{3}/%15<..<%S%<<" "%u%c  %b"
+zstyle ':vcs_info:*:*' actionformats "%B%r%%b%F{3}/%15<..<%S%<<" "%u%c  %b"
+zstyle ':vcs_info:*:*' nvcsformats "%20<..<%~%<<" " "
 
 
-PROMPT="%{$PROMPT_COLOR%}▲ %$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%}'"%<<%{$FX[reset]%} "
-RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset]%}"
+PROMPT='%F{3}▲ ${vcs_info_msg_0_}%f '
+RPROMPT='%F{243}${vcs_info_msg_1_}%f'
 
 
 # EVERYTHING ELSE
