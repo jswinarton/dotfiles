@@ -6,7 +6,7 @@
 [alias]
   b=rev-parse --abbrev-ref HEAD
   br=branch
-  ci=!git force-local-config && git commit
+  ci=!git force-local-config && git commit --verbose
   cl=clone
   co=checkout
   d=diff
