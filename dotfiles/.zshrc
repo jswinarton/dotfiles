@@ -49,21 +49,33 @@ PROMPT_PATH_MAX_LENGTH=20
 PROMPT_COLOR=$FG[003]
 RPROMPT_COLOR=$FG[242]
 
-add-zsh-hook precmd vcs_info
+PROMPT='%F{3}▲ ${vcs_info_msg_0_}%f '
+RPROMPT='%F{243}${vcs_info_msg_1_}%f'
 
-# vcs_info parameters
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:*' check-for-changes true
 zstyle ':vcs_info:*:*' unstagedstr '○'
 zstyle ':vcs_info:*:*' stagedstr '●'
-zstyle ':vcs_info:*:*' formats "%B%r%%b%F{3}/%15<..<%S%<<" "%u%c  %b"
-zstyle ':vcs_info:*:*' actionformats "%B%r%%b%F{3}/%15<..<%S%<<" "%u%c  %b"
 zstyle ':vcs_info:*:*' nvcsformats "%20<..<%~%<<" " "
 
+function set_vcs_info_formats() {
+  GIT_BASE_LEFT_INFO_FORMAT="%B%r%%b%F{3}"
+  GIT_SUBDIR_FORMAT="/%15<..<%S%<<"
+  GIT_RIGHT_INFO_FORMAT="%u%c  %b"
 
-PROMPT='%F{3}▲ ${vcs_info_msg_0_}%f '
-RPROMPT='%F{243}${vcs_info_msg_1_}%f'
+  if [ -d .git ]; then
+    GIT_LEFT_INFO_FORMAT=$GIT_BASE_LEFT_INFO_FORMAT
+  else
+    GIT_LEFT_INFO_FORMAT="${GIT_BASE_LEFT_INFO_FORMAT}${GIT_SUBDIR_FORMAT}"
+  fi
 
+  zstyle ':vcs_info:*:*' formats $GIT_LEFT_INFO_FORMAT $GIT_RIGHT_INFO_FORMAT
+  zstyle ':vcs_info:*:*' actionformats $GIT_LEFT_INFO_FORMAT $GIT_RIGHT_INFO_FORMAT
+
+  vcs_info
+}
+
+add-zsh-hook precmd set_vcs_info_formats
 
 # EVERYTHING ELSE
 # ---------------
