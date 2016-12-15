@@ -46,45 +46,23 @@ fi
 # PROMPT
 # ------
 PROMPT_PATH_MAX_LENGTH=20
-PROMPT_END='%(!.#.-)'
-PROMPT_END_COLOR=$FG[105]
+PROMPT_COLOR=$FG[003]
 RPROMPT_COLOR=$FG[242]
 
-if [[ -n $TMUX ]]; then
-  HOSTNAME=""
-else
-  HOSTNAME="$(hostname):"
-fi
-
-PROMPT_COLOR=$FG[$($HOME/bin/hostname-color)]
-
-# add a marker if we're in a python virtualenv
-function set_virtualenv_marker() {
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    VIRTUALENV_MARKER=" •"
-  else
-    VIRTUALENV_MARKER=""
-  fi
-}
-
-add-zsh-hook precmd set_virtualenv_marker
 add-zsh-hook precmd vcs_info
 
 # vcs_info parameters
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:*' check-for-changes true
-zstyle ':vcs_info:*:*' unstagedstr '*'
-zstyle ':vcs_info:*:*' stagedstr '&'
-zstyle ':vcs_info:*:*' formats "%S" "%u%c %r:%b"
-zstyle ':vcs_info:*:*' actionformats "%S" "(%a) %u%c %r:%b"
-zstyle ':vcs_info:*:*' nvcsformats "%~" " "
+zstyle ':vcs_info:*:*' unstagedstr '○'
+zstyle ':vcs_info:*:*' stagedstr '●'
+zstyle ':vcs_info:*:*' formats "%B%r%%b%F{3}/%15<..<%S%<<" "%u%c  %b"
+zstyle ':vcs_info:*:*' actionformats "%B%r%%b%F{3}/%15<..<%S%<<" "%u%c  %b"
+zstyle ':vcs_info:*:*' nvcsformats "%20<..<%~%<<" " "
 
 
-PROMPT="%{$PROMPT_COLOR%}\
-${HOSTNAME}%$PROMPT_PATH_MAX_LENGTH<..<"'${vcs_info_msg_0_%%.}'"%<<\
-%{$PROMPT_END%}%{$FX[reset]%} "
-
-RPROMPT="%{$RPROMPT_COLOR%}"'${vcs_info_msg_1_}${VIRTUALENV_MARKER}'"%{$FX[reset]%}"
+PROMPT='%F{3}▲ ${vcs_info_msg_0_}%f '
+RPROMPT='%F{243}${vcs_info_msg_1_}%f'
 
 
 # EVERYTHING ELSE
