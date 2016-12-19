@@ -85,7 +85,7 @@ module.exports = {
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
-    bellSoundURL: 'http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Rupee_Bounce.wav',
+    bellSoundURL: 'http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Hammer_Post.wav',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
