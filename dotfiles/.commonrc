@@ -38,6 +38,10 @@ title() {
   echo -ne "\033]0;"$*"\007"
 }
 
+# a better color scheme for ls
+# see `man 1 ls` for details
+export LSCOLORS=Cxcxcxdxbxagadabagacad
+
 title $(hostname)
 
 # LANGUAGE-SPECIFIC SETTINGS
