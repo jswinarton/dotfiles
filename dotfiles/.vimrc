@@ -78,18 +78,18 @@ Plugin 'godlygeek/tabular'
 Plugin 'jswinarton/magik'
 Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
+" Plugin 'tpope/vim-vinegar'
 
 " optional plugins
 " these plugins are disabled by default because they either take a long time
 " to install, slow down the use of vim, or are rarely used. Uncomment to
 " enable only when necessary.
 " Plugin 'jamessan/vim-gnupg'
-Plugin 'fatih/vim-go'
 call vundle#end()
 
 filetype plugin indent on
@@ -102,6 +102,9 @@ let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V':
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" --ignore "*.pyc" --ignore "tmp/*" --ignore "_build/*"'
+
+" NERDTree
+let NERDTreeHijackNetrw = 1
 
 " Syntastic
 let g:syntastic_mode_map = {'mode': 'passive'}
@@ -135,6 +138,8 @@ noremap <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 noremap <F10> :source ~/.vimrc<CR>
 noremap <F12> :q<CR>
+
+noremap - :e .<CR>
 
 
 noremap <C-o> :CtrlPTag<CR>
