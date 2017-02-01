@@ -86,6 +86,8 @@ snippet moduledoc
 	"""
 snippet pry
 	require IEx; IEx.pry
+snippet tap
+	(fn arg -> require IEx; IEx.pry; arg end).()
 snippet test
 	test "${1:test description}", ${2:state} do
 	  ${0}
