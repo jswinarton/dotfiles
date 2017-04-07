@@ -17,3 +17,5 @@ brew install ruby
 brew install elixir
 brew install htop
 brew install tmux-mem-cpu-load
+brew install ansible
+brew install tree
