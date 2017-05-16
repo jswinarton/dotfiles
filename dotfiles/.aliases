@@ -78,7 +78,7 @@ pq() {
   pgcli $@ 2> /dev/null || psql postgres $@
 }
 
-alias pserve="python -m SimpleHTTPServer 8088"
+alias httpserve="python -m SimpleHTTPServer $@"
 
 alias mkdir="mkdir -p"
 
