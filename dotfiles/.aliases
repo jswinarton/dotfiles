@@ -84,3 +84,5 @@ alias mkdir="mkdir -p"
 
 alias b='bundle'
 alias be='bundle exec'
+
+alias ag='ag --path-to-agignore ~/.agignore'
