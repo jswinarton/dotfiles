@@ -69,6 +69,7 @@ Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
 " plugins
 Plugin 'bling/vim-airline'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
