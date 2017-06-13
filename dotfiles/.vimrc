@@ -108,6 +108,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" 
 
 " NERDTree
 let NERDTreeHijackNetrw = 1
+let NERDTreeShowLineNumbers = 1
 
 " Syntastic
 let g:syntastic_mode_map = {'mode': 'passive'}
