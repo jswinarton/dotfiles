@@ -34,6 +34,10 @@ export PATH=node_modules/.bin:$PATH
 # add dotfiles bin to the path
 export PATH=$HOME/bin:$PATH
 
+# use postgres user for psql/createdb commands by default
+# I hope this doesn't bite me in the ass hahahahaaaaaaaaa
+export PGUSER=postgres
+
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
 
