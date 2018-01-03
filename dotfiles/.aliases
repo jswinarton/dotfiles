@@ -4,11 +4,13 @@ alias sudo='sudo '
 # Common git aliases
 # A number of aliases already exist from oh-my-zsh,
 # but these are specific to my workflow
+alias g="git "
 alias gs="git status -s"
 alias gds="git diff --staged"
 alias gc="git ci -m"
 alias gca="git ci -am"
 
+alias v="vim"
 
 # Disable default oh-my-zsh ls behaviour
 unalias ls
@@ -30,46 +32,12 @@ alias pycclean="find . -type f -name '*.pyc' -delete"
 alias origclean="find . -type f -name '*.orig' -delete"
 alias cleanup="dsclean && pycclean && origclean"
 
-# Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
-
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
 # Clear shell history
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
-
-# Fix problems that prevent sound output from
-# switching properly
-alias fixairplay="pkill coreaudiod sbin"
 
 # node.js: List npm modules without dependencies
 npm_ls() {
   npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
-}
-
-# Atom: List only user-installed packages
-apm_ls() {
-  apm list --installed --bare | grep '^[^@]\+' -o
-}
-
-# Django-specific aliases
-rs() {
-  ./manage.py runserver 0.0.0.0:${1:-8000}
-}
-
-alias mp='./manage.py '
-alias ds="./manage.py shell_plus 2> /dev/null || ./manage.py shell"
-alias dbs="./manage.py dbshell"
-
-dj_startproject() {
-  django-admin startapp --template=https://github.com/jswinarton/django_template/archive/master.zip $@
-}
-
-venv() {
-  source $1/bin/activate
 }
 
 alias mux="tmux a || tmux new -s 'default'"
@@ -82,7 +50,6 @@ alias httpserve="python -m SimpleHTTPServer $@"
 
 alias mkdir="mkdir -p"
 
-alias b='bundle'
-alias be='bundle exec'
-
 alias ag='ag --path-to-agignore ~/.agignore'
+
+alias dce='docker compose exec '
