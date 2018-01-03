@@ -22,23 +22,3 @@
 
 [core]
   excludesfile = ~/.gitignore
-
-[filter "lfs"]
-  process = git-lfs filter-process
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-
-[url "ssh://git@github.com/"]
-  insteadOf = github:
-  insteadOf = gh:
-[url "ssh://git@github.com/jswinarton/"]
-  insteadOf = js:
-[url "ssh://git@bitbucket.org"]
-  insteadOf = bitbucket:
-  insteadOf = bb:
-[url "ssh://git@bitbucket.org/halogenmobile/"]
-  insteadOf = kc:
-[url "ssh://git@gitlab.com/jswinarton/"]
-  insteadOf = gitlab:
-  insteadOf = gl:
