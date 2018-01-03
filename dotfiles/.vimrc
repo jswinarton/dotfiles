@@ -122,8 +122,19 @@ syntax on
 colorscheme magik
 " }}}
 " Auto commands {{{
-" Strip trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+function! TrimEndLines()
+    let save_cursor = getpos(".")
+    :silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+endfunction
+
+function! TrimTrailingWhitespace()
+    :%s/\s\+$//e
+endfunction
+
+
+autocmd BufWritePre * call TrimEndLines()
+autocmd BufWritePre * call TrimTrailingWhitespace()
 " }}}
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
