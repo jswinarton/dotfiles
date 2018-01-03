@@ -52,4 +52,4 @@ alias mkdir="mkdir -p"
 
 alias ag='ag --path-to-agignore ~/.agignore'
 
-alias dce='docker compose exec '
+alias dce='docker-compose exec '
