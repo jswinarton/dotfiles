@@ -1,5 +1,6 @@
 dotfiles/.ipython/extensions/
 dotfiles/.ipython/nbextensions/
+dotfiles/.ipython/profile_default/history.sqlite
 dotfiles/.ipython/profile_default/db/
 dotfiles/.ipython/profile_default/log/
 dotfiles/.ipython/profile_default/pid/
