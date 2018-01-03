@@ -60,12 +60,6 @@ export PYTHONDONTWRITEBYTECODE=1
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
-syspip() {
-    # create a shortcut to access the global pip installation,
-    # since virtualenvs are required.
-    PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
 # OTHER CONFIGURATION FILES
 # ----------
 source $HOME/.aliases
