@@ -28,7 +28,7 @@ alias l="ls -Alh ${colorflag}"
 
 # Cleanup scripts
 alias dsclean="find . -type f -name '*.DS_Store' -ls -delete"
-alias pycclean="find . -type f -name '*.pyc' -delete"
+alias pycclean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 alias origclean="find . -type f -name '*.orig' -delete"
 alias cleanup="dsclean && pycclean && origclean"
 

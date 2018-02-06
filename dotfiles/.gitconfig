@@ -10,12 +10,16 @@
   cl=clone
   co=checkout
   d=diff
-  l=log --oneline
-  ll=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  l="log --pretty=format:'%C(yellow)%h%C(reset) %s%C(#6BBA38)%d%C(reset)' --abbrev-commit"
   sdiff=diff --staged
   sd=diff --staged
   st=status -s
   root=rev-parse --show-toplevel
+
+  # see unique commits not shared between two branches.
+  # usage:
+  # git branchdiff master...feature-branch
+  branchdiff="log --left-right --cherry-pick --oneline"
 
 [push]
   default = simple

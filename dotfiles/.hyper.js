@@ -7,16 +7,16 @@ module.exports = {
     fontFamily: '"Fira Code", "Cousine for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: '#fbb829',
+    cursorColor: '#F7AC08',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'BLOCK',
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: '#EFE2AC',
 
     // terminal background color
-    backgroundColor: '#16161B',
+    backgroundColor: '#001210',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -48,22 +48,24 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#16161B',
-      red: '#ff3128',
-      green: '#519f50',
-      yellow: '#fbb829',
-      blue: '#5573a3',
-      magenta: '#e02c6d',
-      cyan: '#1693a5',
-      white: '#918175',
-      lightBlack: '#2d2b28',
-      lightRed: '#da4939',
-      lightGreen: '#98bc37',
-      lightYellow: '#ffc66d',
-      lightBlue: '#6d9cbe',
-      lightMagenta: '#e35682',
-      lightCyan: '#34beda',
-      lightWhite: '#fce8c3'
+      black: '#001210', // 0
+      red: '#ff4e36', // 1
+      green: '#4D7548', // 2
+      yellow: '#DBA142', // 3
+      blue: '#0080B2', // 4
+      magenta: '#e02c6d', // 5
+      cyan: '#1693a5', // 6
+      white: '#52665C', // 7
+
+      // default colors, i.e. easiest to read
+      lightBlack: '#10281C', // 8
+      lightRed: '#ff3128', // 9
+      lightGreen: '#6BBA38', // 10
+      lightYellow: '#F7AC08', // 11
+      lightBlue: '#399DBC', // 12
+      lightMagenta: '#e35682', // 13
+      lightCyan: '#34beda', // 14
+      lightWhite: '#EFE2AC' // 15
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
