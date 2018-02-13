@@ -132,7 +132,7 @@ autocmd BufWritePre * call TrimTrailingWhitespace()
 " }}}
 " Language-specific settings {{{
 autocmd Filetype ruby setlocal colorcolumn=90
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81,100
 autocmd Filetype markdown setlocal linebreak conceallevel=0
 autocmd Filetype java setlocal ts=4 sw=4 sts=4
 autocmd Filetype go setlocal ts=8 sw=0 sts=0
