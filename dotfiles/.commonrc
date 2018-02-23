@@ -34,10 +34,6 @@ export PATH=node_modules/.bin:$PATH
 # add dotfiles bin to the path
 export PATH=$HOME/bin:$PATH
 
-# use postgres user for psql/createdb commands by default
-# I hope this doesn't bite me in the ass hahahahaaaaaaaaa
-export PGUSER=postgres
-
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
 
@@ -64,8 +60,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 # ----------
 source $HOME/.aliases
 
-# $HOME/.private is a catch-all script that includes
-# aliases, machine-specific configs, API keys,
-# and other sensitive data that isn't included
-# as part of the public repository.
+# ~/.extra is a hook file. Add additional commands that are private or
+# machine-specfic here.
 source $HOME/.private 2> /dev/null
