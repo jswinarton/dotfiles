@@ -17,4 +17,3 @@ do
 
     ln -sf $SRC_FILE $DST_FILE
 done
-

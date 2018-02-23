@@ -1,0 +1,16 @@
+#!/bin/bash
+
+brew install ag
+brew install ctags
+brew install git
+brew install htop
+brew install httpie
+brew install nmap
+brew install reattach-to-user-namespace
+brew install tmux
+brew install tmux-mem-cpu-load
+brew install tree
+brew install vim --override-system-vi
+brew install vimpager
+brew install wget
+brew install zsh
