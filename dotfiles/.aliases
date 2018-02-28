@@ -35,11 +35,6 @@ alias cleanup="dsclean && pycclean && origclean"
 # Clear shell history
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
 
-# node.js: List npm modules without dependencies
-npm_ls() {
-  npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
-}
-
 alias mux="tmux a || tmux new -s 'default'"
 
 pq() {
@@ -50,6 +45,13 @@ alias httpserve="python -m SimpleHTTPServer $@"
 
 alias mkdir="mkdir -p"
 
-alias ag='ag --path-to-agignore ~/.agignore'
+alias ag='ag --path-to-ignore ~/.agignore'
 
 alias dce='docker-compose exec '
+
+alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
+alias fucking='sudo '  # ask nicely
+
+# hack for Hyper.js, which doesn't properly respect preferences when opened from the Dock under Sierra
+# run this alias from Terminal.app and then quit
+alias openhyper='nohup /Applications/Hyper.app/Contents/MacOS/Hyper & disown && exit'

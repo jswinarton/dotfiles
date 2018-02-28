@@ -11,6 +11,8 @@ brew install tmux
 brew install tmux-mem-cpu-load
 brew install tree
 brew install vim --override-system-vi
-brew install vimpager
+# last tagged version of vimpager is broken,
+# install HEAD instead. see: https://github.com/rkitover/vimpager/issues/174
+brew install vimpager --HEAD
 brew install wget
 brew install zsh

@@ -24,13 +24,6 @@ module.exports = {
     // custom css to embed in the main window
     css: '',
 
-    // custom css to embed in the terminal window
-    termCSS: `
-      x-screen x-row {
-        font-variant-ligatures: initial;
-      }
-    `,
-
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -70,7 +63,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: '/usr/local/bin/zsh',
+    shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
