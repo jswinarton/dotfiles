@@ -1,13 +1,11 @@
-# Compiled source #
-###################
+# Compiled source
 *.class
 *.dll
 *.exe
 *.o
 *.so
 
-# Packages #
-############
+# Packages
 # it's better to unpack these files and commit the raw source
 # git has its own built in compression methods
 *.7z
@@ -19,12 +17,10 @@
 *.tar
 *.zip
 
-# Logs and databases #
-######################
+# Logs and databases
 *.log
 
-# OS generated files #
-######################
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -50,3 +46,6 @@ Temporary Items
 
 # ctags files
 .tags
+
+# special folder for per-project scripts that shouldn't be committed
+_bin/
