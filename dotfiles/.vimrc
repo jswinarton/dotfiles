@@ -79,6 +79,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'gregsexton/MatchTag'
 Plugin 'jswinarton/magik'
 Plugin 'majutsushi/tagbar'
+Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
@@ -134,12 +135,13 @@ autocmd BufWritePre * call TrimEndLines()
 autocmd BufWritePre * call TrimTrailingWhitespace()
 " }}}
 " Language-specific settings {{{
-autocmd Filetype ruby setlocal colorcolumn=90
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81,100
-autocmd Filetype markdown setlocal linebreak conceallevel=0
-autocmd Filetype java setlocal ts=4 sw=4 sts=4
-autocmd Filetype go setlocal ts=8 sw=0 sts=0
+autocmd Filetype ansible setlocal syntax=yaml
 autocmd Filetype elixir setlocal colorcolumn=80
+autocmd Filetype go setlocal ts=8 sw=0 sts=0
+autocmd Filetype java setlocal ts=4 sw=4 sts=4
+autocmd Filetype markdown setlocal linebreak conceallevel=0
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81,100
+autocmd Filetype ruby setlocal colorcolumn=90
 " }}}
 " Keybindings {{{
 noremap <F2> :set paste!<CR>
