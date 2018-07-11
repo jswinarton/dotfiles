@@ -34,13 +34,18 @@ autoload -U zmv
 ZSH=$HOME/.oh-my-zsh
 OHMYZSH=$ZSH/oh-my-zsh.sh
 if [ -f $OHMYZSH ]; then
-    plugins=(brew django heroku git mix-fast pip wd)
-    source $OHMYZSH
+  plugins=(brew django heroku git mix-fast pip wd)
+  source $OHMYZSH
 
-    # prevent tmux windows from changing names
-    # on process switch
-    DISABLE_AUTO_TITLE=true
+  # prevent tmux windows from changing names
+  # on process switch
+  DISABLE_AUTO_TITLE=true
+
+  # Disable default oh-my-zsh ls behaviour
+  unalias ls
+  unalias l
 fi
+
 
 
 # PROMPT
