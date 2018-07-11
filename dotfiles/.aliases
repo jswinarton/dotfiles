@@ -51,3 +51,8 @@ alias fucking='sudo '  # ask nicely
 # hack for Hyper.js, which doesn't properly respect preferences when opened from the Dock under Sierra
 # run this alias from Terminal.app and then quit
 alias openhyper='nohup /Applications/Hyper.app/Contents/MacOS/Hyper & disown && exit'
+
+# running counter for wifi strength
+wifi_strength() {
+  while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep --color=never agrCtlRSSI; sleep 0.5; done
+}
