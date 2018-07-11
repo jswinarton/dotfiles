@@ -63,33 +63,39 @@ set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
 
 call vundle#begin()
+" plugin manager
+Plugin 'gmarik/Vundle.vim'
+
 " dependencies
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
 Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
-" plugins
-Plugin 'bling/vim-airline'
+" syntax highlighters
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'garbas/vim-snipmate'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'gregsexton/MatchTag'
-Plugin 'jswinarton/magik'
-Plugin 'majutsushi/tagbar'
+Plugin 'chr4/nginx.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
+Plugin 'elixir-lang/vim-elixir'
+
+" themes
+Plugin 'jswinarton/magik'
+
+" plugins
+Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'godlygeek/tabular'
+Plugin 'gregsexton/MatchTag'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-""" test
-Plugin 'roosta/vim-srcery'
 call vundle#end()
 
 filetype plugin indent on
