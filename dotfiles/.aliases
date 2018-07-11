@@ -23,10 +23,12 @@ alias ls="ls ${colorflag}"
 alias l="ls -Alh ${colorflag}"
 
 # Cleanup scripts
-alias dsclean="find . -type f -name '*.DS_Store' -ls -delete"
-alias pycclean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
-alias origclean="find . -type f -name '*.orig' -delete"
-alias cleanup="dsclean && pycclean && origclean"
+rm_temp_files() {
+  find . -type f -name "*.DS_Store" -ls -delete
+  find . -type f -name "*.py[co]" -ls -delete
+  find . -type d -name "__pycache__" -ls -delete
+  find . -type f -name "*.orig" -ls -delete
+}
 
 # Clear shell history
 alias clearhistory='cat /dev/null > ~/.histfile > ~/.psql_history > ~/.sh_history > ~/.bash_history'
