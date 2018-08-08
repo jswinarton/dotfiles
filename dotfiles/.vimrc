@@ -70,14 +70,16 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
 Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
+
 " syntax highlighters
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'chr4/nginx.vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'lepture/vim-jinja'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
-Plugin 'elixir-lang/vim-elixir'
 
 " themes
 Plugin 'jswinarton/magik'
@@ -109,6 +111,7 @@ let g:airline_theme = 'magik'
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" --ignore "*.pyc" --ignore "tmp/*" --ignore "_build/*" --ignore "__pycache__/*"'
+let g:ctrlp_dont_split = 'nerdtree' " prevent CtrlP from splitting if the active window is nerdtree
 
 " NERDTree
 let NERDTreeHijackNetrw = 1
@@ -157,10 +160,8 @@ noremap <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 noremap <F10> :source ~/.vimrc<CR>
-noremap <F12> :q<CR>
 
 noremap - :e .<CR>
-
 
 noremap <C-o> :CtrlPTag<CR>
 noremap <C-b> :CtrlPBuffer<CR>
@@ -174,9 +175,6 @@ noremap <Leader>i :set list!<CR>
 noremap <Leader>h :nohlsearch<CR>
 
 noremap <Space> :nohlsearch<CR>
-
-noremap <S-Enter> O<Esc>
-noremap <CR> o<Esc>
 
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
@@ -192,19 +190,19 @@ snoremap <Space> <Backspace>i
 
 
 " Tab shortcuts
-noremap tn :tabnew<CR>
-noremap th :tabprev<CR>
-noremap tl :tabnext<CR>
-noremap tx :tabclose<CR>
-noremap t1 :tabn 1<CR>
-noremap t2 :tabn 2<CR>
-noremap t3 :tabn 3<CR>
-noremap t4 :tabn 4<CR>
-noremap t5 :tabn 5<CR>
-noremap t6 :tabn 6<CR>
-noremap t7 :tabn 7<CR>
-noremap t8 :tabn 8<CR>
-noremap t9 :tabn 9<CR>
+noremap <Leader>tn :tabnew<CR>
+noremap <Leader>th :tabprev<CR>
+noremap <Leader>tl :tabnext<CR>
+noremap <Leader>tx :tabclose<CR>
+noremap <Leader>1 :tabn 1<CR>
+noremap <Leader>2 :tabn 2<CR>
+noremap <Leader>3 :tabn 3<CR>
+noremap <Leader>4 :tabn 4<CR>
+noremap <Leader>5 :tabn 5<CR>
+noremap <Leader>6 :tabn 6<CR>
+noremap <Leader>7 :tabn 7<CR>
+noremap <Leader>8 :tabn 8<CR>
+noremap <Leader>9 :tabn 9<CR>
 
 " Swap semicolon and colon mapping
 noremap ; :
