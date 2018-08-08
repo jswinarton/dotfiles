@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+
+import argparse
+import csv
+import datetime
+import os
+
+from convertdate import french_republican
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-d", "--date", help="use a custom date in ISO format")
+parser.add_argument("-s", "--short", help="print a one-line representation of the date",
+    action="store_true")
+args = parser.parse_args()
+
+if args.date:
+    current_date = datetime.datetime.strptime(args.date, "%Y-%m-%d")
+else:
+    current_date = datetime.datetime.now()
+
+
+an, mois, jour = french_republican.from_gregorian(
+    current_date.year, current_date.month, current_date.day)
+an = int(an)
+
+
+def ordinal(number):
+    suffixes = {
+        1: 'st',
+        2: 'nd',
+        3: 'rd',
+    }
+    suffix = suffixes.get(number, "th")
+    return "{number}{suffix}".format(number=number, suffix=suffix)
+
+
+def filepath(f):
+    basepath = os.path.dirname(os.path.realpath(__file__))
+    return os.path.abspath(os.path.join(basepath, f))
+
+
+with open(filepath('frenchrev_jours.csv')) as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        row_mois, row_jour, jour_str_fr, jour_str_en = \
+            int(row[0]), int(row[1]), row[2], row[3]
+
+        if (mois == row_mois and jour == row_jour):
+            break
+
+with open(filepath('frenchrev_mois.csv')) as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        row_mois, mois_str_fr, mois_str_en = \
+            int(row[0]), row[1], row[2]
+
+        if (mois == row_mois):
+            break
+
+month_season = {
+    1: "1st month of autumn",
+    2: "2nd month of autumn",
+    3: "3rd month of autumn",
+    4: "1st month of winter",
+    5: "2nd month of winter",
+    6: "3rd month of winter",
+    7: "1st month of spring",
+    8: "2nd month of spring",
+    9: "3rd month of spring",
+    10: "1st month of summer",
+    11: "2nd month of summer",
+    12: "3rd month of summer",
+    13: "end of year celebration period"
+}.get(mois)
+
+decade = jour % 10
+decade = 10 if decade == 0 else decade
+decade_str = {
+    1: "primidi",
+    2: "duodi",
+    3: "tridi",
+    4: "quartidi",
+    5: "quintidi",
+    6: "sextidi",
+    7: "septidi",
+    8: "octidi",
+    9: "nonidi",
+    10: "décadi",
+}.get(decade)
+
+
+info = {
+    "gr_date_formatted": current_date.strftime("%-d %B %Y"),
+    "date_formatted": french_republican.format(an, mois, jour),
+    "an": an,
+    "mois": mois,
+    "jour": jour,
+    "jour_str_fr": jour_str_fr,
+    "jour_str_en": jour_str_en,
+    "jour_ord": ordinal(jour),
+    "mois_str_fr": mois_str_fr,
+    "mois_str_en": mois_str_en,
+    "mois_ord": ordinal(mois),
+    "month_season": month_season,
+    "decade": decade,
+    "decade_ord": ordinal(decade),
+    "decade_str": decade_str,
+}
+
+if args.short:
+    template = "{date_formatted} ({jour_str_fr})"
+else:
+    template = """\
+{date_formatted} ({gr_date_formatted})
+
+{mois_str_fr} ("{mois_str_en}") is the {mois_ord} month of the French
+Revolutionary calendar and is the {month_season}.
+
+Day name: {jour_str_fr} ({jour_str_en}).
+
+It is {decade_str} (the {decade_ord} day of the décade).
+"""
+
+print(template.format(**info))

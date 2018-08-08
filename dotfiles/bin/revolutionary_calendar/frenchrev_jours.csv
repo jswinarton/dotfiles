@@ -1,0 +1,366 @@
+1,1,Raisin,Grape
+1,2,Safran,Saffron
+1,3,Châtaigne,Chestnut
+1,4,Colchique,Crocus
+1,5,Cheval,Horse
+1,6,Balsamine,Impatiens
+1,7,Carotte,Carrot
+1,8,Amaranthe,Amaranth
+1,9,Panais,Parsnip
+1,10,Cuve,Vat
+1,11,Pomme de terre,Potato
+1,12,Immortelle,Strawflower
+1,13,Potiron,Winter squash
+1,14,Réséda,Mignonette
+1,15,Âne,Donkey
+1,16,Belle de nuit,Four o'clock flower
+1,17,Citrouille,Pumpkin
+1,18,Sarrasin,Buckwheat
+1,19,Tournesol,Sunflower
+1,20,Pressoir,Wine-Press
+1,21,Chanvre,Hemp
+1,22,Pêche,Peach
+1,23,Navet,Turnip
+1,24,Amaryllis,Amaryllis
+1,25,Bœuf,Ox
+1,26,Aubergine,Eggplant
+1,27,Piment,Chili pepper
+1,28,Tomate,Tomato
+1,29,Orge,Barley
+1,30,Tonneau,Barrel
+2,1,Pomme,Apple
+2,2,Céleri,Celery
+2,3,Poire,Pear
+2,4,Betterave,Beetroot
+2,5,Oie,Goose
+2,6,Héliotrope,Heliotrope
+2,7,Figue,Common fig
+2,8,Scorsonère,Black Salsify
+2,9,Alisier,Chequer Tree
+2,10,Charrue,Plough
+2,11,Salsifis,Salsify
+2,12,Mâcre,Water chestnut
+2,13,Topinambour,Jerusalem artichoke
+2,14,Endive,Endive
+2,15,Dindon,Turkey
+2,16,Chervis,Skirret
+2,17,Cresson,Watercress
+2,18,Dentelaire,Leadworts
+2,19,Grenade,Pomegranate
+2,20,Herse,Harrow
+2,21,Bacchante,Baccharis
+2,22,Azerole,Azarole
+2,23,Garance,Madder
+2,24,Orange,Orange
+2,25,Faisan,Pheasant
+2,26,Pistache,Pistachio
+2,27,Macjonc,Tuberous pea
+2,28,Coing,Quince
+2,29,Cormier,Service tree
+2,30,Rouleau,Roller
+3,1,Raiponce,Rampion
+3,2,Turneps,Turnip
+3,3,Chicorée,Chicory
+3,4,Nèfle,Medlar
+3,5,Cochon,Pig
+3,6,Mâche,Lamb's lettuce
+3,7,Chou-fleur,Cauliflower
+3,8,Miel,Honey
+3,9,Genièvre,Juniper
+3,10,Pioche,Pickaxe
+3,11,Cire,Wax
+3,12,Raifort,Horseradish
+3,13,Cèdre,Cedar tree
+3,14,Sapin,Fir
+3,15,Chevreuil,Roe deer
+3,16,Ajonc,Gorse
+3,17,Cyprès,Cypress Tree
+3,18,Lierre,Ivy
+3,19,Sabine,Savin Juniper
+3,20,Hoyau,Grub-hoe
+3,21,Érable à sucre,Sugar Maple
+3,22,Bruyère,Heather
+3,23,Roseau,Reed plant
+3,24,Oseille,Sorrel
+3,25,Grillon,Cricket
+3,26,Pignon,Pine nut
+3,27,Liège,Cork
+3,28,Truffe,Truffle
+3,29,Olive,Olive
+3,30,Pelle,Shovel
+4,1,Tourbe,Peat
+4,2,Houille,Coal
+4,3,Bitume,Bitumen
+4,4,Soufre,Sulphur
+4,5,Chien,Dog
+4,6,Lave,Lava
+4,7,Terre végétale,Topsoil
+4,8,Fumier,Manure
+4,9,Salpêtre,Saltpeter
+4,10,Fléau,Flail
+4,11,Granit,Granite
+4,12,Argile,Clay
+4,13,Ardoise,Slate
+4,14,Grès,Sandstone
+4,15,Lapin,Rabbit
+4,16,Silex,Flint
+4,17,Marne,Marl
+4,18,Pierre à chaux,Limestone
+4,19,Marbre,Marble
+4,20,Van,Winnowing basket
+4,21,Pierre à plâtre,Gypsum
+4,22,Sel,Salt
+4,23,Fer,Iron
+4,24,Cuivre,Copper
+4,25,Chat,Cat
+4,26,Étain,Tin
+4,27,Plomb,Lead
+4,28,Zinc,Zinc
+4,29,Mercure,Mercury
+4,30,Crible,Sieve
+5,1,Lauréole,Spurge-laurel
+5,2,Mousse,Moss
+5,3,Fragon,Butcher's Broom
+5,4,Perce-neige,Snowdrop
+5,5,Taureau,Bull
+5,6,Laurier-thym,Laurustinus
+5,7,Amadouvier,Tinder polypore
+5,8,Mézéréon,Daphne mezereum
+5,9,Peuplier,Poplar
+5,10,Coignée,Axe
+5,11,Ellébore,Hellebore
+5,12,Brocoli,Broccoli
+5,13,Laurier,Bay laurel
+5,14,Avelinier,Filbert
+5,15,Vache,Cow
+5,16,Buis,Box Tree
+5,17,Lichen,Lichen
+5,18,If,Yew tree
+5,19,Pulmonaire,Lungwort
+5,20,Serpette,Billhook
+5,21,Thlaspi,Pennycress
+5,22,Thimelé,Rose Daphne
+5,23,Chiendent,Couch grass
+5,24,Trainasse,Common Knotgrass
+5,25,Lièvre,Hare
+5,26,Guède,Woad
+5,27,Noisetier,Hazel
+5,28,Cyclamen,Cyclamen
+5,29,Chélidoine,Celandine
+5,30,Traîneau,Sleigh
+6,1,Tussilage,Coltsfoot
+6,2,Cornouiller,Dogwood
+6,3,Violier,Matthiola
+6,4,Troène,Privet
+6,5,Bouc,Billygoat
+6,6,Asaret,Wild Ginger
+6,7,Alaterne,Italian Buckthorn
+6,8,Violette,Violet
+6,9,Marceau,Goat Willow
+6,10,Bêche,Spade
+6,11,Narcisse,Narcissus
+6,12,Orme,Elm
+6,13,Fumeterre,Common fumitory
+6,14,Vélar,Hedge mustard
+6,15,Chèvre,Goat
+6,16,Épinard,Spinach
+6,17,Doronic,Doronicum
+6,18,Mouron,Pimpernel
+6,19,Cerfeuil,Chervil
+6,20,Cordeau,Twine
+6,21,Mandragore,Mandrake
+6,22,Persil,Parsley
+6,23,Cochléaria,Scurvy-grass
+6,24,Pâquerette,Daisy
+6,25,Thon,Tuna
+6,26,Pissenlit,Dandelion
+6,27,Sylvie,Wood Anemone
+6,28,Capillaire,Maidenhair fern
+6,29,Frêne,Ash tree
+6,30,Plantoir,Dibber
+7,1,Primevère,Primrose
+7,2,Platane,Plane Tree
+7,3,Asperge,Asparagus
+7,4,Tulipe,Tulip
+7,5,Poule,Hen
+7,6,Bette,Chard
+7,7,Bouleau,Birch
+7,8,Jonquille,Daffodil
+7,9,Aulne,Alder
+7,10,Couvoir,Hatchery
+7,11,Pervenche,Periwinkle
+7,12,Charme,Hornbeam
+7,13,Morille,Morel
+7,14,Hêtre,Beech Tree
+7,15,Abeille,Bee
+7,16,Laitue,Lettuce
+7,17,Mélèze,Larch
+7,18,Ciguë,Hemlock
+7,19,Radis,Radish
+7,20,Ruche,Hive
+7,21,Gainier,Judas tree
+7,22,Romaine,Romaine lettuce
+7,23,Marronnier,Horse chestnut
+7,24,Roquette,Arugula or Rocket
+7,25,Pigeon,Pigeon
+7,26,Lilas,Lilac
+7,27,Anémone,Anemone
+7,28,Pensée,Pansy
+7,29,Myrtille,Bilberry
+7,30,Greffoir,Knife
+8,1,Rose,Rose
+8,2,Chêne,Oak Tree
+8,3,Fougère,Fern
+8,4,Aubépine,Hawthorn
+8,5,Rossignol,Nightingale
+8,6,Ancolie,Common Columbine
+8,7,Muguet,Lily of the valley
+8,8,Champignon,Button mushroom
+8,9,Hyacinthe,Hyacinth
+8,10,Râteau,Rake
+8,11,Rhubarbe,Rhubarb
+8,12,Sainfoin,Sainfoin
+8,13,Bâton d'or,Wallflower
+8,14,Chamerisier,Fan Palm tree
+8,15,Ver à soie,Silkworm
+8,16,Consoude,Comfrey
+8,17,Pimprenelle,Salad burnet
+8,18,Corbeille d'or,Basket of Gold
+8,19,Arroche,Orache
+8,20,Sarcloir,Garden hoe
+8,21,Statice,Thrift
+8,22,Fritillaire,Fritillary
+8,23,Bourrache,Borage
+8,24,Valériane,Valerian
+8,25,Carpe,Carp
+8,26,Fusain,Spindle (shrub)
+8,27,Civette,Chive
+8,28,Buglosse,Bugloss
+8,29,Sénevé,Wild mustard
+8,30,Houlette,Shepherd's crook
+9,1,Luzerne,Alfalfa
+9,2,Hémérocalle,Daylily
+9,3,Trèfle,Clover
+9,4,Angélique,Angelica
+9,5,Canard,Duck
+9,6,Mélisse,Lemon balm
+9,7,Fromental,Oat grass
+9,8,Martagon,Martagon lily
+9,9,Serpolet,Wild Thyme
+9,10,Faux,Scythe
+9,11,Fraise,Strawberry
+9,12,Bétoine,Woundwort
+9,13,Pois,Pea
+9,14,Acacia,Acacia
+9,15,Caille,Quail
+9,16,Œillet,Carnation
+9,17,Sureau,Elderberry
+9,18,Pavot,Poppy plant
+9,19,Tilleul,Linden or Lime tree
+9,20,Fourche,Pitchfork
+9,21,Barbeau,Cornflower
+9,22,Camomille,Camomile
+9,23,Chèvrefeuille,Honeysuckle
+9,24,Caille-lait,Bedstraw
+9,25,Tanche,Tench
+9,26,Jasmin,Jasmine
+9,27,Verveine,Verbena
+9,28,Thym,Thyme
+9,29,Pivoine,Peony
+9,30,Chariot,Hand Cart
+10,1,Seigle,Rye
+10,2,Avoine,Oat
+10,3,Oignon,Onion
+10,4,Véronique,Speedwell
+10,5,Mulet,Mule
+10,6,Romarin,Rosemary
+10,7,Concombre,Cucumber
+10,8,Échalote,Shallot
+10,9,Absinthe,Wormwood
+10,10,Faucille,Sickle
+10,11,Coriandre,Coriander
+10,12,Artichaut,Artichoke
+10,13,Girofle,Clove
+10,14,Lavande,Lavender
+10,15,Chamois,Chamois
+10,16,Tabac,Tobacco
+10,17,Groseille,Redcurrant
+10,18,Gesse,Hairy Vetchling
+10,19,Cerise,Cherry
+10,20,Parc,Park
+10,21,Menthe,Mint
+10,22,Cumin,Cumin
+10,23,Haricot,Bean
+10,24,Orcanète,Alkanet
+10,25,Pintade,Guinea fowl
+10,26,Sauge,Sage Plant
+10,27,Ail,Garlic
+10,28,Vesce,Tare
+10,29,Blé,Wheat
+10,30,Chalémie,Shawm
+11,1,Épeautre,Spelt
+11,2,Bouillon blanc,Common mullein
+11,3,Melon,Melon
+11,4,Ivraie,Ryegrass
+11,5,Bélier,Ram
+11,6,Prêle,Horsetail
+11,7,Armoise,Mugwort
+11,8,Carthame,Safflower
+11,9,Mûre,Blackberry
+11,10,Arrosoir,Watering can
+11,11,Panic,Switchgrass
+11,12,Salicorne,Common Glasswort
+11,13,Abricot,Apricot
+11,14,Basilic,Basil
+11,15,Brebis,Ewe
+11,16,Guimauve,Marshmallow
+11,17,Lin,Flax
+11,18,Amande,Almond
+11,19,Gentiane,Gentian
+11,20,Écluse,Lock
+11,21,Carline,Carline thistle
+11,22,Câprier,Caper
+11,23,Lentille,Lentil
+11,24,Aunée,Inula
+11,25,Loutre,Otter
+11,26,Myrte,Myrtle
+11,27,Colza,Rapeseed
+11,28,Lupin,Lupin
+11,29,Coton,Cotton
+11,30,Moulin,Mill
+12,1,Prune,Plum
+12,2,Millet,Millet
+12,3,Lycoperdon,Puffball
+12,4,Escourgeon,Six-row Barley
+12,5,Saumon,Salmon
+12,6,Tubéreuse,Tuberose
+12,7,Sucrion,Winter Barley
+12,8,Apocyn,Apocynum
+12,9,Réglisse,Liquorice
+12,10,Échelle,Ladder
+12,11,Pastèque,Watermelon
+12,12,Fenouil,Fennel
+12,13,Épine vinette,Barberry
+12,14,Noix,Walnut
+12,15,Truite,Trout
+12,16,Citron,Lemon
+12,17,Cardère,Teasel
+12,18,Nerprun,Buckthorn
+12,19,Tagette,Mexican Marigold
+12,20,Hotte,Harvesting basket
+12,21,Églantier,Wild Rose
+12,22,Noisette,Hazelnut
+12,23,Houblon,Hops
+12,24,Sorgho,Sorghum
+12,25,Écrevisse,Crayfish
+12,26,Bigarade,Bitter orange
+12,27,Verge d'or,Goldenrod
+12,28,Maïs,Maize or Corn
+12,29,Marron,Sweet Chestnut
+12,30,Panier,Pack Basket
+13,1,La Fête de la Vertu,Celebration of Virtue
+13,2,La Fête du Génie,Celebration of Talent
+13,3,La Fête du Travail,Celebration of Labour
+13,4,La Fête de l'Opinion,Celebration of Convictions
+13,5,La Fête des Récompenses,Celebration of Honors
+13,6,La Fête de la Révolution,Celebration of the Revolution
