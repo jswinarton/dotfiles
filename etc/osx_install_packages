@@ -5,14 +5,12 @@ brew install ctags
 brew install git
 brew install htop
 brew install httpie
+brew install node
 brew install nmap
 brew install reattach-to-user-namespace
 brew install tmux
-brew install tmux-mem-cpu-load
 brew install tree
 brew install vim --override-system-vi
-# last tagged version of vimpager is broken,
-# install HEAD instead. see: https://github.com/rkitover/vimpager/issues/174
-brew install vimpager --HEAD
+brew install vimpager
 brew install wget
 brew install zsh
