@@ -1,0 +1,10 @@
+#!/bin/bash
+
+RETRY_TIME=5
+until eval $1
+  do
+    echo "Command failed: ${1}"
+    echo "Trying again in ${RETRY_TIME}"
+    sleep $RETRY_TIME
+    clear
+done
