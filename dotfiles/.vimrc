@@ -70,34 +70,33 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
 Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
-
-" syntax highlighters
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'chr4/nginx.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'lepture/vim-jinja'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'posva/vim-vue'
-
 " themes
 Plugin 'jswinarton/magik'
+
+" syntax highlighters
+Plugin 'chr4/nginx.vim'
+Plugin 'elixir-lang/vim-elixir'
+
+" occasional syntaxes (only enable when using)
+" Plugin 'cakebaker/scss-syntax.vim'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'posva/vim-vue'
 
 " plugins
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'godlygeek/tabular'
 Plugin 'gregsexton/MatchTag'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+
+" extra plugins you don't use very often (but ought to try more)
+" Plugin 'godlygeek/tabular' " for string alignment
 call vundle#end()
 
 filetype plugin indent on
