@@ -44,24 +44,3 @@ hs.hotkey.bind({"alt", "ctrl"}, "right", function()
     local win = hs.window.focusedWindow()
     win:moveOneScreenEast()
 end)
-
-
--- Spotify controls
--- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "space", function()
---   if hs.spotify.isPlaying() then
---     hs.spotify.pause()
---   else
---     hs.spotify.displayCurrentTrack()
---     hs.spotify.play()
---   end
--- end)
---
--- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", function()
---   hs.spotify.previous()
---   hs.spotify.displayCurrentTrack()
--- end)
---
--- hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", function()
---   hs.spotify.next()
---   hs.spotify.displayCurrentTrack()
--- end)

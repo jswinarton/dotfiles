@@ -6,14 +6,11 @@
 # SHELL BASICS
 # ----------
 
+export PAGER=less
+
 # set vim as the default editor if it's installed.
 if command -v vim > /dev/null 2>&1; then
     export EDITOR=/usr/bin/vim
-fi
-
-# set vimpager as the default pager if it's installed.
-if command -v vimpager > /dev/null 2>&1; then
-    export PAGER=vimpager
 fi
 
 # add homebrew executables to the path
@@ -37,16 +34,17 @@ export PATH=$HOME/bin:$PATH
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
 
-# sets the tab title in iTerm2
-title() {
-  echo -ne "\033]0;"$*"\007"
-}
+# iTerm2: set titlebar color
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+  echo -e "\033]6;1;bg;red;brightness;00\a"
+  echo -e "\033]6;1;bg;green;brightness;19\a"
+  echo -e "\033]6;1;bg;blue;brightness;17\a"
+fi
 
 # a better color scheme for ls
 # see `man 1 ls` for details
 export LSCOLORS=Cxcxcxdxbxagadabagacad
 
-title $(hostname)
 
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
