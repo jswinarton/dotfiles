@@ -36,9 +36,9 @@ stty -ixon
 
 # iTerm2: set titlebar color
 if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
-  echo -e "\033]6;1;bg;red;brightness;00\a"
-  echo -e "\033]6;1;bg;green;brightness;19\a"
-  echo -e "\033]6;1;bg;blue;brightness;17\a"
+  echo -n "\033]6;1;bg;red;brightness;00\a"
+  echo -n "\033]6;1;bg;green;brightness;19\a"
+  echo -n "\033]6;1;bg;blue;brightness;17\a"
 fi
 
 # a better color scheme for ls
