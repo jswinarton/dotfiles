@@ -16,4 +16,5 @@ do
     DST_FILE=$HOME/$DOTFILE_NAME
 
     ln -sf $SRC_FILE $DST_FILE
+    echo "$SRC_FILE -> $DST_FILE"
 done
