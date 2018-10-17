@@ -5,7 +5,6 @@ brew install ctags
 brew install git
 brew install htop
 brew install httpie
-brew install node
 brew install nmap
 brew install reattach-to-user-namespace
 brew install tmux
