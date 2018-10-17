@@ -23,9 +23,6 @@ sudo scutil --set HostName "$HOSTNAME"
 sudo scutil --set LocalHostName "$HOSTNAME"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$HOSTNAME"
 
-# Set highlight color to the best green
-defaults write NSGlobalDomain AppleHighlightColor -string '0 0.992200 0.611800'
-
 # Hot corners
 # Top left screen corner → Desktop
 defaults write com.apple.dock wvous-tl-corner -int 4
@@ -55,11 +52,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Trackpad: Swipe down with three fingers for app expose
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
-defaults write com.apple.dock showAppExposeGestureEnabled -int 1
-
 # Natural scrolling is enabled
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
@@ -69,7 +61,3 @@ defaults write com.apple.TextEdit RichText -int 0
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-# Disable the dashboard
-defaults write com.apple.dock dashboard-in-overlay -bool true
-defaults write com.apple.dashboard mcx-disabled -bool true
