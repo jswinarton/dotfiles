@@ -41,11 +41,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# mix-fast zsh plugin artifact
-.mix_tasks
-
 # ctags files
 .tags
 
-# special folder for per-project scripts that shouldn't be committed
-_bin/
+# local folder for python virtualenvs
+.virtualenv-local

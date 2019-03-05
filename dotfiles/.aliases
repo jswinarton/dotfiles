@@ -50,11 +50,13 @@ alias dce='docker-compose exec '
 alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
 alias fucking='sudo '  # ask nicely
 
-# hack for Hyper.js, which doesn't properly respect preferences when opened from the Dock under Sierra
-# run this alias from Terminal.app and then quit
-alias openhyper='nohup /Applications/Hyper.app/Contents/MacOS/Hyper & disown && exit'
-
 # running counter for wifi strength
 wifi_strength() {
   while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep --color=never agrCtlRSSI; sleep 0.5; done
 }
+
+# shortcuts for managing local python virtualenvs
+alias makevenv='python3 -m venv ./.virtualenv-local && ./.virtualenv-local/bin/pip install --upgrade pip ipython'
+alias vpython='./.virtualenv-local/bin/python'
+alias vipython='./.virtualenv-local/bin/ipython'
+alias vpip='./.virtualenv-local/bin/pip'
