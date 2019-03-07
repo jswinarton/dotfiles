@@ -1,20 +1,35 @@
 #!/bin/bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ROOT_DIR=$(cd $CURRENT_DIR && cd ../ && pwd)
-DOTFILE_DIR=$ROOT_DIR/dotfiles
-
-git clone https://github.com/robbyrussell/oh-my-zsh.git $DOTFILE_DIR/.oh-my-zsh
-git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILE_DIR/.vim/bundle/Vundle.vim
+REPO_DIR=$(cd $CURRENT_DIR && cd ../ && pwd)
+DOTFILE_DIR=$REPO_DIR/dotfiles
+BIN_DIR=$REPO_DIR/bin
 
 shopt -s dotglob
 
+# install dotfiles to root directory
 for f in $DOTFILE_DIR/*
 do
     DOTFILE_NAME="$(basename $f)"
     SRC_FILE=$DOTFILE_DIR/$DOTFILE_NAME
     DST_FILE=$HOME/$DOTFILE_NAME
 
+    ln -sfT $SRC_FILE $DST_FILE
+    echo "$SRC_FILE -> $DST_FILE"
+done
+
+# ensure bin directory exists and symlink bin files into it
+mkdir -p $HOME/bin
+for f in $BIN_DIR/*
+do
+    BINFILE_NAME="$(basename $f)"
+    SRC_FILE=$BIN_DIR/$BINFILE_NAME
+    DST_FILE=$HOME/bin/$BINFILE_NAME
+
     ln -sf $SRC_FILE $DST_FILE
     echo "$SRC_FILE -> $DST_FILE"
 done
+
+# clone extensions
+git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim

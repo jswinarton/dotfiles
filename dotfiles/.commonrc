@@ -31,6 +31,9 @@ export PATH=node_modules/.bin:$PATH
 # add dotfiles bin to the path
 export PATH=$HOME/bin:$PATH
 
+# add extra bin dir for locally installed apps
+export PATH=$HOME/.bin:$PATH
+
 # disable software flow control (so <c-s> and <c-q> don't cause the terminal to hang)
 stty -ixon
 

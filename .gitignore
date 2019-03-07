@@ -6,8 +6,6 @@ dotfiles/.ipython/profile_default/log/
 dotfiles/.ipython/profile_default/pid/
 dotfiles/.ipython/profile_default/security/
 
-dotfiles/.oh-my-zsh
-
 dotfiles/.vim/.netrwhist
 dotfiles/.vim/bundle/*
 !dotfiles/.vim/bundle/.gitkeep
