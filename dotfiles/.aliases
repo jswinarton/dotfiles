@@ -19,8 +19,9 @@ else # OS X `ls`
   colorflag="-G"
 fi
 
-alias ls="ls ${colorflag}"
-alias l="ls -Alh ${colorflag}"
+alias ls="ls --quoting-style=literal ${colorflag}"
+alias l="ls -A --quoting-style=literal ${colorflag}"
+alias ll="ls -AhCo --quoting-style=literal ${colorflag}"
 
 # Cleanup scripts
 rm_temp_files() {
