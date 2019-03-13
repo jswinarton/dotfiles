@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# NOTE: currently this does not have the correct behaviour with respect to
+# dotfiles symlinked within existing directories, i.e. .config.
+
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 REPO_DIR=$(cd $CURRENT_DIR && cd ../ && pwd)
 DOTFILE_DIR=$REPO_DIR/dotfiles
