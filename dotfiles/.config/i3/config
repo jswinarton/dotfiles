@@ -44,10 +44,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
-bindsym $mod+semicolon split h
-# split in vertical orientation
-bindsym $mod+v split v
+# # split in horizontal orientation
+# bindsym $mod+semicolon split h
+# # split in vertical orientation
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -125,3 +125,10 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3status
 }
+
+# prevent focus from following mouse movement
+focus_follows_mouse no
+
+# volume media keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_07_00.6.analog-stereo +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_07_00.6.analog-stereo -5%
