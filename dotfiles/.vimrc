@@ -76,6 +76,7 @@ Plugin 'jswinarton/magik'
 " syntax highlighters
 Plugin 'chr4/nginx.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'hashivim/vim-terraform.git'
 
 " occasional syntaxes (only enable when using)
 " Plugin 'cakebaker/scss-syntax.vim'
