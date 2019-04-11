@@ -24,6 +24,9 @@ if [ -d "/usr/local/go" ]; then
     export GOPATH=$HOME/apps/gocode
 fi
 
+# add rust to the path
+export PATH=$HOME/.cargo/bin:$PATH
+
 # add node binaries for the current directory to the path
 # note that this is a relative path
 export PATH=node_modules/.bin:$PATH
