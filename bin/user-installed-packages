@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Show a list of user installed packages with apt.
+# https://askubuntu.com/questions/2389/generating-list-of-manually-installed-packages-and-querying-individual-packages
+
+comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)
