@@ -1,0 +1,81 @@
+# .commonrc
+# An rc file that contains commands common to multiple shells
+# (bash and zsh primarily). Other shells should source this
+# file in their respective rc file.
+
+# SHELL BASICS
+# ----------
+
+export PAGER=less
+
+# set vim as the default editor
+if command -v vim > /dev/null 2>&1; then
+    export EDITOR=/usr/bin/vim
+fi
+
+# add dotfiles bin to the path
+export PATH=$HOME/bin:$PATH
+
+# a better color scheme for ls
+# see `man 1 ls` for details
+export LSCOLORS=Cxcxcxdxbxagadabagacad
+
+
+# LANGUAGE-SPECIFIC SETTINGS
+# ----------
+
+# python
+export PYTHONDONTWRITEBYTECODE=1
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+
+# ALIASES
+# ----------
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Common git aliases
+# A number of aliases already exist from oh-my-zsh,
+# but these are specific to my workflow
+alias g="git "
+alias gs="git status -s"
+alias gds="git diff --staged"
+alias gc="git ci -m"
+alias gca="git ci -am"
+
+alias v="vim"
+alias vi="vim"
+
+# Coloured ls
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  colorflag="--color"
+else # OS X `ls`
+  colorflag="-G"
+fi
+
+alias ls="ls --quoting-style=literal ${colorflag}"
+alias l="ls -A --quoting-style=literal ${colorflag}"
+alias ll="ls -AhCo --quoting-style=literal ${colorflag}"
+
+# Cleanup scripts
+rm_temp_files() {
+  find . -type f -name "*.DS_Store" -ls -delete
+  find . -type f -name "*.py[co]" -ls -delete
+  find . -type d -name "__pycache__" -ls -delete
+  find . -type f -name "*.orig" -ls -delete
+}
+alias clearhistory='cat /dev/null > ~/.zsh_history > ~/.psql_history > ~/.sh_history > ~/.bash_history'
+
+alias tmux_attach="tmux a || tmux new -s 'default'"
+
+alias ag='ag --path-to-ignore ~/.agignore'
+
+alias dce='docker-compose exec '
+
+alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
+alias fucking='sudo '  # ask nicely
+
+# ~/.private is a hook file. Add additional commands that are private or
+# machine-specfic here.
+source $HOME/.private 2> /dev/null
