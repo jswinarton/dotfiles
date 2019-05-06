@@ -21,8 +21,9 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # Manually configured options
-
 setopt extendedglob promptsubst
+
+bindkey '^R' history-incremental-search-backward  # enable reverse history search for vim-style bindings
 
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
