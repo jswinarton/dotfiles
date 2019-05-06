@@ -82,7 +82,7 @@ alias fucking='sudo '  # ask nicely
 
 # ~/.private is a hook file. Add additional commands that are private or
 # machine-specfic here.
-source $HOME/.private 2> /dev/null
+source $HOME/.commonrc.private 2> /dev/null
 
 
 ## COLORS
