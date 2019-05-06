@@ -1,16 +1,20 @@
 #!/bin/bash
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-cd $SCRIPT_DIR/src
+SRC_DIR="${SCRIPT_DIR}/src"
+cd $SRC_DIR
 
 echo "Linking files"
-for SRC_FILE in $(find -type f ! -name '.gitkeep' -printf '%P\n' | sort); do
-	DST_FILE=$HOME/$SRC_FILE
-	DST_DIR=$(dirname $DST_FILE)
+for SRC_FILE in $(find . -type f ! -name '.gitkeep' | sed "s|^\./||" | sort); do
+        DST_FILE=$HOME/$SRC_FILE
+        DST_DIR=$(dirname $DST_FILE)
 
-	mkdir -p $DST_DIR
-	ln -sfr $SRC_FILE $DST_FILE
-	echo "$SRC_FILE -> $DST_FILE"
+        mkdir -p $DST_DIR
+        if ! ln -sfr $SRC_FILE $DST_FILE 2> /dev/null ; then  # no relative link support (OS X)
+          SRC_FILE_ABS="${SRC_DIR}/${SRC_FILE}"
+          ln -sf $SRC_FILE_ABS $DST_FILE
+        fi
+        echo "$SRC_FILE -> $DST_FILE"
 done
 echo ""
 

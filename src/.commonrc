@@ -47,16 +47,18 @@ alias gca="git ci -am"
 alias v="vim"
 alias vi="vim"
 
-# Coloured ls
-if ls --color > /dev/null 2>&1; then # GNU `ls`
+# ls aliases
+if ls --color > /dev/null 2>&1; then # GNU
   colorflag="--color"
-else # OS X `ls`
+  quoteparam="--quoting-style=literal"
+else # OS X
   colorflag="-G"
+  quoteparam=""
 fi
 
-alias ls="ls --quoting-style=literal ${colorflag}"
-alias l="ls -A --quoting-style=literal ${colorflag}"
-alias ll="ls -AhCo --quoting-style=literal ${colorflag}"
+alias ls="ls ${colorflag} ${quoteparam}"
+alias l="ls -A ${colorflag} ${quoteparam}"
+alias ll="ls -AhCo ${colorflag} ${quoteparam}"
 
 # Cleanup scripts
 rm_temp_files() {
