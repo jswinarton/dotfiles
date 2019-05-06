@@ -1,7 +1,7 @@
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' format '-> %d'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
 zstyle ':completion:*' menu select=long
@@ -11,6 +11,7 @@ zstyle :compinstall filename '/home/jeremy/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -60,3 +61,4 @@ function set_vcs_info_formats() {
 add-zsh-hook precmd set_vcs_info_formats
 
 source $HOME/.commonrc
+source $HOME/.zshrc.private  # hook for private configuration
