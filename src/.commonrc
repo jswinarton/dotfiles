@@ -80,9 +80,12 @@ alias dce='docker-compose exec '
 alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
 alias fucking='sudo '  # ask nicely
 
-# ~/.private is a hook file. Add additional commands that are private or
-# machine-specfic here.
+# hook for private content. intended to be either versioned into a different
+# repository or encrypted with git-crypt.
 source $HOME/.commonrc.private 2> /dev/null
+
+# hook for machine-specific configuration.
+source $HOME/.machinerc 2> /dev/null
 
 
 ## COLORS
