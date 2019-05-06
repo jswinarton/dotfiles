@@ -20,6 +20,11 @@ export PATH=$HOME/bin:$PATH
 # see `man 1 ls` for details
 export LSCOLORS=Cxcxcxdxbxagadabagacad
 
+# experimental: add environment variable for ssh-agent
+if [ -z "${SSH_AUTH_SOCK}" ]; then
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
 
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
