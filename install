@@ -18,5 +18,10 @@ for SRC_FILE in $(find . -type f ! -name '.gitkeep' | sed "s|^\./||" | sort); do
 done
 echo ""
 
-echo "Cloning Vundle"
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+echo "Installing Vundle"
+VUNDLE_DIR="${HOME}/.vim/bundle/Vundle.vim"
+if [ -d $VUNDLE_DIR ]; then
+  echo "... already installed. skipping clone"
+else
+  git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_DIR
+fi
