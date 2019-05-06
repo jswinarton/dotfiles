@@ -61,7 +61,7 @@ alias l="ls -A ${colorflag} ${quoteparam}"
 alias ll="ls -AhCo ${colorflag} ${quoteparam}"
 
 # Cleanup scripts
-rm_temp_files() {
+rm-temp-files() {
   find . -type f -name "*.DS_Store" -ls -delete
   find . -type f -name "*.py[co]" -ls -delete
   find . -type d -name "__pycache__" -ls -delete
@@ -69,7 +69,7 @@ rm_temp_files() {
 }
 alias clearhistory='cat /dev/null > ~/.zsh_history > ~/.psql_history > ~/.sh_history > ~/.bash_history'
 
-alias tmux_attach="tmux a || tmux new -s 'default'"
+alias tmux-attach="tmux a || tmux new -s 'default'"
 
 alias ag='ag --path-to-ignore ~/.agignore'
 
