@@ -1,5 +1,3 @@
-# The following lines were added by compinstall
-
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-> %d'
 zstyle ':completion:*' group-name ''
@@ -56,7 +54,7 @@ autoload -U add-zsh-hook
 autoload -Uz vcs_info
 autoload -U zmv
 
-cdpath=(~/apps/ ~/apps/_*)
+cdpath=(~ ~/apps/ ~/apps/_*(N))
 
 PROMPT='%F{11}▲ ${vcs_info_msg_0_}%f '
 RPROMPT='%F{7}${vcs_info_msg_1_}%f'
@@ -87,4 +85,4 @@ function set_vcs_info_formats() {
 add-zsh-hook precmd set_vcs_info_formats
 
 source $HOME/.commonrc
-source $HOME/.zshrc.private  # hook for private configuration
+source $HOME/.zshrc.private 2> /dev/null  # hook for private configuration

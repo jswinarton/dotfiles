@@ -1,7 +1,7 @@
 general {
   colors = true
   color_good = "#AAAAAA"
-  interval = 5
+  interval = 1
 }
 
 order += "disk /"
@@ -10,6 +10,7 @@ order += "load"
 order += "volume master"
 order += "tztime date"
 order += "tztime time"
+order += "tztime timeutc"
 
 
 ethernet _first_ {
@@ -27,7 +28,12 @@ tztime date {
 }
 
 tztime time {
-        format = "%H:%M:%S"
+        format = "%H:%M"
+}
+
+tztime timeutc {
+        format = "%H:%M:%S UTC"
+        timezone = "UTC"
 }
 
 load {
