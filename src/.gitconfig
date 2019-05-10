@@ -1,7 +1,7 @@
 [user]
   name = Jeremy Swinarton
   email = jeremy@swinarton.com
-  signingkey = E403E588
+	signingkey = 0x719124DD4A660925
 
 [alias]
   b=rev-parse --abbrev-ref HEAD
@@ -26,3 +26,9 @@
 
 [core]
   excludesfile = ~/.gitignore
+
+[gpg]
+  program = gpg
+
+[commit]
+  gpgsign = true
