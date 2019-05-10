@@ -17,12 +17,6 @@ fi
 export PATH=$HOME/bin:$PATH
 
 
-# experimental: add environment variable for ssh-agent
-if [ -z "${SSH_AGENT_PID}" ]; then
-  eval `ssh-agent`
-fi
-
-
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
 
