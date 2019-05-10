@@ -16,6 +16,9 @@ fi
 # add dotfiles bin to the path
 export PATH=$HOME/bin:$PATH
 
+# set for gpg-agent to work correctly
+export GPG_TTY=$(tty)
+
 
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------
