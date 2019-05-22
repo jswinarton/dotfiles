@@ -91,10 +91,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/MatchTag'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
 
 " extra plugins you don't use very often (but ought to try more)
@@ -113,10 +113,6 @@ let g:airline_skip_empty_sections = 1
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" --ignore "*.pyc" --ignore "tmp/*" --ignore "_build/*" --ignore "__pycache__/*"'
 let g:ctrlp_dont_split = 'nerdtree' " prevent CtrlP from splitting if the active window is nerdtree
-
-" NERDTree
-let NERDTreeHijackNetrw = 1
-let NERDTreeShowLineNumbers = 1
 
 " Syntastic
 let g:syntastic_mode_map = {'mode': 'passive'}
@@ -161,8 +157,6 @@ noremap <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 noremap <F10> :source ~/.vimrc<CR>
-
-noremap - :e .<CR>
 
 noremap <C-o> :CtrlPTag<CR>
 noremap <C-b> :CtrlPBuffer<CR>
