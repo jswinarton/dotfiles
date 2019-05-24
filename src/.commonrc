@@ -36,6 +36,7 @@ alias sudo='sudo '
 
 alias g="git "
 
+# Vim shortcuts
 alias v="vim"
 alias vi="vim"
 
@@ -65,10 +66,21 @@ alias tmux-attach="tmux a || tmux new -s 'default'"
 
 alias ag='ag --path-to-ignore ~/.agignore'
 
-alias dce='docker-compose exec '
-
 alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
 alias fucking='sudo '  # ask nicely
+
+# Docker helpers
+alias dce='docker-compose exec '
+
+docker-ps() {
+  echo "Containers:"
+  docker ps  --format="table {{ .ID }}\t{{ .Image }}\t{{ .Ports }}\t{{ .Status }}"
+  echo "\nImages:"
+  docker image ls --format='{{ .Repository }}:{{ .Tag }}' | sort | paste -s -d" "
+}
+
+# HOOKS
+# ----------
 
 # hook for private content. intended to be either versioned into a different
 # repository or encrypted with git-crypt.
@@ -78,7 +90,8 @@ source $HOME/.commonrc.private 2> /dev/null
 source $HOME/.machinerc 2> /dev/null
 
 
-## COLORS
+# COLOURS
+# ----------
 
 if [[ uname == "Darwin" ]] ; then
   export LSCOLORS=Cxcxcxdxbxagadabagacad # OSX
