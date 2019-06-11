@@ -150,6 +150,14 @@ autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=81,100
 autocmd Filetype ruby setlocal colorcolumn=90
 " }}}
 " Keybindings {{{
+
+" Command key without shift
+noremap ; :
+
+" Move through word wrap easily
+noremap j gj
+noremap k gk
+
 noremap <F2> :set paste!<CR>
 noremap <F7> :TagbarToggle<CR>
 noremap <F8> :TagbarOpenAutoClose<CR>
@@ -199,11 +207,5 @@ noremap <Leader>7 :tabn 7<CR>
 noremap <Leader>8 :tabn 8<CR>
 noremap <Leader>9 :tabn 9<CR>
 
-" Swap semicolon and colon mapping
-noremap ; :
-
-" Move through word wrap easily
-noremap j gj
-noremap k gk
 
 " }}}
