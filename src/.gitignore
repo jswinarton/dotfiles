@@ -44,5 +44,7 @@ Temporary Items
 # ctags files
 .tags
 
-# local folder for python virtualenvs
+# python
+__pycache__
+*.pyc
 .virtualenv-local
