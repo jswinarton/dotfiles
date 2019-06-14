@@ -64,7 +64,7 @@ alias clearhistory='cat /dev/null > ~/.zsh_history > ~/.psql_history > ~/.sh_his
 
 alias tmux-attach="tmux a || tmux new -s 'default'"
 
-alias ag='ag --path-to-ignore ~/.agignore'
+alias ag='ag --hidden --path-to-ignore ~/.agignore'
 
 alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
 alias fucking='sudo '  # ask nicely
