@@ -2,3 +2,4 @@
 *.map
 deps/
 node_modules/
+.git
