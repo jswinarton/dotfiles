@@ -1,6 +1,8 @@
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-> %d'
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*' group-order \
+  path-directories local-directories aliases commands builtins
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
@@ -21,34 +23,14 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-# tmuxinator completion (added from tmuxinator repo 2019-05-07)
-_tmuxinator() {
-  local commands projects
-  commands=(${(f)"$(tmuxinator commands zsh)"})
-  projects=(${(f)"$(tmuxinator completions start)"})
-
-  if (( CURRENT == 2 )); then
-    _alternative \
-      'commands:: _describe -t commands "tmuxinator subcommands" commands' \
-      'projects:: _describe -t projects "tmuxinator projects" projects'
-  elif (( CURRENT == 3)); then
-    case $words[2] in
-      copy|debug|delete|open|start)
-        _arguments '*:projects:($projects)'
-      ;;
-    esac
-  fi
-
-  return
-}
-
-compdef _tmuxinator tmuxinator mux
-# End tmuxinator completion
+# tmuxp completion
+eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
 # Manually configured options
 setopt extendedglob promptsubst
 
 bindkey '^R' history-incremental-search-backward  # enable reverse history search for vim-style bindings
+bindkey '^[[Z' reverse-menu-complete  # allow reverse tabbing on completion
 
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
