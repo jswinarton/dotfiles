@@ -25,3 +25,7 @@ if [ -d $VUNDLE_DIR ]; then
 else
   git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_DIR
 fi
+
+echo ""
+echo "Installing Vim Plugins"
+vim +PluginInstall +qall
