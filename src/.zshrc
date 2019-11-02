@@ -2,7 +2,7 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-> %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' group-order \
-  path-directories local-directories aliases commands builtins
+  local-directories path-directories aliases commands builtins
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
