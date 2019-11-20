@@ -79,6 +79,11 @@ docker-ps() {
   docker image ls --format='{{ .Repository }}:{{ .Tag }}' | sort | paste -s -d" "
 }
 
+# Terraform helpers
+alias tf='terraform '
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+
 # Virtualenv helpers
 alias mkvenv='python -m venv .virtualenv-local && source .virtualenv-local/bin/activate && pip install --upgrade pip'
 alias mktmpvenv='rm -rf /tmp/tmpenv && python -m venv /tmp/tmpenv && source /tmp/tmpenv/bin/activate && pip install --upgrade pip'
