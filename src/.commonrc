@@ -85,9 +85,9 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 
 # Virtualenv helpers
-alias mkvenv='python -m venv .virtualenv-local && source .virtualenv-local/bin/activate && pip install --upgrade pip'
+alias mkvenv='python -m venv .venv && source .venv/bin/activate && pip install --upgrade pip'
 alias mktmpvenv='rm -rf /tmp/tmpenv && python -m venv /tmp/tmpenv && source /tmp/tmpenv/bin/activate && pip install --upgrade pip'
-alias vactivate='source .virtualenv-local/bin/activate'
+alias vactivate='source .venv/bin/activate'
 
 # HOOKS
 # ----------
