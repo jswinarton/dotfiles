@@ -85,9 +85,17 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 
 # Virtualenv helpers
-alias mkvenv='python -m venv .venv && source .venv/bin/activate && pip install --upgrade pip'
+alias mkdirvenv='rm -rf ./.venv && python -m venv .venv && ln -sf .venv/bin bin && bin/pip install --upgrade pip'
 alias mktmpvenv='rm -rf /tmp/tmpenv && python -m venv /tmp/tmpenv && source /tmp/tmpenv/bin/activate && pip install --upgrade pip'
-alias vactivate='source .venv/bin/activate'
+
+# Quickly create shell scripts
+touch-sh() {
+  if test -f $1; then
+    echo "file already exists"
+  else
+    echo "#!/bin/sh\n" > $1 && chmod +x $1
+  fi
+}
 
 # HOOKS
 # ----------
