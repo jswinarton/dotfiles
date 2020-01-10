@@ -159,8 +159,7 @@ noremap j gj
 noremap k gk
 
 noremap <F2> :set paste!<CR>
-noremap <F7> :TagbarToggle<CR>
-noremap <F8> :TagbarOpenAutoClose<CR>
+noremap <F7> :TagbarOpen fj<CR>
 noremap <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
