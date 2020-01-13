@@ -5,6 +5,7 @@ general {
 }
 
 order += "disk /"
+order += "disk /home"
 order += "ethernet _first_"
 order += "load"
 order += "volume master"
@@ -41,6 +42,10 @@ load {
 }
 
 disk "/" {
+        format = "%free"
+}
+
+disk "/home" {
         format = "%free"
 }
 

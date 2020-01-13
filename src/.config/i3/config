@@ -6,7 +6,7 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-exec --no-startup-id feh --bg-fill ~/apps/dotfiles/etc/wallpaper.jpg
+exec feh --bg-fill ~/apps/dotfiles/etc/wallpaper.jpg
 
 # mod key is windows start key
 set $mod Mod4
