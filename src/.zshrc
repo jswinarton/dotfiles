@@ -1,3 +1,6 @@
+source $HOME/.commonrc
+
+# Start of lines added by compinstall
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-> %d'
 zstyle ':completion:*' group-name ''
@@ -71,5 +74,4 @@ function set_vcs_info_formats() {
 
 add-zsh-hook precmd set_vcs_info_formats
 
-source $HOME/.commonrc
 source $HOME/.zshrc.private 2> /dev/null  # hook for private configuration

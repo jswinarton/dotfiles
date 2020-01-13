@@ -13,8 +13,12 @@ if command -v vim > /dev/null 2>&1; then
     export EDITOR=/usr/bin/vim
 fi
 
-# add dotfiles bin to the path
+# add dotfiles bin and systemd user-bin to the path
 export PATH=$HOME/bin:$PATH
+
+if command -v systemd-path > /dev/null 2>&1; then
+    export PATH=$(systemd-path user-binaries):$PATH
+fi
 
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)
