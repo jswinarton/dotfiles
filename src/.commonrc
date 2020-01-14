@@ -95,8 +95,8 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 
 # Virtualenv helpers
-alias mkdirvenv='rm -rf ./.venv && python -m venv .venv && ln -sf .venv/bin bin && bin/pip install --upgrade pip'
-alias mktmpvenv='rm -rf /tmp/tmpenv && python -m venv /tmp/tmpenv && source /tmp/tmpenv/bin/activate && pip install --upgrade pip'
+alias mkdirvenv='rm -rf ./.venv && python3 -m venv .venv && ln -sf .venv/bin bin && bin/pip install --upgrade pip'
+alias mktmpvenv='rm -rf /tmp/tmpenv && python3 -m venv /tmp/tmpenv && source /tmp/tmpenv/bin/activate && pip install --upgrade pip'
 
 # Quickly create shell scripts
 touch-sh() {
