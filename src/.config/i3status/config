@@ -11,8 +11,18 @@ order += "load"
 order += "volume master"
 order += "tztime date"
 order += "tztime time"
+order += "tztime timemunich"
+order += "tztime timeaus"
 order += "tztime timeutc"
 
+
+disk "/" {
+        format = "%free"
+}
+
+disk "/home" {
+        format = "%free"
+}
 
 ethernet _first_ {
         # if you use %speed, i3status requires the cap_net_admin capability
@@ -20,8 +30,16 @@ ethernet _first_ {
         format_down = "Ethernet down"
 }
 
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
+load {
+        format = "%1min %5min %15min"
+}
+
+volume master {
+        format = "V %volume"
+        format_muted = "V muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
 
 tztime date {
@@ -32,27 +50,21 @@ tztime time {
         format = "%H:%M"
 }
 
+tztime timeaus {
+        format = "%H:%M AWST"
+        timezone = "Australia/Perth"
+}
+
+tztime timemunich {
+        format = "%H:%M CET"
+        timezone = "Europe/Berlin"
+}
+
 tztime timeutc {
         format = "%H:%M:%S UTC"
         timezone = "UTC"
 }
 
-load {
-        format = "%1min %5min %15min"
-}
-
-disk "/" {
-        format = "%free"
-}
-
-disk "/home" {
-        format = "%free"
-}
-
-volume master {
-        format = "V %volume"
-        format_muted = "V muted (%volume)"
-        device = "default"
-        mixer = "Master"
-        mixer_idx = 0
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
 }

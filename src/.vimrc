@@ -77,11 +77,11 @@ Plugin 'jswinarton/magik'
 Plugin 'chr4/nginx.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'hashivim/vim-terraform.git'
+Plugin 'plasticboy/vim-markdown'
 
 " occasional syntaxes (only enable when using)
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
-" Plugin 'plasticboy/vim-markdown'
 " Plugin 'posva/vim-vue'
 
 " plugins

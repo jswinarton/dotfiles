@@ -4,22 +4,23 @@
 	signingkey = 0x719124DD4A660925
 
 [alias]
+  # basic aliases
   b=rev-parse --abbrev-ref HEAD
   br=branch
   ci=!git force-local-config && git commit --verbose
   cl=clone
   co=checkout
-  d=diff
-  l="log --pretty=format:'%C(yellow)%h%C(reset) %s%C(#6BBA38)%d%C(reset)' --abbrev-commit"
-  sdiff=diff --staged
-  sd=diff --staged
   st=status -s
   root=rev-parse --show-toplevel
 
-  # see unique commits not shared between two branches.
-  # usage:
-  # git branchdiff master...feature-branch
-  branchdiff="log --left-right --cherry-pick --oneline"
+  # diffs
+  d=!ydiff -s
+  du=!ydiff  # "diff unified"
+  sd=!ydiff -s --staged  # "staged diff"
+  sdu=!ydiff -s --staged  # "staged diff unified"
+
+  # logs
+  l=log --oneline
 
 [push]
   default = simple
