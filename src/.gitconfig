@@ -17,7 +17,7 @@
   d=!ydiff -s
   du=!ydiff  # "diff unified"
   sd=!ydiff -s --staged  # "staged diff"
-  sdu=!ydiff -s --staged  # "staged diff unified"
+  sdu=!ydiff --staged  # "staged diff unified"
 
   # logs
   l=log --oneline
