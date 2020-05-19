@@ -11,10 +11,10 @@
 exec /usr/bin/feh --bg-fill ~/apps/dotfiles/etc/wallpaper.jpg
 
 # Set compose button to menu button
-exec --no-startup-id /usr/bin/setxkbmap -option compose:menu
+exec /usr/bin/setxkbmap -option compose:menu
 
 # Map caps lock to control
-exec --no-startup-id /usr/bin/setxkbmap -option ctrl:nocaps
+exec /usr/bin/setxkbmap -option ctrl:nocaps
 
 # mod key is windows start key
 set $mod Mod4

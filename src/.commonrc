@@ -13,15 +13,22 @@ if command -v vim > /dev/null 2>&1; then
     export EDITOR=/usr/bin/vim
 fi
 
-# add dotfiles bin and systemd user-bin to the path
-export PATH=$HOME/bin:$PATH
+# add dotfiles bin, go bin to the path
+export PATH=$HOME/go/bin:$HOME/bin:$PATH
 
+# add systemd user-binaries to the path
 if command -v systemd-path > /dev/null 2>&1; then
     export PATH=$(systemd-path user-binaries):$PATH
 fi
 
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)
+
+#
+if ! ssh-add -l > /dev/null 2>&1; then
+  echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
+  echo $(ssh-add -l)
+fi
 
 
 # LANGUAGE-SPECIFIC SETTINGS
