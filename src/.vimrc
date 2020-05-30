@@ -72,6 +72,7 @@ Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
 " themes
 Plugin 'jswinarton/magik'
+Plugin 'jeffkreeftmeijer/vim-dim'
 
 " syntax highlighters
 Plugin 'chr4/nginx.vim'
@@ -123,7 +124,7 @@ let g:vim_markdown_folding_disabled = 1
 " }}}
 " Syntax and themes {{{
 syntax on
-colorscheme magik
+colorscheme dim
 " }}}
 " Auto commands {{{
 function! TrimEndLines()
