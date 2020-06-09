@@ -28,9 +28,9 @@ set ruler  " show current position in file
 set scrolloff=15  " keep 15 lines above and below the cursor
 set nowrap " no word wrap by default
 
-" show 'invisible' characters
+" set 'invisible' characters
+" off by default
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
 
 " file write options
 set autoread  " update file if it's changed outside of vim
@@ -147,7 +147,7 @@ autocmd Filetype elixir setlocal colorcolumn=80
 autocmd Filetype go setlocal noexpandtab ts=8 sw=0 sts=0
 autocmd Filetype java setlocal ts=4 sw=4 sts=4
 autocmd Filetype markdown setlocal linebreak conceallevel=0
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 tw=72 colorcolumn=88
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=88
 autocmd Filetype ruby setlocal colorcolumn=90
 " }}}
 " Keybindings {{{
