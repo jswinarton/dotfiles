@@ -71,8 +71,8 @@ Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
 Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
 " themes
-Plugin 'jswinarton/magik'
 Plugin 'jeffkreeftmeijer/vim-dim'
+Plugin 'chriskempson/base16-vim'
 
 " syntax highlighters
 Plugin 'chr4/nginx.vim'
@@ -86,7 +86,8 @@ Plugin 'plasticboy/vim-markdown'
 " Plugin 'posva/vim-vue'
 
 " plugins
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'garbas/vim-snipmate'
@@ -108,23 +109,19 @@ filetype plugin indent on
 let g:airline_section_y = ''
 let g:airline_powerline_fonts=1
 let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V': 'V', 's': 'S', 'S': 'S'}
-let g:airline_theme = 'magik'
+let g:airline_theme = 'base16'
 let g:airline_skip_empty_sections = 1
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" --ignore "*.pyc" --ignore "tmp/*" --ignore "_build/*" --ignore "__pycache__/*"'
 let g:ctrlp_dont_split = 'nerdtree' " prevent CtrlP from splitting if the active window is nerdtree
 
-" Syntastic
-let g:syntastic_mode_map = {'mode': 'passive'}
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
 " }}}
 " Syntax and themes {{{
 syntax on
-colorscheme dim
+colorscheme base16-default-dark
 " }}}
 " Auto commands {{{
 function! TrimEndLines()
@@ -181,10 +178,6 @@ noremap <Space> :nohlsearch<CR>
 
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
-
-noremap <Leader>lc :SyntasticCheck<CR>
-noremap <Leader>lr :SyntasticReset<CR>
-noremap <Leader>lt :SyntasticToggleMode<CR>
 
 " this is to make snipmate a bit easier to use. when switching between tab
 " stops, snipmate puts you into select mode. It seems like there's no easy way
