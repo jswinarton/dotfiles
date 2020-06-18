@@ -30,6 +30,10 @@ if ! ssh-add -l > /dev/null 2>&1; then
   echo $(ssh-add -l)
 fi
 
+# Use ripgrep for fzf
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git}'"
+export FZF_DEFAULT_OPTS="--preview 'cat {}'"
+
 
 # LANGUAGE-SPECIFIC SETTINGS
 # ----------

@@ -71,7 +71,6 @@ Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
 Plugin 'tomtom/tlib_vim'  " vim-snipmate
 
 " themes
-Plugin 'jeffkreeftmeijer/vim-dim'
 Plugin 'chriskempson/base16-vim'
 
 " syntax highlighters
@@ -80,27 +79,30 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'hashivim/vim-terraform.git'
 Plugin 'plasticboy/vim-markdown'
 
-" occasional syntaxes (only enable when using)
-" Plugin 'cakebaker/scss-syntax.vim'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'posva/vim-vue'
-
 " plugins
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/MatchTag'
-Plugin 'majutsushi/tagbar'
 Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
 
-" extra plugins you don't use very often (but ought to try more)
-" Plugin 'godlygeek/tabular' " for string alignment
+" experimental
+Plugin 'liuchengxu/vista.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+
+" occasional syntaxes (only enable when using)
+" Plugin 'cakebaker/scss-syntax.vim'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'posva/vim-vue'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -112,9 +114,9 @@ let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V':
 let g:airline_theme = 'base16'
 let g:airline_skip_empty_sections = 1
 
-" CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --ignore ".git/*" --ignore "*.pyc" --ignore "tmp/*" --ignore "_build/*" --ignore "__pycache__/*"'
-let g:ctrlp_dont_split = 'nerdtree' " prevent CtrlP from splitting if the active window is nerdtree
+" Vista
+let g:vista_sidebar_width = 40
+let g:vista_fzf_preview = ['right:50%']
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -157,33 +159,31 @@ noremap j gj
 noremap k gk
 
 noremap <F2> :set paste!<CR>
-noremap <F7> :TagbarOpen fj<CR>
-noremap <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-noremap <F10> :source ~/.vimrc<CR>
+noremap <Space> :nohlsearch<CR>
 
-noremap <C-o> :CtrlPTag<CR>
-noremap <C-b> :CtrlPBuffer<CR>
+noremap <F10> :source ~/.vimrc<CR>
+noremap <Leader><F10> :edit ~/.vimrc<CR>
+
+noremap <C-p> :Files<CR>
+noremap <Leader><C-p> :Files ~/apps<CR>
+noremap <C-o> :Vista finder<CR>
+noremap <C-b> :Buffers<CR>
+
+" toggle Vista pane with F7; leader-F7 to jump to the pane
+noremap <F7> :Vista!!<CR>
+noremap <Leader><F7> :Vista<CR>
+
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gd :Git diff<CR>
+noremap <Leader>gb :Git blame<CR>
 
 noremap <Leader>nr :set number \| set relativenumber<CR>
 noremap <Leader>nn :set number \| set norelativenumber<CR>
 noremap <Leader>no :set nonumber \| set norelativenumber<CR>
-
 noremap <Leader>a :set wrap!<CR>
 noremap <Leader>i :set list!<CR>
-noremap <Leader>h :nohlsearch<CR>
-
-noremap <Space> :nohlsearch<CR>
-
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
-
-" this is to make snipmate a bit easier to use. when switching between tab
-" stops, snipmate puts you into select mode. It seems like there's no easy way
-" to clear out the default tab stop content and enter insert mode.
-snoremap <Space> <Backspace>i
-
 
 " Tab shortcuts
 noremap <Leader>tn :tabnew<CR>
@@ -200,5 +200,8 @@ noremap <Leader>7 :tabn 7<CR>
 noremap <Leader>8 :tabn 8<CR>
 noremap <Leader>9 :tabn 9<CR>
 
-
+" this is to make snipmate a bit easier to use. when switching between tab
+" stops, snipmate puts you into select mode. It seems like there's no easy way
+" to clear out the default tab stop content and enter insert mode.
+snoremap <Space> <Backspace>i
 " }}}
