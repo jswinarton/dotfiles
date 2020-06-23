@@ -73,4 +73,9 @@ function set_vcs_info_formats() {
 
 add-zsh-hook precmd set_vcs_info_formats
 
+# Etc
+#
+
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+
 source $HOME/.zshrc.private 2> /dev/null  # hook for private configuration

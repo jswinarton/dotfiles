@@ -117,6 +117,7 @@ let g:airline_skip_empty_sections = 1
 " Vista
 let g:vista_sidebar_width = 40
 let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 0
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -169,9 +170,8 @@ noremap <Leader><C-p> :Files ~/apps<CR>
 noremap <C-o> :Vista finder<CR>
 noremap <C-b> :Buffers<CR>
 
-" toggle Vista pane with F7; leader-F7 to jump to the pane
-noremap <F7> :Vista!!<CR>
-noremap <Leader><F7> :Vista<CR>
+noremap <F7> :Vista<CR>
+noremap <Leader><F7> :Vista!!<CR>
 
 noremap <Leader>gs :Git<CR>
 noremap <Leader>gd :Git diff<CR>
