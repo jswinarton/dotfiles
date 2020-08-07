@@ -147,6 +147,7 @@ autocmd Filetype elixir setlocal colorcolumn=80
 autocmd Filetype go setlocal noexpandtab ts=8 sw=0 sts=0
 autocmd Filetype java setlocal ts=4 sw=4 sts=4
 autocmd Filetype markdown setlocal linebreak conceallevel=0
+autocmd Filetype php setlocal ts=4 sw=4 sts=4 colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=88
 autocmd Filetype ruby setlocal colorcolumn=90
 " }}}
@@ -167,6 +168,7 @@ noremap <Leader><F10> :edit ~/.vimrc<CR>
 
 noremap <C-p> :Files<CR>
 noremap <Leader><C-p> :Files ~/apps<CR>
+noremap <C-i> :Rg<CR>
 noremap <C-o> :Vista finder<CR>
 noremap <C-b> :Buffers<CR>
 
@@ -199,6 +201,9 @@ noremap <Leader>6 :tabn 6<CR>
 noremap <Leader>7 :tabn 7<CR>
 noremap <Leader>8 :tabn 8<CR>
 noremap <Leader>9 :tabn 9<CR>
+
+" Auto generate a UUID
+noremap <Leader>uu :read !python3 -c "import uuid; print(uuid.uuid4())"<CR>
 
 " this is to make snipmate a bit easier to use. when switching between tab
 " stops, snipmate puts you into select mode. It seems like there's no easy way
