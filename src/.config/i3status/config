@@ -50,16 +50,6 @@ tztime time {
         format = "%H:%M"
 }
 
-tztime timeaus {
-        format = "%H:%M AWST"
-        timezone = "Australia/Perth"
-}
-
-tztime timemunich {
-        format = "%H:%M CET"
-        timezone = "Europe/Berlin"
-}
-
 tztime timeutc {
         format = "%H:%M:%S UTC"
         timezone = "UTC"
