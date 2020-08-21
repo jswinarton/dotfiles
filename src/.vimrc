@@ -102,6 +102,7 @@ Plugin 'prabirshrestha/vim-lsp'
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
 " Plugin 'posva/vim-vue'
+Plugin 'jwalton512/vim-blade'
 
 call vundle#end()
 
@@ -147,7 +148,7 @@ autocmd Filetype elixir setlocal colorcolumn=80
 autocmd Filetype go setlocal noexpandtab ts=8 sw=0 sts=0
 autocmd Filetype java setlocal ts=4 sw=4 sts=4
 autocmd Filetype markdown setlocal linebreak conceallevel=0
-autocmd Filetype php setlocal ts=4 sw=4 sts=4 colorcolumn=90
+autocmd Filetype php setlocal ts=2 sw=2 sts=2 colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=88
 autocmd Filetype ruby setlocal colorcolumn=90
 " }}}
