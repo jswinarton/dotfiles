@@ -54,6 +54,10 @@ set splitbelow
 " set a better location for the ctags file
 set tags+=.tags
 
+" Prevent the 'join' command from inserting two spaces after the end of
+" sentences
+set nojoinspaces
+
 " }}}
 " Plugins and plugin management {{{
 set rtp+=~/.vim/bundle/Vundle.vim

@@ -21,7 +21,7 @@ compinit
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt append_history extended_history inc_append_history autocd
+setopt append_history extended_history inc_append_history autocd hist_ignore_all_dups hist_find_no_dups
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install

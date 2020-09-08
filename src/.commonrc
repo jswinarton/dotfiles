@@ -49,7 +49,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-
 alias g="git "
 
 # Quickly cd to git repository root, or home directory if not in a git repo
@@ -60,6 +59,9 @@ cdg() {
 # Vim shortcuts
 alias v="vim"
 alias vi="vim"
+
+# Copy to clipboard easily
+alias copy="xclip -selection c"
 
 # ls aliases
 if ls --color > /dev/null 2>&1; then # GNU

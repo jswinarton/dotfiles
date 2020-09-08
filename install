@@ -16,8 +16,17 @@ for SRC_FILE in $(find . -type f ! -name '.gitkeep' | sed "s|^\./||" | sort); do
         fi
         echo "$SRC_FILE -> $DST_FILE"
 done
-echo ""
 
+echo ""
+echo "Installing Tmux Plugin Manager"
+TMUX_PLUGIN_DIR="${HOME}/.tmux/plugins/tpm"
+if [ -d $TMUX_PLUGIN_DIR ]; then
+  echo "... already installed. skipping clone"
+else
+  git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_DIR
+fi
+
+echo ""
 echo "Installing Vundle"
 VUNDLE_DIR="${HOME}/.vim/bundle/Vundle.vim"
 if [ -d $VUNDLE_DIR ]; then
