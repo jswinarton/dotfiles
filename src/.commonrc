@@ -93,6 +93,7 @@ alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
 alias fucking='sudo '  # ask nicely
 
 # Docker helpers
+alias dc='docker-compose '
 alias dce='docker-compose exec '
 
 docker-ps() {

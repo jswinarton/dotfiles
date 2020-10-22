@@ -8,7 +8,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set the background
-exec /usr/bin/feh --bg-fill ~/apps/dotfiles/etc/wallpaper.jpg
+exec /usr/bin/feh --bg-fill ~/apps/dotfiles/etc/wallpaper.png
 
 # Set compose button to menu button
 exec /usr/bin/setxkbmap -option compose:menu
