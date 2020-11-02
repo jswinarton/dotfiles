@@ -1,0 +1,4 @@
+[Unit]
+Description=User graphical target
+Requires=default.target
+After=default.target
