@@ -89,8 +89,9 @@ alias tmux-attach="tmux a || tmux new -s 'default'"
 
 alias ag='ag --hidden --path-to-ignore ~/.agignore'
 
-alias fuck='sudo $(fc -ln -1)'  # run last command with sudo
-alias fucking='sudo '  # ask nicely
+alias please='sudo $(fc -ln -1)'  # run last command with sudo
+alias fuck=please  # ask nicely
+alias fucking='sudo '
 
 # Docker helpers
 alias dc='docker-compose '
