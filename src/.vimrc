@@ -105,7 +105,7 @@ Plugin 'prabirshrestha/vim-lsp'
 " occasional syntaxes (only enable when using)
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
-" Plugin 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 Plugin 'jwalton512/vim-blade'
 
 call vundle#end()
