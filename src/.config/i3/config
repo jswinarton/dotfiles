@@ -129,6 +129,10 @@ bar {
   colors {
     statusline #aaaaaa
   }
+
+  # prevent workspace switching with scrollbar
+  bindsym button4 nop
+  bindsym button5 nop
 }
 
 # prevent focus from following mouse movement

@@ -8,6 +8,7 @@
   b=rev-parse --abbrev-ref HEAD
   br=branch
   ci=!git force-local-config && git commit --verbose
+  cim=!git force-local-config && git commit --verbose -m "more"
   cl=clone
   co=checkout
   st=status -s
