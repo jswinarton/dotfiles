@@ -84,29 +84,30 @@ Plugin 'hashivim/vim-terraform.git'
 Plugin 'plasticboy/vim-markdown'
 
 " plugins
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/MatchTag'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " experimental
+Plugin 'airblade/vim-gitgutter'
 Plugin 'liuchengxu/vista.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
 
 " occasional syntaxes (only enable when using)
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
-Plugin 'posva/vim-vue'
 Plugin 'jwalton512/vim-blade'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
@@ -126,6 +127,9 @@ let g:vista#renderer#enable_icon = 0
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Gitgutter
+let g:gitgutter_diff_base = 'master'
 " }}}
 " Syntax and themes {{{
 syntax on
@@ -168,12 +172,11 @@ noremap k gk
 noremap <F2> :set paste!<CR>
 noremap <Space> :nohlsearch<CR>
 
-noremap <F10> :source ~/.vimrc<CR>
-noremap <Leader><F10> :edit ~/.vimrc<CR>
-
 noremap <C-p> :Files<CR>
 noremap <Leader><C-p> :Files ~/apps<CR>
-noremap <C-i> :Rg<CR>
+noremap <C-i> :call fzf#run(fzf#wrap({'source': 'git diff --name-only master', 'sink': 'e'}))<CR>
+noremap <F6> :Gdiff master<CR>
+noremap <F5> :Git -p diff --stat master \| :exe ":resize " . (line('$') + 1)<CR>
 noremap <C-o> :Vista finder<CR>
 noremap <C-b> :Buffers<CR>
 
@@ -193,6 +196,9 @@ noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
 
 " Tab shortcuts
+noremap <F3> :tabprev<CR>
+noremap <F4> :tabnext<CR>
+
 noremap <Leader>tn :tabnew<CR>
 noremap <Leader>th :tabprev<CR>
 noremap <Leader>tl :tabnext<CR>

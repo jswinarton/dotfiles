@@ -32,7 +32,7 @@ fi
 
 # Use ripgrep for fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git}'"
-export FZF_DEFAULT_OPTS="--preview 'cat {}'"
+export FZF_DEFAULT_OPTS=""
 
 
 # LANGUAGE-SPECIFIC SETTINGS
@@ -122,7 +122,6 @@ touch-sh() {
   fi
 }
 
-
 # HOOKS
 # ----------
 
@@ -132,6 +131,9 @@ source $HOME/.commonrc.private 2> /dev/null
 
 # hook for machine-specific configuration.
 source $HOME/.machinerc 2> /dev/null
+
+# github review stuff
+export REVIEW_BASE=master
 
 
 # COLOURS

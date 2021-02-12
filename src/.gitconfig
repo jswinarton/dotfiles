@@ -14,11 +14,11 @@
   st=status -s
   root=rev-parse --show-toplevel
 
-  # diffs
-  d=!ydiff -s
-  dd=!ydiff  # "diff unified"
-  sd=!ydiff -s --staged  # "staged diff"
-  sdd=!ydiff --staged  # "staged diff unified"
+  # code review
+  files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+  stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
+  review = !git diff \"$REVIEW_BASE\"
+  reviewvim = !vim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 
   # logs
   l=log --oneline
@@ -28,6 +28,11 @@
 
 [core]
   excludesfile = ~/.gitignore
+  pager = delta --diff-so-fancy
+
+[delta]
+  features = side-by-side line-numbers decorations
+
 
 [gpg]
   program = gpg

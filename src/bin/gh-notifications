@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" != "" ]
+then
+  SORT=$1
+else
+  SORT=".updated_at"
+fi
+
+gh api notifications | \
+  jq -r "sort_by($SORT) | [\"ID\", \"TITLE\", \"REPOSITORY NAME\", \"UPDATED AT\", \"REASON\"], (.[] | [.id, .subject.title, .repository.full_name, .updated_at, .reason]) | @tsv" | column -ts $'\t'
