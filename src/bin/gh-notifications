@@ -7,5 +7,8 @@ else
   SORT=".updated_at"
 fi
 
-gh api notifications | \
-  jq -r "sort_by($SORT) | [\"ID\", \"TITLE\", \"REPOSITORY NAME\", \"UPDATED AT\", \"REASON\"], (.[] | [.id, .subject.title, .repository.full_name, .updated_at, .reason]) | @tsv" | column -ts $'\t'
+JQ_STR="sort_by($SORT)"
+JQ_STR+=' | ["ID", "TITLE", "REPOSITORY NAME", "NUMBER", "UPDATED AT", "REASON"], (.[] | [.id, .subject.title, .repository.full_name, (.subject.url | split("/")[-1]), .updated_at, .reason]) | @tsv'
+
+gh api 'notifications?all=true' | \
+  jq -r "$JQ_STR" | column -ts $'\t'

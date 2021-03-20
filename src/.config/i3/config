@@ -89,8 +89,20 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace "10:0"
 
 # move workspaces between outputs
-bindsym $mod+minus move workspace to output DisplayPort-2
-bindsym $mod+plus move workspace to output primary
+bindsym $mod+Shift+minus move workspace to output DisplayPort-2
+bindsym $mod+Shift+plus move workspace to output primary
+
+# set default outputs for workspaces
+workspace 1 output DisplayPort-2
+workspace 2 output DisplayPort-2
+workspace 3 output DisplayPort-2
+workspace 4 output DisplayPort-2
+workspace 5 output DisplayPort-2
+workspace 6 output primary
+workspace 7 output primary
+workspace 8 output primary
+workspace 9 output primary
+workspace "10:0" output primary
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

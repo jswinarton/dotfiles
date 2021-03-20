@@ -122,6 +122,12 @@ touch-sh() {
   fi
 }
 
+# tar shortcuts
+# use `untar -C [directory]` to untar to a dir
+alias untar="tar -zxvf"
+# create a new tar file with `tarcreate [filename].tar.gz [item1] [item2] ...`
+alias tarcreate="tar -czvf"
+
 # HOOKS
 # ----------
 

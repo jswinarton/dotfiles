@@ -17,8 +17,7 @@
   # code review
   files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
   stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
-  review = !git diff \"$REVIEW_BASE\"
-  reviewvim = !vim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+  review = !vim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 
   # logs
   l=log --oneline
@@ -32,7 +31,6 @@
 
 [delta]
   features = side-by-side line-numbers decorations
-
 
 [gpg]
   program = gpg

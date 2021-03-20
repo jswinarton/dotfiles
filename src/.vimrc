@@ -58,6 +58,9 @@ set tags+=.tags
 " sentences
 set nojoinspaces
 
+" all tabs, all the time
+set tabpagemax=50
+
 " }}}
 " Plugins and plugin management {{{
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -129,7 +132,7 @@ let g:vista#renderer#enable_icon = 0
 let g:vim_markdown_folding_disabled = 1
 
 " Gitgutter
-let g:gitgutter_diff_base = 'master'
+let g:gitgutter_diff_base = $REVIEW_BASE
 " }}}
 " Syntax and themes {{{
 syntax on
@@ -174,9 +177,9 @@ noremap <Space> :nohlsearch<CR>
 
 noremap <C-p> :Files<CR>
 noremap <Leader><C-p> :Files ~/apps<CR>
-noremap <C-i> :call fzf#run(fzf#wrap({'source': 'git diff --name-only master', 'sink': 'e'}))<CR>
-noremap <F6> :Gdiff master<CR>
-noremap <F5> :Git -p diff --stat master \| :exe ":resize " . (line('$') + 1)<CR>
+noremap <C-i> :call fzf#run(fzf#wrap({'source': 'git diff --name-only $REVIEW_BASE', 'sink': 'e'}))<CR>
+noremap <F6> :Gdiff $REVIEW_BASE<CR>
+noremap <F5> :Git -p diff --stat $REVIEW_BASE \| :exe ":resize " . (line('$') + 1)<CR>
 noremap <C-o> :Vista finder<CR>
 noremap <C-b> :Buffers<CR>
 
