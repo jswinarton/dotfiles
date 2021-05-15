@@ -26,9 +26,6 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-# tmuxp completion
-eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
-
 # Manually configured options
 setopt extendedglob promptsubst
 
