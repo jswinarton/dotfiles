@@ -116,6 +116,9 @@ call vundle#end()
 
 filetype plugin indent on
 
+" Snipmate
+let g:snipMate = { 'snippet_version' : 1 }
+
 " Airline
 let g:airline_section_y = ''
 let g:airline_powerline_fonts=1
