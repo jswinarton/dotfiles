@@ -87,8 +87,6 @@ alias clearhistory='cat /dev/null > ~/.zsh_history > ~/.psql_history > ~/.sh_his
 
 alias tmux-attach="tmux a || tmux new -s 'default'"
 
-alias ag='ag --hidden --path-to-ignore ~/.agignore'
-
 alias please='sudo $(fc -ln -1)'  # run last command with sudo
 alias fuck=please  # ask nicely
 alias fucking='sudo '
@@ -103,6 +101,9 @@ docker-ps() {
   echo "\nImages:"
   docker image ls --format='{{ .Repository }}:{{ .Tag }}' | sort | paste -s -d" "
 }
+
+# Kubernetes helpers
+alias kubectl='minikube kubectl --'
 
 # Terraform helpers
 alias tf='terraform '
