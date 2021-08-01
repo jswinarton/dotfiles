@@ -18,15 +18,6 @@ for SRC_FILE in $(find . -type f ! -name '.gitkeep' | sed "s|^\./||" | sort); do
 done
 
 echo ""
-echo "Installing Tmux Plugin Manager"
-TMUX_PLUGIN_DIR="${HOME}/.tmux/plugins/tpm"
-if [ -d $TMUX_PLUGIN_DIR ]; then
-  echo "... already installed. skipping clone"
-else
-  git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_DIR
-fi
-
-echo ""
 echo "Installing Vundle"
 VUNDLE_DIR="${HOME}/.vim/bundle/Vundle.vim"
 if [ -d $VUNDLE_DIR ]; then
@@ -37,4 +28,13 @@ fi
 
 echo ""
 echo "Installing Vim Plugins"
-vim +PluginInstall +qall
+if command -v nvim > /dev/null 2>&1; then
+  nvim +PluginInstall +qall
+else
+  vim +PluginInstall +qall
+fi
+
+echo ""
+echo "Compiling coc.nvim"
+COC_DIR="${HOME}/.vim/bundle/coc.nvim"
+( cd $COC_DIR && npm install && npm run build )

@@ -10,7 +10,12 @@ export PAGER=less
 
 # set vim as the default editor
 if command -v vim > /dev/null 2>&1; then
-    export EDITOR=/usr/bin/vim
+  unset EDITOR
+  export EDITOR=$(which vim)
+fi
+if command -v nvim > /dev/null 2>&1; then
+  unset EDITOR
+  export EDITOR=$(which nvim)
 fi
 
 # add dotfiles bin, go bin to the path
@@ -18,7 +23,7 @@ export PATH=$HOME/go/bin:$HOME/bin:$PATH
 
 # add systemd user-binaries to the path
 if command -v systemd-path > /dev/null 2>&1; then
-    export PATH=$(systemd-path user-binaries):$PATH
+  export PATH=$(systemd-path user-binaries):$PATH
 fi
 
 # set for gpg-agent to work correctly
@@ -57,8 +62,13 @@ cdg() {
 }
 
 # Vim shortcuts
-alias v="vim"
-alias vi="vim"
+if command -v nvim > /dev/null 2>&1; then
+  alias v="nvim "
+  alias vi="nvim "
+else
+  alias v="vim "
+  alias vi="vim "
+fi
 
 # Copy to clipboard easily
 alias copy="xclip -selection c"

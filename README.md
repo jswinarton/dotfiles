@@ -1,7 +1,7 @@
 # Dotfiles
 
 My personal dotfiles configuration. Includes configs for vim, tmux, zsh, bash,
-git, [ag], [i3], [kitty], and more.
+git, [i3], [kitty], and more.
 
 ## Install
 
@@ -12,7 +12,16 @@ Vim plugins using [Vundle].
 To install, clone this repository to your favourite directory. I prefer
 `~/apps`. Then, run the install script: `./install`
 
-[ag]: https://github.com/ggreer/the_silver_searcher
+## Required packages on Linux
+
+- bat
+- delta (git diff viewer)
+- fzf
+- neovim >= 5.0
+- nodejs >= 12.0 (coc.nvim dependency)
+- ripgrep
+- universal-ctags
+
 [i3]: https://i3wm.org/
 [kitty]: https://github.com/kovidgoyal/kitty
 [Vundle]: https://github.com/VundleVim/Vundle.vim

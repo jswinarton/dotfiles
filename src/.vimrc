@@ -87,11 +87,13 @@ Plugin 'hashivim/vim-terraform.git'
 Plugin 'plasticboy/vim-markdown'
 
 " plugins
+Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/MatchTag'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'liuchengxu/vista.vim'
 Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -101,16 +103,13 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " experimental
-Plugin 'airblade/vim-gitgutter'
-Plugin 'liuchengxu/vista.vim'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
+Plugin 'neoclide/coc.nvim'
 
 " occasional syntaxes (only enable when using)
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
 Plugin 'jwalton512/vim-blade'
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 call vundle#end()
 
@@ -129,7 +128,7 @@ let g:airline_skip_empty_sections = 1
 " Vista
 let g:vista_sidebar_width = 40
 let g:vista_fzf_preview = ['right:50%']
-let g:vista#renderer#enable_icon = 0
+let g:vista#renderer#enable_icon = 1
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -141,20 +140,22 @@ let g:gitgutter_diff_base = $REVIEW_BASE
 syntax on
 colorscheme base16-default-dark
 " }}}
-" Auto commands {{{
+" Commands {{{
 function! TrimEndLines()
     let save_cursor = getpos(".")
     :silent! %s#\($\n\s*\)\+\%$##
     call setpos('.', save_cursor)
 endfunction
+autocmd BufWritePre * call TrimEndLines()
 
 function! TrimTrailingWhitespace()
     :%s/\s\+$//e
 endfunction
-
-
-autocmd BufWritePre * call TrimEndLines()
 autocmd BufWritePre * call TrimTrailingWhitespace()
+
+" Experimental command to list changed files in fzf
+command! -bang FilesGit call fzf#run(fzf#wrap({'source': 'git files', 'sink': 'e'}))
+
 " }}}
 " Language-specific settings {{{
 autocmd Filetype ansible setlocal syntax=yaml
@@ -177,22 +178,6 @@ noremap k gk
 
 noremap <F2> :set paste!<CR>
 noremap <Space> :nohlsearch<CR>
-
-noremap <C-p> :Files<CR>
-noremap <Leader><C-p> :Files ~/apps<CR>
-noremap <C-i> :call fzf#run(fzf#wrap({'source': 'git diff --name-only $REVIEW_BASE', 'sink': 'e'}))<CR>
-noremap <F6> :Gdiff $REVIEW_BASE<CR>
-noremap <F5> :Git -p diff --stat $REVIEW_BASE \| :exe ":resize " . (line('$') + 1)<CR>
-noremap <C-o> :Vista finder<CR>
-noremap <C-b> :Buffers<CR>
-
-noremap <F7> :Vista<CR>
-noremap <Leader><F7> :Vista!!<CR>
-
-noremap <Leader>gs :Git<CR>
-noremap <Leader>gd :Git diff<CR>
-noremap <Leader>gb :Git blame<CR>
-
 noremap <Leader>nr :set number \| set relativenumber<CR>
 noremap <Leader>nn :set number \| set norelativenumber<CR>
 noremap <Leader>no :set nonumber \| set norelativenumber<CR>
@@ -201,26 +186,32 @@ noremap <Leader>i :set list!<CR>
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
 
-" Tab shortcuts
-noremap <F3> :tabprev<CR>
-noremap <F4> :tabnext<CR>
+" Git shortcuts
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gd :Gdiff<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gf :FilesGit<CR>
 
+" Fzf/vista search shortcuts
+noremap <C-p> :Files<CR>
+noremap <Leader><C-p> :Files ~/apps<CR>
+noremap <C-o> :Vista finder<CR>
+noremap <C-i> :History:<CR>
+noremap <Leader><C-i> :History/<CR>
+noremap <C-b> :Buffers<CR>
+
+" These need to be reworked as env var passing from the shell is inconsistent
+" noremap <Leader>gd :Gdiff $REVIEW_BASE<CR>
+" noremap <F5> :Git -p diff --stat $REVIEW_BASE \| :exe ":resize " . (line('$') + 1)<CR>
+
+noremap <F7> :Vista<CR>
+noremap <Leader><F7> :Vista!!<CR>
+
+" Tab shortcuts
 noremap <Leader>tn :tabnew<CR>
 noremap <Leader>th :tabprev<CR>
 noremap <Leader>tl :tabnext<CR>
 noremap <Leader>tx :tabclose<CR>
-noremap <Leader>1 :tabn 1<CR>
-noremap <Leader>2 :tabn 2<CR>
-noremap <Leader>3 :tabn 3<CR>
-noremap <Leader>4 :tabn 4<CR>
-noremap <Leader>5 :tabn 5<CR>
-noremap <Leader>6 :tabn 6<CR>
-noremap <Leader>7 :tabn 7<CR>
-noremap <Leader>8 :tabn 8<CR>
-noremap <Leader>9 :tabn 9<CR>
-
-" Auto generate a UUID
-noremap <Leader>uu :read !python3 -c "import uuid; print(uuid.uuid4())"<CR>
 
 " this is to make snipmate a bit easier to use. when switching between tab
 " stops, snipmate puts you into select mode. It seems like there's no easy way
