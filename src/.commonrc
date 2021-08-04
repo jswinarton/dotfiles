@@ -146,7 +146,8 @@ alias tarcreate="tar -czvf"
 # repository or encrypted with git-crypt.
 source $HOME/.commonrc.private 2> /dev/null
 
-# hook for machine-specific configuration.
+# hooks for machine-specific configuration.
+source $HOME/.machinerc.$(hostname) 2> /dev/null
 source $HOME/.machinerc 2> /dev/null
 
 # github review stuff
