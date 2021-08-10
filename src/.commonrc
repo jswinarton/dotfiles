@@ -147,11 +147,10 @@ alias tarcreate="tar -czvf"
 
 # hook for private content. intended to be either versioned into a different
 # repository or encrypted with git-crypt.
-source $HOME/.commonrc.private 2> /dev/null
+[ -f $HOME/.commonrc.private ] && source $HOME/.commonrc.private
 
 # hooks for machine-specific configuration.
-source $HOME/.machinerc.$(hostname) 2> /dev/null
-source $HOME/.machinerc 2> /dev/null
+[ -f $HOME/.machinerc.$(hostname) ] && source $HOME/.machinerc.$(hostname)
 
 # github review stuff
 export REVIEW_BASE=master
