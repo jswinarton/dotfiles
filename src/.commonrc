@@ -18,8 +18,11 @@ if command -v nvim > /dev/null 2>&1; then
   export EDITOR=$(which nvim)
 fi
 
-# add dotfiles bin, go bin to the path
-export PATH=$HOME/go/bin:$HOME/bin:$PATH
+# add dotfiles bin to the path
+export PATH=$HOME/bin:$PATH
+
+# add go bin to the path
+export PATH=/usr/local/go/bin:$PATH
 
 # add systemd user-binaries to the path
 if command -v systemd-path > /dev/null 2>&1; then
@@ -168,3 +171,5 @@ if [ -f '/home/jeremy/downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/jeremy/downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jeremy/downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# vim: filetype=sh
