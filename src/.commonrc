@@ -32,6 +32,12 @@ fi
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)
 
+# EXPERIMENTAL: use kitty plugin to prevent terminal failures over SSH
+# https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
+if [ "$TERM" = "xterm-kitty" ]; then
+  alias ssh="kitty +kitten ssh"
+fi
+
 #
 if ! ssh-add -l > /dev/null 2>&1; then
   echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
