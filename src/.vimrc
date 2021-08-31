@@ -109,6 +109,9 @@ Plugin 'neoclide/coc.nvim'
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
 Plugin 'jwalton512/vim-blade'
+Plugin 'peterhoeg/vim-qml'
+Plugin 'amadeus/vim-mjml'
+Plugin 'cespare/vim-toml'
 " Plugin 'posva/vim-vue'
 
 call vundle#end()
