@@ -122,9 +122,7 @@ filetype plugin indent on
 let g:snipMate = { 'snippet_version' : 1 }
 
 " Airline
-let g:airline_section_y = ''
 let g:airline_powerline_fonts=1
-let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V': 'V', 's': 'S', 'S': 'S'}
 let g:airline_theme = 'base16'
 let g:airline_skip_empty_sections = 1
 
