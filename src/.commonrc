@@ -39,10 +39,10 @@ if [ "$TERM" = "xterm-kitty" ]; then
 fi
 
 #
-if ! ssh-add -l > /dev/null 2>&1; then
-  echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
-  echo $(ssh-add -l)
-fi
+# if ! ssh-add -l > /dev/null 2>&1; then
+#   echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
+#   echo $(ssh-add -l)
+# fi
 
 # Use ripgrep for fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git}'"
@@ -114,7 +114,7 @@ alias fucking='sudo '
 alias dc='docker-compose '
 alias dce='docker-compose exec '
 
-docker-ps() {
+dps() {
   echo "Containers:"
   docker ps  --format="table {{ .ID }}\t{{ .Image }}\t{{ .Ports }}\t{{ .Status }}"
   echo "\nImages:"
