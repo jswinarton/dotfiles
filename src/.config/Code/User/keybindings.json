@@ -1,0 +1,133 @@
+[
+    // Navigation between different panes
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    // Remap "Go to symbol"
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.gotoSymbol"
+    },
+    // Quick "Go to terminal"
+    {
+        "key": "ctrl+y",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // "Ctrl+I series"
+    // Sidebar toggles
+    {
+        "key": "ctrl+i ctrl+e",
+        "command": "workbench.view.explorer",
+    },
+    {
+        "key": "ctrl+i ctrl+q",
+        "command": "workbench.view.search",
+    },
+    {
+        "key": "ctrl+i ctrl+g",
+        "command": "workbench.view.scm",
+    },
+    {
+        "key": "ctrl+i ctrl+d",
+        "command": "workbench.view.debug",
+    },
+    {
+        "key": "ctrl+i ctrl+x",
+        "command": "workbench.view.extensions",
+    },
+    // "Ctrl+M series"
+    // Unbind original
+    {
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
+    },
+    {
+        "key": "ctrl+m ctrl+t",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+m ctrl+j",
+        "command": "workbench.action.joinAllGroups"
+    },
+    // Intellisense shortcuts
+    // Use Vim-style keybindings to navigate through autocomplete
+    {
+        "key": "ctrl+j",
+        "command": "selectNextQuickFix",
+        "when": "editorFocus && quickFixWidgetVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevQuickFix",
+        "when": "editorFocus && quickFixWidgetVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    }
+    // Unmapped original keybindings
+    // TODO remove these once you're certain their absence isn't causing
+    // problems
+    // {
+    //     "key": "ctrl+shift+o",
+    //     "command": "-workbench.action.gotoSymbol"
+    // },
+    // {
+    //     "key": "ctrl+shift+e",
+    //     "command": "-workbench.view.explorer",
+    //     "when": "viewContainer.workbench.view.explorer.enabled"
+    // },
+    // {
+    //     "key": "ctrl+shift+f",
+    //     "command": "-workbench.view.search",
+    //     "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
+    // },
+    // {
+    //     "key": "ctrl+shift+g",
+    //     "command": "-workbench.view.scm",
+    //     "when": "workbench.scm.active"
+    // },
+    // {
+    //     "key": "ctrl+shift+d",
+    //     "command": "-workbench.view.debug",
+    //     "when": "viewContainer.workbench.view.debug.enabled"
+    // },
+    // {
+    //     "key": "ctrl+shift+x",
+    //     "command": "-workbench.view.extensions",
+    //     "when": "viewContainer.workbench.view.extensions.enabled"
+    // },
+    //     "key": "ctrl+shift+c",
+    //     "command": "-workbench.action.terminal.openNativeConsole",
+    //     "when": "!terminalFocus"
+    // },
+    // {
+    //     "key": "ctrl+`",
+    //     "command": "-workbench.action.terminal.toggleTerminal",
+    //     "when": "terminal.active"
+    // },
+    // {
+    //     "key": "ctrl+t",
+    //     "command": "-workbench.action.showAllSymbols"
+    // },
+]

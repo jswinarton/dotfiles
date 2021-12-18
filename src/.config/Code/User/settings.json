@@ -1,0 +1,89 @@
+{
+    "debug.toolBarLocation": "docked",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.scrollBeyondLastLine": false,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "git.confirmSync": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.views.branches.files.layout": "list",
+    "gitlens.views.commits.files.layout": "tree",
+    "intelephense.diagnostics.undefinedClassConstants": false,
+    "intelephense.diagnostics.undefinedConstants": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "intelephense.diagnostics.undefinedMethods": false,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "intelephense.diagnostics.undefinedSymbols": false,
+    "intelephense.diagnostics.undefinedTypes": false,
+    "npm.enableRunFromFolder": true,
+    "python.defaultInterpreterPath": "/bin/python3",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
+    "terminal.external.linuxExec": "kitty",
+    "terminal.integrated.defaultLocation": "editor",
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-i>": false,
+        "<C-m>": false,
+        "<C-y>": false,
+    },
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "editor.action.toggleWordWrap"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "n",
+                "s"
+            ],
+            "commands": [
+                ":set number"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "n",
+                "r"
+            ],
+            "commands": [
+                ":set relativenumber"
+            ],
+        }
+    ],
+    "vim.joinspaces": false,
+    "vim.vimrc.enable": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.panel.defaultLocation": "right",
+    "workbench.settings.editor": "json",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.editor.showTabs": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.wordWrap": "off",
+}

@@ -1,7 +1,7 @@
 # Dotfiles
 
 My personal dotfiles configuration. Includes configs for vim, tmux, zsh, bash,
-git, [i3], [kitty], and more.
+git, [i3], [kitty], VSCode, and more.
 
 ## Install
 
