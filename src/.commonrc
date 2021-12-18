@@ -19,15 +19,15 @@ if command -v nvim > /dev/null 2>&1; then
 fi
 
 # add dotfiles bin to the path
-export PATH=$HOME/bin:$PATH
+# export PATH=$HOME/bin:$PATH
 
 # add go bin to the path
 export PATH=/usr/local/go/bin:$PATH
 
 # add systemd user-binaries to the path
-if command -v systemd-path > /dev/null 2>&1; then
-  export PATH=$(systemd-path user-binaries):$PATH
-fi
+# if command -v systemd-path > /dev/null 2>&1; then
+#   export PATH=$(systemd-path user-binaries):$PATH
+# fi
 
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)

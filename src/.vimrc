@@ -84,6 +84,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'chr4/nginx.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'hashivim/vim-terraform.git'
+Plugin 'ledger/vim-ledger'
 Plugin 'plasticboy/vim-markdown'
 
 " plugins
