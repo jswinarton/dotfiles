@@ -23,12 +23,12 @@
     },
     // Quick "Go to terminal"
     {
-        "key": "ctrl+y",
+        "key": "ctrl+shift+t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
-    // "Ctrl+I series"
-    // Sidebar toggles
+    // Ctrl+I series: Sidebar toggles
+    //
     {
         "key": "ctrl+i ctrl+e",
         "command": "workbench.view.explorer",
@@ -49,19 +49,58 @@
         "key": "ctrl+i ctrl+x",
         "command": "workbench.view.extensions",
     },
-    // "Ctrl+M series"
-    // Unbind original
+    // Ctrl+G series: Git
+    //
     {
+        "key": "ctrl+g ctrl+s",
+        "command": "git.stageAll"
+    },
+    {
+        "key": "ctrl+g ctrl+c",
+        "command": "git.commit"
+    },
+    {
+        "key": "ctrl+g ctrl+p",
+        "command": "git.push"
+    },
+    {
+        "key": "ctrl+g ctrl+b",
+        "command": "git.branch"
+    },
+    {
+        "key": "ctrl+g ctrl+r",
+        "command": "pr.openPullRequestOnGitHub"
+    },
+    // Ctrl+M series: Generic leaders
+    //
+    {
+        // Unbind the original chord leader
         "key": "ctrl+m",
         "command": "-editor.action.toggleTabFocusMode"
     },
     {
-        "key": "ctrl+m ctrl+t",
+        "key": "ctrl+m ctrl+j",
+        "command": "workbench.action.joinAllGroups"
+    },
+    {
+        "key": "ctrl+m ctrl+l",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+m ctrl+z",
         "command": "workbench.action.toggleMaximizedPanel"
     },
     {
-        "key": "ctrl+m ctrl+j",
-        "command": "workbench.action.joinAllGroups"
+        "key": "ctrl+m ctrl+a",
+        "command": "editor.action.toggleWordWrap"
+    },
+    {
+        "key": "ctrl+m ctrl+v",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+m ctrl+s",
+        "command": "workbench.action.splitEditorDown"
     },
     // Intellisense shortcuts
     // Use Vim-style keybindings to navigate through autocomplete
@@ -84,50 +123,13 @@
         "key": "ctrl+k",
         "command": "selectPrevSuggestion",
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    }
-    // Unmapped original keybindings
-    // TODO remove these once you're certain their absence isn't causing
-    // problems
-    // {
-    //     "key": "ctrl+shift+o",
-    //     "command": "-workbench.action.gotoSymbol"
-    // },
-    // {
-    //     "key": "ctrl+shift+e",
-    //     "command": "-workbench.view.explorer",
-    //     "when": "viewContainer.workbench.view.explorer.enabled"
-    // },
-    // {
-    //     "key": "ctrl+shift+f",
-    //     "command": "-workbench.view.search",
-    //     "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
-    // },
-    // {
-    //     "key": "ctrl+shift+g",
-    //     "command": "-workbench.view.scm",
-    //     "when": "workbench.scm.active"
-    // },
-    // {
-    //     "key": "ctrl+shift+d",
-    //     "command": "-workbench.view.debug",
-    //     "when": "viewContainer.workbench.view.debug.enabled"
-    // },
-    // {
-    //     "key": "ctrl+shift+x",
-    //     "command": "-workbench.view.extensions",
-    //     "when": "viewContainer.workbench.view.extensions.enabled"
-    // },
-    //     "key": "ctrl+shift+c",
-    //     "command": "-workbench.action.terminal.openNativeConsole",
-    //     "when": "!terminalFocus"
-    // },
-    // {
-    //     "key": "ctrl+`",
-    //     "command": "-workbench.action.terminal.toggleTerminal",
-    //     "when": "terminal.active"
-    // },
-    // {
-    //     "key": "ctrl+t",
-    //     "command": "-workbench.action.showAllSymbols"
-    // },
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
 ]
