@@ -85,5 +85,6 @@
     "terminal.integrated.commandsToSkipShell": [
         "workbench.action.toggleSidebarVisibility"
     ],
-    "githubPullRequests.fileListLayout": "flat",
+    "githubPullRequests.fileListLayout": "tree",
+    "editor.wordWrap": "on",
 }

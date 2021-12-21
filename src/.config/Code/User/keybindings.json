@@ -30,23 +30,39 @@
     // Ctrl+I series: Sidebar toggles
     //
     {
-        "key": "ctrl+i ctrl+e",
+        "key": "ctrl+i ctrl+e", // Explorer
         "command": "workbench.view.explorer",
     },
     {
-        "key": "ctrl+i ctrl+q",
+        "key": "ctrl+i ctrl+q", // Search
         "command": "workbench.view.search",
     },
     {
-        "key": "ctrl+i ctrl+g",
+        "key": "ctrl+i ctrl+g", // Source control
         "command": "workbench.view.scm",
     },
     {
-        "key": "ctrl+i ctrl+d",
+        "key": "ctrl+i ctrl+d", // Debug
         "command": "workbench.view.debug",
     },
     {
-        "key": "ctrl+i ctrl+x",
+        "key": "ctrl+i ctrl+o", // Docker
+        "command": "workbench.view.extension.dockerView",
+    },
+    {
+        "key": "ctrl+i ctrl+r", // Remote explorer
+        "command": "workbench.view.remote",
+    },
+    {
+        "key": "ctrl+i ctrl+h", // Github
+        "command": "workbench.view.extension.github-pull-requests",
+    },
+    {
+        "key": "ctrl+i ctrl+p", // Pull requests
+        "command": "workbench.view.extension.github-pull-request",
+    },
+    {
+        "key": "ctrl+i ctrl+x", // Extensions
         "command": "workbench.view.extensions",
     },
     // Ctrl+G series: Git
@@ -105,6 +121,10 @@
     {
         "key": "ctrl+m ctrl+s",
         "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "ctrl+m ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
     },
     // Intellisense shortcuts
     // Use Vim-style keybindings to navigate through autocomplete
