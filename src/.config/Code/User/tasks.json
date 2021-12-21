@@ -4,9 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
+            "label": "Autocommit",
             "type": "shell",
-            "command": "echo Hello"
+            "command": "[[ $(git rev-parse --abbrev-ref HEAD) = \"main\" ]] || [[ $(git rev-parse --abbrev-ref HEAD) = \"master\" ]] && echo \"Master branch, refusing autocommit\" && exit 1; git add -A && git commit -m \"more\" && git push;",
+            "problemMatcher": []
         }
     ]
 }

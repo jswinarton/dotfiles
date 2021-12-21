@@ -82,4 +82,8 @@
         "eamodio.gitlens",
         "github.vscode-pull-request-github"
     ],
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.toggleSidebarVisibility"
+    ],
+    "githubPullRequests.fileListLayout": "flat",
 }
