@@ -25,6 +25,10 @@ To install, clone this repository to your favourite directory. I prefer
 - universal-ctags
 - zsh
 
+## TODO
+
+- Consider moving the autocommit task from VSCode settings and making a `bin/` script out of it
+
 [i3]: https://i3wm.org/
 [kitty]: https://github.com/kovidgoyal/kitty
 [Vundle]: https://github.com/VundleVim/Vundle.vim
