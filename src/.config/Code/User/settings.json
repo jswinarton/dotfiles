@@ -86,5 +86,9 @@
         "workbench.action.toggleSidebarVisibility"
     ],
     "githubPullRequests.fileListLayout": "tree",
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "off",
+    "python.testing.pytestEnabled": true,
+    "php-cs-fixer.executablePath": "/usr/local/bin/php-cs-fixer",
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "markdown.preview.scrollEditorWithPreview": false,
 }

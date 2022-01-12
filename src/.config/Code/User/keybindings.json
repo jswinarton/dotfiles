@@ -46,6 +46,10 @@
         "command": "workbench.view.debug",
     },
     {
+        "key": "ctrl+i ctrl+t", // Testing
+        "command": "workbench.view.extension.test",
+    },
+    {
         "key": "ctrl+i ctrl+o", // Docker
         "command": "workbench.view.extension.dockerView",
     },

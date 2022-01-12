@@ -24,6 +24,10 @@ fi
 # add go bin to the path
 export PATH=/usr/local/go/bin:$PATH
 
+# add rust toolchain
+source $HOME/.cargo/env
+
+
 # add systemd user-binaries to the path
 # if command -v systemd-path > /dev/null 2>&1; then
 #   export PATH=$(systemd-path user-binaries):$PATH
