@@ -156,7 +156,7 @@ alias tarcreate="tar -czvf"
 [ -f $HOME/.commonrc.private ] && source $HOME/.commonrc.private
 
 # hooks for machine-specific configuration.
-[ -f $HOME/.machinerc.$(hostname) ] && source $HOME/.machinerc.$(hostname)
+[ -f $HOME/.machinerc.$(hostname -s) ] && source $HOME/.machinerc.$(hostname -s)
 
 # github review stuff
 export REVIEW_BASE=master

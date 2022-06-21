@@ -1,0 +1,24 @@
+#!/bin/bash
+
+brew install \
+  bat \
+  fd \
+  fzf \
+  git-crypt \
+  git-delta \
+  gnupg \
+  htop \
+  httpie \
+  jq \
+  neovim \
+  nmap \
+  node \
+  ripgrep \
+  tmux \
+  tree \
+  universal-ctags \
+  wget \
+  zsh \
+
+# Not sure if this is still necessary.
+# brew install reattach-to-user-namespace
