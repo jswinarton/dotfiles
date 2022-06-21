@@ -1,0 +1,163 @@
+[
+    // Navigation between different panes
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    // Remap "Go to symbol"
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.gotoSymbol"
+    },
+    // Quick "Go to terminal"
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // Ctrl+I series: Sidebar toggles
+    //
+    {
+        "key": "ctrl+i ctrl+e", // Explorer
+        "command": "workbench.view.explorer",
+    },
+    {
+        "key": "ctrl+i ctrl+q", // Search
+        "command": "workbench.view.search",
+    },
+    {
+        "key": "ctrl+i ctrl+g", // Source control
+        "command": "workbench.view.scm",
+    },
+    {
+        "key": "ctrl+i ctrl+d", // Debug
+        "command": "workbench.view.debug",
+    },
+    {
+        "key": "ctrl+i ctrl+t", // Testing
+        "command": "workbench.view.extension.test",
+    },
+    {
+        "key": "ctrl+i ctrl+o", // Docker
+        "command": "workbench.view.extension.dockerView",
+    },
+    {
+        "key": "ctrl+i ctrl+r", // Remote explorer
+        "command": "workbench.view.remote",
+    },
+    {
+        "key": "ctrl+i ctrl+h", // Github
+        "command": "workbench.view.extension.github-pull-requests",
+    },
+    {
+        "key": "ctrl+i ctrl+p", // Pull requests
+        "command": "workbench.view.extension.github-pull-request",
+    },
+    {
+        "key": "ctrl+i ctrl+x", // Extensions
+        "command": "workbench.view.extensions",
+    },
+    // Ctrl+G series: Git
+    //
+    {
+        "key": "ctrl+g ctrl+s",
+        "command": "git.stageAll"
+    },
+    {
+        "key": "ctrl+g ctrl+c",
+        "command": "git.commit"
+    },
+    {
+        "key": "ctrl+g ctrl+p",
+        "command": "git.push"
+    },
+    {
+        "key": "ctrl+g ctrl+b",
+        "command": "git.branch"
+    },
+    {
+        "key": "ctrl+g ctrl+r",
+        "command": "pr.openPullRequestOnGitHub"
+    },
+    // Ctrl+M series: Generic leaders
+    //
+    {
+        // Unbind the original chord leader
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
+    },
+    {
+        "key": "ctrl+m ctrl+j",
+        "command": "workbench.action.joinAllGroups"
+    },
+    {
+        "key": "ctrl+m ctrl+l",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+m ctrl+z",
+        "command": "workbench.action.toggleZenMode"
+    },
+    {
+        "key": "ctrl+m ctrl+x",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+m ctrl+a",
+        "command": "editor.action.toggleWordWrap"
+    },
+    {
+        "key": "ctrl+m ctrl+v",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+m ctrl+s",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "ctrl+m ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // Intellisense shortcuts
+    // Use Vim-style keybindings to navigate through autocomplete
+    {
+        "key": "ctrl+j",
+        "command": "selectNextQuickFix",
+        "when": "editorFocus && quickFixWidgetVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevQuickFix",
+        "when": "editorFocus && quickFixWidgetVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+]

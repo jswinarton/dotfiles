@@ -1,0 +1,94 @@
+{
+    "debug.toolBarLocation": "docked",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.scrollBeyondLastLine": false,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "git.confirmSync": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.views.branches.files.layout": "list",
+    "gitlens.views.commits.files.layout": "tree",
+    "npm.enableRunFromFolder": true,
+    "python.defaultInterpreterPath": "/bin/python3",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
+    "terminal.external.linuxExec": "kitty",
+    "terminal.integrated.defaultLocation": "editor",
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-g>": false,
+        "<C-i>": false,
+        "<C-m>": false,
+        "<C-w>": false,
+        "<C-y>": false,
+    },
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "editor.action.toggleWordWrap"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "n",
+            ],
+            "commands": [
+                ":set number"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                ":set relativenumber"
+            ],
+        }
+    ],
+    "vim.joinspaces": false,
+    "vim.vimrc.enable": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.panel.defaultLocation": "right",
+    "workbench.settings.editor": "json",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.wrappingIndent": "indent",
+    "editor.lineNumbers": "relative",
+    "remote.containers.defaultExtensions": [
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github"
+    ],
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.toggleSidebarVisibility"
+    ],
+    "githubPullRequests.fileListLayout": "tree",
+    "editor.wordWrap": "off",
+    "python.testing.pytestEnabled": true,
+    "php-cs-fixer.executablePath": "/usr/local/bin/php-cs-fixer",
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "markdown.preview.scrollEditorWithPreview": false,
+}

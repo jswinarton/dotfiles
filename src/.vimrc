@@ -84,6 +84,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'chr4/nginx.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'hashivim/vim-terraform.git'
+Plugin 'ledger/vim-ledger'
 Plugin 'plasticboy/vim-markdown'
 
 " plugins
@@ -109,6 +110,9 @@ Plugin 'neoclide/coc.nvim'
 " Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'mxw/vim-jsx'
 Plugin 'jwalton512/vim-blade'
+Plugin 'peterhoeg/vim-qml'
+Plugin 'amadeus/vim-mjml'
+Plugin 'cespare/vim-toml'
 " Plugin 'posva/vim-vue'
 
 call vundle#end()
@@ -119,9 +123,7 @@ filetype plugin indent on
 let g:snipMate = { 'snippet_version' : 1 }
 
 " Airline
-let g:airline_section_y = ''
 let g:airline_powerline_fonts=1
-let g:airline_mode_map = {'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V': 'V', 's': 'S', 'S': 'S'}
 let g:airline_theme = 'base16'
 let g:airline_skip_empty_sections = 1
 
@@ -161,7 +163,6 @@ command! -bang FilesGit call fzf#run(fzf#wrap({'source': 'git files', 'sink': 'e
 autocmd Filetype ansible setlocal syntax=yaml
 autocmd Filetype elixir setlocal colorcolumn=80
 autocmd Filetype go setlocal noexpandtab ts=8 sw=0 sts=0
-autocmd Filetype java setlocal ts=4 sw=4 sts=4
 autocmd Filetype markdown setlocal linebreak conceallevel=0
 autocmd Filetype php setlocal ts=2 sw=2 sts=2 colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=88

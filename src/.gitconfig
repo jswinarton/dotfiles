@@ -11,17 +11,23 @@
   cim=!git force-local-config && git commit --verbose -m "more"
   cl=clone
   co=checkout
-  st=status -s
+  diff-full=diff -U20000  # show full files in diff (unless they're huge)
+  files=diff --name-only
   root=rev-parse --show-toplevel
-
-  # code review
-  files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
-  stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
-  ; flow needs a rework, looking to get away from tabs and use buffers instead
-  ; review = !nvim $(git files) +\"bufdo Gdiff $REVIEW_BASE | bunload\"
+  st=status -s
+  stat=diff --stat
 
   # logs
   l=log --oneline
+
+  # diffs and logs across a base branch (good for CLI code review)
+  base-diff-full=!git diff -U2000 $(git merge-base HEAD \"$REVIEW_BASE\")
+  base-diff=!git diff $(git merge-base HEAD \"$REVIEW_BASE\")
+  base-files=!git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+  base-l=!git log --oneline $(git merge-base HEAD \"$REVIEW_BASE\")..
+  base-log=!git log $(git merge-base HEAD \"$REVIEW_BASE\")..
+  base-stat=!git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
+
 
 [push]
   default = simple

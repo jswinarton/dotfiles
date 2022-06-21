@@ -19,15 +19,19 @@ if command -v nvim > /dev/null 2>&1; then
 fi
 
 # add dotfiles bin to the path
-export PATH=$HOME/bin:$PATH
+# export PATH=$HOME/bin:$PATH
 
 # add go bin to the path
 export PATH=/usr/local/go/bin:$PATH
 
+# add rust toolchain
+source $HOME/.cargo/env
+
+
 # add systemd user-binaries to the path
-if command -v systemd-path > /dev/null 2>&1; then
-  export PATH=$(systemd-path user-binaries):$PATH
-fi
+# if command -v systemd-path > /dev/null 2>&1; then
+#   export PATH=$(systemd-path user-binaries):$PATH
+# fi
 
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)
@@ -39,10 +43,10 @@ if [ "$TERM" = "xterm-kitty" ]; then
 fi
 
 #
-if ! ssh-add -l > /dev/null 2>&1; then
-  echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
-  echo $(ssh-add -l)
-fi
+# if ! ssh-add -l > /dev/null 2>&1; then
+#   echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
+#   echo $(ssh-add -l)
+# fi
 
 # Use ripgrep for fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git}'"
@@ -114,7 +118,7 @@ alias fucking='sudo '
 alias dc='docker-compose '
 alias dce='docker-compose exec '
 
-docker-ps() {
+dps() {
   echo "Containers:"
   docker ps  --format="table {{ .ID }}\t{{ .Image }}\t{{ .Ports }}\t{{ .Status }}"
   echo "\nImages:"

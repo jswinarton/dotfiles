@@ -1,7 +1,7 @@
 # Dotfiles
 
 My personal dotfiles configuration. Includes configs for vim, tmux, zsh, bash,
-git, [i3], [kitty], and more.
+git, [i3], [kitty], VSCode, and more.
 
 ## Install
 
@@ -18,13 +18,19 @@ this automatically.
 ### Recommended packages for Linux
 
 - bat
-- delta (git diff viewer)
+- fd
 - fzf
 - git-crypt
+- git-delta
 - neovim >= 5.0
 - nodejs >= 12.0 (coc.nvim dependency)
 - ripgrep
 - universal-ctags
+- zsh
+
+## TODO
+
+- Consider moving the autocommit task from VSCode settings and making a `bin/` script out of it
 
 ### Package installation for Mac OS X
 
