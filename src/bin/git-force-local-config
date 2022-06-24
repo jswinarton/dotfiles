@@ -27,4 +27,3 @@ if ! git config --local user.email > /dev/null; then
 fi
 
 exit 0
-

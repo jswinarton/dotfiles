@@ -19,13 +19,15 @@ if command -v nvim > /dev/null 2>&1; then
 fi
 
 # add dotfiles bin to the path
-# export PATH=$HOME/bin:$PATH
+# TODO this was disabled in commit 8a9ddcc but I don't know why
+# there may be some machine-specific behaviour to account for
+export PATH=$HOME/bin:$PATH
 
 # add go bin to the path
 export PATH=/usr/local/go/bin:$PATH
 
 # add rust toolchain
-source $HOME/.cargo/env
+[ -d "$HOME/.cargo/env" ] && source $HOME/.cargo/env
 
 
 # add systemd user-binaries to the path
@@ -87,17 +89,15 @@ fi
 alias copy="xclip -selection c"
 
 # ls aliases
-if ls --color > /dev/null 2>&1; then # GNU
-  colorflag="--color"
-  quoteparam="--quoting-style=literal"
+if ls --quoting-style=literal > /dev/null 2>&1; then # GNU
+  lsparams="--color --quoting-style=literal"
 else # OS X
-  colorflag="-G"
-  quoteparam=""
+  lsparams="-G"
 fi
 
-alias ls="ls ${colorflag} ${quoteparam}"
-alias l="ls -A ${colorflag} ${quoteparam}"
-alias ll="ls -AhCo ${colorflag} ${quoteparam}"
+alias ls="ls ${lsparams} ${quoteparam}"
+alias l="ls -A ${lsparams} ${quoteparam}"
+alias ll="ls -AhCo ${lsparams} ${quoteparam}"
 
 # Cleanup scripts
 rm-temp-files() {
