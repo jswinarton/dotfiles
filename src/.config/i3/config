@@ -1,3 +1,6 @@
+# NOTE: This file is only read when running i3 directly.
+# Regolith provides its own system of packages for i3 configuration.
+#
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
