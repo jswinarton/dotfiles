@@ -102,4 +102,16 @@
     "rust-analyzer.inlayHints.enable": false,
     "rust-analyzer.lens.enable": false,
     "editor.inlayHints.enabled": false,
+    "workbench.editorAssociations": {
+        "*.bin": "hexEditor.hexedit"
+    },
+    "extensions.ignoreRecommendations": true,
+    "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "githubPullRequests.pullBranch": "never",
+    "python.linting.mypyEnabled": true,
+    "ledger.binary": "/usr/bin/ledger",
 }
