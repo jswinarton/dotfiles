@@ -1,4 +1,12 @@
-regolith.look.path: /usr/share/regolith-look/default
+! Fonts
+gtk.font_name: Bitstream Vera Sans 11
+
+! Looks and wallpapers
+regolith.wallpaper.file: /home/jeremy/apps/dotfiles/etc/wallpaper-jwst-southern-ring.jpg
+regolith.lockscreen.wallpaper.file: /home/jeremy/apps/dotfiles/etc/wallpaper-jwst-smacs.jpg
+regolith.look.path: /usr/share/regolith-look/nord
+
+! Workspaces
 i3-wm.workspace.01.name:	1:<span> </span><span font_desc='BitstreamVeraSansMono Nerd Font 12'>1 </span>
 i3-wm.workspace.02.name:	2:<span> </span><span font_desc='BitstreamVeraSansMono Nerd Font 12'>2 </span>
 i3-wm.workspace.03.name:	3:<span> </span><span font_desc='BitstreamVeraSansMono Nerd Font 12'>3 </span>
