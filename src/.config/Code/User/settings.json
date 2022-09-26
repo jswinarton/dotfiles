@@ -114,4 +114,5 @@
     "githubPullRequests.pullBranch": "never",
     "python.linting.mypyEnabled": true,
     "ledger.binary": "/usr/bin/ledger",
+    "window.restoreWindows": "none",
 }

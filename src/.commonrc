@@ -108,7 +108,8 @@ rm-temp-files() {
 }
 alias clearhistory='cat /dev/null > ~/.zsh_history > ~/.psql_history > ~/.sh_history > ~/.bash_history'
 
-alias tmux-attach="tmux a || tmux new -s 'default'"
+alias ta="tmux a || tmux new -s 'default'"
+alias tmux-attach="echo 'Use ta'; sleep 1; ta"
 
 alias please='sudo $(fc -ln -1)'  # run last command with sudo
 alias fuck=please  # ask nicely
