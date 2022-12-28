@@ -88,12 +88,6 @@
         "command": "git.branch"
     },
     {
-        "key": "ctrl+g ctrl+r",
-        "command": "pr.openPullRequestOnGitHub"
-    },
-    // Ctrl+M series: Generic leaders
-    //
-    {
         // Unbind the original chord leader
         "key": "ctrl+m",
         "command": "-editor.action.toggleTabFocusMode"
@@ -159,5 +153,9 @@
     {
         "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "ctrl+g ctrl+r",
+        "command": "gitlens.openRepoOnRemote"
     },
 ]
