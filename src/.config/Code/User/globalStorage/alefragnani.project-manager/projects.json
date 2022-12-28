@@ -1,0 +1,101 @@
+[
+	{
+		"name": "utils.marxist.ca",
+		"rootPath": "vscode-remote://dev-container+2f686f6d652f6a6572656d792f617070732f5f6d6172786973742f7574696c732e6d6172786973742e6361/usr/src/app",
+		"paths": [],
+		"tags": [
+			"marxist"
+		],
+		"enabled": true
+	},
+	{
+		"name": "marxist.ca-frontend",
+		"rootPath": "vscode-remote://dev-container+2f686f6d652f6a6572656d792f617070732f5f6d6172786973742f6d6172786973742e63612d66726f6e74656e64/usr/src/app",
+		"paths": [],
+		"tags": [
+			"marxist"
+		],
+		"enabled": true
+	},
+	{
+		"name": "aws-iac",
+		"rootPath": "/home/jeremy/apps/_marxist/aws-iac",
+		"paths": [],
+		"tags": [
+			"marxist"
+		],
+		"enabled": true
+	},
+	{
+		"name": "guardian-website",
+		"rootPath": "/home/jeremy/apps/_mozilla/guardian-website",
+		"paths": [],
+		"tags": [
+			"mozilla"
+		],
+		"enabled": true
+	},
+	{
+		"name": "mozilla-vpn-client",
+		"rootPath": "/home/jeremy/apps/_mozilla/mozilla-vpn-client",
+		"paths": [],
+		"tags": [
+			"mozilla"
+		],
+		"enabled": true
+	},
+	{
+		"name": "cjms",
+		"rootPath": "/home/jeremy/apps/_mozilla/cjms",
+		"paths": [],
+		"tags": [
+			"mozilla"
+		],
+		"enabled": true
+	},
+	{
+		"name": "fxa",
+		"rootPath": "/home/jeremy/apps/_mozilla/fxa",
+		"paths": [],
+		"tags": [
+			"mozilla"
+		],
+		"enabled": true
+	},
+	{
+		"name": "cloudops-infra",
+		"rootPath": "/home/jeremy/apps/_mozilla/cloudops-infra",
+		"paths": [],
+		"tags": [
+			"mozilla"
+		],
+		"enabled": true
+	},
+	{
+		"name": "jlox",
+		"rootPath": "/home/jeremy/apps/_personal/jlox",
+		"paths": [],
+		"tags": [
+			"personal"
+		],
+		"enabled": true
+	},
+	{
+		"name": "sketchbook",
+		"rootPath": "/home/jeremy/apps/_personal/sketchbook",
+		"paths": [],
+		"tags": [
+			"personal"
+		],
+		"enabled": true
+	},
+	{
+		"name": "ledger",
+		"rootPath": "/home/jeremy/apps/_personal/ledger",
+		"paths": [],
+		"tags": [
+			"personal"
+		],
+		"enabled": true
+	}
+]
