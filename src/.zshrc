@@ -73,7 +73,12 @@ add-zsh-hook precmd set_vcs_info_formats
 # Etc
 #
 
-# fzf keybindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf
+FZF_KEYBINDINGS=/usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f $FZF_KEYBINDINGS ] && source $FZF_KEYBINDINGS
+
+FZF_COMPLETION=/usr/share/doc/fzf/examples/completion.zsh
+[ -f $FZF_COMPLETION ] && source $FZF_COMPLETION
+
 
 source $HOME/.zshrc.private 2> /dev/null  # hook for private configuration

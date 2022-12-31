@@ -4,8 +4,7 @@
 # make kitty the default terminal and get it showing up in dmenu
 # consider something other than dmenu (or dmenu shortcut for apps only)
 # keyboard shortcuts for common window configuration
-# ssh agent at login
-# better styling for waybar
+# ssh agent at login: consider https://github.com/fairyglade/ly/issues/228#issuecomment-756742472
 # scratchpad use for kitty?
 
 
