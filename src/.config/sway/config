@@ -1,11 +1,15 @@
 # TODO
-# brightness and volume keys
+# brightness keys
 # redshift equivalent
 # make kitty the default terminal and get it showing up in dmenu
-# consider something other than dmenu
+# consider something other than dmenu (or dmenu shortcut for apps only)
 # keyboard shortcuts for common window configuration
-# figure out what is causing Firefox to take so long to start up
+# ssh agent at login
+# better styling for waybar
+# scratchpad use for kitty?
 
+
+font pango:Ubuntu Bold 11
 
 ### Variables
 ###
@@ -44,7 +48,7 @@ output * bg /home/jeremy/apps/dotfiles/etc/wallpaper-jwst-carina-nebula.png fill
 
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 330 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          timeout 1200 'systemctl suspend' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
