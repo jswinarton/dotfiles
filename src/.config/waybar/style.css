@@ -46,6 +46,9 @@ window#waybar {
 #idle_inhibitor {
   margin: 0 12px;
 }
+#idle_inhibitor.activated {
+  color: red;
+}
 
 #clock {
     font-weight: bold;

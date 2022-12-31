@@ -1,12 +1,21 @@
 # TODO
-# brightness keys
 # redshift equivalent
-# make kitty the default terminal and get it showing up in dmenu
-# consider something other than dmenu (or dmenu shortcut for apps only)
+# dmenu shortcut for apps: see https://github.com/enkore/j4-dmenu-desktop
 # keyboard shortcuts for common window configuration
 # ssh agent at login: consider https://github.com/fairyglade/ly/issues/228#issuecomment-756742472
 # scratchpad use for kitty?
 
+
+# Colors and fonts
+# Colors from https://draculatheme.com/i3
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
 
 font pango:Ubuntu Bold 11
 
@@ -28,7 +37,9 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# Colours from the dracula i3 theme
+set $menu  "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
 ### Output configuration
 ###
@@ -179,6 +190,11 @@ bindsym $mod+a focus parent
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Requires brightnessctl to be installed,
+# and the user to be in the video group
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 ### Keybindings: resizing containers
 ###
