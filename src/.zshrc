@@ -48,7 +48,7 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:*' check-for-changes true
 zstyle ':vcs_info:*:*' unstagedstr '○'
 zstyle ':vcs_info:*:*' stagedstr '●'
-zstyle ':vcs_info:*:*' nvcsformats "☵ %(6~|%-2~/../%2~|%~)" "%m"
+zstyle ':vcs_info:*:*' nvcsformats " %(6~|%-2~/../%2~|%~)" "%m"
 
 function set_vcs_info_formats() {
   GIT_BASE_LEFT_INFO_FORMAT=" %B%r%%b%F{3}"

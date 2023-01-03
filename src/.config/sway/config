@@ -1,9 +1,9 @@
 # TODO
 # redshift equivalent
 # dmenu shortcut for apps: see https://github.com/enkore/j4-dmenu-desktop
-# keyboard shortcuts for common window configuration
 # ssh agent at login: consider https://github.com/fairyglade/ly/issues/228#issuecomment-756742472
 # scratchpad use for kitty?
+# use nerd font version of fira code for both kitty and vscode
 
 
 # Colors and fonts
