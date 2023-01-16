@@ -35,6 +35,9 @@ export PATH=/usr/local/go/bin:$PATH
 #   export PATH=$(systemd-path user-binaries):$PATH
 # fi
 
+# Add SSH keychain
+eval $(keychain --eval --quiet id_ed25519 mini-universe.id_ed25519)
+
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)
 

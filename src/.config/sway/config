@@ -254,5 +254,8 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 # Run waybar
 exec waybar
 
+# Run gammastep
+exec gammastep -l 43.653225:-79.383186 -b 1:0.6 -t 6000:4000
+
 
 include @sysconfdir@/sway/config.d/*

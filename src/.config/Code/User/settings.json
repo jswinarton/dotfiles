@@ -117,4 +117,5 @@
     "window.restoreWindows": "none",
     "githubPullRequests.createOnPublishBranch": "never",
     "terminal.integrated.scrollback": 5000,
+    "gitlens.mode.active": "zen",
 }
