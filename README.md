@@ -23,7 +23,7 @@ this automatically.
 - git-crypt
 - git-delta
 - neovim >= 5.0
-- nodejs >= 12.0 (coc.nvim dependency)
+- python3-pylsp
 - ripgrep
 - universal-ctags
 - zsh

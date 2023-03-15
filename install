@@ -18,23 +18,23 @@ for SRC_FILE in $(find . -type f ! -name '.gitkeep' | sed "s|^\./||" | sort); do
 done
 
 echo ""
-echo "Installing Vundle"
-VUNDLE_DIR="${HOME}/.vim/bundle/Vundle.vim"
-if [ -d $VUNDLE_DIR ]; then
+echo "Installing Packer"
+PACKER_DIR="${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+if [ -d $PACKER_DIR ]; then
   echo "... already installed. skipping clone"
 else
-  git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_DIR
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim $PACKER_DIR
+fi
+
+echo ""
+echo "Installing Kitty term colours"
+KITTY_BASE16_DIR="${HOME}/.local/share/kitty/base16-kitty"
+if [ -d $KITTY_BASE16_DIR ]; then
+  echo "... already installed. skipping clone"
+else
+  git clone https://github.com/kdrag0n/base16-kitty.git $KITTY_BASE16_DIR
 fi
 
 echo ""
 echo "Installing Vim Plugins"
-if command -v nvim > /dev/null 2>&1; then
-  nvim +PluginInstall +qall
-else
-  vim +PluginInstall +qall
-fi
-
-echo ""
-echo "Compiling coc.nvim"
-COC_DIR="${HOME}/.vim/bundle/coc.nvim"
-( cd $COC_DIR && npm install && npm run build )
+nvim +PackerCompile +PackerInstall +qall

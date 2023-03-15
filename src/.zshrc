@@ -41,8 +41,8 @@ cdpath=(~ ~/apps/ ~/apps/_*(N))
 # Prompt
 #
 
-PROMPT='%F{11}${vcs_info_msg_0_}%f '
-RPROMPT='%F{7}${vcs_info_msg_1_}%f'
+PROMPT='%F{1}${vcs_info_msg_0_}%f '
+RPROMPT='%F{1}${vcs_info_msg_1_}%f'
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:*' check-for-changes true
@@ -51,7 +51,7 @@ zstyle ':vcs_info:*:*' stagedstr '●'
 zstyle ':vcs_info:*:*' nvcsformats " %(6~|%-2~/../%2~|%~)" "%m"
 
 function set_vcs_info_formats() {
-  GIT_BASE_LEFT_INFO_FORMAT=" %B%r%%b%F{3}"
+  GIT_BASE_LEFT_INFO_FORMAT=" %B%r%%b%F{1}"
   GIT_SUBDIR_FORMAT="/%20<..<%S%<<"
   GIT_RIGHT_INFO_FORMAT="%a %u%c %b"
 
