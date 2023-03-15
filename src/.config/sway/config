@@ -79,7 +79,7 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 input "type:keyboard" {
-  xkb_options ctrl:nocaps
+  xkb_options "ctrl:nocaps,compose:prsc"
 }
 
 ### Key bindings: basics

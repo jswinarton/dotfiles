@@ -73,29 +73,25 @@ call vundle#begin()
 " plugin manager
 Plugin 'gmarik/Vundle.vim'
 
-" dependencies
-Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
-Plugin 'tomtom/tlib_vim'  " vim-snipmate
-
 " themes
 Plugin 'chriskempson/base16-vim'
 
 " syntax highlighters
-Plugin 'chr4/nginx.vim'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'hashivim/vim-terraform.git'
-Plugin 'ledger/vim-ledger'
 Plugin 'plasticboy/vim-markdown'
 
-" plugins
-Plugin 'airblade/vim-gitgutter'
-Plugin 'christoomey/vim-tmux-navigator'
+" snipmate and dependencies
+Plugin 'marcweber/vim-addon-mw-utils'  " vim-snipmate
+Plugin 'tomtom/tlib_vim'  " vim-snipmate
 Plugin 'garbas/vim-snipmate'
-Plugin 'gregsexton/MatchTag'
+
+" fzf
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'liuchengxu/vista.vim'
-Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
+
+" other plugins
+Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -103,16 +99,21 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" experimental
-Plugin 'neoclide/coc.nvim'
+" old stuff that I am not sure is even necessary anymore
+" Plugin 'gregsexton/MatchTag'
+" Plugin 'liuchengxu/vista.vim'
+" Plugin 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 
 " occasional syntaxes (only enable when using)
+" Plugin 'amadeus/vim-mjml'
 " Plugin 'cakebaker/scss-syntax.vim'
+" Plugin 'cespare/vim-toml'
+" Plugin 'chr4/nginx.vim'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'jwalton512/vim-blade'
+" Plugin 'ledger/vim-ledger'
 " Plugin 'mxw/vim-jsx'
-Plugin 'jwalton512/vim-blade'
-Plugin 'peterhoeg/vim-qml'
-Plugin 'amadeus/vim-mjml'
-Plugin 'cespare/vim-toml'
+" Plugin 'peterhoeg/vim-qml'
 " Plugin 'posva/vim-vue'
 
 call vundle#end()

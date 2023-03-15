@@ -26,8 +26,11 @@ export PATH=$HOME/bin:$PATH
 # add go bin to the path
 export PATH=/usr/local/go/bin:$PATH
 
+# add local bin to the path
+export PATH=$HOME/.local/bin:$PATH
+
 # add rust toolchain
-[ -d "$HOME/.cargo/env" ] && source $HOME/.cargo/env
+[ -f "$HOME/.cargo/env" ] && source $HOME/.cargo/env
 
 
 # add systemd user-binaries to the path

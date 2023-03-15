@@ -70,7 +70,8 @@
     "zenMode.hideLineNumbers": false,
     "zenMode.hideTabs": false,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnType": true
     },
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.multiCursorModifier": "ctrlCmd",
@@ -118,4 +119,7 @@
     "githubPullRequests.createOnPublishBranch": "never",
     "terminal.integrated.scrollback": 5000,
     "gitlens.mode.active": "zen",
+    "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+    "cmake.configureOnOpen": false,
+    "lldb.suppressUpdateNotifications": true,
 }
