@@ -83,15 +83,8 @@ require('packer').startup(function(use)
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
 
-  -- gitsigns
-  -- shows changed git lines in the left column
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    tag = "v0.6",
-    config = function() require('gitsigns').setup() end
-  }
 
+  -- lazygit integration
   use 'kdheepak/lazygit.nvim'
 
   -- vim-airline
@@ -100,19 +93,64 @@ require('packer').startup(function(use)
     'vim-airline/vim-airline',
     requires = { 'vim-airline/vim-airline-themes' },
     config = function()
-      vim.g.airline_powerline_fonts=1
+      vim.g.airline_powerline_fonts = 1
       vim.g.airline_theme = 'base16'
       vim.g.airline_skip_empty_sections = 1
+    end
+  }
+
+  -- gitsigns
+  -- shows changed git lines in the left column
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    tag = "v0.6",
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  -- gitlinker
+  -- highlight some lines and get a github permalink
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require("gitlinker").setup()
+    end
+  }
+
+  -- telescope-file-browser
+  -- netrw replacement
+  -- Note that this uses telescope under the hood, which is a
+  -- fuzzyfinder similar to fzf. Ideally you would only use one or
+  -- the other and reduce dependencies
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons"
+    },
+    config = function()
+      require("telescope").setup {
+	extensions = {
+	  file_browser = {
+	    -- disables netrw and use telescope-file-browser in its place
+	    hijack_netrw = true,
+	  },
+	},
+      }
+      -- To get telescope-file-browser loaded and working with telescope,
+      -- you need to call load_extension, somewhere after setup function:
+      require("telescope").load_extension "file_browser"
     end
   }
 
   -- other plugins
   use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
   use 'tpope/vim-commentary' -- keybindings and language support for commenting
-  use 'tpope/vim-fugitive' -- provides git commands
   use 'tpope/vim-surround' -- keybindings for editing within "surrounds" (quotes etc)
-  use 'tpope/vim-vinegar'  -- improve netrw
-
 
   -- TODO add comment config for lesser used filetypes (see tpope/vim-commentary docs)
   -- TODO add back occasional syntaxes with conditional loading:
@@ -178,7 +216,9 @@ autocmd Filetype ruby setlocal colorcolumn=90
 -- KEYBINDINGS
 --
 
-vim.api.nvim_set_keymap("n", "ggs", ":LazyGit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "-", ":Telescope file_browser<CR>", { noremap = true, silent = true, nowait = true })
 
 vim.cmd([[
 " Command key without shift
@@ -218,7 +258,7 @@ noremap <Leader>tx :tabclose<CR>
 -- NVIM-CMP CONFIG
 -- Copied from https://github.com/hrsh7th/nvim-cmp/
 
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
