@@ -1,11 +1,55 @@
+-- BASIC CONFIG
+--
+
+-- indentation
+-- use spaces instead of tabs
+-- 2 spaces to a tab by default (this is modified on a per-file basis later)
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+
+-- search options
+vim.opt.ignorecase = true -- searches are case insensitive by default
+vim.opt.smartcase = true -- case sensitive if capital letters are used in the search
+
+-- display options
+vim.opt.number = true  --  show line numbers
+vim.opt.relativenumber = true  -- show relative line numbers
+vim.opt.scrolloff = 15  -- keep 15 lines above and below the cursor
+vim.opt.wrap = false -- no word wrap by default
+
+-- set 'invisible' characters
+-- off by default
+-- TODO make this work with the new syntax
+-- vim.opt.lcs = "tab:▸\ ,trail:·,eol:¬,nbsp:_"
+
+-- ignore these file patterns when expanding wildcards
+vim.opt.wildignore = "*.pyc"
+
+-- wildmenu options
+vim.opt.wildmenu = true
+
+-- new splits open to the right and below by default
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- PLUGIN INITIALIZATION
+--
+
 require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- LSP config
+  -- Theme
+  use 'chriskempson/base16-vim'
+
+  -- LSP standard configs
+  -- These are out-of-the-box configurations provided by neovim
+  -- for most language servers (the server itself must be installed separately)
   use 'neovim/nvim-lspconfig'
 
   -- nvim-cmp
+  -- Completion engine and sources
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -13,148 +57,99 @@ require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
 
   -- vsnip
+  -- Snippet engine
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
   -- Vista
-  use 'liuchengxu/vista.vim'
-
-  -- theme
-  use 'chriskempson/base16-vim'
+  -- Side pane display for ctags and LSP symbols
+  use {
+    'liuchengxu/vista.vim',
+    config = function()
+      vim.g.vista_sidebar_width = 40
+      -- TODO figure out how to reenable these with the new syntax
+      -- vim.g.vista_fzf_preview = ['right:50%']
+      -- vim.g.vista#renderer#enable_icon = 1
+    end
+  }
 
   -- syntax highlighters
-  use 'plasticboy/vim-markdown'
+  use { 'plasticboy/vim-markdown', ft = { 'markdown' } }
+  use { 'hashivim/vim-terraform.git', ft = { 'terraform' } }
+  use { 'ledger/vim-ledger', ft = { 'ledger' } }
 
   -- fzf
+  -- fuzzy finder ("Ctrl-P" functionality)
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
 
+  -- gitsigns
+  -- shows changed git lines in the left column
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    tag = "v0.6",
+    config = function() require('gitsigns').setup() end
+  }
+
+  use 'kdheepak/lazygit.nvim'
+
+  -- vim-airline
+  -- better statusline
+  use {
+    'vim-airline/vim-airline',
+    requires = { 'vim-airline/vim-airline-themes' },
+    config = function()
+      vim.g.airline_powerline_fonts=1
+      vim.g.airline_theme = 'base16'
+      vim.g.airline_skip_empty_sections = 1
+    end
+  }
+
   -- other plugins
-  use 'airblade/vim-gitgutter'
-  use 'christoomey/vim-tmux-navigator'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-vinegar'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
+  use 'tpope/vim-commentary' -- keybindings and language support for commenting
+  use 'tpope/vim-fugitive' -- provides git commands
+  use 'tpope/vim-surround' -- keybindings for editing within "surrounds" (quotes etc)
+  use 'tpope/vim-vinegar'  -- improve netrw
 
-  -- old stuff that I am not sure is even necessary anymore
-  -- use 'gregsexton/MatchTag'
-  -- use 'liuchengxu/vista.vim'
-  -- use 'tmhedberg/matchit'  " % matching for HTML, LaTeX, etc.
 
-  -- occasional syntaxes (only enable when using)
-  -- use 'hashivim/vim-terraform.git'
+  -- TODO add comment config for lesser used filetypes (see tpope/vim-commentary docs)
+  -- TODO add back occasional syntaxes with conditional loading:
   -- use 'amadeus/vim-mjml'
-  -- use 'cakebaker/scss-syntax.vim'
-  -- use 'cespare/vim-toml'
   -- use 'chr4/nginx.vim'
   -- use 'elixir-lang/vim-elixir'
   -- use 'jwalton512/vim-blade'
-  -- use 'ledger/vim-ledger'
   -- use 'mxw/vim-jsx'
   -- use 'peterhoeg/vim-qml'
   -- use 'posva/vim-vue'
 end)
 
+-- COLORS
+--
+vim.cmd [[ colorscheme base16-default-dark ]]
+
+-- PLUGIN CONFIG
+--
+
+-- Airline
+
+-- Vista
+vim.g.vista_sidebar_width = 40
+-- TODO figure out how to reenable these with the new syntax
+-- vim.g.vista_fzf_preview = ['right:50%']
+-- vim.g.vista#renderer#enable_icon = 1
+
+-- Markdown syntax
+vim.g.vim_markdown_folding_disabled = 1
+
+
+
+-- AUTOCOMMANDS
+--
 
 
 vim.cmd([[
-" Base settings {{{
-set nocompatible
-set background=dark
-
-" indentation
-" use spaces instead of tabs
-" 2 spaces to a tab
-set autoindent
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-
-" search options
-set hlsearch  " highlight matches
-set ignorecase  " searches are case insensitive by default
-set incsearch  " search incrementally
-set smartcase  " case sensitive if capital letters are used in the search
-
-" make backspace work like it should.
-set backspace=indent,eol,start
-
-" display options
-set number  "  show line numbers
-set relativenumber  " show relative line numbers
-set ruler  " show current position in file
-set scrolloff=15  " keep 15 lines above and below the cursor
-set nowrap " no word wrap by default
-
-" set 'invisible' characters
-" off by default
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-
-" file write options
-set autoread  " update file if it's changed outside of vim
-set nobackup
-set noswapfile
-set nowb
-
-" ignore these file patterns when expanding wildcards
-set wildignore=*.pyc
-
-" wildmenu options
-set wildmenu
-
-" status bar options
-set laststatus=2
-
-" new splits open to the right and below by default
-set splitright
-set splitbelow
-
-" set a better location for the ctags file
-set tags+=.tags
-
-" Prevent the 'join' command from inserting two spaces after the end of
-" sentences
-set nojoinspaces
-
-" all tabs, all the time
-set tabpagemax=50
-
-" }}}
-" Plugins and plugin management {{{
-set rtp+=~/.vim/bundle/Vundle.vim
-
-" Some plugins require filetype to be turned
-" off before loading Vundle
-filetype off
-
-filetype plugin indent on
-
-" Snipmate
-let g:snipMate = { 'snippet_version' : 1 }
-
-" Airline
-let g:airline_powerline_fonts=1
-let g:airline_theme = 'base16'
-let g:airline_skip_empty_sections = 1
-
-" Vista
-let g:vista_sidebar_width = 40
-let g:vista_fzf_preview = ['right:50%']
-let g:vista#renderer#enable_icon = 1
-
-" Vim Markdown
-let g:vim_markdown_folding_disabled = 1
-
-" Gitgutter
-let g:gitgutter_diff_base = $REVIEW_BASE
-" }}}
-" Syntax and themes {{{
-syntax on
-colorscheme base16-default-dark
-" }}}
 " Commands {{{
 function! TrimEndLines()
     let save_cursor = getpos(".")
@@ -167,10 +162,6 @@ function! TrimTrailingWhitespace()
     :%s/\s\+$//e
 endfunction
 autocmd BufWritePre * call TrimTrailingWhitespace()
-
-" Experimental command to list changed files in fzf
-command! -bang FilesGit call fzf#run(fzf#wrap({'source': 'git files', 'sink': 'e'}))
-
 " }}}
 " Language-specific settings {{{
 autocmd Filetype ansible setlocal syntax=yaml
@@ -181,8 +172,15 @@ autocmd Filetype php setlocal ts=2 sw=2 sts=2 colorcolumn=90
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 colorcolumn=88
 autocmd Filetype ruby setlocal colorcolumn=90
 " }}}
-" Keybindings {{{
+]])
 
+
+-- KEYBINDINGS
+--
+
+vim.api.nvim_set_keymap("n", "ggs", ":LazyGit<CR>", { noremap = true, silent = true })
+
+vim.cmd([[
 " Command key without shift
 noremap ; :
 
@@ -200,12 +198,6 @@ noremap <Leader>i :set list!<CR>
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
 
-" Git shortcuts
-noremap <Leader>gs :Git<CR>
-noremap <Leader>gd :Gdiff<CR>
-noremap <Leader>gb :Git blame<CR>
-noremap <Leader>gf :FilesGit<CR>
-
 " Fzf/vista search shortcuts
 noremap <C-p> :Files<CR>
 noremap <Leader><C-p> :Files ~/apps<CR>
@@ -221,12 +213,6 @@ noremap <Leader>tn :tabnew<CR>
 noremap <Leader>th :tabprev<CR>
 noremap <Leader>tl :tabnext<CR>
 noremap <Leader>tx :tabclose<CR>
-
-" this is to make snipmate a bit easier to use. when switching between tab
-" stops, snipmate puts you into select mode. It seems like there's no easy way
-" to clear out the default tab stop content and enter insert mode.
-snoremap <Space> <Backspace>i
-" }}}
 ]])
 
 -- NVIM-CMP CONFIG
@@ -289,9 +275,6 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- LSP CONFIGS
-require'lspconfig'.pylsp.setup{}
-
 -- LSP CONFIG DEFAULT MAPPINGS
 -- Copied from https://github.com/neovim/nvim-lspconfig
 
@@ -326,10 +309,25 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.formatting { async = true } end, bufopts)
 end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
+}
+
+require('lspconfig')['pylsp'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+require'lspconfig'.tsserver.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+require'lspconfig'.eslint.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
 }

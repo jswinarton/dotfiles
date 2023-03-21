@@ -15,7 +15,9 @@ To install, clone this repository to your favourite directory. I prefer
 A copy of the Fira Code font is provided at etc/fonts. Terminal themes will use
 this automatically.
 
-### Recommended packages for Linux
+### Recommended packages
+
+Linux packages:
 
 - bat
 - fd
@@ -27,6 +29,17 @@ this automatically.
 - ripgrep
 - universal-ctags
 - zsh
+
+Python packages:
+
+- python-lsp-server[all]
+- requests
+
+Node packages:
+
+- typescript
+- typescript-language-server
+- vscode-langservers-extracted
 
 ## TODO
 
