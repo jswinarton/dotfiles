@@ -1,3 +1,6 @@
+-- TODO
+-- Figure out why you can't see certain hidden files in the file browser, etc
+
 -- BASIC CONFIG
 --
 
@@ -61,28 +64,10 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
-  -- Vista
-  -- Side pane display for ctags and LSP symbols
-  use {
-    'liuchengxu/vista.vim',
-    config = function()
-      vim.g.vista_sidebar_width = 40
-      -- TODO figure out how to reenable these with the new syntax
-      -- vim.g.vista_fzf_preview = ['right:50%']
-      -- vim.g.vista#renderer#enable_icon = 1
-    end
-  }
-
   -- syntax highlighters
   use { 'plasticboy/vim-markdown', ft = { 'markdown' } }
   use { 'hashivim/vim-terraform.git', ft = { 'terraform' } }
   use { 'ledger/vim-ledger', ft = { 'ledger' } }
-
-  -- fzf
-  -- fuzzy finder ("Ctrl-P" functionality)
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
-
 
   -- lazygit integration
   use 'kdheepak/lazygit.nvim'
@@ -112,6 +97,7 @@ require('packer').startup(function(use)
 
   -- gitlinker
   -- highlight some lines and get a github permalink
+  -- default shortcut is <Leader>gy
   use {
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -134,12 +120,24 @@ require('packer').startup(function(use)
     },
     config = function()
       require("telescope").setup {
-	extensions = {
-	  file_browser = {
-	    -- disables netrw and use telescope-file-browser in its place
-	    hijack_netrw = true,
-	  },
-	},
+        defaults = {
+          vimgrep_arguments = {
+            "rg",
+            "--hidden",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case"
+          }
+        },
+        extensions = {
+          file_browser = {
+            -- disables netrw and use telescope-file-browser in its place
+            hijack_netrw = true,
+          },
+        },
       }
       -- To get telescope-file-browser loaded and working with telescope,
       -- you need to call load_extension, somewhere after setup function:
@@ -166,21 +164,6 @@ end)
 -- COLORS
 --
 vim.cmd [[ colorscheme base16-default-dark ]]
-
--- PLUGIN CONFIG
---
-
--- Airline
-
--- Vista
-vim.g.vista_sidebar_width = 40
--- TODO figure out how to reenable these with the new syntax
--- vim.g.vista_fzf_preview = ['right:50%']
--- vim.g.vista#renderer#enable_icon = 1
-
--- Markdown syntax
-vim.g.vim_markdown_folding_disabled = 1
-
 
 
 -- AUTOCOMMANDS
@@ -215,10 +198,35 @@ autocmd Filetype ruby setlocal colorcolumn=90
 
 -- KEYBINDINGS
 --
+-- Good keys for using in keybinding:
+-- CTRL+I, CTRL+M, CTRL+N, CTRL+P, CTRL+_
+-- Space, Backspace, Enter, +, \
+-- Function keys starting from <F2> and shifted function keys <S-F2> etc.
+-- Alt-key combinations
+--
+-- See :help map-which-keys for general strategies on keybinding
+-- See :help index for a full list of keys that are used
+-- Unbound keys marked as "not used", aliases marked as "same as"
 
-vim.api.nvim_set_keymap("n", "<Leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
+-- vim.g.mapleader = " "
 
-vim.api.nvim_set_keymap("n", "-", ":Telescope file_browser<CR>", { noremap = true, silent = true, nowait = true })
+local default_opts = { noremap = true, silent = true }
+local telescope = require("telescope.builtin")
+
+-- High level telescope bindings
+vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hidden<CR>", default_opts)
+vim.keymap.set('n', '<C-n>', telescope.live_grep, default_opts)
+vim.keymap.set('n', '-', ":Telescope file_browser hidden=true<CR>", default_opts)
+
+-- Git keybindings
+-- Typical prefix is <Leader>g
+-- Note that Git linker uses <Leader>gy
+vim.keymap.set("n", "<F11>", ":LazyGit<CR>", default_opts)
+vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", default_opts)
+vim.keymap.set("n", "<Leader>gs", telescope.git_status, default_opts)
+vim.keymap.set("n", "<Leader>gb", telescope.git_branches, default_opts)
+
+
 
 vim.cmd([[
 " Command key without shift
@@ -229,7 +237,7 @@ noremap j gj
 noremap k gk
 
 noremap <F2> :set paste!<CR>
-noremap <Space> :nohlsearch<CR>
+noremap <Leader><Space> :nohlsearch<CR>
 noremap <Leader>nr :set number \| set relativenumber<CR>
 noremap <Leader>nn :set number \| set norelativenumber<CR>
 noremap <Leader>no :set nonumber \| set norelativenumber<CR>
@@ -237,16 +245,6 @@ noremap <Leader>a :set wrap!<CR>
 noremap <Leader>i :set list!<CR>
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
-
-" Fzf/vista search shortcuts
-noremap <C-p> :Files<CR>
-noremap <Leader><C-p> :Files ~/apps<CR>
-" Temporarily disable because these are overriding the jump list commands
-" noremap <C-o> :Commands<CR>
-" noremap <C-i> :History:<CR>
-noremap <Leader><C-i> :History/<CR>
-noremap <C-b> :Buffers<CR>
-noremap <Leader>o :Vista!!<CR>
 
 " Tab shortcuts
 noremap <Leader>tn :tabnew<CR>
@@ -275,24 +273,30 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    -- Setting `select = true` enables the behaviour that will select the
+    -- first completion even if it hasn't been explicitly selected
+    -- This must be disabled in command mode because it conflicts with execution
+    ['<CR>'] = cmp.mapping(cmp.mapping.confirm({ select = true })),
+    ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'vsnip' },
   }, {
     { name = 'buffer' },
   })
 })
 
 -- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
+-- cmp.setup.filetype('gitcommit', {
+--   sources = cmp.config.sources({
+--     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+--   }, {
+--     { name = 'buffer' },
+--   })
+-- })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
@@ -313,18 +317,17 @@ cmp.setup.cmdline(':', {
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require('cmp_nvim_lsp').default_capabilities()
 
 -- LSP CONFIG DEFAULT MAPPINGS
 -- Copied from https://github.com/neovim/nvim-lspconfig
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, default_opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, default_opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, default_opts)
+vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist, default_opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -339,7 +342,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  -- Temporarily disable this because it interferes with navigating through splits
+  -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<Leader>wl', function()
@@ -352,22 +356,25 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.formatting { async = true } end, bufopts)
 end
 
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
 
-require('lspconfig')['pylsp'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+require('lspconfig')['pylsp'].setup({
+  on_attach = on_attach,
+  settings = {
+    pylsp = {
+      plugins = {
+        pylint = { enabled = true },
+        flake8 = { enabled = false },
+        pycodestyle = { enabled = false },
+        pyflakes = { enabled = false },
+      }
+    }
+  }
+})
 
-require'lspconfig'.tsserver.setup{
+require('lspconfig')['tsserver'].setup({
     on_attach = on_attach,
-    flags = lsp_flags,
-}
+})
 
-require'lspconfig'.eslint.setup{
+require('lspconfig')['eslint'].setup({
     on_attach = on_attach,
-    flags = lsp_flags,
-}
+})

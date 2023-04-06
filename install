@@ -34,7 +34,3 @@ if [ -d $KITTY_BASE16_DIR ]; then
 else
   git clone https://github.com/kdrag0n/base16-kitty.git $KITTY_BASE16_DIR
 fi
-
-echo ""
-echo "Installing Vim Plugins"
-nvim +PackerCompile +PackerInstall +qall

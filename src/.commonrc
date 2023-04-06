@@ -57,7 +57,8 @@ fi
 # fi
 
 # Use ripgrep for fzf
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git}'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_DEFAULT_OPTS=""
 
 
