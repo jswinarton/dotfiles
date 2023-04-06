@@ -48,3 +48,4 @@ Temporary Items
 __pycache__
 *.pyc
 .virtualenv-local
+.venv
