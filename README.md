@@ -24,7 +24,8 @@ Linux packages:
 - fzf
 - git-crypt
 - git-delta
-- neovim >= 5.0
+- neovim
+- nnn
 - python3-pylsp
 - ripgrep
 - universal-ctags
