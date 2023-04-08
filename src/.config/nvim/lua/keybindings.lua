@@ -15,7 +15,7 @@ local telescope = require("telescope.builtin")
 ---------
 
 -- Command key without shift
-vim.keymap.set("n", ";", ":", default_opts)
+vim.keymap.set("n", ";", ":", { noremap = true })
 
 -- Move through word wrap easily
 vim.keymap.set("n", "j", "gj", default_opts)
@@ -47,7 +47,6 @@ vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hi
 vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>i", ":set list!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", default_opts)
--- TODO reserve <Leader>r for config reload + packer compile
 vim.keymap.set("n", "<Leader>s", ":split<CR>", default_opts)
 vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", default_opts)
 vim.keymap.set("n", "<Leader><Space>", ":nohlsearch<CR>", default_opts)
@@ -68,3 +67,6 @@ vim.keymap.set("n", "<Leader>tx", ":tabclose<CR>", default_opts)
 vim.keymap.set("n", "<Leader>nn", ":set number | set norelativenumber<CR>", default_opts)
 vim.keymap.set("n", "<Leader>no", ":set nonumber | set norelativenumber<CR>", default_opts)
 vim.keymap.set("n", "<Leader>nr", ":set number | set relativenumber<CR>", default_opts)
+
+-- Copilot
+vim.keymap.set("n", "<Leader>cp", ":Copilot panel<CR>", default_opts)

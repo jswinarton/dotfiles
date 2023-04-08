@@ -6,8 +6,14 @@ require('packer').startup(function(use)
   use {
     'chriskempson/base16-vim',
     config = function()
-      vim.cmd("colorscheme base16-default-dark")
+      vim.cmd.colorscheme("base16-default-dark")
     end
+  }
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate"
   }
 
   -- LSP standard configs
@@ -106,6 +112,9 @@ require('packer').startup(function(use)
     "luukvbaal/nnn.nvim",
     config = function() require("nnn").setup() end
   }
+
+  -- copilot
+  use "github/copilot.vim"
 
   -- misc
   use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
