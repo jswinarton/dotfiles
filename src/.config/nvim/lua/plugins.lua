@@ -20,20 +20,34 @@ require('packer').startup(function(use)
   -- LSP standard configs
   -- These are out-of-the-box configurations provided by neovim
   -- for most language servers (the server itself must be installed separately)
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function() require("plugin.lsp") end
+  }
 
   -- nvim-cmp
   -- Completion engine and sources
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+    },
+    config = function() require("plugin.cmp") end
+  }
 
-  -- vsnip
-  -- Snippet engine
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  use {
+    'folke/trouble.nvim',
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("trouble").setup({})
+      require("plugin.trouble")
+    end
+  }
 
   -- syntax highlighters
   use {
