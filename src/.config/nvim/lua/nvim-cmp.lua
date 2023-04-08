@@ -8,10 +8,7 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-  window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  },
+  window = {},
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -22,7 +19,6 @@ cmp.setup({
     -- This must be disabled in command mode because it conflicts with execution
     ['<CR>'] = cmp.mapping(cmp.mapping.confirm({ select = true })),
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
     ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
   }),
   sources = cmp.config.sources({
