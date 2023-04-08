@@ -26,6 +26,8 @@ else
   git clone --depth 1 https://github.com/wbthomason/packer.nvim $PACKER_DIR
 fi
 
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
 echo ""
 echo "Installing Kitty term colours"
 KITTY_BASE16_DIR="${HOME}/.local/share/kitty/base16-kitty"
