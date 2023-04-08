@@ -1,3 +1,4 @@
+vim.opt.clipboard = "unnamedplus"  -- copy/paste to system clipboard
 vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.ignorecase = true -- searches are case insensitive by default
 -- TODO figure out what the new syntax for this should be
