@@ -1,4 +1,16 @@
--- Reference: https://github.com/neovim/nvim-lspconfig/README.md
+-- Reference:
+-- https://github.com/neovim/nvim-lspconfig/README.md
+-- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
+
+require('mason').setup()
+
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'pylsp',
+    'rust_analyzer',
+    'tsserver',
+  }
+})
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -7,9 +19,8 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, default_opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, default_opts)
 vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist, default_opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lsp_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -34,25 +45,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>f', function() vim.lsp.buf.formatting { async = true } end, bufopts)
 end
 
-
-require('lspconfig')['pylsp'].setup({
-  on_attach = on_attach,
-  settings = {
-    pylsp = {
-      plugins = {
-        pylint = { enabled = true },
-        flake8 = { enabled = false },
-        pycodestyle = { enabled = false },
-        pyflakes = { enabled = false },
-      }
-    }
-  }
-})
-
-require('lspconfig')['tsserver'].setup({
-    on_attach = on_attach,
-})
-
-require('lspconfig')['eslint'].setup({
-    on_attach = on_attach,
+local lspconfig = require('lspconfig')
+require('mason-lspconfig').setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup({
+      on_attach = lsp_attach,
+      capabilities = lsp_capabilities,
+    })
+  end,
 })

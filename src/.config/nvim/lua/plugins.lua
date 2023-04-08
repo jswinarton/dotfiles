@@ -21,6 +21,11 @@ require('packer').startup(function(use)
   -- These are out-of-the-box configurations provided by neovim
   -- for most language servers (the server itself must be installed separately)
   use 'neovim/nvim-lspconfig'
+  use {
+      "williamboman/mason.nvim",
+      run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  }
+  use "williamboman/mason-lspconfig.nvim"
 
   -- nvim-cmp
   -- Completion engine and sources
