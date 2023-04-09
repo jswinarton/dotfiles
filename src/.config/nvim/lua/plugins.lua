@@ -23,11 +23,11 @@ require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function() require("plugin.lsp") end,
-    after = {"mason-lspconfig.nvim", "mason.nvim"}
+    after = { "mason-lspconfig.nvim", "mason.nvim" }
   }
   use {
-      "williamboman/mason.nvim",
-      run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
   }
   use "williamboman/mason-lspconfig.nvim"
 
@@ -57,20 +57,22 @@ require('packer').startup(function(use)
   }
 
   use {
-      "SmiteshP/nvim-navbuddy",
-      requires = {
-          "neovim/nvim-lspconfig",
-          "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim"
-      }
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim"
+    }
   }
 
   use {
     'stevearc/aerial.nvim',
-    config = function() require('aerial').setup({
-      min_width = {40, 0.2},
-      show_guides = true,
-    }) end
+    config = function()
+      require('aerial').setup({
+        min_width = { 40, 0.2 },
+        show_guides = true,
+      })
+    end
   }
 
   -- syntax highlighters
@@ -157,8 +159,8 @@ require('packer').startup(function(use)
 
   -- misc
   use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
-  use 'tpope/vim-commentary' -- keybindings and language support for commenting
-  use 'tpope/vim-surround' -- keybindings for editing within "surrounds" (quotes etc)
+  use 'tpope/vim-commentary'           -- keybindings and language support for commenting
+  use 'tpope/vim-surround'             -- keybindings for editing within "surrounds" (quotes etc)
 
   -- TODO add comment config for lesser used filetypes (see tpope/vim-commentary docs)
   -- TODO add back occasional syntaxes with conditional loading:
