@@ -4,9 +4,9 @@ require('packer').startup(function(use)
 
   -- Theme
   use {
-    'chriskempson/base16-vim',
+    "shaunsingh/moonlight.nvim",
     config = function()
-      vim.cmd.colorscheme("base16-default-dark")
+      vim.cmd.colorscheme("moonlight")
     end
   }
 
@@ -162,7 +162,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'           -- keybindings and language support for commenting
   use 'tpope/vim-surround'             -- keybindings for editing within "surrounds" (quotes etc)
 
-  -- TODO add comment config for lesser used filetypes (see tpope/vim-commentary docs)
   -- TODO add back occasional syntaxes with conditional loading:
   -- use 'amadeus/vim-mjml'
   -- use 'chr4/nginx.vim'

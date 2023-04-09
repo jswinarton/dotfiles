@@ -94,7 +94,7 @@
     "window.titleBarStyle": "custom",
     "workbench.settings.useSplitJSON": true,
     "workbench.preferredDarkColorTheme": "One Dark Pro",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Moonlight Italic",
     "window.autoDetectColorScheme": true,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.preferredLightColorTheme": "Atom One Light",
@@ -122,4 +122,5 @@
     "typescript.tsserver.experimental.enableProjectDiagnostics": true,
     "cmake.configureOnOpen": false,
     "lldb.suppressUpdateNotifications": true,
+    "editor.inlineSuggest.enabled": true,
 }
