@@ -22,16 +22,12 @@ require('packer').startup(function(use)
   -- for most language servers (the server itself must be installed separately)
   use {
     'neovim/nvim-lspconfig',
-    config = function() require("plugin.lsp") end
+    config = function() require("plugin.lsp") end,
+    after = {"mason-lspconfig.nvim", "mason.nvim"}
   }
   use {
       "williamboman/mason.nvim",
       run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-      config = function()
-        require("mason").setup({
-          PATH = "append"
-        })
-      end
   }
   use "williamboman/mason-lspconfig.nvim"
 

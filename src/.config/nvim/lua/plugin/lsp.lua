@@ -2,7 +2,9 @@
 -- https://github.com/neovim/nvim-lspconfig/README.md
 -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
 
-require('mason').setup()
+require("mason").setup({
+  PATH = "append"
+})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -60,23 +62,15 @@ require('mason-lspconfig').setup_handlers({
       settings = {
         pylsp = {
           plugins = {
-            autopep8 = {
-              enabled = false,
-            },
+            autopep8 = { enabled = false },
             jedi_completion = {
               fuzzy = true,
               include_class_objects = true,
               include_function_objects = true,
             },
-            pycodestyle = {
-              enabled = false,
-            },
-            pyflakes = {
-              enabled = false,
-            },
-            pylint = {
-              enabled = true,
-            },
+            pycodestyle = { enabled = false },
+            pyflakes = { enabled = false },
+            pylint = { enabled = true },
           }
         }
       }
