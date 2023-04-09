@@ -46,6 +46,7 @@ require('packer').startup(function(use)
     config = function() require("plugin.cmp") end
   }
 
+  -- trouble (diagnostics)
   use {
     'folke/trouble.nvim',
     requires = 'nvim-tree/nvim-web-devicons',
@@ -53,6 +54,23 @@ require('packer').startup(function(use)
       require("trouble").setup({})
       require("plugin.trouble")
     end
+  }
+
+  use {
+      "SmiteshP/nvim-navbuddy",
+      requires = {
+          "neovim/nvim-lspconfig",
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim"
+      }
+  }
+
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup({
+      min_width = {40, 0.2},
+      show_guides = true,
+    }) end
   }
 
   -- syntax highlighters

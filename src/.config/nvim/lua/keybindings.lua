@@ -38,6 +38,7 @@ vim.keymap.set("n", "<F11>", ":LazyGit<CR>", default_opts)
 ---------------
 
 vim.keymap.set('n', '<C-n>', telescope.live_grep, default_opts)
+vim.keymap.set('n', '<C-m>', ":Navbuddy<CR>", default_opts)
 vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hidden<CR>", default_opts)
 
 
@@ -49,6 +50,7 @@ vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hi
 vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>d", ":Trouble<CR>", default_opts)
 vim.keymap.set("n", "<Leader>i", ":set list!<CR>", default_opts)
+vim.keymap.set("n", "<Leader>o", ":AerialToggle!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>s", ":split<CR>", default_opts)
 vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", default_opts)

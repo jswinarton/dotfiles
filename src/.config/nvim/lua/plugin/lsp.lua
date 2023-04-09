@@ -2,12 +2,15 @@
 -- https://github.com/neovim/nvim-lspconfig/README.md
 -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
 
+local navbuddy = require("nvim-navbuddy")
+
 require("mason").setup({
   PATH = "append"
 })
 
 require('mason-lspconfig').setup({
   ensure_installed = {
+    'lua_ls',
     'pylsp',
     'rust_analyzer',
     'tsserver',
@@ -17,6 +20,7 @@ require('mason-lspconfig').setup({
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp_attach = function(client, bufnr)
+  navbuddy.attach(client, bufnr)
   -- TODO not sure this is necessary.
   -- Enable completion triggered by <c-x><c-o>
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
