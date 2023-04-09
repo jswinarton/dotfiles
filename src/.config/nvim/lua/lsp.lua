@@ -53,4 +53,33 @@ require('mason-lspconfig').setup_handlers({
       capabilities = lsp_capabilities,
     })
   end,
+  ['pylsp'] = function()
+    lspconfig.pylsp.setup({
+      on_attach = lsp_attach,
+      capabilities = lsp_capabilities,
+      settings = {
+        pylsp = {
+          plugins = {
+            autopep8 = {
+              enabled = false,
+            },
+            jedi_completion = {
+              fuzzy = true,
+              include_class_objects = true,
+              include_function_objects = true,
+            },
+            pycodestyle = {
+              enabled = false,
+            },
+            pyflakes = {
+              enabled = false,
+            },
+            pylint = {
+              enabled = true,
+            },
+          }
+        }
+      }
+    })
+  end,
 })
