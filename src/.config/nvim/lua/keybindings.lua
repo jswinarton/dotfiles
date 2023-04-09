@@ -44,7 +44,10 @@ vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hi
 -- LEADER KEYMAPS
 -----------------
 
+-- Note that <Leader>l is used by LSP mappings (see plugin/lsp.lua)
+
 vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", default_opts)
+vim.keymap.set("n", "<Leader>d", ":Trouble<CR>", default_opts)
 vim.keymap.set("n", "<Leader>i", ":set list!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>s", ":split<CR>", default_opts)
