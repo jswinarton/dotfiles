@@ -26,14 +26,12 @@ Linux packages:
 - git-delta
 - neovim
 - nnn
-- python3-pylsp
 - ripgrep
 - universal-ctags
 - zsh
 
 Python packages:
 
-- python-lsp-server[all]
 - requests
 
 Node packages:
@@ -41,6 +39,26 @@ Node packages:
 - typescript
 - typescript-language-server
 - vscode-langservers-extracted
+
+### Notes about Python LSP
+
+At the moment, Mason works by installing Python language servers in a
+virtualenv. While this works if you are using system Python, if you have your
+Python in a different venv, this will not work because it overrides your venv,
+and you get a bunch of import errors because it can't see the imports in your
+Python path.
+
+The way to fix this is to:
+1. Configure mason to *append* to virtualenv to the PATH (instead of prepend, the default)
+2. Manually install python LSP tools into the virtualenv you are developing in
+
+If this causes problems with other servers you could consider manually adding
+the mason stuff to the path(?)
+
+Command is pip install "python-lsp-server[all]" pyls-isort python-lsp-black pylsp-rope
+
+TODO need to figure out how to install the plugins over and above pylsp with
+mason in a repeatable way
 
 ## TODO
 

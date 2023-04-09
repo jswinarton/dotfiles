@@ -26,7 +26,12 @@ require('packer').startup(function(use)
   }
   use {
       "williamboman/mason.nvim",
-      run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+      run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+      config = function()
+        require("mason").setup({
+          PATH = "append"
+        })
+      end
   }
   use "williamboman/mason-lspconfig.nvim"
 
