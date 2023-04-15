@@ -55,7 +55,7 @@ The way to fix this is to:
 If this causes problems with other servers you could consider manually adding
 the mason stuff to the path(?)
 
-Command is pip install "python-lsp-server[all]" pyls-isort python-lsp-black pylsp-rope
+Command is pip install "python-lsp-server[all]" pyls-isort python-lsp-black pylsp-rope pynvim
 
 TODO need to figure out how to install the plugins over and above pylsp with
 mason in a repeatable way

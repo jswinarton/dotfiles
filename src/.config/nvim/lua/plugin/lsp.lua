@@ -1,17 +1,14 @@
 -- Reference:
--- https://github.com/neovim/nvim-lspconfig/README.md
+-- https://github.com/neovim/nvim-lspconfig/blob/master/README.md
 -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
 
 local navbuddy = require("nvim-navbuddy")
 
-require("mason").setup({
-  PATH = "append"
-})
+require("mason").setup({})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
-    'pylsp',
     'rust_analyzer',
     'tsserver',
   }
@@ -34,7 +31,9 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  -- TODO this is a test
+  vim.keymap.set('n', 'gr', ":Telescope lsp_references<CR>", bufopts)
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
   -- Extended leader mappings
   vim.keymap.set('n', '<Leader>lt', vim.lsp.buf.type_definition, bufopts)
@@ -60,25 +59,24 @@ require('mason-lspconfig').setup_handlers({
       capabilities = lsp_capabilities,
     })
   end,
-  ['pylsp'] = function()
-    lspconfig.pylsp.setup({
-      on_attach = lsp_attach,
-      capabilities = lsp_capabilities,
-      settings = {
-        pylsp = {
-          plugins = {
-            autopep8 = { enabled = false },
-            jedi_completion = {
-              fuzzy = true,
-              include_class_objects = true,
-              include_function_objects = true,
-            },
-            pycodestyle = { enabled = false },
-            pyflakes = { enabled = false },
-            pylint = { enabled = true },
-          }
-        }
+})
+
+require('lspconfig').pylsp.setup({
+  on_attach = lsp_attach,
+  capabilities = lsp_capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        autopep8 = { enabled = false },
+        jedi_completion = {
+          fuzzy = true,
+          include_class_objects = true,
+          include_function_objects = true,
+        },
+        pycodestyle = { enabled = false },
+        pyflakes = { enabled = false },
+        pylint = { enabled = true },
       }
-    })
-  end,
+    }
+  }
 })

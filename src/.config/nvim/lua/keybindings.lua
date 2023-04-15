@@ -37,8 +37,11 @@ vim.keymap.set("n", "<F11>", ":LazyGit<CR>", default_opts)
 -- CONTROL KEYS
 ---------------
 
+vim.keymap.set('n', '<C-i>', ":Telescope lsp_document_symbols<CR>", default_opts)
+-- TODO temporarily disabled because for TS/JS projects, the language server
+-- attempts to index every symbol in node_modules which crashes vim
+-- vim.keymap.set('n', '<C-M-i>', ":Telescope lsp_dynamic_workspace_symbols<CR>", default_opts)
 vim.keymap.set('n', '<C-n>', telescope.live_grep, default_opts)
-vim.keymap.set('n', '<C-m>', ":Navbuddy<CR>", default_opts)
 vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hidden<CR>", default_opts)
 
 
@@ -48,11 +51,14 @@ vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hi
 -- Note that <Leader>l is used by LSP mappings (see plugin/lsp.lua)
 
 vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", default_opts)
-vim.keymap.set("n", "<Leader>d", ":Trouble<CR>", default_opts)
+vim.keymap.set('n', "<Leader>dd", vim.diagnostic.open_float)
+vim.keymap.set("n", "<Leader>da", ":Trouble<CR>", default_opts)
 vim.keymap.set("n", "<Leader>i", ":set list!<CR>", default_opts)
+vim.keymap.set("n", "<Leader>n", ":Navbuddy<CR>", default_opts)
 vim.keymap.set("n", "<Leader>o", ":AerialToggle!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", default_opts)
 vim.keymap.set("n", "<Leader>s", ":split<CR>", default_opts)
+vim.keymap.set("n", "<Leader>t", ":lua require('FTerm').toggle()<CR>", default_opts)
 vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", default_opts)
 vim.keymap.set("n", "<Leader><Space>", ":nohlsearch<CR>", default_opts)
 
@@ -63,15 +69,18 @@ vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", default_opts)
 vim.keymap.set("n", "<Leader>gs", telescope.git_status, default_opts)
 
 -- Tabs
-vim.keymap.set("n", "<Leader>th", ":tabprev<CR>", default_opts)
-vim.keymap.set("n", "<Leader>tl", ":tabnext<CR>", default_opts)
-vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", default_opts)
-vim.keymap.set("n", "<Leader>tx", ":tabclose<CR>", default_opts)
+-- TODO temporarily disable
+-- vim.keymap.set("n", "<Leader>th", ":tabprev<CR>", default_opts)
+-- vim.keymap.set("n", "<Leader>tl", ":tabnext<CR>", default_opts)
+-- vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", default_opts)
+-- vim.keymap.set("n", "<Leader>tx", ":tabclose<CR>", default_opts)
 
 -- Numbering settings
-vim.keymap.set("n", "<Leader>nn", ":set number | set norelativenumber<CR>", default_opts)
-vim.keymap.set("n", "<Leader>no", ":set nonumber | set norelativenumber<CR>", default_opts)
-vim.keymap.set("n", "<Leader>nr", ":set number | set relativenumber<CR>", default_opts)
+-- TODO temporarily disable
+-- maybe find a different key for these, if you need them at all
+-- vim.keymap.set("n", "<Leader>nn", ":set number | set norelativenumber<CR>", default_opts)
+-- vim.keymap.set("n", "<Leader>no", ":set nonumber | set norelativenumber<CR>", default_opts)
+-- vim.keymap.set("n", "<Leader>nr", ":set number | set relativenumber<CR>", default_opts)
 
 -- Copilot
 vim.keymap.set("n", "<Leader>cp", ":Copilot panel<CR>", default_opts)

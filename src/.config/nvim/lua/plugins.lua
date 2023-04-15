@@ -6,6 +6,9 @@ require('packer').startup(function(use)
   use {
     "shaunsingh/moonlight.nvim",
     config = function()
+      vim.g.moonlight_borders = true
+      require("moonlight").set()
+
       vim.cmd.colorscheme("moonlight")
     end
   }
@@ -83,7 +86,8 @@ require('packer').startup(function(use)
       vim.g.vim_markdown_folding_disabled = 1
     end
   }
-  use { 'hashivim/vim-terraform.git', ft = { 'terraform' } }
+  -- TODO this consistently does not install. Not sure why
+  -- use { 'hashivim/vim-terraform.git', ft = { 'terraform' } }
   use { 'ledger/vim-ledger', ft = { 'ledger' } }
 
   -- lazygit integration
@@ -154,7 +158,36 @@ require('packer').startup(function(use)
     config = function() require("nnn").setup() end
   }
 
+  -- FTerm (floating terminal)
+  use "numToStr/FTerm.nvim"
+
+  -- which-key
+  -- Lua
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+      require("which-key").setup {}
+    end
+  }
+
+  -- octo
+  -- Github integration
+  -- use {
+  --   'pwntester/octo.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --     'kyazdani42/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require "octo".setup()
+  --   end
+  -- }
+
   -- copilot
+  -- temporarily disable for work reasons
   use "github/copilot.vim"
 
   -- misc
