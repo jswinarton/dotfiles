@@ -3,16 +3,38 @@
 -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#you-might-not-need-lsp-zero
 
 local navbuddy = require("nvim-navbuddy")
+local null_ls = require("null-ls")
 
 require("mason").setup({})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
+    'jedi_language_server',
     'lua_ls',
     'rust_analyzer',
     'tsserver',
   }
 })
+require("mason-null-ls").setup({
+    ensure_installed = {
+      'black',
+      'pylint',
+    },
+    automatic_installation = true,
+    handlers = {
+      -- Disable import errors for pylint
+      -- This is because pylint under mason runs in a different virtualenv than
+      -- the one that is used for the project. This means all imports that are
+      -- not part of the main package itself will fail
+      -- Easier to just go without
+      pylint = function(source_name, methods)
+          null_ls.register(null_ls.builtins.diagnostics.pylint.with({
+            extra_args = { "--disable", "import-error" },
+          }))
+      end,
+    },
+})
+require("null-ls").setup({})
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -59,24 +81,4 @@ require('mason-lspconfig').setup_handlers({
       capabilities = lsp_capabilities,
     })
   end,
-})
-
-require('lspconfig').pylsp.setup({
-  on_attach = lsp_attach,
-  capabilities = lsp_capabilities,
-  settings = {
-    pylsp = {
-      plugins = {
-        autopep8 = { enabled = false },
-        jedi_completion = {
-          fuzzy = true,
-          include_class_objects = true,
-          include_function_objects = true,
-        },
-        pycodestyle = { enabled = false },
-        pyflakes = { enabled = false },
-        pylint = { enabled = true },
-      }
-    }
-  }
 })

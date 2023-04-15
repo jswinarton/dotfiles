@@ -33,6 +33,20 @@ require('packer').startup(function(use)
     after = { "mason-lspconfig.nvim", "mason.nvim" }
   }
 
+  -- null-ls
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'neovim/nvim-lspconfig' },
+    config = function() require("null-ls").setup({
+      -- sources = {
+      --   require("null-ls").builtins.formatting.black,
+      -- }
+    }) end
+  }
+  use { 'jay-babu/mason-null-ls.nvim', after = { "mason.nvim" } }
+
+
+
   -- nvim-cmp
   -- Completion engine and sources
   use {
@@ -100,7 +114,7 @@ require('packer').startup(function(use)
     end
   }
   -- TODO this consistently does not install. Not sure why
-  -- use { 'hashivim/vim-terraform.git', ft = { 'terraform' } }
+  use { 'hashivim/vim-terraform', ft = { 'terraform' } }
   use { 'ledger/vim-ledger', ft = { 'ledger' } }
 
   -- lazygit integration
