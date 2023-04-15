@@ -1,3 +1,5 @@
+require("trouble").setup({})
+
 -- Use the same icons for the gutter as trouble uses in quickfix
 -- See https://github.com/folke/trouble.nvim/issues/52
 local signs = {

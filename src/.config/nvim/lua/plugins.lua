@@ -5,12 +5,7 @@ require('packer').startup(function(use)
   -- Theme
   use {
     "shaunsingh/moonlight.nvim",
-    config = function()
-      vim.g.moonlight_borders = true
-      require("moonlight").set()
-
-      vim.cmd.colorscheme("moonlight")
-    end
+    config = function() require("plugin.moonlight") end
   }
 
   -- Treesitter
@@ -20,19 +15,23 @@ require('packer').startup(function(use)
     config = function() require("plugin.treesitter") end
   }
 
-  -- LSP standard configs
-  -- These are out-of-the-box configurations provided by neovim
-  -- for most language servers (the server itself must be installed separately)
-  use {
-    'neovim/nvim-lspconfig',
-    config = function() require("plugin.lsp") end,
-    after = { "mason-lspconfig.nvim", "mason.nvim" }
-  }
+  -- Mason
+  -- package manager for LSP config, DAP, linting, etc.
   use {
     "williamboman/mason.nvim",
     run = ":MasonUpdate", -- :MasonUpdate updates registry contents
   }
   use "williamboman/mason-lspconfig.nvim"
+
+  -- LSP standard configs
+  -- These are out-of-the-box configurations provided by neovim
+  -- for most language servers (the server itself must be installed separately
+  -- which is handled by Mason)
+  use {
+    'neovim/nvim-lspconfig',
+    config = function() require("plugin.lsp") end,
+    after = { "mason-lspconfig.nvim", "mason.nvim" }
+  }
 
   -- nvim-cmp
   -- Completion engine and sources
@@ -49,16 +48,28 @@ require('packer').startup(function(use)
     config = function() require("plugin.cmp") end
   }
 
+  -- telescope
+  -- fuzzy finder engine
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function() require("plugin.telescope") end
+  }
+
   -- trouble (diagnostics)
   use {
     'folke/trouble.nvim',
     requires = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require("trouble").setup({})
-      require("plugin.trouble")
-    end
+    config = function() require("plugin.trouble") end
   }
 
+  -- copilot
+  use "github/copilot.vim"
+
+  -- navbuddy
+  -- on-the-fly LSP navigation
   use {
     "SmiteshP/nvim-navbuddy",
     requires = {
@@ -68,13 +79,15 @@ require('packer').startup(function(use)
     }
   }
 
+  -- vim-airline
+  -- statusline
   use {
-    'stevearc/aerial.nvim',
+    'vim-airline/vim-airline',
+    requires = { 'vim-airline/vim-airline-themes' },
     config = function()
-      require('aerial').setup({
-        min_width = { 40, 0.2 },
-        show_guides = true,
-      })
+      vim.g.airline_powerline_fonts = 1
+      vim.g.airline_theme = 'base16'
+      vim.g.airline_skip_empty_sections = 1
     end
   }
 
@@ -93,27 +106,13 @@ require('packer').startup(function(use)
   -- lazygit integration
   use 'kdheepak/lazygit.nvim'
 
-  -- vim-airline
-  -- better statusline
-  use {
-    'vim-airline/vim-airline',
-    requires = { 'vim-airline/vim-airline-themes' },
-    config = function()
-      vim.g.airline_powerline_fonts = 1
-      vim.g.airline_theme = 'base16'
-      vim.g.airline_skip_empty_sections = 1
-    end
-  }
-
   -- gitsigns
   -- shows changed git lines in the left column
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     tag = "v0.6",
-    config = function()
-      require('gitsigns').setup()
-    end
+    config = function() require('gitsigns').setup() end
   }
 
   -- gitlinker
@@ -122,34 +121,7 @@ require('packer').startup(function(use)
   use {
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require("gitlinker").setup()
-    end
-  }
-
-  -- telescope
-  -- fuzzy finder engine
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("telescope").setup {
-        defaults = {
-          vimgrep_arguments = {
-            "rg",
-            "--hidden",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case"
-          }
-        },
-      }
-    end
+    config = function() require("gitlinker").setup() end
   }
 
   -- nnn integration (netrw replacement)
@@ -162,7 +134,6 @@ require('packer').startup(function(use)
   use "numToStr/FTerm.nvim"
 
   -- which-key
-  -- Lua
   use {
     "folke/which-key.nvim",
     config = function()
@@ -171,24 +142,6 @@ require('packer').startup(function(use)
       require("which-key").setup {}
     end
   }
-
-  -- octo
-  -- Github integration
-  -- use {
-  --   'pwntester/octo.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-telescope/telescope.nvim',
-  --     'kyazdani42/nvim-web-devicons',
-  --   },
-  --   config = function()
-  --     require "octo".setup()
-  --   end
-  -- }
-
-  -- copilot
-  -- temporarily disable for work reasons
-  use "github/copilot.vim"
 
   -- misc
   use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
@@ -203,4 +156,31 @@ require('packer').startup(function(use)
   -- use 'mxw/vim-jsx'
   -- use 'peterhoeg/vim-qml'
   -- use 'posva/vim-vue'
+
+  -- experimental
+  -- stuff I am not sure that I really want but looks vaguely interesting
+
+  -- octo
+  -- Github integration
+  -- use {
+  --   'pwntester/octo.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --     'kyazdani42/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require "octo".setup()
+  --   end
+  -- }
+  --
+  -- use {
+  --   'stevearc/aerial.nvim',
+  --   config = function()
+  --     require('aerial').setup({
+  --       min_width = { 40, 0.2 },
+  --       show_guides = true,
+  --     })
+  --   end
+  -- }
 end)
