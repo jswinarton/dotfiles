@@ -34,31 +34,19 @@ Python packages:
 
 - requests
 
-Node packages:
-
-- typescript
-- typescript-language-server
-- vscode-langservers-extracted
-
 ### Notes about Python LSP
 
-At the moment, Mason works by installing Python language servers in a
-virtualenv. While this works if you are using system Python, if you have your
-Python in a different venv, this will not work because it overrides your venv,
-and you get a bunch of import errors because it can't see the imports in your
-Python path.
+The current Python LSP/lint/format setup for neovim works almost perfectly out
+of the box. However if you are working on a project that uses certain plugins
+to Python tools you will need to install these in the virtualenv for that tool
+that was provided by Mason.
 
-The way to fix this is to:
-1. Configure mason to *append* to virtualenv to the PATH (instead of prepend, the default)
-2. Manually install python LSP tools into the virtualenv you are developing in
+e.g., for pylint, if you are in a project that requires pylint_pytest, to prevent errors,
+install pylint_pytest in the Mason virtualenv:
 
-If this causes problems with other servers you could consider manually adding
-the mason stuff to the path(?)
-
-Command is pip install "python-lsp-server[all]" pyls-isort python-lsp-black pylsp-rope pynvim
-
-TODO need to figure out how to install the plugins over and above pylsp with
-mason in a repeatable way
+```
+[MASON_ROOT_DIR]/packages/pylint/venv/bin/pip install pylint_pytest
+```
 
 ## TODO
 

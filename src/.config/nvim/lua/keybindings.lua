@@ -8,41 +8,46 @@
 -- See :help index for a full list of keys that are used
 -- Unbound keys marked as "not used", aliases marked as "same as"
 
-local default_opts = { noremap = true, silent = true }
 local telescope = require("telescope.builtin")
+local default_opts = { noremap = true, silent = true }
+
+local function extend_opts(opts)
+  return vim.tbl_extend("force", default_opts, opts)
+end
+
 
 -- BASICS
 ---------
 
 -- Command key without shift
-vim.keymap.set("n", ";", ":", { noremap = true })
+vim.keymap.set("n", ";", ":", { noremap = true, desc = "Command key shortcut" })
 
 -- Move through word wrap easily
 vim.keymap.set("n", "j", "gj", default_opts)
 vim.keymap.set("n", "k", "gk", default_opts)
 
 -- netrw replacement
-vim.keymap.set('n', '-', ":NnnPicker %:p:h<CR>", default_opts)
-vim.keymap.set('n', '_', ":NnnPicker<CR>", default_opts)
+vim.keymap.set('n', '-', ":NnnPicker %:p:h<CR>", extend_opts({ desc = "Open nnn in file dir" }))
+vim.keymap.set('n', '_', ":NnnPicker<CR>", extend_opts({ desc = "Open nnn in workspace root" }))
 
 
 -- FUNCTION KEYS
 ----------------
 
 -- TODO reserve <F10> for SmiteshP/nvim-navbuddy
-vim.keymap.set("n", "<F11>", ":LazyGit<CR>", default_opts)
+vim.keymap.set("n", "<F11>", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit" }))
 -- TODO reserve <F12> for pwntester/octo.nvim
 
 
 -- CONTROL KEYS
 ---------------
 
-vim.keymap.set('n', '<C-i>', ":Telescope lsp_document_symbols<CR>", default_opts)
+vim.keymap.set('n', '<C-i>', ":Telescope lsp_document_symbols<CR>", extend_opts({ desc = "Telescope: document symbols" }))
 -- TODO temporarily disabled because for TS/JS projects, the language server
 -- attempts to index every symbol in node_modules which crashes vim
 -- vim.keymap.set('n', '<C-M-i>', ":Telescope lsp_dynamic_workspace_symbols<CR>", default_opts)
-vim.keymap.set('n', '<C-n>', telescope.live_grep, default_opts)
-vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hidden<CR>", default_opts)
+vim.keymap.set('n', '<C-n>', telescope.live_grep, extend_opts({ desc = "Telescope: workspace grep" }))
+vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hidden<CR>", extend_opts({ desc = "Telescope: find files" }))
 
 
 -- LEADER KEYMAPS
@@ -50,23 +55,23 @@ vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hi
 
 -- Note that <Leader>l is used by LSP mappings (see plugin/lsp.lua)
 
-vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", default_opts)
-vim.keymap.set('n', "<Leader>dd", vim.diagnostic.open_float)
-vim.keymap.set("n", "<Leader>da", ":Trouble<CR>", default_opts)
-vim.keymap.set("n", "<Leader>i", ":set list!<CR>", default_opts)
-vim.keymap.set("n", "<Leader>n", ":Navbuddy<CR>", default_opts)
-vim.keymap.set("n", "<Leader>o", ":AerialToggle!<CR>", default_opts)
-vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", default_opts)
-vim.keymap.set("n", "<Leader>s", ":split<CR>", default_opts)
-vim.keymap.set("n", "<Leader>t", ":lua require('FTerm').toggle()<CR>", default_opts)
-vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", default_opts)
-vim.keymap.set("n", "<Leader><Space>", ":nohlsearch<CR>", default_opts)
+vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", extend_opts({ desc = "Toggle line wrap" }))
+vim.keymap.set('n', "<Leader>dd", vim.diagnostic.open_float, extend_opts({ desc = "Show floating diagnostic info" }))
+vim.keymap.set("n", "<Leader>da", ":TroubleToggle<CR>", extend_opts({ desc = "Toggle trouble" }))
+vim.keymap.set("n", "<Leader>i", ":set list!<CR>", extend_opts({ desc = "Toggle invisible characters" }))
+vim.keymap.set("n", "<Leader>n", ":Navbuddy<CR>", extend_opts({ desc = "Toggle 'breadcrumbs' navigation" }))
+vim.keymap.set("n", "<Leader>o", ":AerialToggle!<CR>", extend_opts({ desc = "Toggle aerial" }))
+vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", extend_opts({ desc = "Toggle paste mode" }))
+vim.keymap.set("n", "<Leader>s", ":split<CR>", extend_opts({ desc = "Horizontal split" }))
+vim.keymap.set("n", "<Leader>t", ":lua require('FTerm').toggle()<CR>", extend_opts({ desc = "Toggle floating terminal" }))
+vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", extend_opts({ desc = "Vertical split" }))
+vim.keymap.set("n", "<Leader><Space>", ":nohlsearch<CR>", extend_opts({ desc = "Clear search" }))
 
 -- Git
 -- Note that Git linker uses <Leader>gy
-vim.keymap.set("n", "<Leader>gb", telescope.git_branches, default_opts)
-vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", default_opts)
-vim.keymap.set("n", "<Leader>gs", telescope.git_status, default_opts)
+vim.keymap.set("n", "<Leader>gb", telescope.git_branches, extend_opts({ desc = "Git branches" }))
+vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit" }))
+vim.keymap.set("n", "<Leader>gs", telescope.git_status, extend_opts({ desc = "Git status" }))
 
 -- Tabs
 -- TODO temporarily disable

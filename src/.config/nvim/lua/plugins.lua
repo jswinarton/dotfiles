@@ -45,7 +45,8 @@ require('packer').startup(function(use)
   }
   use { 'jay-babu/mason-null-ls.nvim', after = { "mason.nvim" } }
 
-
+  -- nvim-dap
+  use { 'mfussenegger/nvim-dap' }
 
   -- nvim-cmp
   -- Completion engine and sources
