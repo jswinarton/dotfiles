@@ -41,9 +41,6 @@ cdpath=(~ ~/apps/ ~/apps/_*(N))
 # Prompt
 #
 
-PROMPT='%F{1}${vcs_info_msg_0_}%f '
-RPROMPT='%F{1}${vcs_info_msg_1_}%f'
-
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:*' check-for-changes true
 zstyle ':vcs_info:*:*' unstagedstr '○'
@@ -69,6 +66,16 @@ function set_vcs_info_formats() {
 }
 
 add-zsh-hook precmd set_vcs_info_formats
+
+if [[ -v $VIRTUAL_ENV ]]; then
+  VENV_PROMPT="(%F{1}${VIRTUAL_ENV##*/}%f) "
+else
+  VENV_PROMPT=""
+fi
+
+PROMPT='%F{1}${vcs_info_msg_0_}%f '
+RPROMPT='%F{1}${vcs_info_msg_1_}${VENV_PROMPT}%f'
+
 
 # Etc
 #

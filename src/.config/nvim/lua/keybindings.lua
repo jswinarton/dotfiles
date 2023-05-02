@@ -30,6 +30,9 @@ vim.keymap.set("n", "k", "gk", default_opts)
 vim.keymap.set('n', '-', ":NnnPicker %:p:h<CR>", extend_opts({ desc = "Open nnn in file dir" }))
 vim.keymap.set('n', '_', ":NnnPicker<CR>", extend_opts({ desc = "Open nnn in workspace root" }))
 
+-- hop-word
+vim.keymap.set('n', '<Space>', ":HopWord<CR>", extend_opts({ desc = "Open HopWord" }))
+
 
 -- FUNCTION KEYS
 ----------------
@@ -42,6 +45,7 @@ vim.keymap.set("n", "<F11>", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit"
 -- CONTROL KEYS
 ---------------
 
+vim.keymap.set('n', '<C-b>', ":Telescope buffers<CR>", extend_opts({ desc = "Telescope: buffers" }))
 vim.keymap.set('n', '<C-i>', ":Telescope lsp_document_symbols<CR>", extend_opts({ desc = "Telescope: document symbols" }))
 -- TODO temporarily disabled because for TS/JS projects, the language server
 -- attempts to index every symbol in node_modules which crashes vim

@@ -4,7 +4,7 @@
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-local navbuddy = require("nvim-navbuddy")
+-- local navbuddy = require("nvim-navbuddy")
 local null_ls = require("null-ls")
 
 local lsp_attach = function(client, bufnr)
@@ -39,23 +39,32 @@ local lsp_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, extend_opts({ desc = "List workspace folders" }))
 
+  -- navbuddy.attach(client, bufnr)
+
   -- TODO not sure this is necessary.
   -- Enable completion triggered by <c-x><c-o>
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Temporarily disable this because it interferes with navigating through splits
   -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  navbuddy.attach(client, bufnr)
 end
 
 
 require("mason").setup({})
+
+require("mason-nvim-dap").setup({
+  ensure_installed = {
+    'python',
+  },
+  handlers = {}
+})
 
 require("mason-null-ls").setup({
     ensure_installed = {
       'black',
       'mypy',
       'pylint',
+      'stylelint',
     },
     automatic_installation = true,
     handlers = {
@@ -86,6 +95,7 @@ require("null-ls").setup({})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
+    'eslint',
     'jedi_language_server',
     'lua_ls',
     'rust_analyzer',

@@ -24,6 +24,10 @@
         "clock",
         "tray"
     ],
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "format": "{name}"
+    },
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,

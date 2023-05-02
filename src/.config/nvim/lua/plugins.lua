@@ -9,6 +9,7 @@ require('packer').startup(function(use)
   }
 
   -- Treesitter
+  -- Improved syntax highlighting
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -21,7 +22,10 @@ require('packer').startup(function(use)
     "williamboman/mason.nvim",
     run = ":MasonUpdate", -- :MasonUpdate updates registry contents
   }
-  use "williamboman/mason-lspconfig.nvim"
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    requires = { "mason.nvim" },
+  }
 
   -- LSP standard configs
   -- These are out-of-the-box configurations provided by neovim
@@ -30,23 +34,37 @@ require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function() require("plugin.lsp") end,
-    after = { "mason-lspconfig.nvim", "mason.nvim" }
+    requires = {
+      "williamboman/mason-lspconfig.nvim",
+      "williamboman/mason.nvim",
+    }
   }
 
   -- null-ls
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'neovim/nvim-lspconfig' },
-    config = function() require("null-ls").setup({
-      -- sources = {
-      --   require("null-ls").builtins.formatting.black,
-      -- }
-    }) end
+    config = function() require("null-ls").setup({}) end
   }
-  use { 'jay-babu/mason-null-ls.nvim', after = { "mason.nvim" } }
-
   -- nvim-dap
   use { 'mfussenegger/nvim-dap' }
+
+  -- Bridging utils that connect Mason with null-ls and nvim-dap
+  use {
+    'jay-babu/mason-null-ls.nvim',
+    requires = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim"
+    }
+  }
+  use {
+    'jay-babu/mason-nvim-dap.nvim',
+    requires = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    }
+  }
+
 
   -- nvim-cmp
   -- Completion engine and sources
@@ -81,18 +99,21 @@ require('packer').startup(function(use)
   }
 
   -- copilot
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
 
+  -- TODO reconfigure navbuddy with server prefs
+  -- to prevent LSP errors
+  -- see https://github.com/SmiteshP/nvim-navbuddy#-customise
   -- navbuddy
   -- on-the-fly LSP navigation
-  use {
-    "SmiteshP/nvim-navbuddy",
-    requires = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim"
-    }
-  }
+  -- use {
+  --   "SmiteshP/nvim-navbuddy",
+  --   requires = {
+  --     "neovim/nvim-lspconfig",
+  --     "SmiteshP/nvim-navic",
+  --     "MunifTanjim/nui.nvim"
+  --   }
+  -- }
 
   -- vim-airline
   -- statusline
@@ -155,6 +176,15 @@ require('packer').startup(function(use)
       vim.o.timeout = true
       vim.o.timeoutlen = 500
       require("which-key").setup {}
+    end
+  }
+
+  -- hop-word
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2',
+    config = function()
+      require('hop').setup({})
     end
   }
 
