@@ -1,4 +1,6 @@
-require("telescope").setup {
+local telescope = require("telescope")
+
+telescope.setup {
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -12,3 +14,5 @@ require("telescope").setup {
     }
   },
 }
+
+telescope.load_extension("live_grep_args")

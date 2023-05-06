@@ -50,7 +50,7 @@ vim.keymap.set('n', '<C-i>', ":Telescope lsp_document_symbols<CR>", extend_opts(
 -- TODO temporarily disabled because for TS/JS projects, the language server
 -- attempts to index every symbol in node_modules which crashes vim
 -- vim.keymap.set('n', '<C-M-i>', ":Telescope lsp_dynamic_workspace_symbols<CR>", default_opts)
-vim.keymap.set('n', '<C-n>', telescope.live_grep, extend_opts({ desc = "Telescope: workspace grep" }))
+vim.keymap.set('n', '<C-n>', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", extend_opts({ desc = "Telescope: workspace grep" }))
 vim.keymap.set('n', '<C-p>', ":Telescope find_files find_command=rg,--files,--hidden<CR>", extend_opts({ desc = "Telescope: find files" }))
 
 
