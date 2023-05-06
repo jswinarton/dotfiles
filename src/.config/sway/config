@@ -48,10 +48,10 @@ set $menu  "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -f
 
 set $dplaptop "eDP-1"
 set $dphomeext 'Dell Inc. DELL P2721Q 2VSJXC3'
-set $dpofficeext "?"
+set $dpofficeext 'Samsung Electric Company S27R35A H4UR302291'
 
 set $dpdefault $dplaptop
-set $dpexternal $dphomeext
+set $dpexternal $dphomeext $dpofficeext
 
 output $dplaptop scale 1
 output 'Dell Inc. DELL P2721Q 2VSJXC3' scale 2
@@ -102,8 +102,9 @@ set $ws7 "7:7"
 set $ws8 "8:8"
 set $ws9 "9:9"
 set $ws0 "10:0"
-set $wsm "11:-"
+set $wsm "11:−"
 set $wsp "12:+"
+set $wspi "13:|"
 
 workspace $ws1 output $dpdefault
 workspace $ws2 output $dpexternal
@@ -117,6 +118,7 @@ workspace $ws9 output $dpdefault
 workspace $ws0 output $dpexternal
 workspace $wsm output $dpdefault
 workspace $wsp output $dpexternal
+workspace $wspi output $dpexternal
 
 ### Key bindings: basics
 ###
@@ -167,7 +169,6 @@ bindsym $mod+Control+Shift+$right move workspace to output right
 ### Keybindings: workspaces
 ###
 
-
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -181,6 +182,7 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws0
 bindsym $mod+minus workspace $wsm
 bindsym $mod+equal workspace $wsp
+bindsym $mod+backslash workspace $wspi
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -193,8 +195,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0
-bindsym $mod+Shift+underscore move container to workspace $wsm
-bindsym $mod+Shift+plus move container to workspace $wsp
+bindsym $mod+underscore move container to workspace $wsm
+bindsym $mod+plus move container to workspace $wsp
+bindsym $mod+Shift+backslash move container to workspace $wspi
 
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
@@ -262,6 +265,12 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+### Keybindings: workspaces
+###
+bindsym $mod+t output $dphomeext transform 0
+bindsym $mod+y output $dphomeext transform 270
+
 
 ### Misc
 ###
