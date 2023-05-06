@@ -68,7 +68,6 @@ export FZF_DEFAULT_OPTS=""
 # python
 export PYTHONDONTWRITEBYTECODE=1
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # ALIASES
 # ----------
@@ -152,6 +151,13 @@ touch-sh() {
   else
     echo "#!/bin/sh\n" > $1 && chmod +x $1
   fi
+}
+
+# Activate common virtualenv dirs
+venv-activate() {
+  [ -d .venv ] && source .venv/bin/activate
+  [ -d venv ] && source venv/bin/activate
+  [ -d .virtualenv ] && source virtualenv/bin/activate
 }
 
 # tar shortcuts
