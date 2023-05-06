@@ -67,25 +67,36 @@ require("mason-null-ls").setup({
       'stylelint',
     },
     automatic_installation = true,
+    -- TODO consolidate these into a reusable function
     handlers = {
-      -- Disable import errors for pylint
-      -- This is because pylint under mason runs in a different virtualenv than
-      -- the one that is used for the project. This means all imports that are
-      -- not part of the main package itself will fail
-      -- Easier to just go without
       pylint = function(_, _)
-          null_ls.register(null_ls.builtins.diagnostics.pylint.with({
-            extra_args = { "--disable", "import-error" },
-          }))
+          local virtualenv = os.getenv("VIRTUAL_ENV")
+          if virtualenv ~= nil then
+            null_ls.register(null_ls.builtins.diagnostics.pylint.with({
+              command = virtualenv .. "/bin/pylint",
+            }))
+          else
+            null_ls.register(null_ls.builtins.diagnostics.pylint)
+          end
       end,
       mypy = function(_, _)
           local virtualenv = os.getenv("VIRTUAL_ENV")
           if virtualenv ~= nil then
             null_ls.register(null_ls.builtins.diagnostics.mypy.with({
-              extra_args = { "--python-executable", virtualenv .. "/bin/python" },
+              command = virtualenv .. "/bin/mypy",
             }))
           else
             null_ls.register(null_ls.builtins.diagnostics.mypy)
+          end
+      end,
+      black = function(_, _)
+          local virtualenv = os.getenv("VIRTUAL_ENV")
+          if virtualenv ~= nil then
+            null_ls.register(null_ls.builtins.formatting.black.with({
+              command = virtualenv .. "/bin/black",
+            }))
+          else
+            null_ls.register(null_ls.builtins.formatting.black)
           end
       end,
     },
