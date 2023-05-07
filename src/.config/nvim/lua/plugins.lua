@@ -18,51 +18,20 @@ require('packer').startup(function(use)
 
   -- Mason
   -- package manager for LSP config, DAP, linting, etc.
+  -- includes utilities that are themselves managed by mason,
+  -- i.e. lspconfig, null-ls and nvim-dap
   use {
     "williamboman/mason.nvim",
-    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-  }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    requires = { "mason.nvim" },
-  }
-
-  -- LSP standard configs
-  -- These are out-of-the-box configurations provided by neovim
-  -- for most language servers (the server itself must be installed separately
-  -- which is handled by Mason)
-  use {
-    'neovim/nvim-lspconfig',
+    run = ":MasonUpdate",
+    requires = {
+      'neovim/nvim-lspconfig',
+      'williamboman/mason-lspconfig.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
+      'jay-babu/mason-null-ls.nvim',
+      'mfussenegger/nvim-dap',
+      'jay-babu/mason-nvim-dap.nvim',
+    },
     config = function() require("plugin.lsp") end,
-    requires = {
-      "williamboman/mason-lspconfig.nvim",
-      "williamboman/mason.nvim",
-    }
-  }
-
-  -- null-ls
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { 'neovim/nvim-lspconfig' },
-    config = function() require("null-ls").setup({}) end
-  }
-  -- nvim-dap
-  use { 'mfussenegger/nvim-dap' }
-
-  -- Bridging utils that connect Mason with null-ls and nvim-dap
-  use {
-    'jay-babu/mason-null-ls.nvim',
-    requires = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim"
-    }
-  }
-  use {
-    'jay-babu/mason-nvim-dap.nvim',
-    requires = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    }
   }
 
   -- nvim-cmp
@@ -121,7 +90,6 @@ require('packer').startup(function(use)
       vim.g.vim_markdown_folding_disabled = 1
     end
   }
-  -- TODO this consistently does not install. Not sure why
   use { 'hashivim/vim-terraform', ft = { 'terraform' } }
   use { 'ledger/vim-ledger', ft = { 'ledger' } }
 

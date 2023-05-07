@@ -4,7 +4,6 @@
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
--- local navbuddy = require("nvim-navbuddy")
 local null_ls = require("null-ls")
 
 local lsp_attach = function(client, bufnr)
@@ -23,18 +22,16 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', 'gi', ":Telescope lsp_implementations<CR>", extend_opts({ desc = "Jump to implementation" }))
   vim.keymap.set('n', 'gr', ":Telescope lsp_references<CR>", default_opts)
 
-  -- TODO I'm experimenting for preferring Telescope over the default quickfix behaviour
-  -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, default_opts)
-  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, default_opts)
-
   -- Extended leader mappings
   vim.keymap.set('n', '<Leader>lt', vim.lsp.buf.type_definition, extend_opts({ desc = "Jump to type definition" }))
   vim.keymap.set('n', '<Leader>lm', vim.lsp.buf.rename, extend_opts({ desc = "Rename symbol" }))
   vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, extend_opts({ desc = "Show code actions" }))
-  vim.keymap.set('n', '<Leader>lf', function() vim.lsp.buf.format({ async = true }) end, extend_opts({ desc = "Format buffer" }))
+  vim.keymap.set('n', '<Leader>lf', function() vim.lsp.buf.format({ async = true }) end,
+    extend_opts({ desc = "Format buffer" }))
 
   vim.keymap.set('n', '<Leader>lwa', vim.lsp.buf.add_workspace_folder, extend_opts({ desc = "Add workspace folder" }))
-  vim.keymap.set('n', '<Leader>lwr', vim.lsp.buf.remove_workspace_folder, extend_opts({ desc = "Remove workspace folder" }))
+  vim.keymap.set('n', '<Leader>lwr', vim.lsp.buf.remove_workspace_folder,
+    extend_opts({ desc = "Remove workspace folder" }))
   vim.keymap.set('n', '<Leader>lwl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, extend_opts({ desc = "List workspace folders" }))
@@ -59,50 +56,37 @@ require("mason-nvim-dap").setup({
   handlers = {}
 })
 
+local setup_handler_with_venv = function(source, handler)
+  return function(_, _)
+    local virtualenv = os.getenv("VIRTUAL_ENV")
+    if virtualenv ~= nil then
+      null_ls.register(source.with({
+        command = virtualenv .. "/bin/" .. handler,
+      }))
+    else
+      null_ls.register(source)
+    end
+  end
+end
+
 require("mason-null-ls").setup({
-    ensure_installed = {
-      'black',
-      'mypy',
-      'pylint',
-      'stylelint',
-    },
-    automatic_installation = true,
-    -- TODO consolidate these into a reusable function
-    handlers = {
-      pylint = function(_, _)
-          local virtualenv = os.getenv("VIRTUAL_ENV")
-          if virtualenv ~= nil then
-            null_ls.register(null_ls.builtins.diagnostics.pylint.with({
-              command = virtualenv .. "/bin/pylint",
-            }))
-          else
-            null_ls.register(null_ls.builtins.diagnostics.pylint)
-          end
-      end,
-      mypy = function(_, _)
-          local virtualenv = os.getenv("VIRTUAL_ENV")
-          if virtualenv ~= nil then
-            null_ls.register(null_ls.builtins.diagnostics.mypy.with({
-              command = virtualenv .. "/bin/mypy",
-            }))
-          else
-            null_ls.register(null_ls.builtins.diagnostics.mypy)
-          end
-      end,
-      black = function(_, _)
-          local virtualenv = os.getenv("VIRTUAL_ENV")
-          if virtualenv ~= nil then
-            null_ls.register(null_ls.builtins.formatting.black.with({
-              command = virtualenv .. "/bin/black",
-            }))
-          else
-            null_ls.register(null_ls.builtins.formatting.black)
-          end
-      end,
-    },
+  ensure_installed = {
+    'black',
+    'mypy',
+    'pylint',
+    'ruff',
+    'stylelint',
+  },
+  automatic_installation = true,
+  -- TODO consolidate these into a reusable function
+  handlers = {
+    pylint = setup_handler_with_venv(null_ls.builtins.diagnostics.pylint, "pylint"),
+    mypy = setup_handler_with_venv(null_ls.builtins.diagnostics.mypy, "mypy"),
+    black = setup_handler_with_venv(null_ls.builtins.formatting.black, "black"),
+  },
 })
 
-require("null-ls").setup({})
+null_ls.setup({})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -122,7 +106,7 @@ require('mason-lspconfig').setup_handlers({
       capabilities = lsp_capabilities,
     })
   end,
-  ["lua_ls"] = function (server_name)
+  ["lua_ls"] = function(server_name)
     lspconfig[server_name].setup({
       on_attach = lsp_attach,
       capabilities = lsp_capabilities,
@@ -130,10 +114,16 @@ require('mason-lspconfig').setup_handlers({
         Lua = {
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
+            globals = { 'vim' },
           },
         },
       },
     })
   end
 })
+
+-- many Mason-driven plugins are "optional", i.e. not used on all projects
+-- disable these here. They can be re-enabled on a per-project basis
+null_ls.disable("mypy")
+null_ls.disable("pylint")
+null_ls.disable("ruff")
