@@ -65,7 +65,6 @@ require('packer').startup(function(use)
     }
   }
 
-
   -- nvim-cmp
   -- Completion engine and sources
   use {
@@ -100,21 +99,7 @@ require('packer').startup(function(use)
   }
 
   -- copilot
-  -- use "github/copilot.vim"
-
-  -- TODO reconfigure navbuddy with server prefs
-  -- to prevent LSP errors
-  -- see https://github.com/SmiteshP/nvim-navbuddy#-customise
-  -- navbuddy
-  -- on-the-fly LSP navigation
-  -- use {
-  --   "SmiteshP/nvim-navbuddy",
-  --   requires = {
-  --     "neovim/nvim-lspconfig",
-  --     "SmiteshP/nvim-navic",
-  --     "MunifTanjim/nui.nvim"
-  --   }
-  -- }
+  use "github/copilot.vim"
 
   -- vim-airline
   -- statusline
@@ -228,5 +213,19 @@ require('packer').startup(function(use)
   --       show_guides = true,
   --     })
   --   end
+  -- }
+  --
+  -- TODO reconfigure navbuddy with server prefs
+  -- to prevent LSP errors
+  -- see https://github.com/SmiteshP/nvim-navbuddy#-customise
+  -- navbuddy
+  -- on-the-fly LSP navigation
+  -- use {
+  --   "SmiteshP/nvim-navbuddy",
+  --   requires = {
+  --     "neovim/nvim-lspconfig",
+  --     "SmiteshP/nvim-navic",
+  --     "MunifTanjim/nui.nvim"
+  --   }
   -- }
 end)
