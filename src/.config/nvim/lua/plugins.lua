@@ -31,8 +31,13 @@ require('packer').startup(function(use)
       'mfussenegger/nvim-dap',
       'jay-babu/mason-nvim-dap.nvim',
       'rcarriga/nvim-dap-ui',
+      'mfussenegger/nvim-dap-python',
     },
-    config = function() require("plugin.lsp") end,
+    config = function()
+      require("mason").setup({})
+      require("plugin.lsp")
+      require("plugin.dap")
+    end,
   }
 
   -- nvim-cmp

@@ -48,25 +48,9 @@ local on_attach = function(client, bufnr)
     })
   end
 
-  -- navbuddy.attach(client, bufnr)
-
-  -- TODO not sure this is necessary.
-  -- Enable completion triggered by <c-x><c-o>
-  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Temporarily disable this because it interferes with navigating through splits
+  -- TODO Temporarily disable this because it interferes with navigating through splits
   -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 end
-
-
-require("mason").setup({})
-
-require("mason-nvim-dap").setup({
-  ensure_installed = {
-    'python',
-  },
-  handlers = {}
-})
 
 local setup_handler_with_venv = function(source, handler)
   return function(_, _)
@@ -81,27 +65,6 @@ local setup_handler_with_venv = function(source, handler)
   end
 end
 
-require("mason-null-ls").setup({
-  ensure_installed = {
-    'black',
-    'isort',
-    'mypy',
-    'pylint',
-    'ruff',
-    'stylelint',
-  },
-  automatic_installation = true,
-  handlers = {
-    black = setup_handler_with_venv(null_ls.builtins.formatting.black, "black"),
-    isort = setup_handler_with_venv(null_ls.builtins.formatting.isort, "isort"),
-    mypy = setup_handler_with_venv(null_ls.builtins.diagnostics.mypy, "mypy"),
-    pylint = setup_handler_with_venv(null_ls.builtins.diagnostics.pylint, "pylint"),
-  },
-})
-
-null_ls.setup({
-  on_attach = on_attach,
-})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -137,11 +100,31 @@ require('mason-lspconfig').setup_handlers({
   end
 })
 
--- many Mason-driven plugins are "optional", i.e. not used on all projects
--- disable these here. They can be re-enabled on a per-project basis
+
+require("mason-null-ls").setup({
+  ensure_installed = {
+    'black',
+    'isort',
+    'mypy',
+    'pylint',
+    'ruff',
+    'stylelint',
+  },
+  automatic_installation = true,
+  handlers = {
+    black = setup_handler_with_venv(null_ls.builtins.formatting.black, "black"),
+    isort = setup_handler_with_venv(null_ls.builtins.formatting.isort, "isort"),
+    mypy = setup_handler_with_venv(null_ls.builtins.diagnostics.mypy, "mypy"),
+    pylint = setup_handler_with_venv(null_ls.builtins.diagnostics.pylint, "pylint"),
+  },
+})
+
+null_ls.setup({
+  on_attach = on_attach,
+})
+
+-- Disable these plugins by default, since they are not used on all projects
+-- They can be re-enabled on a per-project basis
 null_ls.disable("mypy")
 null_ls.disable("pylint")
 null_ls.disable("ruff")
-
-
-require("dapui").setup()
