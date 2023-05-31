@@ -50,7 +50,7 @@ window#waybar {
   color: red;
 }
 
-#clock {
+#clock, #custom-clockutc {
     font-weight: bold;
 }
 
