@@ -6,7 +6,8 @@ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 local null_ls = require("null-ls")
 
-local lsp_attach = function(client, bufnr)
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local on_attach = function(client, bufnr)
   local default_opts = { noremap = true, silent = true, buffer = bufnr }
   local function extend_opts(opts)
     return vim.tbl_extend("force", default_opts, opts)
@@ -35,6 +36,17 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>lwl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, extend_opts({ desc = "List workspace folders" }))
+
+  -- Auto format on save
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    })
+  end
 
   -- navbuddy.attach(client, bufnr)
 
@@ -72,21 +84,24 @@ end
 require("mason-null-ls").setup({
   ensure_installed = {
     'black',
+    'isort',
     'mypy',
     'pylint',
     'ruff',
     'stylelint',
   },
   automatic_installation = true,
-  -- TODO consolidate these into a reusable function
   handlers = {
-    pylint = setup_handler_with_venv(null_ls.builtins.diagnostics.pylint, "pylint"),
-    mypy = setup_handler_with_venv(null_ls.builtins.diagnostics.mypy, "mypy"),
     black = setup_handler_with_venv(null_ls.builtins.formatting.black, "black"),
+    isort = setup_handler_with_venv(null_ls.builtins.formatting.isort, "isort"),
+    mypy = setup_handler_with_venv(null_ls.builtins.diagnostics.mypy, "mypy"),
+    pylint = setup_handler_with_venv(null_ls.builtins.diagnostics.pylint, "pylint"),
   },
 })
 
-null_ls.setup({})
+null_ls.setup({
+  on_attach = on_attach,
+})
 
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -102,13 +117,13 @@ require('mason-lspconfig').setup({
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({
-      on_attach = lsp_attach,
+      on_attach = on_attach,
       capabilities = lsp_capabilities,
     })
   end,
   ["lua_ls"] = function(server_name)
     lspconfig[server_name].setup({
-      on_attach = lsp_attach,
+      on_attach = on_attach,
       capabilities = lsp_capabilities,
       settings = {
         Lua = {
@@ -127,3 +142,6 @@ require('mason-lspconfig').setup_handlers({
 null_ls.disable("mypy")
 null_ls.disable("pylint")
 null_ls.disable("ruff")
+
+
+require("dapui").setup()

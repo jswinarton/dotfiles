@@ -30,6 +30,7 @@ require('packer').startup(function(use)
       'jay-babu/mason-null-ls.nvim',
       'mfussenegger/nvim-dap',
       'jay-babu/mason-nvim-dap.nvim',
+      'rcarriga/nvim-dap-ui',
     },
     config = function() require("plugin.lsp") end,
   }
@@ -82,16 +83,16 @@ require('packer').startup(function(use)
     end
   }
 
-  -- syntax highlighters
-  use {
-    'plasticboy/vim-markdown',
-    ft = { 'markdown' },
-    config = function()
-      vim.g.vim_markdown_folding_disabled = 1
-    end
-  }
-  use { 'hashivim/vim-terraform', ft = { 'terraform' } }
-  use { 'ledger/vim-ledger', ft = { 'ledger' } }
+  -- -- syntax highlighters
+  -- use {
+  --   'plasticboy/vim-markdown',
+  --   ft = { 'markdown' },
+  --   config = function()
+  --     vim.g.vim_markdown_folding_disabled = 1
+  --   end
+  -- }
+  -- use { 'hashivim/vim-terraform', ft = { 'terraform' } }
+  -- use { 'ledger/vim-ledger', ft = { 'ledger' } }
 
   -- lazygit integration
   use 'kdheepak/lazygit.nvim'
@@ -117,11 +118,13 @@ require('packer').startup(function(use)
   -- nnn integration (netrw replacement)
   use {
     "luukvbaal/nnn.nvim",
-    config = function() require("nnn").setup() end
+    config = function()
+      require("nnn").setup({
+        command = "nnn -o -H",
+        replace_netrw = 1,
+      })
+    end
   }
-
-  -- FTerm (floating terminal)
-  use "numToStr/FTerm.nvim"
 
   -- which-key
   use {
@@ -139,6 +142,14 @@ require('packer').startup(function(use)
     branch = 'v2',
     config = function()
       require('hop').setup({})
+    end
+  }
+
+  -- vim-test
+  use {
+    'vim-test/vim-test',
+    config = function()
+      vim.g['test#strategy'] = 'neovim'
     end
   }
 
