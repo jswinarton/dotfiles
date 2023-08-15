@@ -150,14 +150,6 @@ require('packer').startup(function(use)
     end
   }
 
-  -- vim-test
-  use {
-    'vim-test/vim-test',
-    config = function()
-      vim.g['test#strategy'] = 'neovim'
-    end
-  }
-
   -- misc
   use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
   use 'tpope/vim-commentary'           -- keybindings and language support for commenting

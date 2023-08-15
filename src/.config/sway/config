@@ -53,7 +53,7 @@ set $dpofficeext 'Samsung Electric Company S27R35A H4UR302291'
 set $dpdefault $dplaptop
 set $dpexternal $dphomeext $dpofficeext
 
-output $dplaptop scale 1
+output $dplaptop scale 1.2
 output 'Dell Inc. DELL P2721Q 2VSJXC3' scale 2
 
 # Wallpaper

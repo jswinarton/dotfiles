@@ -37,6 +37,10 @@ vim.keymap.set('n', '<Space>', ":HopWord<CR>", extend_opts({ desc = "Open HopWor
 -- FUNCTION KEYS
 ----------------
 
+vim.keymap.set('n', '<F5>', ":lua require('dap').continue()<CR>", extend_opts({ desc = "Debugger: launch/continue" }))
+vim.keymap.set('n', '<F6>', ":lua require('dap').toggle_breakpoint()<CR>",
+  extend_opts({ desc = "Debugger: toggle breakpoint" }))
+vim.keymap.set('n', '<F7>', ":lua require('dap').step_over()<CR>", extend_opts({ desc = "Debugger: step over" }))
 vim.keymap.set('n', '<F8>', ":bprev<CR>", extend_opts({ desc = "Previous buffer" }))
 vim.keymap.set('n', '<F9>', ":bnext<CR>", extend_opts({ desc = "Next buffer" }))
 -- TODO reserve <F10> for SmiteshP/nvim-navbuddy
@@ -65,8 +69,6 @@ vim.keymap.set('n', '<C-x>', ":bdelete<CR>", extend_opts({ desc = "Delete buffer
 -- Note that <Leader>l is used by LSP mappings (see plugin/lsp.lua)
 
 vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", extend_opts({ desc = "Toggle line wrap" }))
-vim.keymap.set('n', "<Leader>dd", vim.diagnostic.open_float, extend_opts({ desc = "Show floating diagnostic info" }))
-vim.keymap.set("n", "<Leader>da", ":TroubleToggle<CR>", extend_opts({ desc = "Toggle trouble" }))
 vim.keymap.set("n", "<Leader>i", ":set list!<CR>", extend_opts({ desc = "Toggle invisible characters" }))
 vim.keymap.set("n", "<Leader>n", ":Navbuddy<CR>", extend_opts({ desc = "Toggle 'breadcrumbs' navigation" }))
 vim.keymap.set("n", "<Leader>o", ":AerialToggle!<CR>", extend_opts({ desc = "Toggle aerial" }))
@@ -75,18 +77,30 @@ vim.keymap.set("n", "<Leader>s", ":split<CR>", extend_opts({ desc = "Horizontal 
 vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", extend_opts({ desc = "Vertical split" }))
 vim.keymap.set("n", "<Leader><Space>", ":nohlsearch<CR>", extend_opts({ desc = "Clear search" }))
 
+-- Debugging
+vim.keymap.set("n", "<Leader>dc", ":lua require('dap').continue()<CR>",
+  extend_opts({ desc = "Debugger: launch/continue" }))
+vim.keymap.set("n", "<Leader>db", ":lua require('dap').toggle_breakpoint()<CR>",
+  extend_opts({ desc = "Debugger: toggle breakpoint" }))
+vim.keymap.set("n", "<Leader>do", ":lua require('dap').step_over()<CR>", extend_opts({ desc = "Debugger: step over" }))
+vim.keymap.set("n", "<Leader>di", ":lua require('dap').step_into()<CR>", extend_opts({ desc = "Debugger: step into" }))
+vim.keymap.set("n", "<Leader>du", ":lua require('dap').step_out()<CR>", extend_opts({ desc = "Debugger: step out" }))
+vim.keymap.set("n", "<Leader>dr", ":lua require('dap').repl.toggle()<CR>",
+  extend_opts({ desc = "Debugger: toggle REPL" }))
+vim.keymap.set("n", "<Leader>dt", ":lua require('dapui').toggle()<CR>", extend_opts({ desc = "Debugger: toggle UI" }))
+vim.keymap.set("n", "<leader>dp", ":lua require('dap-python').test_method()<CR>",
+  extend_opts({ desc = "Debugger: test method (Python only)" }))
+
+
+-- Diagnostics
+vim.keymap.set('n', "<Leader>ed", vim.diagnostic.open_float, extend_opts({ desc = "Show floating diagnostic info" }))
+vim.keymap.set("n", "<Leader>ea", ":TroubleToggle<CR>", extend_opts({ desc = "Toggle trouble" }))
+
 -- Git
 -- Note that Git linker uses <Leader>gy
 vim.keymap.set("n", "<Leader>gb", telescope.git_branches, extend_opts({ desc = "Git branches" }))
 vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit" }))
 vim.keymap.set("n", "<Leader>gs", telescope.git_status, extend_opts({ desc = "Git status" }))
-
--- vim-test
-vim.keymap.set("n", "<Leader>tc", ":TestClass<CR>", extend_opts({ desc = "Run all tests in class" }))
-vim.keymap.set("n", "<Leader>tf", ":TestFile<CR>", extend_opts({ desc = "Run all tests in file" }))
-vim.keymap.set("n", "<Leader>tl", ":TestLast<CR>", extend_opts({ desc = "Run last test" }))
-vim.keymap.set("n", "<Leader>tn", ":TestNearest<CR>", extend_opts({ desc = "Run nearest test" }))
-vim.keymap.set("n", "<Leader>ts", ":TestSuite<CR>", extend_opts({ desc = "Run all tests in suite" }))
 
 -- TODO temporarily disable these
 -- Tabs
