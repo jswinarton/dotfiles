@@ -290,5 +290,7 @@ exec waybar
 # Run gammastep
 exec gammastep -l 43.653225:-79.383186 -b 1:0.6 -t 6500:4000
 
+exec lxqt-policykit-agent
+
 
 include @sysconfdir@/sway/config.d/*
