@@ -29,7 +29,7 @@ require('packer').startup(function(use)
       'jose-elias-alvarez/null-ls.nvim',
       'jay-babu/mason-null-ls.nvim',
       'mfussenegger/nvim-dap',
-      'jay-babu/mason-nvim-dap.nvim',
+      -- 'jay-babu/mason-nvim-dap.nvim',
       'rcarriga/nvim-dap-ui',
       'mfussenegger/nvim-dap-python',
     },
@@ -72,9 +72,6 @@ require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons',
     config = function() require("plugin.trouble") end
   }
-
-  -- copilot
-  use "github/copilot.vim"
 
   -- vim-airline
   -- statusline
