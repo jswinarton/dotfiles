@@ -85,17 +85,6 @@ require('packer').startup(function(use)
     end
   }
 
-  -- -- syntax highlighters
-  -- use {
-  --   'plasticboy/vim-markdown',
-  --   ft = { 'markdown' },
-  --   config = function()
-  --     vim.g.vim_markdown_folding_disabled = 1
-  --   end
-  -- }
-  -- use { 'hashivim/vim-terraform', ft = { 'terraform' } }
-  -- use { 'ledger/vim-ledger', ft = { 'ledger' } }
-
   -- lazygit integration
   use 'kdheepak/lazygit.nvim'
 
@@ -151,54 +140,4 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- navigate btwn vim/tmux splits with same hotkeys
   use 'tpope/vim-commentary'           -- keybindings and language support for commenting
   use 'tpope/vim-surround'             -- keybindings for editing within "surrounds" (quotes etc)
-
-  -- TODO add back occasional syntaxes with conditional loading:
-  -- use 'amadeus/vim-mjml'
-  -- use 'chr4/nginx.vim'
-  -- use 'elixir-lang/vim-elixir'
-  -- use 'jwalton512/vim-blade'
-  -- use 'mxw/vim-jsx'
-  -- use 'peterhoeg/vim-qml'
-  -- use 'posva/vim-vue'
-
-  -- experimental
-  -- stuff I am not sure that I really want but looks vaguely interesting
-
-  -- octo
-  -- Github integration
-  -- use {
-  --   'pwntester/octo.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-telescope/telescope.nvim',
-  --     'kyazdani42/nvim-web-devicons',
-  --   },
-  --   config = function()
-  --     require "octo".setup()
-  --   end
-  -- }
-  --
-  -- use {
-  --   'stevearc/aerial.nvim',
-  --   config = function()
-  --     require('aerial').setup({
-  --       min_width = { 40, 0.2 },
-  --       show_guides = true,
-  --     })
-  --   end
-  -- }
-  --
-  -- TODO reconfigure navbuddy with server prefs
-  -- to prevent LSP errors
-  -- see https://github.com/SmiteshP/nvim-navbuddy#-customise
-  -- navbuddy
-  -- on-the-fly LSP navigation
-  -- use {
-  --   "SmiteshP/nvim-navbuddy",
-  --   requires = {
-  --     "neovim/nvim-lspconfig",
-  --     "SmiteshP/nvim-navic",
-  --     "MunifTanjim/nui.nvim"
-  --   }
-  -- }
 end)
