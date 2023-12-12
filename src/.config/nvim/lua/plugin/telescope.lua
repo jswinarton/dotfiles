@@ -3,7 +3,6 @@ local lga_actions = require("telescope-live-grep-args.actions")
 
 telescope.setup {
   defaults = {
-    layout_strategy = 'vertical',
     vimgrep_arguments = {
       "rg",
       "--hidden",
