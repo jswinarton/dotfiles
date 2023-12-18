@@ -62,7 +62,7 @@ output 'Dell Inc. DELL P2721Q 2VSJXC3' scale 2
 
 # Wallpaper
 
-output * bg /home/jeremy/apps/dotfiles/etc/wallpaper-conifer.png fill
+output * bg /home/jeremy/apps/dotfiles/etc/wallpaper-conifer.jpg fill
 
 ### Idle configuration
 ###
