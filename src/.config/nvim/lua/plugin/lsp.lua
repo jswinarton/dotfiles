@@ -6,7 +6,7 @@ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 local null_ls = require("null-ls")
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
   local default_opts = { noremap = true, silent = true, buffer = bufnr }
   local function extend_opts(opts)
@@ -38,15 +38,17 @@ local on_attach = function(client, bufnr)
   end, extend_opts({ desc = "List workspace folders" }))
 
   -- Auto format on save
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format()
-      end,
-    })
-  end
+  -- TODO temporarily disable because this interferes with repos where the
+  -- format flavour differs and isn't properly configured in vim
+  -- if client.supports_method("textDocument/formatting") then
+  --   vim.api.nvim_create_autocmd("BufWritePre", {
+  --     group = augroup,
+  --     buffer = bufnr,
+  --     callback = function()
+  --       vim.lsp.buf.format()
+  --     end,
+  --   })
+  -- end
 
   -- TODO Temporarily disable this because it interferes with navigating through splits
   -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
