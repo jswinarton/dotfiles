@@ -39,7 +39,9 @@ export PATH=$HOME/.local/bin:$PATH
 # fi
 
 # Add SSH keychain
-eval $(keychain --eval --quiet id_ed25519 mini-universe.id_ed25519)
+if command -v keychain > /dev/null 2>&1; then
+  eval $(keychain --eval --quiet id_ed25519 mini-universe.id_ed25519)
+fi
 
 # set for gpg-agent to work correctly
 export GPG_TTY=$(tty)
@@ -162,9 +164,11 @@ venv-activate() {
 
 # tar shortcuts
 # use `untar -C [directory]` to untar to a dir
-alias untar="tar -zxvf"
+# "eXtract Ze File"
+alias untar="tar -xzfv"
 # create a new tar file with `tarcreate [filename].tar.gz [item1] [item2] ...`
-alias tarcreate="tar -czvf"
+# "Create Ze File"
+alias tarcreate="tar -czfv"
 
 # HOOKS
 # ----------
