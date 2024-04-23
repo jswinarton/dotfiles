@@ -69,6 +69,7 @@ export FZF_DEFAULT_OPTS=""
 
 # python
 export PYTHONDONTWRITEBYTECODE=1
+export PYTHONBREAKPOINT="pudb.set_trace"
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # ALIASES

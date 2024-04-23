@@ -31,6 +31,7 @@ require('packer').startup(function(use)
       'mfussenegger/nvim-dap',
       -- 'jay-babu/mason-nvim-dap.nvim',
       'rcarriga/nvim-dap-ui',
+      'nvim-neotest/nvim-nio',
       'mfussenegger/nvim-dap-python',
     },
     config = function()

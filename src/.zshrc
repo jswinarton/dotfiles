@@ -48,6 +48,9 @@ zstyle ':vcs_info:*:*' stagedstr '●'
 zstyle ':vcs_info:*:*' nvcsformats " %(6~|%-2~/../%2~|%~)" "%m"
 
 function set_vcs_info_formats() {
+  # Disable for Firefox build dir (unbearably slow in this repo)
+  [[ $(pwd) == *mozilla-unified* ]] && return
+
   GIT_BASE_LEFT_INFO_FORMAT=" %B%r%%b%F{1}"
   GIT_SUBDIR_FORMAT="/%20<..<%S%<<"
   GIT_RIGHT_INFO_FORMAT="%a %u%c %b"
@@ -81,11 +84,6 @@ RPROMPT='%F{1}${vcs_info_msg_1_}${VENV_PROMPT}%f'
 #
 
 # fzf
-FZF_KEYBINDINGS=/usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f $FZF_KEYBINDINGS ] && source $FZF_KEYBINDINGS
-
-FZF_COMPLETION=/usr/share/doc/fzf/examples/completion.zsh
-[ -f $FZF_COMPLETION ] && source $FZF_COMPLETION
-
+eval "$(fzf --zsh)"
 
 source $HOME/.zshrc.private 2> /dev/null  # hook for private configuration

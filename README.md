@@ -33,6 +33,11 @@ Python packages:
 
 - requests
 
+Pipx packages:
+
+- pudb (with injected ipython, rich)
+- ipython (with injected rich)
+
 ### Notes about Python LSP
 
 The current Python LSP/lint/format setup for neovim works almost perfectly out
@@ -52,6 +57,7 @@ install pylint_pytest in the Mason virtualenv:
 Run the brew installation script at etc/osx/brew-install.
 
 Then add the .itermcolors theme file to iTerm2 for proper colour support.
+
 
 [i3]: https://i3wm.org/
 [kitty]: https://github.com/kovidgoyal/kitty

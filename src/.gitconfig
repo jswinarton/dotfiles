@@ -39,6 +39,7 @@
 
 [delta]
   features = side-by-side line-numbers decorations
+  plus-style = green
 
 [gpg]
   program = gpg
@@ -47,3 +48,5 @@
   gpgsign = true
 [init]
 	defaultBranch = main
+[cinnabar]
+	version-check = 1713801752
