@@ -70,8 +70,9 @@ vim.keymap.set('n', '<C-x>', ":bdelete<CR>", extend_opts({ desc = "Delete buffer
 
 vim.keymap.set("n", "<Leader>a", ":set wrap!<CR>", extend_opts({ desc = "Toggle line wrap" }))
 vim.keymap.set("n", "<Leader>i", ":set list!<CR>", extend_opts({ desc = "Toggle invisible characters" }))
-vim.keymap.set("n", "<Leader>n", ":Navbuddy<CR>", extend_opts({ desc = "Toggle 'breadcrumbs' navigation" }))
-vim.keymap.set("n", "<Leader>o", ":AerialToggle!<CR>", extend_opts({ desc = "Toggle aerial" }))
+vim.keymap.set("n", "<Leader>n", ":AerialNavOpen<CR>", extend_opts({ desc = "Toggle aerial finder" }))
+vim.keymap.set("n", "<Leader>o", ":AerialOpen<CR>", extend_opts({ desc = "Open aerial panel" }))
+vim.keymap.set("n", "<Leader>O", ":AerialClose<CR>", extend_opts({ desc = "Close aerial panel" }))
 vim.keymap.set("n", "<Leader>p", ":set paste!<CR>", extend_opts({ desc = "Toggle paste mode" }))
 vim.keymap.set("n", "<Leader>s", ":split<CR>", extend_opts({ desc = "Horizontal split" }))
 vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", extend_opts({ desc = "Vertical split" }))
@@ -100,17 +101,5 @@ vim.keymap.set("n", "<Leader>ea", ":TroubleToggle<CR>", extend_opts({ desc = "To
 -- Note that Git linker uses <Leader>gy
 vim.keymap.set("n", "<Leader>gb", telescope.git_branches, extend_opts({ desc = "Git branches" }))
 vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit" }))
+vim.keymap.set("n", "<Leader>go", ":!gh pr view --web<CR>", extend_opts({ desc = "Open Github PR for this branch" }))
 vim.keymap.set("n", "<Leader>gs", telescope.git_status, extend_opts({ desc = "Git status" }))
-
--- TODO temporarily disable these
--- Tabs
--- vim.keymap.set("n", "<Leader>th", ":tabprev<CR>", default_opts)
--- vim.keymap.set("n", "<Leader>tl", ":tabnext<CR>", default_opts)
--- vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", default_opts)
--- vim.keymap.set("n", "<Leader>tx", ":tabclose<CR>", default_opts)
-
--- Numbering settings
--- maybe find a different key for these, if you need them at all
--- vim.keymap.set("n", "<Leader>nn", ":set number | set norelativenumber<CR>", default_opts)
--- vim.keymap.set("n", "<Leader>no", ":set nonumber | set norelativenumber<CR>", default_opts)
--- vim.keymap.set("n", "<Leader>nr", ":set number | set relativenumber<CR>", default_opts)

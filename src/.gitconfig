@@ -6,6 +6,7 @@
 [alias]
   # basic aliases
   b=rev-parse --abbrev-ref HEAD
+  bb=for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
   br=branch
   ci=!git force-local-config && git commit --verbose
   cim=!git force-local-config && git commit --verbose -m "more"
@@ -49,4 +50,4 @@
 [init]
 	defaultBranch = main
 [cinnabar]
-	version-check = 1713801752
+	version-check = 1717608069

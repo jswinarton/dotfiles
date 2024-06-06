@@ -36,7 +36,7 @@ autoload -U add-zsh-hook
 autoload -Uz vcs_info
 autoload -U zmv
 
-cdpath=(~ ~/apps/ ~/apps/_*(N))
+cdpath=(~ ~/apps/ ~/apps/*_(N))
 
 # Prompt
 #
