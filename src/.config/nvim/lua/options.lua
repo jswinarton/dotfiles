@@ -1,6 +1,7 @@
 vim.opt.clipboard = "unnamedplus" -- copy/paste to system clipboard
 vim.opt.expandtab = true          -- use spaces instead of tabs
 vim.opt.ignorecase = true         -- searches are case insensitive by default
+vim.opt.mouse = ""                -- disable mouse
 vim.opt.number = true             --  show line numbers
 vim.opt.relativenumber = true     -- show relative line numbers
 vim.opt.scrolloff = 15            -- keep 15 lines above and below the cursor

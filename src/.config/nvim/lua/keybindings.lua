@@ -22,13 +22,20 @@ end
 -- Command key without shift
 vim.keymap.set("n", ";", ":", { noremap = true, desc = "Command key shortcut" })
 
+-- Disable arrow keys (and mouse scroll wheel)
+vim.keymap.set("", "<up>", "<nop>", { noremap = true })
+vim.keymap.set("", "<down>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
+
 -- Move through word wrap easily
 vim.keymap.set("n", "j", "gj", default_opts)
 vim.keymap.set("n", "k", "gk", default_opts)
 
 -- netrw replacement
-vim.keymap.set('n', '-', ":NnnPicker %:p:h<CR>", extend_opts({ desc = "Open nnn in file dir" }))
-vim.keymap.set('n', '_', ":NnnPicker<CR>", extend_opts({ desc = "Open nnn in workspace root" }))
+-- temporarily disabled because the nnn package seems to be causing problems
+-- vim.keymap.set('n', '-', ":NnnPicker %:p:h<CR>", extend_opts({ desc = "Open nnn in file dir" }))
+-- vim.keymap.set('n', '_', ":NnnPicker<CR>", extend_opts({ desc = "Open nnn in workspace root" }))
 
 -- hop-word
 vim.keymap.set('n', '<Space>', ":HopWord<CR>", extend_opts({ desc = "Open HopWord" }))

@@ -26,18 +26,18 @@ require('packer').startup(function(use)
     requires = {
       'neovim/nvim-lspconfig',
       'williamboman/mason-lspconfig.nvim',
-      'jose-elias-alvarez/null-ls.nvim',
+      'nvimtools/none-ls.nvim',
       'jay-babu/mason-null-ls.nvim',
-      'mfussenegger/nvim-dap',
+      -- 'mfussenegger/nvim-dap',
       -- 'jay-babu/mason-nvim-dap.nvim',
-      'rcarriga/nvim-dap-ui',
-      'nvim-neotest/nvim-nio',
-      'mfussenegger/nvim-dap-python',
+      -- 'rcarriga/nvim-dap-ui',
+      -- 'nvim-neotest/nvim-nio',
+      -- 'mfussenegger/nvim-dap-python',
     },
     config = function()
       require("mason").setup({})
       require("plugin.lsp")
-      require("plugin.dap")
+      -- require("plugin.dap")
     end,
   }
 
@@ -108,15 +108,16 @@ require('packer').startup(function(use)
   }
 
   -- nnn integration (netrw replacement)
-  use {
-    "luukvbaal/nnn.nvim",
-    config = function()
-      require("nnn").setup({
-        command = "nnn -o -H",
-        replace_netrw = 1,
-      })
-    end
-  }
+  -- TODO temporarily disabled because the current version seems to be causing errors
+  -- use {
+  --   "luukvbaal/nnn.nvim",
+  --   config = function()
+  --     require("nnn").setup({
+  --       command = "nnn -o -H",
+  --       replace_netrw = 1,
+  --     })
+  --   end
+  -- }
 
   -- which-key
   use {
@@ -148,6 +149,7 @@ require('packer').startup(function(use)
           min_width = { 40, 0.2 },
           preserve_equality = true,
         },
+        filter_kind = false,
         attach_mode = "global",
         on_attach = function(bufnr)
           -- Jump forwards/backwards with '{' and '}'
