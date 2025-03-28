@@ -1,4 +1,5 @@
 local telescope = require("telescope")
+local actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
 telescope.setup {
@@ -12,6 +13,15 @@ telescope.setup {
       "--line-number",
       "--column",
       "--smart-case"
+    }
+  },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer,
+        }
+      }
     }
   },
   extensions = {
