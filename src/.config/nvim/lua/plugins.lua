@@ -28,16 +28,10 @@ require('packer').startup(function(use)
       'williamboman/mason-lspconfig.nvim',
       'nvimtools/none-ls.nvim',
       'jay-babu/mason-null-ls.nvim',
-      -- 'mfussenegger/nvim-dap',
-      -- 'jay-babu/mason-nvim-dap.nvim',
-      -- 'rcarriga/nvim-dap-ui',
-      -- 'nvim-neotest/nvim-nio',
-      -- 'mfussenegger/nvim-dap-python',
     },
     config = function()
       require("mason").setup({})
       require("plugin.lsp")
-      -- require("plugin.dap")
     end,
   }
 

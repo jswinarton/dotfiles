@@ -78,30 +78,6 @@ require('mason-lspconfig').setup({
   }
 })
 
-require('mason-lspconfig').setup_handlers({
-  function(server_name)
-    lspconfig[server_name].setup({
-      on_attach = on_attach,
-      capabilities = lsp_capabilities,
-    })
-  end,
-  ["lua_ls"] = function(server_name)
-    lspconfig[server_name].setup({
-      on_attach = on_attach,
-      capabilities = lsp_capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { 'vim' },
-          },
-        },
-      },
-    })
-  end
-})
-
-
 require("mason-null-ls").setup({
   ensure_installed = {
     'black',
