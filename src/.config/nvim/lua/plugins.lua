@@ -44,13 +44,37 @@ require("lazy").setup({
     dependencies = {
       'neovim/nvim-lspconfig',
       'williamboman/mason-lspconfig.nvim',
-      'nvimtools/none-ls.nvim',
-      'jay-babu/mason-null-ls.nvim',
     },
     config = function()
       require("mason").setup({})
       require("plugin.lsp")
     end,
+  },
+
+  -- mason-tool-installer: ensures formatters/linters are installed via mason
+  -- (replaces the ensure_installed role that mason-null-ls previously filled)
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "black", "isort", "mypy", "pylint", "ruff", "stylelint",
+        },
+      })
+    end,
+  },
+
+  -- conform.nvim: formatting
+  {
+    "stevearc/conform.nvim",
+    config = function() require("plugin.conform") end,
+  },
+
+  -- nvim-lint: linting
+  {
+    "mfussenegger/nvim-lint",
+    config = function() require("plugin.lint") end,
   },
 
   -- nvim-cmp (completion engine)
