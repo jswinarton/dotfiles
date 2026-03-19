@@ -75,7 +75,15 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'rust_analyzer',
     'tflint',
-  }
+  },
+  handlers = {
+    function(server_name)
+      lspconfig[server_name].setup({
+        on_attach = on_attach,
+        capabilities = lsp_capabilities,
+      })
+    end,
+  },
 })
 
 require("mason-null-ls").setup({
