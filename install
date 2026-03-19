@@ -18,17 +18,6 @@ for SRC_FILE in $(find . -type f ! -name '.gitkeep' | sed "s|^\./||" | sort); do
 done
 
 echo ""
-echo "Installing Packer"
-PACKER_DIR="${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-if [ -d $PACKER_DIR ]; then
-  echo "... already installed. skipping clone"
-else
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim $PACKER_DIR
-fi
-
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-echo ""
 echo "Installing Kitty term colours"
 KITTY_BASE16_DIR="${HOME}/.local/share/kitty/base16-kitty"
 if [ -d $KITTY_BASE16_DIR ]; then

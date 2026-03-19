@@ -102,7 +102,7 @@ vim.keymap.set("n", "<leader>dp", ":lua require('dap-python').test_method()<CR>"
 
 -- Diagnostics
 vim.keymap.set('n', "<Leader>ed", vim.diagnostic.open_float, extend_opts({ desc = "Show floating diagnostic info" }))
-vim.keymap.set("n", "<Leader>ea", ":TroubleToggle<CR>", extend_opts({ desc = "Toggle trouble" }))
+vim.keymap.set("n", "<Leader>ea", ":Trouble diagnostics toggle<CR>", extend_opts({ desc = "Toggle trouble" }))
 
 -- Git
 -- Note that Git linker uses <Leader>gy

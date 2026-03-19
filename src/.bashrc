@@ -8,3 +8,4 @@ source $HOME/.commonrc
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
+source "$HOME/.cargo/env"
