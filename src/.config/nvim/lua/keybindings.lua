@@ -104,6 +104,17 @@ vim.keymap.set("n", "<leader>dp", ":lua require('dap-python').test_method()<CR>"
 vim.keymap.set('n', "<Leader>ed", vim.diagnostic.open_float, extend_opts({ desc = "Show floating diagnostic info" }))
 vim.keymap.set("n", "<Leader>ea", ":Trouble diagnostics toggle<CR>", extend_opts({ desc = "Toggle trouble" }))
 
+-- Tabs
+vim.keymap.set("n", "<Leader>tn", ":tabnext<CR>", extend_opts({ desc = "Next tab" }))
+vim.keymap.set("n", "<Leader>tp", ":tabprev<CR>", extend_opts({ desc = "Previous tab" }))
+vim.keymap.set("n", "<Leader>tt", ":tabnew<CR>", extend_opts({ desc = "New tab" }))
+vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", extend_opts({ desc = "Close tab" }))
+
+-- Diffview
+vim.keymap.set("n", "<Leader>fo", ":DiffviewOpen<CR>", extend_opts({ desc = "Diffview: open" }))
+vim.keymap.set("n", "<Leader>fc", ":DiffviewOpen HEAD^!<CR>", extend_opts({ desc = "Diffview: diff last commit" }))
+vim.keymap.set("n", "<Leader>fx", ":DiffviewClose<CR>", extend_opts({ desc = "Diffview: close" }))
+
 -- Git
 -- Note that Git linker uses <Leader>gy
 vim.keymap.set("n", "<Leader>gb", telescope.git_branches, extend_opts({ desc = "Git branches" }))

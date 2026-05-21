@@ -134,6 +134,12 @@ require("lazy").setup({
     config = function() require("gitlinker").setup() end,
   },
 
+  -- Diffview (git diff and history viewer)
+  {
+    'sindrets/diffview.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
+  },
+
   -- Which-key (keybinding hints)
   {
     "folke/which-key.nvim",
