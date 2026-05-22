@@ -5,7 +5,8 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-> %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' group-order \
-  local-directories path-directories aliases commands builtins
+  named-directories local-directories path-directories aliases commands builtins
+zstyle ':completion:*' users ''
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
@@ -38,14 +39,18 @@ autoload -U zmv
 
 cdpath=(~ ~/apps/ ~/apps/*_(N))
 
-function _register_worktree_hashes() {
-  for worktree in ~/apps/*/*/.claude/worktrees/*(N); do
+function _register_repo_hashes() {
+  for repo in ~/apps/*(N) ~/apps/*/*(N); do
+    [[ -d "${repo}/.git" || -f "${repo}/.git" ]] || continue
+    hash -d "${repo:t}"="${repo}"
+  done
+  for worktree in ~/apps/*/.claude/worktrees/*(N) ~/apps/*/*/.claude/worktrees/*(N); do
     local repo=${worktree:h:h:h:t}
     local branch=${worktree:t}
     hash -d "${repo}-${branch}"="${worktree}"
   done
 }
-_register_worktree_hashes
+_register_repo_hashes
 
 # Prompt
 #
