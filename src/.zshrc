@@ -38,6 +38,15 @@ autoload -U zmv
 
 cdpath=(~ ~/apps/ ~/apps/*_(N))
 
+function _register_worktree_hashes() {
+  for worktree in ~/apps/*/*/.claude/worktrees/*(N); do
+    local repo=${worktree:h:h:h:t}
+    local branch=${worktree:t}
+    hash -d "${repo}-${branch}"="${worktree}"
+  done
+}
+_register_worktree_hashes
+
 # Prompt
 #
 
