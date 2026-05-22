@@ -33,11 +33,6 @@ export PATH=$HOME/.local/bin:$PATH
 [ -f "$HOME/.cargo/env" ] && source $HOME/.cargo/env
 
 
-# add systemd user-binaries to the path
-# if command -v systemd-path > /dev/null 2>&1; then
-#   export PATH=$(systemd-path user-binaries):$PATH
-# fi
-
 # Add SSH keychain
 if command -v keychain > /dev/null 2>&1; then
   eval $(keychain --eval --quiet id_ed25519 mini-universe.id_ed25519)
@@ -51,12 +46,6 @@ export GPG_TTY=$(tty)
 if [ "$TERM" = "xterm-kitty" ]; then
   alias ssh="kitty +kitten ssh"
 fi
-
-#
-# if ! ssh-add -l > /dev/null 2>&1; then
-#   echo "WARNING: ssh-keys not configured correctly. Output of ssh-add -l:"
-#   echo $(ssh-add -l)
-# fi
 
 # Use ripgrep for fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
@@ -139,9 +128,6 @@ dps() {
   docker image ls --format='{{ .Repository }}:{{ .Tag }}' | sort | paste -s -d" "
 }
 
-# Kubernetes helpers
-alias kubectl='minikube kubectl --'
-
 # Terraform helpers
 alias tf='terraform '
 alias tfp='terraform plan'
@@ -156,7 +142,7 @@ touch-sh() {
   if test -f $1; then
     echo "file already exists"
   else
-    echo "#!/bin/sh\n" > $1 && chmod +x $1
+    printf '#!/bin/sh\n\n' > $1 && chmod +x $1
   fi
 }
 
@@ -164,7 +150,7 @@ touch-sh() {
 venv-activate() {
   [ -d .venv ] && source .venv/bin/activate
   [ -d venv ] && source venv/bin/activate
-  [ -d .virtualenv ] && source virtualenv/bin/activate
+  [ -d .virtualenv ] && source .virtualenv/bin/activate
 }
 
 # tar shortcuts
@@ -184,10 +170,6 @@ alias tarcreate="tar -czfv"
 
 # hooks for machine-specific configuration.
 [ -f $HOME/.machinerc.$(hostname -s) ] && source $HOME/.machinerc.$(hostname -s)
-
-# github review stuff
-export REVIEW_BASE=master
-
 
 # COLOURS
 # ----------

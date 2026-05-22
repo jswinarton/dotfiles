@@ -74,7 +74,7 @@ function set_vcs_info_formats() {
 
 add-zsh-hook precmd set_vcs_info_formats
 
-if [[ -v $VIRTUAL_ENV ]]; then
+if [[ -v VIRTUAL_ENV ]]; then
   VENV_PROMPT="(%F{1}${VIRTUAL_ENV##*/}%f) "
 else
   VENV_PROMPT=""
