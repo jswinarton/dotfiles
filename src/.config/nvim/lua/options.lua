@@ -13,6 +13,7 @@ vim.opt.splitright = true         -- vertical splits open to the right
 vim.opt.swapfile = false          -- no swapfile
 vim.opt.syntax = "off"            -- disable syntax highlighting so that treesitter can take over
 vim.opt.wrap = false              -- no word wrap by default
+vim.opt.exrc = true               -- source .nvim.lua from project directories
 
 -- TODO figure out what the new syntax for this should be
 -- vim.opt.lcs = "tab:▸,trail:·,eol:¬,nbsp:_"  -- "invisible" characters

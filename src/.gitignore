@@ -44,6 +44,12 @@ Temporary Items
 # ctags files
 .tags
 
+# neovim project-local config
+.nvim.lua
+
+# claude code personal project instructions
+CLAUDE.local.md
+
 # python
 __pycache__
 *.pyc
