@@ -6,7 +6,7 @@
 [alias]
   # basic aliases
   b=rev-parse --abbrev-ref HEAD
-  bb=for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  bb=for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)%(if)%(worktreepath)%(then) %(color:cyan)†%(color:reset)%(end) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
   br=branch
   ci=!git force-local-config && git commit --verbose
   cim=!git force-local-config && git commit --verbose -m "more"
