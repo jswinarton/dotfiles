@@ -24,7 +24,7 @@ fi
 export PATH=$HOME/bin:$PATH
 
 # add go bin to the path
-export PATH=/usr/local/go/bin:$PATH
+[ -d /usr/local/go/bin ] && export PATH=/usr/local/go/bin:$PATH
 
 # add local bin to the path
 export PATH=$HOME/.local/bin:$PATH
@@ -95,7 +95,11 @@ else
 fi
 
 # Copy to clipboard easily
-alias copy="xclip -selection c"
+if [[ $(uname) == "Darwin" ]]; then
+  alias copy="pbcopy"
+else
+  alias copy="xclip -selection c"
+fi
 
 # ls aliases
 if ls --quoting-style=literal > /dev/null 2>&1; then # GNU
@@ -188,16 +192,14 @@ export REVIEW_BASE=master
 # COLOURS
 # ----------
 
-if [[ uname == "Darwin" ]] ; then
+if [[ $(uname) == "Darwin" ]] ; then
   export LSCOLORS=Cxcxcxdxbxagadabagacad # OSX
-else
-  export LS_COLORS=
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jeremy/downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jeremy/downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/downloads/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/downloads/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/jeremy/downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jeremy/downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
 # vim: filetype=sh

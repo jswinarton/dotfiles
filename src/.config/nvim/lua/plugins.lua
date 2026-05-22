@@ -27,7 +27,7 @@ require("lazy").setup({
     config = function() require("plugin.tokyonight") end,
   },
 
-  -- Auto dark/light mode (follows macOS system appearance)
+  -- Auto dark/light mode (follows system appearance)
   {
     "f-person/auto-dark-mode.nvim",
     lazy = false,
