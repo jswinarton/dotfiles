@@ -21,10 +21,28 @@ require("lazy").setup({
 
   -- Theme
   {
-    "shaunsingh/moonlight.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    config = function() require("plugin.moonlight") end,
+    config = function() require("plugin.tokyonight") end,
+  },
+
+  -- Auto dark/light mode (follows macOS system appearance)
+  {
+    "f-person/auto-dark-mode.nvim",
+    lazy = false,
+    priority = 999,
+    opts = {
+      update_interval = 3000,
+      set_dark_mode = function()
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("tokyonight-storm")
+      end,
+      set_light_mode = function()
+        vim.o.background = "light"
+        vim.cmd.colorscheme("tokyonight-day")
+      end,
+    },
   },
 
   -- Treesitter
