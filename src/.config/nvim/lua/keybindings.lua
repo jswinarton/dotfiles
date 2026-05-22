@@ -11,6 +11,14 @@
 local telescope = require("telescope.builtin")
 local default_opts = { noremap = true, silent = true }
 
+require("which-key").add({
+  { "<Leader>d", group = "Debugger" },
+  { "<Leader>e", group = "Diagnostics" },
+  { "<Leader>f", group = "Diffview" },
+  { "<Leader>g", group = "Git" },
+  { "<Leader>t", group = "Tabs" },
+})
+
 local function extend_opts(opts)
   return vim.tbl_extend("force", default_opts, opts)
 end
@@ -29,8 +37,8 @@ vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
 vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 -- Move through word wrap easily
-vim.keymap.set("n", "j", "gj", default_opts)
-vim.keymap.set("n", "k", "gk", default_opts)
+vim.keymap.set("n", "j", "gj", extend_opts({ desc = "Move down through wrapped lines" }))
+vim.keymap.set("n", "k", "gk", extend_opts({ desc = "Move up through wrapped lines" }))
 
 -- netrw replacement
 -- temporarily disabled because the nnn package seems to be causing problems
@@ -48,8 +56,8 @@ vim.keymap.set('n', '<F5>', ":lua require('dap').continue()<CR>", extend_opts({ 
 vim.keymap.set('n', '<F6>', ":lua require('dap').toggle_breakpoint()<CR>",
   extend_opts({ desc = "Debugger: toggle breakpoint" }))
 vim.keymap.set('n', '<F7>', ":lua require('dap').step_over()<CR>", extend_opts({ desc = "Debugger: step over" }))
-vim.keymap.set('n', '<F8>', ":bprev<CR>", extend_opts({ desc = "Previous buffer" }))
-vim.keymap.set('n', '<F9>', ":bnext<CR>", extend_opts({ desc = "Next buffer" }))
+vim.keymap.set('n', '<F8>', ":tabprev<CR>", extend_opts({ desc = "Previous tab" }))
+vim.keymap.set('n', '<F9>', ":tabnext<CR>", extend_opts({ desc = "Next tab" }))
 -- TODO reserve <F10> for SmiteshP/nvim-navbuddy
 vim.keymap.set("n", "<F11>", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit" }))
 -- TODO reserve <F12> for pwntester/octo.nvim
