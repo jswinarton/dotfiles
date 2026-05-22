@@ -49,8 +49,11 @@ zstyle ':vcs_info:*:*' nvcsformats " %(6~|%-2~/../%2~|%~)" "%m"
 
 function set_vcs_info_formats() {
   # Disable for Firefox build dir (unbearably slow in this repo)
-  [[ $(pwd) == *mozilla-unified* ]] && return
-  [[ $(pwd) == *mozilla_/firefox* ]] && return
+  if [[ $(pwd) == *mozilla-unified* || $(pwd) == *mozilla_/firefox* ]]; then
+    vcs_info_msg_0_=" $(print -P '%(6~|%-2~/../%2~|%~)')"
+    vcs_info_msg_1_=""
+    return
+  fi
 
   GIT_BASE_LEFT_INFO_FORMAT=" %B%r%%b%F{1}"
   GIT_SUBDIR_FORMAT="/%20<..<%S%<<"

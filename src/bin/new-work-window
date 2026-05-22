@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="${1:?Usage: new-work-window <directory>}"
+DIR="$(cd "$DIR" && pwd)"
+WINDOW_NAME="$(basename "$DIR")"
+
+tmux new-window -n "$WINDOW_NAME" -c "$DIR"
+
+# Split horizontally: right pane gets 70%, left pane keeps 30%
+tmux split-window -h -p 70 -c "$DIR"
+
+# We're in the right pane; split vertically: bottom gets 30%
+tmux split-window -v -p 30 -c "$DIR"
+
+# Top-right pane (2): nvim
+tmux select-pane -t:.2
+tmux send-keys "nvim" Enter
+
+# Left pane (1): claude agents
+tmux select-pane -t:.1
+tmux send-keys "claude agents" Enter
