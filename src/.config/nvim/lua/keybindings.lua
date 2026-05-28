@@ -121,11 +121,18 @@ vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", extend_opts({ desc = "Close t
 -- Diffview
 vim.keymap.set("n", "<Leader>fo", ":DiffviewOpen<CR>", extend_opts({ desc = "Diffview: open" }))
 vim.keymap.set("n", "<Leader>fc", ":DiffviewOpen HEAD^!<CR>", extend_opts({ desc = "Diffview: diff last commit" }))
+vim.keymap.set("n", "<Leader>fr", ":DiffviewRefresh<CR>", extend_opts({ desc = "Diffview: refresh" }))
 vim.keymap.set("n", "<Leader>fx", ":DiffviewClose<CR>", extend_opts({ desc = "Diffview: close" }))
 
 -- Git
 -- Note that Git linker uses <Leader>gy
 vim.keymap.set("n", "<Leader>gb", telescope.git_branches, extend_opts({ desc = "Git branches" }))
+vim.keymap.set("n", "<Leader>gc", function()
+  telescope.find_files({
+    find_command = { "git", "diff", "--name-only", "HEAD^!" },
+    prompt_title = "Last Commit Files",
+  })
+end, extend_opts({ desc = "Git: files changed in last commit" }))
 vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", extend_opts({ desc = "Open lazygit" }))
 vim.keymap.set("n", "<Leader>go", ":!gh pr view --web<CR>", extend_opts({ desc = "Open Github PR for this branch" }))
 vim.keymap.set("n", "<Leader>gs", telescope.git_status, extend_opts({ desc = "Git status" }))
