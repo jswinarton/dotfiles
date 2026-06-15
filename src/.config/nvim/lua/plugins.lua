@@ -180,6 +180,10 @@ require("lazy").setup({
   -- Aerial (symbol navigation panel)
   {
     "stevearc/aerial.nvim",
+    -- TODO: aerial main branch requires Neovim >= 0.12. Pinned to the nvim-0.11
+    -- compat branch while on stable nvim. When nvim 0.12 ships stable and is
+    -- installed (brew upgrade neovim), drop this branch line and :Lazy sync.
+    branch = "nvim-0.11",
     config = function()
       require("aerial").setup({
         layout = {
