@@ -6,11 +6,17 @@ git, [i3], [kitty] and more.
 ## Install
 
 The install script works by symlinking dotfiles to their correct locations,
-meaning edits to files affect settings immediately. The script also installs
-Neovim plugins using Packer.
+meaning edits to files affect settings immediately.
 
 To install, clone this repository to your favourite directory. I prefer
 `~/apps`. Then, run the install script: `./install`
+
+Neovim plugins are managed by [lazy.nvim] (auto-bootstrapped). After a fresh
+install, open Neovim and run `:Lazy sync` to install them. Some plugins compile
+native code on sync (e.g. `telescope-fzf-native`), so a C toolchain is required:
+`make` plus a C compiler. On macOS this comes with the Xcode Command Line Tools
+(already present if Homebrew is installed); on Linux install `build-essential`
+or equivalent.
 
 Some terminal configs make use of Powerline and/or NerdFont symbols.
 Recommended typeface is
@@ -61,3 +67,4 @@ Then add the .itermcolors theme file to iTerm2 for proper colour support.
 
 [i3]: https://i3wm.org/
 [kitty]: https://github.com/kovidgoyal/kitty
+[lazy.nvim]: https://github.com/folke/lazy.nvim

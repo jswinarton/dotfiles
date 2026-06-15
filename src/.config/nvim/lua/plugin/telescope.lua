@@ -16,6 +16,9 @@ telescope.setup {
     }
   },
   pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+    },
     buffers = {
       mappings = {
         i = {
@@ -25,6 +28,12 @@ telescope.setup {
     }
   },
   extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
     live_grep_args = {
       auto_quoting = false,
       mappings = {
@@ -37,4 +46,5 @@ telescope.setup {
   }
 }
 
+telescope.load_extension("fzf")
 telescope.load_extension("live_grep_args")
