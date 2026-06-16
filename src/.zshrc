@@ -40,6 +40,7 @@ autoload -U zmv
 cdpath=(~ ~/apps/ ~/apps/*_(N))
 
 function _register_repo_hashes() {
+  hash -dr  # clear stale named dirs so deleted worktrees disappear and new ones appear
   for repo in ~/apps/*(N) ~/apps/*/*(N); do
     [[ -d "${repo}/.git" || -f "${repo}/.git" ]] || continue
     hash -d "${repo:t}"="${repo}"
@@ -50,6 +51,7 @@ function _register_repo_hashes() {
     hash -d "${repo}-${branch}"="${worktree}"
   done
 }
+add-zsh-hook precmd _register_repo_hashes
 _register_repo_hashes
 
 # Prompt
